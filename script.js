@@ -1,4 +1,4 @@
-// ✅ 다국어 전환을 지원하는 버전입니다
+// ✅ 다국어 전환을 지원하는 완전한 버전 (언어 toggle 복구 및 메뉴도 전환)
 
 let currentLang = "ko";
 let timeline = [];
@@ -57,22 +57,14 @@ function renderTimeline() {
 
 function loadTimeline(lang) {
   const url = `./data/timeline-${lang}.json`;
-  console.log("📦 Fetching:", url); // ← 이 줄 추가
   fetch(url)
-    .then(res => {
-      if (!res.ok) throw new Error(`📛 Fetch failed: ${res.status}`);
-      return res.json();
-    })
+    .then(res => res.json())
     .then(data => {
-      console.log("✅ Timeline data loaded:", data); // ← 이 줄 추가
       timeline = data;
       renderTimeline();
     })
-    .catch(err => {
-      console.error("❌ Timeline load error:", err); // ← 이 줄 추가
-    });
+    .catch(err => console.error("❌ Timeline load error:", err));
 }
-
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
@@ -84,8 +76,16 @@ const observer = new IntersectionObserver((entries) => {
 
 function switchLanguage() {
   currentLang = currentLang === "ko" ? "en" : "ko";
+
+  // 상단 버튼 텍스트
+  const langToggle = document.getElementById("toggle-lang");
+  langToggle.innerHTML = `<i class='fas fa-language'></i> ${currentLang === "ko" ? "English" : "한국어"}`;
   document.getElementById("lang-label").textContent = currentLang === "ko" ? "English" : "한국어";
-  document.getElementById("toggle-lang").innerHTML = `<i class='fas fa-language'></i> ${currentLang === "ko" ? "English" : "한국어"}`;
+
+  // 메뉴 이름 바꾸기
+  document.querySelector("nav ul li:nth-child(1) a").innerHTML = `<i class='fas fa-layer-group'></i> ${currentLang === "ko" ? "포트폴리오" : "Portfolio"}`;
+  document.querySelector("nav ul li:nth-child(2) a").innerHTML = `<i class='fas fa-user'></i> ${currentLang === "ko" ? "소개" : "About"}`;
+  document.querySelector("nav ul li:nth-child(3) a").innerHTML = `<i class='fas fa-envelope'></i> ${currentLang === "ko" ? "연락처" : "Contact"}`;
 
   // Hero 텍스트
   const hero = document.getElementById("hero");
@@ -101,7 +101,7 @@ function switchLanguage() {
       : "View My Story <i class='fas fa-arrow-down'></i>";
   }
 
-  // 소개, 연락처
+  // 소개/연락처
   document.getElementById("about").querySelector("h2").textContent = currentLang === "ko" ? "소개" : "About";
   document.getElementById("about").querySelector("p").textContent = currentLang === "ko"
     ? "사람과 교육의 연결을 삶으로 살아가는 사람, 이정재입니다."
@@ -109,8 +109,6 @@ function switchLanguage() {
 
   document.getElementById("contact").querySelector("h2").textContent = currentLang === "ko" ? "연락하기" : "Contact";
   document.getElementById("contact").querySelector("p").innerHTML = `<i class='fas fa-envelope'></i> jungjae_lee@nate.com`;
-
-  // 푸터도 바꿀 수 있음 (옵션)
 
   loadTimeline(currentLang);
 }
@@ -140,7 +138,7 @@ window.addEventListener("DOMContentLoaded", () => {
     modal.classList.add("hidden");
   });
 
-  // Hero 전환
+  // Hero → 타임라인 전환
   const showBtn = document.getElementById("show-timeline");
   const hero = document.getElementById("hero");
   const timelineSection = document.getElementById("timeline");
@@ -154,7 +152,7 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // 언어 토글 버튼
+  // 언어 전환 버튼
   const langToggle = document.getElementById("toggle-lang");
   if (langToggle) {
     langToggle.addEventListener("click", (e) => {

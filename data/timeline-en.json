@@ -1,25 +1,121 @@
 [
   {
     "year": "2025",
-    "title": "Creating Educational Content and Systems",
-    "text": "Published the 'Breath Stories' webtoon series and planned the podcast 'Walking with Learning.' These are not just content projects, but shared reflections on education. Also designed a system for recording and visualizing afterschool program data.",
+    "title": "Creating Educational Content and Structuring Practice",
+    "text": "I launched the webtoon series 'Breath Stories' and planned the podcast 'Walking with Learning.' I realized that education is not just about delivery, but about 'sharing and discussing together.' By directly designing an after-school recording system, I aim to create a structure where teachers' practices can be preserved as data and reintegrated into education.",
     "links": [
-      {
-        "label": "기획안 PDF",
-        "url": "./assets/2025/함께걷는배움 기획.pdf"
-      },
-      {
-        "label": "Afterschool 기록시스템",
-        "url": "https://afterschool-slow.netlify.app"
-      },
-      {
-        "label": "홍보 프로세스.pdf",
-        "url": "./assets/2025/홍보 프로세스.pdf"
-      },
-      {
-        "label": "후원 네트워크 운영.pdf",
-        "url": "./assets/2025/후원 네트워크 운영 프로세스.pdf"
-      }
+      { "label": "Proposal PDF", "url": "./assets/2025/함께걷는배움 기획.pdf" },
+      { "label": "Afterschool Recording System", "url": "https://afterschool-slow.netlify.app" },
+      { "label": "Promotion Process.pdf", "url": "./assets/2025/홍보 프로세스.pdf" },
+      { "label": "Sponsorship Network Operations.pdf", "url": "./assets/2025/후원 네트워크 운영 프로세스.pdf" },
+      { "label": "YouTube", "url": "https://www.youtube.com/@hamsungedu" },
+      { "label": "Instagram", "url": "https://www.instagram.com/hamsungedu" }
     ]
+  },
+  {
+    "year": "2024",
+    "title": "Beginning as a Planner and Researcher",
+    "text": "I started working as an educational researcher at 'Sesangieum,' a new educational organization. I am designing an educational practice platform and creating actual classroom-based tools, allowing me to design education from a broader perspective. At the same time, my own educational philosophy has become even clearer.",
+    "links": [
+      { "label": "Teacher Autonomy Recovery.pdf", "url": "./assets/2024/대안교육 현장 속 교사들의 행위주체성 회복하기.pdf" },
+      { "label": "Alternative Teacher Training Course Results.pdf", "url": "./assets/2024/대안교사양성과정 결과.pdf" }
+    ]
+  },
+  {
+    "year": "2023",
+    "title": "Teacher Training Course Completion / Clinical Psychologist Qualification",
+    "text": "I participated in and completed the Teachers' College for Life, and obtained my clinical psychologist qualification. This was a period where I deeply realized that a teacher's role goes beyond just teaching, requiring observation of children's inner worlds. I also attempted integrated subject classes and economic education material creation, putting collaborative growth of teachers into practice.",
+    "links": [
+      { "label": "Becoming a Collaborative Instructor.pdf", "url": "./assets/2023/함께하는강사되기.pdf" },
+      { "label": "Economics Textbook Step-by-step Curriculum.pdf", "url": "./assets/2023/경제교재 단계별 교육내용.pdf" }
+    ]
+  },
+  {
+    "year": "2022",
+    "title": "Acquired Qualifications Based on Activity Fields",
+    "text": "I obtained qualifications as a Web Design Technician and a Cognitive Counselor for Slow Learners. The reason was singular: I wanted to understand more deeply and communicate better. To ensure an educational practitioner doesn't just explain with words, I began learning tools.",
+    "links": [
+      { "label": "Certificate_Web Design Technician.pdf", "url": "./assets/2022/자격증_웹디자인기능사.pdf" },
+      { "label": "Certificate_Slow Learner Counselor.pdf", "url": "./assets/2022/자격증_느린학습자(경계선) 인지학습 상담사.pdf" }
+    ]
+  },
+  {
+    "year": "2021",
+    "title": "Deciding on a Transition, What is the Real Path?",
+    "text": "While preparing for law school entrance exams, I pondered the intersection of 'law and education.' I passed the first stage and had an interview, but more significant than the result was the time I spent reflecting on my own direction. That year, by planning a metaverse festival using Gather Town, I also saw the potential for technology and education to meet.",
+    "links": [
+      { "label": "Gather Town Planning.pdf", "url": "./assets/2021/도전_게더타운.pdf" },
+      { "label": "Law School Preparation Materials", "url": "./assets/2021/도전_로스쿨" }
+    ]
+  },
+  {
+    "year": "2020",
+    "title": "Explaining Life with Educational Materials and Tools",
+    "text": "From eating and washing to economic board games, I directly produced teaching materials and tools that connected to children's lives, laying the foundation for realizing 'learning in life.'",
+    "links": [
+      { "label": "Curriculum Development_Eating_Washing.pdf", "url": "./assets/2020/01_교재연구개발_먹는일_씻는일.pdf" },
+      { "label": "Tool Development_Economic Awakening Board Game.pdf", "url": "./assets/2020/02_교구개발_경제깨움 부루마블.pdf" }
+    ]
+  },
+  {
+    "year": "2017",
+    "title": "Experiment as an Educational Researcher Outside School",
+    "text": "As a team leader for 'Aju Healthy Whisper,' I gained experience in educational research and program operation. This was a period where I attempted meaningful education at the boundary between public and private sectors.",
+    "links": []
+  },
+  {
+    "year": "2015",
+    "title": "Alternative Education, Early Anxiety and Conviction",
+    "text": "I took my first steps as a teacher at Saramsarang Nanum School and grew into a team leader for Youth and Saramsarang, balancing Korean language instruction and life guidance.",
+    "links": []
+  },
+  {
+    "year": "2013",
+    "title": "Lessons Learned as a Homeroom Teacher",
+    "text": "Working as a homeroom teacher at Saramsarang Nanum School, I became deeply involved in children's daily lives. This was a period where I learned that guidance is not a technique, but a relationship.",
+    "links": [
+      { "label": "Youth 지도사 Certificate", "url": "./assets/2013/자격증_청소년지도사.pdf" }
+    ]
+  },
+  {
+    "year": "2012",
+    "title": "The Experiment of Choosing Career Counseling",
+    "text": "While working as a content designer, I became interested in the keywords 'life and career' and obtained my career counselor qualification. I explored another possibility beyond being a teacher.",
+    "links": [
+      { "label": "Career Counselor Certificate", "url": "./assets/2012/자격증_직업상담사.pdf" }
+    ]
+  },
+  {
+    "year": "2010",
+    "title": "I Am a Prepared Teacher",
+    "text": "I obtained my secondary school teacher qualifications in Korean Language and Moral Ethics and graduated from Dongguk University. This was the first step where the theory of learning began to move towards practice.",
+    "links": [
+      { "label": "Graduation Certificate", "url": "./assets/2010/졸업증명서.pdf" },
+      { "label": "Korean Language Teacher Certificate", "url": "./assets/2010/자격증_교원자격증(국어).pdf" },
+      { "label": "Moral Ethics Teacher Certificate", "url": "./assets/2010/자격증_교원자격증(도덕윤리).pdf" }
+    ]
+  },
+  {
+    "year": "2009",
+    "title": "What Scholarships and Internships Taught Me",
+    "text": "I worked for five semesters at the school library through a librarian work-study scholarship and received 'Excellent' evaluation during my teaching practicum. 'Diligence' was my strongest asset.",
+    "links": [
+      { "label": "Teaching Practicum Journal Excellent.pdf", "url": "./assets/2009/수상_교육실습일지_최우수.pdf" },
+      { "label": "Gwangmyeong Ahyang Scholarship Certificate.pdf", "url": "./assets/2009/장학_광명애향장학_장학증서.pdf" }
+    ]
+  },
+  {
+    "year": "2005",
+    "title": "I Did My Best Even When Not Chosen",
+    "text": "I received an award in the 'Good Teacher Competition' and pursued both teacher training and a double major. My attitude as a teacher was formed during this period.",
+    "links": [
+      { "label": "Good Teacher Competition Award.pdf", "url": "./assets/2005/수상_좋은교사경연대회_최우수.pdf" }
+    ]
+  },
+  {
+    "year": "2004",
+    "title": "Beginning, A Life as an Educator",
+    "text": "I graduated from Gwangmyeongbuk High School and entered Dongguk University, majoring in Korean Language Education. Although it was still vague, my desire to work in a field that touched people's lives was clear.",
+    "links": []
   }
 ]
