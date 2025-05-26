@@ -1,0 +1,25 @@
+[
+  {
+    "year": "2025",
+    "title": "Creating Educational Content and Systems",
+    "text": "Published the 'Breath Stories' webtoon series and planned the podcast 'Walking with Learning.' These are not just content projects, but shared reflections on education. Also designed a system for recording and visualizing afterschool program data.",
+    "links": [
+      {
+        "label": "기획안 PDF",
+        "url": "./assets/2025/함께걷는배움 기획.pdf"
+      },
+      {
+        "label": "Afterschool 기록시스템",
+        "url": "https://afterschool-slow.netlify.app"
+      },
+      {
+        "label": "홍보 프로세스.pdf",
+        "url": "./assets/2025/홍보 프로세스.pdf"
+      },
+      {
+        "label": "후원 네트워크 운영.pdf",
+        "url": "./assets/2025/후원 네트워크 운영 프로세스.pdf"
+      }
+    ]
+  }
+]
