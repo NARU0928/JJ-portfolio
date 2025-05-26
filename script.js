@@ -79,7 +79,6 @@ function switchLanguage() {
 
   // 상단 버튼 텍스트
   const langToggle = document.getElementById("toggle-lang");
-  langToggle.innerHTML = `<i class='fas fa-language'></i> ${currentLang === "ko" ? "English" : "한국어"}`;
   document.getElementById("lang-label").textContent = currentLang === "ko" ? "English" : "한국어";
 
   // 메뉴 이름 바꾸기
