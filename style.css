@@ -1,0 +1,87 @@
+body {
+  font-family: "Noto Sans KR", sans-serif;
+  background: #fafafa;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+header {
+  background: #004080;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+main {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.timeline-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease;
+}
+
+.timeline-card:hover {
+  transform: scale(1.01);
+}
+
+.timeline-card h3 {
+  margin: 0 0 10px;
+  color: #004080;
+}
+
+.timeline-links {
+  margin-top: 10px;
+}
+
+.timeline-button {
+  display: inline-block;
+  padding: 6px 12px;
+  margin: 6px 6px 0 0;
+  font-size: 13px;
+  background-color: #e6f0ff;
+  color: #004080;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+}
+
+.timeline-button:hover {
+  background-color: #d2e6ff;
+}
+
+section {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 13px;
+  background: #eee;
+  color: #666;
+}
