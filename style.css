@@ -1,3 +1,10 @@
+.logo-en {
+  font-size: 0.9em;
+  color: #ddd;
+  font-weight: normal;
+}
+
+
 body {
   font-family: "Noto Sans KR", sans-serif;
   background: #fafafa;
