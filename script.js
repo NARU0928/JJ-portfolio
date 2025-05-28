@@ -137,7 +137,7 @@ window.addEventListener("DOMContentLoaded", () => {
     modal.classList.add("hidden");
   });
 
-  // Hero → 타임라인 전환
+  // Hero → 타임라인 전환 (기존 코드)
   const showBtn = document.getElementById("show-timeline");
   const hero = document.getElementById("hero");
   const timelineSection = document.getElementById("timeline");
@@ -148,6 +148,18 @@ window.addEventListener("DOMContentLoaded", () => {
       hero.style.display = "none";
       timelineSection.classList.remove("hidden");
       timelineSection.classList.add("fade-in");
+    });
+  }
+
+  // 상단 로고 클릭 시 Hero 화면으로 돌아오기 (새로운 코드 추가)
+  const backToHeroBtn = document.getElementById("back-to-hero");
+  if (backToHeroBtn && hero && timelineSection) {
+    backToHeroBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      hero.style.display = "block"; // Hero 섹션을 다시 보이게 합니다.
+      timelineSection.classList.add("hidden"); // 타임라인 섹션을 숨깁니다.
+      timelineSection.classList.remove("fade-in"); // 페이드인 애니메이션 클래스 제거 (선택 사항)
+      window.scrollTo(0, 0); // 페이지 최상단으로 스크롤 (선택 사항)
     });
   }
 

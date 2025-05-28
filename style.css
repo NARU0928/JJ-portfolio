@@ -186,3 +186,8 @@ footer {
   font-size: 16px;
   cursor: pointer;
 }
+
+.logo a {
+  color: inherit; /* 부모 요소(h1)의 색상 상속 */
+  text-decoration: none; /* 밑줄 제거 */
+}
