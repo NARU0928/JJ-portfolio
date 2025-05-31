@@ -54,9 +54,27 @@ main {
   transform: scale(1.01);
 }
 
+/* 기존 timeline-card h3 스타일 수정 */
 .timeline-card h3 {
   margin: 0 0 10px;
   color: #004080;
+  /* 기본적으로 줄 바꿈 허용 */
+  white-space: normal;
+  word-break: keep-all; /* 단어 단위로 줄 바꿈 */
+  font-size: 1.2rem; /* 기본 폰트 크기 조정 */
+}
+
+/* 모바일 환경에서 제목 폰트 크기 및 줄 바꿈 제어 */
+@media (max-width: 768px) {
+  .timeline-card h3 {
+    font-size: 1.1rem; /* 모바일에서 폰트 크기 약간 줄임 */
+  }
+}
+
+@media (max-width: 480px) {
+  .timeline-card h3 {
+    font-size: 1rem; /* 더 작은 화면에서 폰트 크기 더 줄임 */
+  }
 }
 
 .timeline-links {
@@ -190,4 +208,25 @@ footer {
 .logo a {
   color: inherit; /* 부모 요소(h1)의 색상 상속 */
   text-decoration: none; /* 밑줄 제거 */
+}
+
+
+/* style.css 파일에 다음 내용 추가 */
+
+.logo a span {
+  font-weight: bold; /* '인생 포트폴리오' / 'Life Portfolio' 부분만 굵게 */
+  /* 필요에 따라 색상, 폰트 크기 등 추가 스타일링 */
+}
+
+/* 기존 .logo-en 스타일은 더 이상 필요 없을 수 있습니다. */
+/* .logo-en {
+  font-size: 0.9em;
+  color: #ddd;
+  font-weight: normal;
+} */
+
+/* 로고 링크 밑줄 제거 */
+.logo a {
+  text-decoration: none;
+  color: inherit; /* 부모 색상 상속 */
 }

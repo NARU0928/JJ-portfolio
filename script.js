@@ -77,16 +77,16 @@ const observer = new IntersectionObserver((entries) => {
 function switchLanguage() {
   currentLang = currentLang === "ko" ? "en" : "ko";
 
-  // 상단 버튼 텍스트
+  // 상단 버튼 텍스트 (기존 코드)
   const langToggle = document.getElementById("toggle-lang");
   document.getElementById("lang-label").textContent = currentLang === "ko" ? "English" : "한국어";
 
-  // 메뉴 이름 바꾸기
+  // 메뉴 이름 바꾸기 (기존 코드)
   document.querySelector("nav ul li:nth-child(1) a").innerHTML = `<i class='fas fa-layer-group'></i> ${currentLang === "ko" ? "포트폴리오" : "Portfolio"}`;
   document.querySelector("nav ul li:nth-child(2) a").innerHTML = `<i class='fas fa-user'></i> ${currentLang === "ko" ? "소개" : "About"}`;
   document.querySelector("nav ul li:nth-child(3) a").innerHTML = `<i class='fas fa-envelope'></i> ${currentLang === "ko" ? "연락처" : "Contact"}`;
 
-  // Hero 텍스트
+  // Hero 텍스트 (기존 코드)
   const hero = document.getElementById("hero");
   if (hero) {
     hero.querySelector("h1").textContent = currentLang === "ko"
@@ -100,7 +100,7 @@ function switchLanguage() {
       : "View My Story <i class='fas fa-arrow-down'></i>";
   }
 
-  // 소개/연락처
+  // 소개/연락처 (기존 코드)
   document.getElementById("about").querySelector("h2").textContent = currentLang === "ko" ? "소개" : "About";
   document.getElementById("about").querySelector("p").textContent = currentLang === "ko"
     ? "사람과 교육의 연결을 삶으로 살아가는 사람, 이정재입니다."
@@ -109,10 +109,32 @@ function switchLanguage() {
   document.getElementById("contact").querySelector("h2").textContent = currentLang === "ko" ? "연락하기" : "Contact";
   document.getElementById("contact").querySelector("p").innerHTML = `<i class='fas fa-envelope'></i> jungjae_lee@nate.com`;
 
-  loadTimeline(currentLang);
+  // === 상단 로고 텍스트 변경 (새로운 코드 추가) ===
+  const logoTextElement = document.querySelector(".logo a"); // 로고 텍스트를 감싸는 <a> 태그를 선택
+  if (logoTextElement) {
+    if (currentLang === "ko") {
+      logoTextElement.innerHTML = "이정재의 <span>인생 포트폴리오</span>"; // <span> 태그로 감싸서 스타일링 용이하게
+    } else {
+      logoTextElement.innerHTML = "Lee Jungjae’s <span>Life Portfolio</span>"; // <span> 태그로 감싸서 스타일링 용이하게
+    }
+  }
+
+  loadTimeline(currentLang); // (기존 코드)
 }
 
 window.addEventListener("DOMContentLoaded", () => {
+  // ... (기존 코드) ...
+
+  // 로고 텍스트 초기 설정 (이 부분을 추가)
+  const logoTextElement = document.querySelector(".logo a");
+  if (logoTextElement) {
+    if (currentLang === "ko") {
+      logoTextElement.innerHTML = "이정재의 <span>인생 포트폴리오</span>";
+    } else {
+      logoTextElement.innerHTML = "Lee Jungjae’s <span>Life Portfolio</span>";
+    }
+  }
+
   loadTimeline(currentLang);
 
   // PDF 모달
