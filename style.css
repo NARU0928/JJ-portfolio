@@ -244,3 +244,81 @@ footer {
     display: initial; /* 또는 display: block; */
   }
 }
+
+
+/* 소개 & 연락처 섹션 전체 컨테이너 */
+.about-contact-container {
+  display: flex; /* Flexbox 활성화 */
+  flex-wrap: wrap; /* 화면이 작아지면 줄 바꿈 허용 */
+  justify-content: center; /* 아이템들을 중앙으로 정렬 (기본) */
+  align-items: flex-start; /* 상단 정렬 */
+  max-width: 900px; /* 타임라인 너비와 동일하게 설정 */
+  margin: 60px auto; /* 중앙 정렬 */
+  padding: 0 20px;
+  gap: 30px; /* 항목들 사이의 간격 */
+}
+
+/* 캐릭터 이미지 컨테이너 */
+.character-image-box {
+  flex: 1; /* 남은 공간을 차지하도록 (예: 1:2 비율에서 1) */
+  min-width: 250px; /* 최소 너비 설정, 이미지 크기에 따라 조정 */
+  max-width: 350px; /* 이미지의 최대 너비, 이미지 크기에 따라 조정 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  order: 1; /* 기본적으로 첫 번째(왼쪽)에 위치 */
+}
+
+/* 캐릭터 이미지 스타일 */
+.character-image {
+  max-width: 100%; /* 부모 컨테이너에 맞춰 크기 조절 */
+  height: auto;
+  border-radius: 8px; /* 이미지 모서리 둥글게 */
+}
+
+/* 소개 및 연락처 내용을 담는 div */
+.about-contact-content {
+  flex: 2; /* 이미지보다 더 많은 공간을 차지하도록 (예: 1:2 비율) */
+  min-width: 300px; /* 최소 너비 설정 */
+  order: 2; /* 기본적으로 두 번째(오른쪽)에 위치 */
+}
+
+/* 개별 소개, 연락처 섹션 아이템 */
+.about-contact-item {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+.about-contact-item:last-child {
+  margin-bottom: 0;
+}
+
+/* 모바일 환경에서 레이아웃 조정 */
+@media (max-width: 768px) {
+  .about-contact-container {
+    flex-direction: column; /* 세로로 쌓이도록 변경 */
+    align-items: center; /* 가운데 정렬 */
+  }
+  .character-image-box {
+    order: 0; /* 모바일에서는 다시 위로 올라오도록 (flex-direction: column 이면 order가 낮은게 위) */
+    width: 80%; /* 모바일에서 너비 조정 */
+    margin-bottom: 30px; /* 아래쪽 여백 추가 */
+    max-width: none; /* 모바일에서 max-width 제한 해제 */
+  }
+  .about-contact-content {
+    order: 1; /* 모바일에서는 이미지 아래로 내려오도록 */
+    width: 100%; /* 전체 너비 사용 */
+  }
+}
+
+@media (max-width: 480px) {
+  .character-image-box {
+    width: 95%; /* 더 작은 모바일 화면에서 너비 조정 */
+  }
+}
