@@ -283,6 +283,7 @@ footer {
   gap: 0px; /* 소개와 연락처 박스 사이의 간격을 0px로 조정 */
   min-width: 0; /* flexbox 오버플로우 방지 */
   margin-top: -30px; /* 전체 블록을 위로 30px (약 3cm) 이동 */
+  margin-right: 30px; /* 오른쪽 여백 30px 추가 (약 3cm) */
 }
 
 /* 소개, 연락처 개별 박스 */
@@ -331,7 +332,7 @@ footer {
     flex-direction: column; /* 모바일에서는 세로로 변경 */
     align-items: stretch; /* 자식 요소들이 가로 공간을 채우도록 변경 */
     gap: 40px;
-    padding: 0; /* 모바일에서 about-contact-container의 자체 패딩 제거 */
+    padding: 0 20px; /* 모바일에서 about-contact-container의 좌우 패딩을 20px로 설정 */
   }
 
   .character-image-box {
@@ -339,23 +340,27 @@ footer {
     max-width: none; /* max-width 제한 제거 */
     height: auto; /* 모바일에서는 높이 자동 조절 */
     padding: 20px; /* 이미지 박스 내부 패딩을 20px로 설정 */
+    box-sizing: border-box; /* 패딩이 너비에 포함되도록 설정 */
   }
 
   .about-contact-content {
     width: 100%; /* 부모 컨테이너의 100% 너비를 차지 */
     margin-top: 0; /* 모바일에서는 음수 마진 제거 */
+    margin-right: 0; /* 모바일에서는 오른쪽 마진 제거 */
+    box-sizing: border-box; /* 패딩이 너비에 포함되도록 설정 */
   }
 
   /* .about-contact-item의 패딩을 모바일에서도 일관성 있게 유지 */
   .about-contact-item {
     padding: 20px; /* 모바일에서 패딩을 20px로 유지 */
+    box-sizing: border-box; /* 패딩이 너비에 포함되도록 설정 */
   }
 }
 
 /* 더 작은 모바일 화면 (480px 이하) */
 @media (max-width: 480px) {
   .about-contact-container {
-    padding: 0; /* 더 작은 화면에서도 about-contact-container의 자체 패딩 제거 */
+    padding: 0 20px; /* 더 작은 화면에서도 about-contact-container의 좌우 패딩을 20px로 설정 */
     gap: 30px;
   }
   
