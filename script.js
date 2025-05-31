@@ -91,7 +91,7 @@ function switchLanguage() {
   if (hero) {
     // <h1> 태그 텍스트 조정: 모바일에서 줄바꿈을 CSS로 제어합니다.
     hero.querySelector("h1").innerHTML = currentLang === "ko"
-      ? "교사가 아닌,<br class='mobile-break'><strong>삶의 설계자</strong>로<br class='mobile-break'>살고 있습니다." // <br class='mobile-break'> 추가
+      ? "교사가 아닌, <br class='mobile-break'><strong>삶의 설계자</strong>로<br class='mobile-break'>살고 있습니다." // 쉼표 뒤 띄어쓰기 추가
       : "Not just a teacher, but a designer of life.";
     hero.querySelector("p").innerHTML = currentLang === "ko"
       ? "교육은 말보다 <strong>사람</strong>이 먼저였고,<br>기록보다 <strong>만남</strong>이 먼저였습니다.<br>이 이야기는 단지 이력서가 아니라,<br>한 사람의 <strong>길</strong>에 대한 기록입니다."
@@ -172,7 +172,7 @@ window.addEventListener("DOMContentLoaded", () => {
   if (hero) {
     // <h1> 태그 텍스트 조정: 모바일에서 줄바꿈을 CSS로 제어합니다.
     hero.querySelector("h1").innerHTML = currentLang === "ko"
-      ? "교사가 아닌,<br class='mobile-break'><strong>삶의 설계자</strong>로<br class='mobile-break'>살고 있습니다." // <br class='mobile-break'> 추가
+      ? "교사가 아닌, <br class='mobile-break'><strong>삶의 설계자</strong>로<br class='mobile-break'>살고 있습니다." // 쉼표 뒤 띄어쓰기 추가
       : "Not just a teacher, but a designer of life.";
     hero.querySelector("p").innerHTML = currentLang === "ko"
       ? "교육은 말보다 <strong>사람</strong>이 먼저였고,<br>기록보다 <strong>만남</strong>이 먼저였습니다.<br>이 이야기는 단지 이력서가 아니라,<br>한 사람의 <strong>길</strong>에 대한 기록입니다."
