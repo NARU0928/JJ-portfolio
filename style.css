@@ -282,15 +282,61 @@ footer {
   border-radius: 8px; /* 이미지 모서리 둥글게 */
 }
 
+/* 기존 section 스타일은 그대로 두고, about-contact-container에 독립적인 스타일 적용 */
+section {
+  max-width: 900px; /* 기존 섹션의 최대 너비 유지 */
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+/* 소개 & 연락처 섹션 전체 컨테이너 */
+.about-contact-container {
+  display: flex; /* Flexbox 활성화 */
+  flex-wrap: wrap; /* 화면이 작아지면 줄 바꿈 허용 */
+  /* justify-content를 space-between으로 변경하여 이미지와 텍스트 컨텐츠를 양 끝으로 밀어냅니다. */
+  justify-content: space-between;
+  align-items: flex-start; /* 상단 정렬 */
+  max-width: 900px; /* 타임라인 너비와 동일하게 설정 */
+  margin: 60px auto; /* 중앙 정렬 */
+  padding: 0 20px;
+  gap: 30px; /* 항목들 사이의 간격 */
+}
+
+/* 캐릭터 이미지 컨테이너 */
+.character-image-box {
+  /* flex-grow: 1; flex-shrink: 0; flex-basis: 300px; 과 같은 형태로 flex shorthand 사용 */
+  flex: 0 0 250px; /* 고정 너비를 250px로 설정, 이미지 크기 고려 (필요시 조정) */
+  min-width: 250px; /* 최소 너비 설정 (이미지 크기) */
+  max-width: 350px; /* 이미지의 최대 너비 (더 커지지 않도록) */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  order: 1; /* 기본적으로 첫 번째(왼쪽)에 위치 */
+}
+
+/* 캐릭터 이미지 스타일 */
+.character-image {
+  max-width: 100%; /* 부모 컨테이너에 맞춰 크기 조절 */
+  height: auto;
+  border-radius: 8px; /* 이미지 모서리 둥글게 */
+}
+
 /* 소개 및 연락처 내용을 담는 div */
 .about-contact-content {
-  flex: 2; /* 이미지보다 더 많은 공간을 차지하도록 (예: 1:2 비율) */
-  min-width: 300px; /* 최소 너비 설정 */
+  /* flex-grow: 1; flex-shrink: 1; flex-basis: auto; */
+  flex: 1; /* 남은 공간을 유연하게 채우도록 (이전 flex:2 대신 1 사용) */
+  min-width: 350px; /* 내용이 너무 좁아지지 않도록 최소 너비 설정 (필요시 조정) */
   order: 2; /* 기본적으로 두 번째(오른쪽)에 위치 */
   display: flex; /* 내부 아이템(소개, 연락처)을 위한 flexbox 활성화 */
   flex-direction: column; /* 세로로 쌓이도록 */
-  justify-content: flex-start; /* 상단 정렬 */
+  /* justify-content: flex-start;  // 이 부분은 필요 없을 수 있습니다. */
   align-items: stretch; /* 아이템들이 부모 컨테이너의 너비를 채우도록 */
+  /* 추가: 여백 문제 해결을 위해 box-sizing 설정 */
+  box-sizing: border-box; /* 패딩과 보더가 너비에 포함되도록 */
 }
 
 /* 개별 소개, 연락처 섹션 아이템 */
@@ -300,8 +346,8 @@ footer {
   padding: 20px;
   margin-bottom: 20px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-  /* flex-basis: 100%; 기존에 있다면 삭제하거나 100%로 설정 */
   width: 100%; /* 내부 아이템들이 about-contact-content의 너비를 채우도록 */
+  box-sizing: border-box; /* 패딩과 보더가 너비에 포함되도록 */
 }
 .about-contact-item:last-child {
   margin-bottom: 0;
@@ -318,10 +364,12 @@ footer {
     width: 80%; /* 모바일에서 너비 조정 */
     margin-bottom: 30px; /* 아래쪽 여백 추가 */
     max-width: none; /* 모바일에서 max-width 제한 해제 */
+    flex: auto; /* 모바일에서 flex 고정값 해제 */
   }
   .about-contact-content {
     order: 1; /* 모바일에서는 이미지 아래로 내려오도록 */
     width: 100%; /* 전체 너비 사용 */
+    flex: auto; /* 모바일에서 flex 고정값 해제 */
   }
 }
 
