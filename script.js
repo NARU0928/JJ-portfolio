@@ -93,7 +93,7 @@ function switchLanguage() {
       ? "교사가 아닌, 삶의 설계자로 살고 있습니다."
       : "Not just a teacher, but a designer of life.";
     hero.querySelector("p").innerHTML = currentLang === "ko"
-      ? "나의 교육은 말보다 사람이 먼저였고, 기록보다 만남이 먼저였습니다.<br>이 이야기는 단지 이력서가 아니라, 한 사람의 길에 대한 기록입니다."
+      ? "교육은 말보다 <strong>사람</strong>이 먼저였고,<br>기록보다 <strong>만남</strong>이 먼저였습니다.<br>이 이야기는 단지 이력서가 아니라,<br>한 사람의 <strong>길</strong>에 대한 기록입니다."
       : "My education has always put people before words, and encounters before records.<br>This is not just a resume, but a record of a life.";
     hero.querySelector("a").innerHTML = currentLang === "ko"
       ? "나의 이야기 보기 <i class='fas fa-arrow-down'></i>"
