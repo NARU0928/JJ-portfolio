@@ -72,7 +72,7 @@ main {
 }
 
 @media (max-width: 480px) {
-  .timeline-card h3 {
+  .timeline-card h3 {ㅁ
     font-size: 1rem; /* 더 작은 화면에서 폰트 크기 더 줄임 */
   }
 }
@@ -337,6 +337,7 @@ footer {
     width: 100%; /* 부모 컨테이너의 100% 너비를 차지 */
     max-width: none; /* max-width 제한 제거 */
     height: auto; /* 모바일에서는 높이 자동 조절 */
+    padding: 20px; /* 모바일에서 패딩을 20px로 조정 */
   }
 
   .about-contact-content {
