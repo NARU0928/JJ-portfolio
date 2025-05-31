@@ -230,3 +230,17 @@ footer {
   text-decoration: none;
   color: inherit; /* 부모 색상 상속 */
 }
+
+/* style.css 파일에 다음 내용 추가 */
+
+/* 기본적으로 mobile-break는 숨김 */
+.mobile-break {
+  display: none;
+}
+
+/* 특정 모바일 화면 크기에서만 mobile-break 보이게 함 */
+@media (max-width: 480px) { /* 스마트폰 세로 모드 기준 (필요시 768px 등으로 조정) */
+  .mobile-break {
+    display: initial; /* 또는 display: block; */
+  }
+}

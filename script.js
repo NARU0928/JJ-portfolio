@@ -89,8 +89,9 @@ function switchLanguage() {
   // Hero 텍스트
   const hero = document.getElementById("hero");
   if (hero) {
-    hero.querySelector("h1").innerHTML = currentLang === "ko" // textContent 대신 innerHTML 사용
-      ? "교사가 아닌,<br><strong>삶의 설계자</strong>로 살고 있습니다."
+    // <h1> 태그 텍스트 조정: 모바일에서 줄바꿈을 CSS로 제어합니다.
+    hero.querySelector("h1").innerHTML = currentLang === "ko"
+      ? "교사가 아닌,<br class='mobile-break'><strong>삶의 설계자</strong>로<br class='mobile-break'>살고 있습니다." // <br class='mobile-break'> 추가
       : "Not just a teacher, but a designer of life.";
     hero.querySelector("p").innerHTML = currentLang === "ko"
       ? "교육은 말보다 <strong>사람</strong>이 먼저였고,<br>기록보다 <strong>만남</strong>이 먼저였습니다.<br>이 이야기는 단지 이력서가 아니라,<br>한 사람의 <strong>길</strong>에 대한 기록입니다."
@@ -136,15 +137,16 @@ window.addEventListener("DOMContentLoaded", () => {
   // Hero 텍스트 초기 설정
   const hero = document.getElementById("hero");
   if (hero) {
-    if (currentLang === "ko") {
-      hero.querySelector("h1").innerHTML = "교사가 아닌,<br><strong>삶의 설계자</strong>로 살고 있습니다.";
-      hero.querySelector("p").innerHTML = "교육은 말보다 <strong>사람</strong>이 먼저였고,<br>기록보다 <strong>만남</strong>이 먼저였습니다.<br>이 이야기는 단지 이력서가 아니라,<br>한 사람의 <strong>길</strong>에 대한 기록입니다.";
-      hero.querySelector("a").innerHTML = "나의 이야기 보기 <i class='fas fa-arrow-down'></i>";
-    } else {
-      hero.querySelector("h1").textContent = "Not just a teacher, but a designer of life.";
-      hero.querySelector("p").innerHTML = "My education has always put people before words, and encounters before records.<br>This is not just a resume, but a record of a life.";
-      hero.querySelector("a").innerHTML = "View My Story <i class='fas fa-arrow-down'></i>";
-    }
+    // <h1> 태그 텍스트 조정: 모바일에서 줄바꿈을 CSS로 제어합니다.
+    hero.querySelector("h1").innerHTML = currentLang === "ko"
+      ? "교사가 아닌,<br class='mobile-break'><strong>삶의 설계자</strong>로<br class='mobile-break'>살고 있습니다." // <br class='mobile-break'> 추가
+      : "Not just a teacher, but a designer of life.";
+    hero.querySelector("p").innerHTML = currentLang === "ko"
+      ? "교육은 말보다 <strong>사람</strong>이 먼저였고,<br>기록보다 <strong>만남</strong>이 먼저였습니다.<br>이 이야기는 단지 이력서가 아니라,<br>한 사람의 <strong>길</strong>에 대한 기록입니다."
+      : "My education has always put people before words, and encounters before records.<br>This is not just a resume, but a record of a life.";
+    hero.querySelector("a").innerHTML = currentLang === "ko"
+      ? "나의 이야기 보기 <i class='fas fa-arrow-down'></i>"
+      : "View My Story <i class='fas fa-arrow-down'></i>";
   }
 
   loadTimeline(currentLang);
