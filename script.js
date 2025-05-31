@@ -96,8 +96,9 @@ function switchLanguage() {
     hero.querySelector("p").innerHTML = currentLang === "ko"
       ? "교육은 말보다 <strong>사람</strong>이 먼저였고,<br>기록보다 <strong>만남</strong>이 먼저였습니다.<br>이 이야기는 단지 이력서가 아니라,<br>한 사람의 <strong>길</strong>에 대한 기록입니다."
       : "My education has always put people before words, and encounters before records.<br>This is not just a resume, but a record of a life.";
+    // '나의 이야기 보기'를 '이야기 보기'로 변경
     hero.querySelector("a").innerHTML = currentLang === "ko"
-      ? "나의 이야기 보기 <i class='fas fa-arrow-down'></i>"
+      ? "이야기 보기 <i class='fas fa-arrow-down'></i>"
       : "View My Story <i class='fas fa-arrow-down'></i>";
   }
 
@@ -121,7 +122,39 @@ function switchLanguage() {
   }
 
   loadTimeline(currentLang);
+  // adjustAboutContactHeight(); // 언어 전환 시 높이 조정 함수 호출 (더 이상 필요 없음)
 }
+
+// 소개 및 연락처 섹션 높이 조정 함수 (수정)
+function adjustAboutContactHeight() {
+  const characterImageBox = document.querySelector('.character-image-box');
+  const aboutContactContent = document.querySelector('.about-contact-content');
+
+  if (characterImageBox && aboutContactContent) {
+    // 이미지 박스의 실제 높이 측정
+    const imageHeight = characterImageBox.offsetHeight;
+    // 오른쪽 콘텐츠 영역의 최소 높이를 이미지 박스 높이와 동일하게 설정
+    // height 대신 min-height를 사용하여 콘텐츠가 늘어날 수 있도록 함
+    aboutContactContent.style.minHeight = `${imageHeight}px`;
+
+    // about-contact-content 내부의 gap을 조정하여 콘텐츠가 고르게 분포되도록 함
+    // 이 부분은 CSS에서 gap을 고정하는 것이 더 안정적일 수 있습니다.
+    // 여기서는 CSS의 gap을 10px로 설정하는 것을 권장합니다.
+    // const aboutItem = document.getElementById('about');
+    // const contactItem = document.getElementById('contact');
+
+    // if (aboutItem && contactItem) {
+    //   const totalContentHeight = aboutItem.offsetHeight + contactItem.offsetHeight;
+    //   const remainingSpace = imageHeight - totalContentHeight;
+    //   if (remainingSpace > 0) {
+    //     aboutContactContent.style.gap = `${remainingSpace}px`;
+    //   } else {
+    //     aboutContactContent.style.gap = '0px';
+    //   }
+    // }
+  }
+}
+
 
 window.addEventListener("DOMContentLoaded", () => {
   // 로고 텍스트 초기 설정
@@ -144,8 +177,9 @@ window.addEventListener("DOMContentLoaded", () => {
     hero.querySelector("p").innerHTML = currentLang === "ko"
       ? "교육은 말보다 <strong>사람</strong>이 먼저였고,<br>기록보다 <strong>만남</strong>이 먼저였습니다.<br>이 이야기는 단지 이력서가 아니라,<br>한 사람의 <strong>길</strong>에 대한 기록입니다."
       : "My education has always put people before words, and encounters before records.<br>This is not just a resume, but a record of a life.";
+    // '나의 이야기 보기'를 '이야기 보기'로 변경
     hero.querySelector("a").innerHTML = currentLang === "ko"
-      ? "나의 이야기 보기 <i class='fas fa-arrow-down'></i>"
+      ? "이야기 보기 <i class='fas fa-arrow-down'></i>"
       : "View My Story <i class='fas fa-arrow-down'></i>";
   }
 
@@ -206,4 +240,9 @@ window.addEventListener("DOMContentLoaded", () => {
       switchLanguage();
     });
   }
+
+  // 페이지 로드 시 높이 조정 함수 호출
+  adjustAboutContactHeight();
+  // 창 크기 변경 시 높이 조정 함수 호출
+  window.addEventListener('resize', adjustAboutContactHeight);
 });

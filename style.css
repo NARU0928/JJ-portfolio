@@ -97,9 +97,10 @@ main {
   background-color: #d2e6ff;
 }
 
+/* section 마진 조정 */
 section {
   max-width: 900px;
-  margin: 60px auto;
+  margin: 40px auto; /* 간격 조정 */
   padding: 0 20px;
 }
 
@@ -245,68 +246,27 @@ footer {
   }
 }
 
-현재 상태의 캡처본을 보니, 캐릭터 이미지가 왼쪽 상단에 잘 정렬되었지만, 오른쪽의 '소개'와 '연락처' 섹션 박스 두 개가 이미지 높이보다 훨씬 길게 아래로 늘어져 있어 전체적인 균형이 깨져 보이는군요.
-
-문제의 핵심 원인:
-
-이전 답변에서 align-items: center;를 적용하여 수직 중앙 정렬을 시도했으나, 여전히 문제가 발생한 것은 오른쪽 콘텐츠(about-contact-content)의 총 높이가 이미지 박스(character-image-box)의 높이보다 훨씬 길기 때문입니다.
-
-align-items: center는 플렉스 컨테이너(about-contact-container) 내에서 가장 긴 아이템을 기준으로 다른 아이템들을 중앙에 배치하려고 합니다. 하지만 지금처럼 about-contact-content가 압도적으로 길면, 이미지는 그 긴 콘텐츠의 중앙에 맞춰지려고 하고, 그 결과 이미지 아래에 큰 여백이 생기게 됩니다.
-
-해결 전략:
-
-이 문제를 해결하는 가장 좋은 방법은 다음과 같습니다.
-
-about-contact-content의 높이 조절:
-
-오른쪽의 '소개'와 '연락처' 박스(about-contact-item)들이 불필요하게 늘어나지 않도록 각 박스의 내용물에 따라 높이를 유연하게 조절하면서도, 전체 about-contact-content의 총 높이를 이미지 박스와 비슷하게 맞추는 것입니다.
-flex: 1을 사용하여 남은 공간을 채우려고 했던 것이 오히려 박스가 너무 길어지는 원인일 수 있습니다. 각 박스의 flex-grow를 제한하거나, height: auto를 명확히 지정해주는 것이 좋습니다.
-부모 컨테이너 정렬 재조정:
-
-about-contact-container의 align-items를 다시 flex-start로 돌려서 모든 아이템을 상단에 정렬하고, 각 아이템 내부에서 높이를 조절하는 것이 더 예측 가능한 결과를 낳을 수 있습니다.
-수정할 파일: style.css
-
-style.css 파일 수정 제안:
-
-CSS
-
-/* style.css 파일에 다음 내용 수정/추가 */
-
-/* 기존 section 스타일 수정 (간격 조정) */
-section {
-  max-width: 900px;
-  margin: 40px auto; /* 간격 조정 */
-  padding: 0 20px;
-}
-
-/* 기존 CSS에서 소개&연락처 섹션 관련 부분만 수정/추가 */
-
-/* 기존 CSS에서 소개&연락처 섹션 관련 부분만 수정/추가 */
-
 /* 소개 & 연락처 섹션 전체 컨테이너 */
 .about-contact-container {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start; /* 상단 정렬로 변경 */
-  justify-content: space-between;
+  display: flex; /* Flexbox 사용 */
   gap: 30px;
   max-width: 900px;
   margin: 60px auto;
   padding: 0 20px;
+  align-items: flex-start; /* 아이템들을 상단에 정렬 */
 }
 
 /* 캐릭터 이미지 박스 */
 .character-image-box {
-  flex: 0 0 250px; /* 고정 너비 */
-  max-width: 250px;
+  width: 280px; /* 고정 너비 */
+  flex-shrink: 0; /* 축소 방지 */
   display: flex;
   justify-content: center;
-  align-items: flex-start; /* 이미지도 상단 정렬 */
-  padding: 20px;
+  align-items: center;
+  padding: 30px;
   background: white;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-  height: fit-content; /* 내용에 맞는 높이 */
 }
 
 .character-image {
@@ -317,54 +277,85 @@ section {
 
 /* 오른쪽 콘텐츠 영역 */
 .about-contact-content {
-  flex: 1;
+  flex-grow: 1; /* 남은 공간을 모두 차지 */
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  min-width: 300px;
-  /* max-height 제거 - 내용에 따라 자연스럽게 높이 조절 */
+  gap: 0px; /* 소개와 연락처 박스 사이의 간격을 0px로 조정 */
+  min-width: 0; /* flexbox 오버플로우 방지 */
+  margin-top: -30px; /* 전체 블록을 위로 30px (약 3cm) 이동 */
 }
 
 /* 소개, 연락처 개별 박스 */
 .about-contact-item {
   background: white;
   border-radius: 12px;
-  padding: 20px;
+  padding: 8px 20px; /* padding-top/bottom을 8px로 유지 */
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-  flex: 0 1 auto; /* flex-grow 제거, 내용에 맞는 크기 */
-  height: auto; /* 자동 높이 */
+  transition: transform 0.2s ease;
+  width: 100%; /* 박스 너비를 100%로 설정하여 동일하게 만듦 */
 }
 
-/* 소개 섹션 특별 스타일 (필요시) */
+.about-contact-item:hover {
+  transform: translateY(-2px);
+}
+
+/* 소개, 연락처 제목 스타일 */
 .about-contact-item h3 {
-  margin: 0 0 10px;
+  margin: 0 0 3px 0; /* 제목 아래 마진을 3px로 유지 */
   color: #004080;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
+  font-weight: bold;
 }
 
+/* 소개, 연락처 내용 스타일 */
 .about-contact-item p {
   margin: 0;
   line-height: 1.6;
+  color: #333;
+}
+
+/* 이메일 링크 스타일 */
+.about-contact-item a {
+  color: #004080;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.about-contact-item a:hover {
+  text-decoration: underline;
 }
 
 /* 모바일 환경에서 레이아웃 조정 */
 @media (max-width: 768px) {
   .about-contact-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .character-image-box,
-  .about-contact-content {
-    width: 100%;
-    max-width: none;
+    flex-direction: column; /* 모바일에서는 세로로 변경 */
+    align-items: center; /* 세로 정렬 시 중앙 정렬 */
+    gap: 40px;
   }
 
   .character-image-box {
-    margin-bottom: 30px;
+    width: 100%;
+    max-width: 300px; /* 모바일에서 이미지 박스 최대 너비 */
+    height: auto; /* 모바일에서는 높이 자동 조절 */
+  }
+
+  .about-contact-content {
+    width: 100%;
+    margin-top: 0; /* 모바일에서는 음수 마진 제거 */
+  }
+}
+
+@media (max-width: 480px) {
+  .about-contact-container {
+    padding: 0 15px;
+    gap: 30px;
   }
   
-  .about-contact-content {
-    max-height: none; /* 모바일에서는 높이 제한 해제 */
+  .character-image-box {
+    padding: 20px;
+  }
+  
+.about-contact-item {
+    padding: 20px;
   }
 }
