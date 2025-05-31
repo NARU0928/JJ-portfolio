@@ -246,6 +246,8 @@ footer {
 }
 
 
+/* style.css 파일에 다음 내용 수정/추가 */
+
 /* 소개 & 연락처 섹션 전체 컨테이너 */
 .about-contact-container {
   display: flex; /* Flexbox 활성화 */
@@ -285,6 +287,10 @@ footer {
   flex: 2; /* 이미지보다 더 많은 공간을 차지하도록 (예: 1:2 비율) */
   min-width: 300px; /* 최소 너비 설정 */
   order: 2; /* 기본적으로 두 번째(오른쪽)에 위치 */
+  display: flex; /* 내부 아이템(소개, 연락처)을 위한 flexbox 활성화 */
+  flex-direction: column; /* 세로로 쌓이도록 */
+  justify-content: flex-start; /* 상단 정렬 */
+  align-items: stretch; /* 아이템들이 부모 컨테이너의 너비를 채우도록 */
 }
 
 /* 개별 소개, 연락처 섹션 아이템 */
@@ -294,6 +300,8 @@ footer {
   padding: 20px;
   margin-bottom: 20px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  /* flex-basis: 100%; 기존에 있다면 삭제하거나 100%로 설정 */
+  width: 100%; /* 내부 아이템들이 about-contact-content의 너비를 채우도록 */
 }
 .about-contact-item:last-child {
   margin-bottom: 0;
