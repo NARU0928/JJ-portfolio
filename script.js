@@ -184,7 +184,7 @@ window.addEventListener("DOMContentLoaded", () => {
       : "Not just a teacher, but a designer of life.";
     hero.querySelector("p").innerHTML = currentLang === "ko"
       ? "교육은 말보다 <strong>사람</strong>이 먼저였고,<br>기록보다 <strong>만남</strong>이 먼저였습니다.<br>이 이야기는 단지 이력서가 아니라,<br>한 사람의 <strong>길</strong>에 대한 이야기입니다." // 변경된 부분
-      : "My education has always put people before words, and encounters before records.<br>This is not just a resume, but a record of a life.";
+      : "My education has always put people before words, and encounters before records.<br>This is not just a resume, but a story of a life.";
     
     const showTimelineButton = document.getElementById("show-timeline");
     if (showTimelineButton) {
