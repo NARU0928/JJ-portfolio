@@ -7,7 +7,7 @@ let dataContent = {}; // 팝업 데이터를 저장할 변수
 // 새롭게 추가된 요소들
 const dataModal = document.getElementById("dataModal");
 const closeDataModalBtn = document.getElementById("closeDataModal");
-const showDataModalBtn = document.getElementById("show-data-modal"); // '데이터로 보기' 버튼
+const showDataModalBtn = document.getElementById("show-data-modal"); // '한눈에 보기' 버튼
 const dataModalTitle = document.getElementById("data-modal-title");
 const dataModalSections = document.getElementById("data-modal-sections");
 const dataModalCertifications = document.getElementById("data-modal-certifications");
@@ -115,11 +115,11 @@ function switchLanguage() {
             : "View My Story <i class='fas fa-arrow-down'></i>";
     }
 
-    // '데이터 보기' 버튼 텍스트 변경
+    // '한눈에 보기' 버튼 텍스트 변경
     if (showDataModalBtn) {
         showDataModalBtn.innerHTML = currentLang === "ko"
-            ? "데이터 보기 <i class='fas fa-database'></i>" // 변경된 부분
-            : "View Data <i class='fas fa-database'></i>";
+            ? "한눈에 보기 <i class='fas fa-database'></i>" // 변경된 부분
+            : "At a Glance <i class='fas fa-database'></i>";
     }
   }
 
@@ -195,8 +195,8 @@ window.addEventListener("DOMContentLoaded", () => {
 
     if (showDataModalBtn) {
         showDataModalBtn.innerHTML = currentLang === "ko"
-            ? "데이터 보기 <i class='fas fa-database'></i>" // 변경된 부분
-            : "View Data <i class='fas fa-database'></i>";
+            ? "한눈에 보기 <i class='fas fa-database'></i>" // 변경된 부분
+            : "At a Glance <i class='fas fa-database'></i>";
     }
   }
 

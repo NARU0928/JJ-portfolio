@@ -6,23 +6,23 @@
       "items": [
         {
           "name": "Educational Content Planning & Development",
-          "description": "Ability to design learner-centered educational programs and plan/develop various forms of content (textbooks, educational tools, webtoons, podcasts, etc.)."
+          "description": "Ability to design learner-centered educational programs and plan/develop various forms of content (textbooks, educational tools, webtoons, podcasts, etc.)"
         },
         {
           "name": "Digital Education Tool Utilization & Development",
-          "description": "Ability to integrate digital technology into education, such as website building and metaverse utilization, and to implement them as practical tools."
+          "description": "Ability to integrate digital technology into education, such as website building and metaverse utilization, and to implement them as practical tools"
         },
         {
           "name": "Problem Solving & System Thinking",
-          "description": "Ability to analyze complex problems in educational settings and approach them systematically by finding sustainable solutions."
+          "description": "Ability to analyze complex problems in educational settings and approach them systematically by finding sustainable solutions"
         },
         {
           "name": "Collaboration & Communication",
-          "description": "Ability to effectively communicate and collaborate with fellow teachers, parents, and students to achieve common goals."
+          "description": "Ability to effectively communicate and collaborate with fellow teachers, parents, and students to achieve common goals"
         },
         {
           "name": "Psychological & Career Counseling",
-          "description": "Counseling competency to understand students' inner lives, provide emotional support, and explore career directions together."
+          "description": "Counseling competency to understand students' inner lives, provide emotional support, and explore career directions together"
         }
       ]
     },
@@ -31,19 +31,19 @@
       "items": [
         {
           "name": "Web Development",
-          "description": "Website building and operation skills including HTML, CSS, JavaScript (basic), Netlify deployment (utilizing AI tools like ChatGPT, Gemini, Claude)."
+          "description": "Website building and operation skills including HTML, CSS, JavaScript (basic), Netlify deployment (utilizing AI tools like ChatGPT, Gemini, Claude)"
         },
         {
           "name": "Document/Content Creation",
-          "description": "Ability to create documents and presentations using MS Office (PowerPoint, Word, Excel), Hangul, etc."
+          "description": "Ability to create documents and presentations using MS Office (PowerPoint, Word, Excel), Hangul, etc"
         },
         {
           "name": "Graphic/Design",
-          "description": "Image editing tools used for webtoon and educational tool production (programs: basic Photoshop, Illustrator operation; web service: 미리캔버스)."
+          "description": "Image editing tools used for webtoon and educational tool production (programs: basic Photoshop, Illustrator operation; web service: MiriCanvas)"
         },
         {
           "name": "Data Management",
-          "description": "Understanding of data management and utilization including experience in designing record systems (utilizing Google Sheets and Workspace)."
+          "description": "Understanding of data management and utilization including experience in designing record systems (utilizing Google Sheets and Workspace)"
         }
       ]
     },
