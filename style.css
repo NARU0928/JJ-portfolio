@@ -27,7 +27,7 @@ header {
   color: inherit;
   text-decoration: none;
   font-size: 1.5rem;
-  font-weight: normal; /* 기본 로고 폰트 굵기 */
+  font-weight: normal;
 }
 
 .logo a span {
@@ -60,32 +60,41 @@ main {
 .hero {
   background: linear-gradient(to right, #004080, #0066cc);
   color: white;
-  padding: 80px 20px;
+  padding: 60px 20px; /* 상하 여백 조정 */
   text-align: center;
-  display: flex; /* Flexbox 추가 */
-  flex-direction: column; /* 세로 정렬 */
-  align-items: center; /* 가로 가운데 정렬 */
-  justify-content: center; /* 세로 가운데 정렬 (높이가 충분할 경우) */
-  min-height: calc(100vh - 100px); /* 최소 높이 설정 (헤더 높이 고려) */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 100px); /* 최소 높이 설정 */
 }
 
 .hero h1 {
   font-size: 2rem;
   margin-bottom: 20px;
-  max-width: 100%; /* 너비 제한 */
-  word-break: keep-all; /* 단어 단위 줄 바꿈 */
-  text-align: center; /* 텍스트 가운데 정렬 */
+  max-width: 100%;
+  word-break: keep-all;
+  text-align: center;
 }
 .hero p {
   font-size: 1.1rem;
   line-height: 1.6;
-  max-width: 800px; /* 너비 제한 */
-  word-break: keep-all; /* 단어 단위 줄 바꿈 */
-  text-align: center; /* 텍스트 가운데 정렬 */
+  max-width: 800px;
+  word-break: keep-all;
+  text-align: center;
 }
+
+.button-group { /* 새로 추가 */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 30px;
+  width: 100%;
+}
+
 .hero-button {
   display: inline-block;
-  margin: 10px 10px; /* 위아래 10px, 좌우 10px */
+  margin: 10px 10px;
   padding: 10px 20px;
   background: white;
   color: #004080;
@@ -106,8 +115,8 @@ main {
   margin-bottom: 30px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
   transition: transform 0.2s ease;
-  opacity: 0; /* 초기에는 투명하게 */
-  transform: translateY(20px); /* 초기 위치 조정 */
+  opacity: 0;
+  transform: translateY(20px);
 }
 .timeline-card:hover {
   transform: scale(1.01);
@@ -260,16 +269,16 @@ footer {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  gap: 20px; /* 소개와 연락처 박스 사이의 간격을 20px로 조정 */
+  gap: 20px;
   min-width: 0;
-  margin-top: -30px; /* 전체 블록을 위로 30px 이동 */
-  margin-right: 30px; /* 오른쪽 여백 30px 추가 */
+  margin-top: -30px;
+  margin-right: 30px;
 }
 
 .about-contact-item {
   background: white;
   border-radius: 12px;
-  padding: 20px; /* 패딩 조정 */
+  padding: 20px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
   transition: transform 0.2s ease;
   width: 100%;
@@ -279,10 +288,10 @@ footer {
   transform: translateY(-2px);
 }
 
-.about-contact-item h2 { /* h3 대신 h2로 변경 */
-  margin: 0 0 10px 0; /* 제목 아래 마진 조정 */
+.about-contact-item h2 {
+  margin: 0 0 10px 0;
   color: #004080;
-  font-size: 1.5rem; /* 폰트 크기 조정 */
+  font-size: 1.5rem;
   font-weight: bold;
 }
 
@@ -476,7 +485,7 @@ footer {
 #certifications-table td {
   border: 1px solid #eee;
   padding: 12px;
-  text-align: center; /* 모든 테이블 셀 가운데 정렬 */
+  text-align: center;
   font-size: 0.95em;
 }
 
@@ -501,7 +510,7 @@ footer {
     justify-content: center;
   }
   .hero {
-    padding: 60px 20px;
+    padding: 50px 20px; /* 상하 여백 추가 조정 */
   }
   .hero h1 {
     font-size: 1.8rem;
@@ -583,7 +592,7 @@ footer {
     font-size: 0.9em;
   }
   .hero {
-    padding: 40px 15px;
+    padding: 30px 15px; /* 상하 여백 추가 조정 */
   }
   .hero h1 {
     font-size: 1.6rem;
