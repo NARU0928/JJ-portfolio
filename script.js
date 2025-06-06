@@ -2,6 +2,18 @@
 
 let currentLang = "ko";
 let timeline = [];
+let dataContent = {}; // 팝업 데이터를 저장할 변수
+
+// 새롭게 추가된 요소들
+const dataModal = document.getElementById("dataModal");
+const closeDataModalBtn = document.getElementById("closeDataModal");
+const showDataModalBtn = document.getElementById("show-data-modal");
+const dataModalTitle = document.getElementById("data-modal-title");
+const dataModalSections = document.getElementById("data-modal-sections");
+const dataModalCertifications = document.getElementById("data-modal-certifications");
+const certificationsHeading = document.getElementById("certifications-heading");
+const certificationsTableHeaders = document.getElementById("certifications-table-headers");
+const certificationsTableBody = document.getElementById("certifications-table-body");
 
 function getIconClass(url) {
   if (url.endsWith(".pdf")) return "fas fa-file-pdf";
@@ -122,6 +134,7 @@ function switchLanguage() {
   }
 
   loadTimeline(currentLang);
+  loadData(currentLang); // 추가: 팝업 데이터도 로드
   // adjustAboutContactHeight(); // 언어 전환 시 높이 조정 함수 호출 (더 이상 필요 없음)
 }
 
@@ -184,6 +197,8 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 
   loadTimeline(currentLang);
+  loadData(currentLang); // 추가: 초기 팝업 데이터 로드
+
 
   // PDF 모달
   const modal = document.getElementById("pdfModal");
@@ -207,6 +222,26 @@ window.addEventListener("DOMContentLoaded", () => {
     modal.classList.add("hidden");
   });
 
+// '데이터 팝업' 닫기 버튼
+if (closeDataModalBtn) {
+  closeDataModalBtn.addEventListener("click", () => {
+    dataModal.classList.remove("visible"); // CSS 트랜지션을 위한 클래스 제거
+    dataModal.classList.add("hidden");
+    document.body.style.overflow = "auto"; // 스크롤 복원
+  });
+}
+
+// 팝업 외부 클릭 시 닫기 (dataModal)
+if (dataModal) {
+  dataModal.addEventListener("click", (e) => {
+    if (e.target === dataModal) { // 정확히 모달 배경 클릭 시
+      dataModal.classList.remove("visible");
+      dataModal.classList.add("hidden");
+      document.body.style.overflow = "auto";
+    }
+  });
+}
+
   // Hero → 타임라인 전환
   const showBtn = document.getElementById("show-timeline");
   const timelineSection = document.getElementById("timeline");
@@ -219,6 +254,17 @@ window.addEventListener("DOMContentLoaded", () => {
       timelineSection.classList.add("fade-in");
     });
   }
+
+// '데이터로 보기' 버튼 클릭 시 팝업 열기
+if (showDataModalBtn) {
+  showDataModalBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    dataModal.classList.remove("hidden");
+    dataModal.classList.add("visible"); // CSS 트랜지션을 위한 클래스 추가
+    document.body.style.overflow = "hidden"; // 스크롤 방지
+    renderDataModal(); // 팝업 열 때마다 내용 다시 렌더링 (언어 변경 반영)
+  });
+}
 
   // 상단 로고 클릭 시 Hero 화면으로 돌아오기
   const backToHeroBtn = document.getElementById("back-to-hero");
@@ -246,3 +292,87 @@ window.addEventListener("DOMContentLoaded", () => {
   // 창 크기 변경 시 높이 조정 함수 호출
   window.addEventListener('resize', adjustAboutContactHeight);
 });
+
+
+function loadData(lang) {
+  const url = `./data/data-${lang}.json`;
+  fetch(url)
+    .then(res => {
+      if (!res.ok) {
+        throw new Error(`HTTP error! status: ${res.status}`);
+      }
+      return res.json();
+    })
+    .then(data => {
+      dataContent = data;
+      renderDataModal(); // 데이터 로드 후 팝업 내용 렌더링
+    })
+    .catch(err => console.error("❌ Data load error:", err));
+}
+
+
+function renderDataModal() {
+  if (!dataContent || Object.keys(dataContent).length === 0) {
+    console.warn("데이터가 로드되지 않았습니다.");
+    return;
+  }
+
+  dataModalTitle.textContent = dataContent.title;
+  dataModalSections.innerHTML = ""; // 기존 내용 비우기
+
+  // 각 섹션 렌더링
+  dataContent.sections.forEach(section => {
+    const sectionDiv = document.createElement("div");
+    sectionDiv.className = "data-section";
+
+    const sectionHeading = document.createElement("h3");
+    // 섹션 제목에 따른 아이콘 추가
+    let iconClass = '';
+    if (section.heading === "핵심 역량" || section.heading === "Core Competencies") {
+      iconClass = 'fas fa-lightbulb';
+    } else if (section.heading === "보유 기술" || section.heading === "Technical Skills") {
+      iconClass = 'fas fa-laptop-code';
+    } else if (section.heading === "관심 분야" || section.heading === "Areas of Interest") {
+      iconClass = 'fas fa-heart';
+    } else if (section.heading === "언어 능력" || section.heading === "Language Proficiency") {
+      iconClass = 'fas fa-language';
+    }
+    sectionHeading.innerHTML = `<i class="${iconClass}"></i> ${section.heading}`;
+    sectionDiv.appendChild(sectionHeading);
+
+    const ul = document.createElement("ul");
+    section.items.forEach(item => {
+      const li = document.createElement("li");
+      li.innerHTML = `<strong>${item.name}</strong>`;
+      if (item.description) {
+        li.innerHTML += `<p>${item.description}</p>`;
+      }
+      ul.appendChild(li);
+    });
+    sectionDiv.appendChild(ul);
+    dataModalSections.appendChild(sectionDiv);
+  });
+
+  // 자격증 테이블 렌더링
+  certificationsHeading.textContent = dataContent.certifications.heading;
+  certificationsTableHeaders.innerHTML = ""; // 기존 헤더 비우기
+  certificationsTableBody.innerHTML = ""; // 기존 바디 비우기
+
+  // 테이블 헤더 생성
+  dataContent.certifications.table.headers.forEach(header => {
+    const th = document.createElement("th");
+    th.textContent = header;
+    certificationsTableHeaders.appendChild(th);
+  });
+
+  // 테이블 행 생성
+  dataContent.certifications.table.rows.forEach(row => {
+    const tr = document.createElement("tr");
+    row.forEach(cellData => {
+      const td = document.createElement("td");
+      td.textContent = cellData;
+      tr.appendChild(td);
+    });
+    certificationsTableBody.appendChild(tr);
+  });
+}

@@ -372,3 +372,205 @@ footer {
     padding: 20px;
   }
 }
+
+
+/* Hero 섹션 버튼 간 간격 조정 */
+.hero .hero-button {
+  margin: 10px 10px; /* 위아래 10px, 좌우 10px */
+}
+
+/* 데이터 팝업 스타일 */
+.data-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0; /* 초기에는 투명하게 */
+  visibility: hidden; /* 초기에는 숨김 */
+  transition: opacity 0.3s ease, visibility 0.3s ease; /* 부드러운 전환 효과 */
+}
+
+.data-modal.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.data-content {
+  position: relative;
+  background: white;
+  border-radius: 8px;
+  padding: 30px;
+  width: 90%; /* 모달 너비 */
+  max-width: 800px; /* 최대 너비 */
+  max-height: 90%; /* 최대 높이 */
+  overflow-y: auto; /* 내용이 넘칠 경우 스크롤바 */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transform: translateY(20px); /* 초기 위치 조정 */
+  transition: transform 0.3s ease; /* 나타날 때 부드러운 효과 */
+}
+
+.data-modal.visible .data-content {
+  transform: translateY(0);
+}
+
+.close-data-modal {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #004080;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 12px;
+  font-size: 18px;
+  cursor: pointer;
+  z-index: 1001; /* 닫기 버튼이 항상 위에 있도록 */
+}
+
+.close-data-modal:hover {
+  background-color: #0056b3;
+}
+
+.data-modal h2 {
+  color: #004080;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 30px;
+  font-size: 2em;
+}
+
+.data-section {
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 1px dashed #eee;
+}
+
+.data-section:last-of-type {
+  border-bottom: none; /* 마지막 섹션은 줄 없음 */
+}
+
+.data-section h3 {
+  color: #004080;
+  font-size: 1.4em;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px; /* 아이콘과 텍스트 간 간격 */
+}
+
+.data-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.data-section ul li {
+  background: #f9f9f9;
+  padding: 12px 15px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  line-height: 1.5;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.data-section ul li strong {
+  color: #0056b3;
+}
+
+.data-section ul li p {
+  font-size: 0.9em;
+  color: #555;
+  margin-top: 5px;
+  margin-bottom: 0;
+}
+
+/* 자격증 테이블 스타일 */
+#data-modal-certifications {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+}
+
+#data-modal-certifications h3 {
+  color: #004080;
+  font-size: 1.4em;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.certification-table-container {
+  overflow-x: auto; /* 테이블 내용이 넘칠 경우 스크롤 */
+}
+
+#certifications-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+#certifications-table th,
+#certifications-table td {
+  border: 1px solid #eee;
+  padding: 12px;
+  text-align: left;
+  font-size: 0.95em;
+}
+
+#certifications-table th {
+  background-color: #e6f0ff;
+  color: #004080;
+  font-weight: bold;
+}
+
+#certifications-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* 모바일 반응형 */
+@media (max-width: 768px) {
+  .data-content {
+    width: 95%;
+    padding: 20px;
+  }
+
+  .data-modal h2 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+  }
+
+  .data-section h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+  }
+
+  .data-section ul li {
+    padding: 10px 12px;
+    font-size: 0.9em;
+  }
+
+  #certifications-table th,
+  #certifications-table td {
+    padding: 8px;
+    font-size: 0.85em;
+  }
+}
+
+@media (max-width: 480px) {
+  .data-content {
+    padding: 15px;
+  }
+
+  .data-modal h2 {
+    font-size: 1.6em;
+  }
+
+  .data-section h3 {
+    font-size: 1.1em;
+  }
+}
