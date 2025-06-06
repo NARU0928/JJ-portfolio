@@ -583,7 +583,7 @@ footer {
     padding: 15px 10px;
   }
   .navbar .logo a {
-    font-size: 1.3rem;
+    font-size: 1.8rem;
   }
   nav ul {
     gap: 10px;
@@ -593,9 +593,6 @@ footer {
   }
   .hero {
     padding: 30px 15px; /* 상하 여백 추가 조정 */
-  }
-  .logo a {
-    font-size: 1.8rem; /* 모바일에서도 큼직하게 유지 */
   }
   .hero h1 {
     font-size: 1.6rem;
