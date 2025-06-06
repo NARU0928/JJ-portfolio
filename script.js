@@ -116,7 +116,7 @@ function switchLanguage() {
     }
 
     // '데이터로 보기' 버튼 텍스트 변경
-    if (showDataModalBtn) { // showDataModalBtn이 선언되어 있는지 확인
+    if (showDataModalBtn) {
         showDataModalBtn.innerHTML = currentLang === "ko"
             ? "데이터로 보기 <i class='fas fa-database'></i>"
             : "View Data <i class='fas fa-database'></i>";
@@ -291,8 +291,7 @@ window.addEventListener("DOMContentLoaded", () => {
   window.addEventListener('resize', adjustAboutContactHeight);
 });
 
-
-// 팝업 데이터 로드 함수 (중복 제거 후 최종 버전)
+// 팝업 데이터 로드 함수
 function loadData(lang) {
   const url = `./data/data-${lang}.json`;
   fetch(url)
@@ -309,7 +308,7 @@ function loadData(lang) {
     .catch(err => console.error("❌ Data load error:", err));
 }
 
-// 팝업 내용 렌더링 함수 (중복 제거 후 최종 버전)
+// 팝업 내용 렌더링 함수
 function renderDataModal() {
   if (!dataContent || Object.keys(dataContent).length === 0) {
     console.warn("데이터가 로드되지 않았습니다.");
@@ -319,57 +318,57 @@ function renderDataModal() {
   dataModalTitle.textContent = dataContent.title;
   dataModalSections.innerHTML = ""; // 기존 내용 비우기
 
- // 각 섹션 렌더링
-dataContent.sections.forEach(section => {
-  const sectionDiv = document.createElement("div");
-  sectionDiv.className = "data-section";
+  // 각 섹션 렌더링
+  dataContent.sections.forEach(section => {
+    const sectionDiv = document.createElement("div");
+    sectionDiv.className = "data-section";
 
-  const sectionHeading = document.createElement("h3");
-  // 섹션 제목에 따른 아이콘 추가
-  let iconClass = '';
-  if (section.heading === "핵심 역량" || section.heading === "Core Competencies") {
-    iconClass = 'fas fa-lightbulb';
-  } else if (section.heading === "보유 기술" || section.heading === "Technical Skills") {
-    iconClass = 'fas fa-laptop-code';
-  } else if (section.heading === "관심 분야" || section.heading === "Areas of Interest") {
-    iconClass = 'fas fa-heart';
-  } else if (section.heading === "언어 능력" || section.heading === "Language Proficiency") {
-    iconClass = 'fas fa-language';
-  }
-  sectionHeading.innerHTML = `<i class="${iconClass}"></i> ${section.heading}`;
-  sectionDiv.appendChild(sectionHeading);
+    const sectionHeading = document.createElement("h3");
+    // 섹션 제목에 따른 아이콘 추가
+    let iconClass = '';
+    if (section.heading === "핵심 역량" || section.heading === "Core Competencies") {
+      iconClass = 'fas fa-lightbulb';
+    } else if (section.heading === "보유 기술" || section.heading === "Technical Skills") {
+      iconClass = 'fas fa-laptop-code';
+    } else if (section.heading === "관심 분야" || section.heading === "Areas of Interest") {
+      iconClass = 'fas fa-heart';
+    } else if (section.heading === "언어 능력" || section.heading === "Language Proficiency") {
+      iconClass = 'fas fa-language';
+    }
+    sectionHeading.innerHTML = `<i class="${iconClass}"></i> ${section.heading}`;
+    sectionDiv.appendChild(sectionHeading);
 
-  // 관심 분야와 언어 능력 섹션은 다른 형태로 렌더링 (가로 배치 박스)
-  if (section.heading === "관심 분야" || section.heading === "Areas of Interest" ||
-      section.heading === "언어 능력" || section.heading === "Language Proficiency") {
-    const itemContainer = document.createElement("div");
-    itemContainer.className = "data-item-tags"; // 새로운 CSS 클래스
+    // 관심 분야와 언어 능력 섹션은 다른 형태로 렌더링 (가로 배치 박스)
+    if (section.heading === "관심 분야" || section.heading === "Areas of Interest" ||
+        section.heading === "언어 능력" || section.heading === "Language Proficiency") {
+      const itemContainer = document.createElement("div");
+      itemContainer.className = "data-item-tags"; // 새로운 CSS 클래스
 
-    section.items.forEach(item => {
-      const tagSpan = document.createElement("span");
-      tagSpan.className = "data-tag"; // 새로운 CSS 클래스
-      tagSpan.innerHTML = `<strong>${item.name}</strong>`;
-      if (item.description) {
-        tagSpan.innerHTML += `<br><small>${item.description}</small>`; // 작은 글씨로 설명 추가
-      }
-      itemContainer.appendChild(tagSpan);
-    });
-    sectionDiv.appendChild(itemContainer);
-  } else {
-    // 기존 세로 목록 렌더링
-    const ul = document.createElement("ul");
-    section.items.forEach(item => {
-      const li = document.createElement("li");
-      li.innerHTML = `<strong>${item.name}</strong>`;
-      if (item.description) {
-        li.innerHTML += `<p>${item.description}</p>`;
-      }
-      ul.appendChild(li);
-    });
-    sectionDiv.appendChild(ul);
-  }
-  dataModalSections.appendChild(sectionDiv);
-});
+      section.items.forEach(item => {
+        const tagSpan = document.createElement("span");
+        tagSpan.className = "data-tag"; // 새로운 CSS 클래스
+        tagSpan.innerHTML = `<strong>${item.name}</strong>`;
+        if (item.description) {
+          tagSpan.innerHTML += `<br><small>${item.description}</small>`; // 작은 글씨로 설명 추가
+        }
+        itemContainer.appendChild(tagSpan);
+      });
+      sectionDiv.appendChild(itemContainer);
+    } else {
+      // 기존 세로 목록 렌더링
+      const ul = document.createElement("ul");
+      section.items.forEach(item => {
+        const li = document.createElement("li");
+        li.innerHTML = `<strong>${item.name}</strong>`;
+        if (item.description) {
+          li.innerHTML += `<p>${item.description}</p>`;
+        }
+        ul.appendChild(li);
+      });
+      sectionDiv.appendChild(ul);
+    }
+    dataModalSections.appendChild(sectionDiv);
+  });
 
   // 자격증 테이블 렌더링
   certificationsHeading.textContent = dataContent.certifications.heading;

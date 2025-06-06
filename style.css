@@ -1,9 +1,3 @@
-.logo-en {
-  font-size: 0.9em;
-  color: #ddd;
-  font-weight: normal;
-}
-
 body {
   font-family: "Noto Sans KR", sans-serif;
   background: #fafafa;
@@ -20,6 +14,26 @@ header {
   text-align: center;
 }
 
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.logo a {
+  color: inherit;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: normal; /* 기본 로고 폰트 굵기 */
+}
+
+.logo a span {
+  font-weight: bold;
+}
+
 nav ul {
   list-style: none;
   padding: 0;
@@ -32,12 +46,57 @@ nav ul li a {
   color: white;
   text-decoration: none;
   font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
 main {
   max-width: 900px;
   margin: 40px auto;
   padding: 0 20px;
+}
+
+.hero {
+  background: linear-gradient(to right, #004080, #0066cc);
+  color: white;
+  padding: 80px 20px;
+  text-align: center;
+  display: flex; /* Flexbox 추가 */
+  flex-direction: column; /* 세로 정렬 */
+  align-items: center; /* 가로 가운데 정렬 */
+  justify-content: center; /* 세로 가운데 정렬 (높이가 충분할 경우) */
+  min-height: calc(100vh - 100px); /* 최소 높이 설정 (헤더 높이 고려) */
+}
+
+.hero h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  max-width: 100%; /* 너비 제한 */
+  word-break: keep-all; /* 단어 단위 줄 바꿈 */
+  text-align: center; /* 텍스트 가운데 정렬 */
+}
+.hero p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 800px; /* 너비 제한 */
+  word-break: keep-all; /* 단어 단위 줄 바꿈 */
+  text-align: center; /* 텍스트 가운데 정렬 */
+}
+.hero-button {
+  display: inline-block;
+  margin: 10px 10px; /* 위아래 10px, 좌우 10px */
+  padding: 10px 20px;
+  background: white;
+  color: #004080;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+.hero-button:hover {
+  background-color: #e6f0ff;
+  transform: translateY(-2px);
 }
 
 .timeline-card {
@@ -47,33 +106,23 @@ main {
   margin-bottom: 30px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
   transition: transform 0.2s ease;
+  opacity: 0; /* 초기에는 투명하게 */
+  transform: translateY(20px); /* 초기 위치 조정 */
 }
-
 .timeline-card:hover {
   transform: scale(1.01);
 }
+.timeline-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
-/* 기존 timeline-card h3 스타일 수정 */
 .timeline-card h3 {
   margin: 0 0 10px;
   color: #004080;
-  /* 기본적으로 줄 바꿈 허용 */
   white-space: normal;
-  word-break: keep-all; /* 단어 단위로 줄 바꿈 */
-  font-size: 1.2rem; /* 기본 폰트 크기 조정 */
-}
-
-/* 모바일 환경에서 제목 폰트 크기 및 줄 바꿈 제어 */
-@media (max-width: 768px) {
-  .timeline-card h3 {
-    font-size: 1.1rem; /* 모바일에서 폰트 크기 약간 줄임 */
-  }
-}
-
-@media (max-width: 480px) {
-  .timeline-card h3 {
-    font-size: 1rem; /* 더 작은 화면에서 폰트 크기 더 줄임 */
-  }
+  word-break: keep-all;
+  font-size: 1.2rem;
 }
 
 .timeline-links {
@@ -96,11 +145,10 @@ main {
   background-color: #d2e6ff;
 }
 
-/* section 마진 조정 */
 section {
   max-width: 900px;
-  margin: 40px auto; /* 간격 조정 */
-  padding: 0 20px; /* 섹션의 좌우 패딩을 20px로 설정 */
+  margin: 40px auto;
+  padding: 0 20px;
 }
 
 footer {
@@ -109,41 +157,6 @@ footer {
   font-size: 13px;
   background: #eee;
   color: #666;
-}
-
-.hero {
-  background: linear-gradient(to right, #004080, #0066cc);
-  color: white;
-  padding: 80px 20px;
-  text-align: center;
-}
-.hero h1 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-}
-.hero p {
-  font-size: 1.1rem;
-  line-height: 1.6;
-}
-.hero-button {
-  display: inline-block;
-  margin-top: 30px;
-  padding: 10px 20px;
-  background: white;
-  color: #004080;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.timeline-card {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.6s ease;
-}
-.timeline-card.visible {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .hidden {
@@ -205,47 +218,29 @@ footer {
   cursor: pointer;
 }
 
-.logo a {
-  color: inherit; /* 부모 요소(h1)의 색상 상속 */
-  text-decoration: none; /* 밑줄 제거 */
-}
-
-.logo a span {
-  font-weight: bold; /* '인생 포트폴리오' / 'Life Portfolio' 부분만 굵게 */
-}
-
-/* 로고 링크 밑줄 제거 */
-.logo a {
-  text-decoration: none;
-  color: inherit; /* 부모 색상 상속 */
-}
-
-/* 기본적으로 mobile-break는 숨김 */
+/* 모바일 줄바꿈 */
 .mobile-break {
   display: none;
 }
-
-/* 특정 모바일 화면 크기에서만 mobile-break 보이게 함 */
-@media (max-width: 480px) { /* 스마트폰 세로 모드 기준 (필요시 768px 등으로 조정) */
+@media (max-width: 480px) {
   .mobile-break {
-    display: initial; /* 또는 display: block; */
+    display: initial;
   }
 }
 
-/* 소개 & 연락처 섹션 전체 컨테이너 */
+/* 소개 & 연락처 섹션 */
 .about-contact-container {
-  display: flex; /* Flexbox 사용 */
+  display: flex;
   gap: 30px;
   max-width: 900px;
   margin: 60px auto;
-  padding: 0 20px; /* 섹션의 패딩을 따르도록 0으로 설정 */
-  align-items: flex-start; /* 아이템들을 상단에 정렬 */
+  padding: 0 20px;
+  align-items: flex-start;
 }
 
-/* 캐릭터 이미지 박스 */
 .character-image-box {
-  width: 280px; /* 고정 너비 */
-  flex-shrink: 0; /* 축소 방지 */
+  width: 280px;
+  flex-shrink: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -261,47 +256,42 @@ footer {
   border-radius: 8px;
 }
 
-/* 오른쪽 콘텐츠 영역 */
 .about-contact-content {
-  flex-grow: 1; /* 남은 공간을 모두 차지 */
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
-  gap: 0px; /* 소개와 연락처 박스 사이의 간격을 0px로 조정 */
-  min-width: 0; /* flexbox 오버플로우 방지 */
-  margin-top: -30px; /* 전체 블록을 위로 30px (약 3cm) 이동 */
-  margin-right: 30px; /* 오른쪽 여백 30px 추가 (약 3cm) */
+  gap: 20px; /* 소개와 연락처 박스 사이의 간격을 20px로 조정 */
+  min-width: 0;
+  margin-top: -30px; /* 전체 블록을 위로 30px 이동 */
+  margin-right: 30px; /* 오른쪽 여백 30px 추가 */
 }
 
-/* 소개, 연락처 개별 박스 */
 .about-contact-item {
   background: white;
   border-radius: 12px;
-  padding: 8px 20px; /* padding-top/bottom을 8px로 유지 */
+  padding: 20px; /* 패딩 조정 */
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
   transition: transform 0.2s ease;
-  width: 100%; /* 박스 너비를 100%로 설정하여 동일하게 만듦 */
+  width: 100%;
 }
 
 .about-contact-item:hover {
   transform: translateY(-2px);
 }
 
-/* 소개, 연락처 제목 스타일 */
-.about-contact-item h3 {
-  margin: 0 0 3px 0; /* 제목 아래 마진을 3px로 유지 */
+.about-contact-item h2 { /* h3 대신 h2로 변경 */
+  margin: 0 0 10px 0; /* 제목 아래 마진 조정 */
   color: #004080;
-  font-size: 1.3rem;
+  font-size: 1.5rem; /* 폰트 크기 조정 */
   font-weight: bold;
 }
 
-/* 소개, 연락처 내용 스타일 */
 .about-contact-item p {
   margin: 0;
   line-height: 1.6;
   color: #333;
 }
 
-/* 이메일 링크 스타일 */
 .about-contact-item a {
   color: #004080;
   text-decoration: none;
@@ -312,73 +302,136 @@ footer {
   text-decoration: underline;
 }
 
-/* 모바일 환경에서 레이아웃 조정 */
-@media (max-width: 768px) {
-  .about-contact-container {
-    flex-direction: column; /* 모바일에서는 세로로 변경 */
-    align-items: stretch; /* 자식 요소들이 가로 공간을 채우도록 변경 */
-    gap: 40px;
-    padding: 0 20px; /* 모바일에서 about-contact-container의 좌우 패딩을 20px로 설정 */
-  }
-
-  .character-image-box {
-    width: 100%; /* 부모 컨테이너의 100% 너비를 차지 */
-    max-width: none; /* max-width 제한 제거 */
-    height: auto; /* 모바일에서는 높이 자동 조절 */
-    padding: 20px; /* 이미지 박스 내부 패딩을 20px로 설정 */
-    box-sizing: border-box; /* 패딩이 너비에 포함되도록 설정 */
-  }
-
-  .about-contact-content {
-    width: 100%; /* 부모 컨테이너의 100% 너비를 차지 */
-    margin-top: 0; /* 모바일에서는 음수 마진 제거 */
-    margin-right: 0; /* 모바일에서는 오른쪽 마진 제거 */
-    box-sizing: border-box; /* 패딩이 너비에 포함되도록 설정 */
-  }
-
-  /* .about-contact-item의 패딩을 모바일에서도 일관성 있게 유지 */
-  .about-contact-item {
-    padding: 20px; /* 모바일에서 패딩을 20px로 유지 */
-    box-sizing: border-box; /* 패딩이 너비에 포함되도록 설정 */
-  }
+/* 데이터 팝업 스타일 */
+.data-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-/* 더 작은 모바일 화면 (480px 이하) */
-@media (max-width: 480px) {
-  .about-contact-container {
-    padding: 0 20px; /* 더 작은 화면에서도 about-contact-container의 좌우 패딩을 20px로 설정 */
-    gap: 30px;
-  }
-  
-  .character-image-box {
-    padding: 20px;
-  }
-  
-  .about-contact-item {
-    padding: 20px;
-  }
+.data-modal.visible {
+  opacity: 1;
+  visibility: visible;
 }
 
-/* '관심 분야'와 '언어 능력' 섹션을 위한 새로운 스타일 (가로 배치 박스) */
+.data-content {
+  position: relative;
+  background: white;
+  border-radius: 8px;
+  padding: 30px;
+  width: 90%;
+  max-width: 800px;
+  max-height: 90%;
+  overflow-y: auto;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
+}
+
+.data-modal.visible .data-content {
+  transform: translateY(0);
+}
+
+.close-data-modal {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #004080;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 12px;
+  font-size: 18px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.close-data-modal:hover {
+  background-color: #0056b3;
+}
+
+.data-modal h2 {
+  color: #004080;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 30px;
+  font-size: 2em;
+}
+
+.data-section {
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 1px dashed #eee;
+}
+
+.data-section:last-of-type {
+  border-bottom: none;
+}
+
+.data-section h3 {
+  color: #004080;
+  font-size: 1.4em;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.data-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.data-section ul li {
+  background: #f9f9f9;
+  padding: 12px 15px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  line-height: 1.5;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.data-section ul li strong {
+  color: #0056b3;
+}
+
+.data-section ul li p {
+  font-size: 0.9em;
+  color: #555;
+  margin-top: 5px;
+  margin-bottom: 0;
+}
+
 .data-item-tags {
   display: flex;
-  flex-wrap: wrap; /* 여러 줄로 감싸기 */
-  gap: 10px; /* 태그 간 간격 */
-  justify-content: flex-start; /* 왼쪽부터 정렬 */
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-start;
 }
 
 .data-tag {
-  background: #e6f0ff; /* 박스 배경색 */
-  color: #004080; /* 텍스트 색상 */
+  background: #e6f0ff;
+  color: #004080;
   padding: 8px 15px;
-  border-radius: 20px; /* 둥근 모서리 */
+  border-radius: 20px;
   font-size: 0.95em;
   font-weight: bold;
   box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-  white-space: nowrap; /* 내용이 한 줄에 표시되도록 */
+  white-space: nowrap;
   display: flex;
-  flex-direction: column; /* 내용을 세로로 정렬 */
-  align-items: center; /* 가운데 정렬 */
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
   text-align: center;
   transition: background-color 0.2s ease;
@@ -392,7 +445,7 @@ footer {
   font-weight: normal;
   color: #555;
   margin-top: 3px;
-  font-size: 0.8em; /* 설명 텍스트 크기 */
+  font-size: 0.8em;
 }
 
 /* 자격증 테이블 스타일 */
@@ -410,7 +463,7 @@ footer {
 }
 
 .certification-table-container {
-  overflow-x: auto; /* 테이블 내용이 넘칠 경우 스크롤 */
+  overflow-x: auto;
 }
 
 #certifications-table {
@@ -439,39 +492,76 @@ footer {
 
 /* 모바일 반응형 */
 @media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .navbar nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .hero {
+    padding: 60px 20px;
+  }
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+  .about-contact-container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 40px;
+    padding: 0 20px;
+  }
+  .character-image-box {
+    width: 100%;
+    max-width: none;
+    height: auto;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  .about-contact-content {
+    width: 100%;
+    margin-top: 0;
+    margin-right: 0;
+    box-sizing: border-box;
+  }
+  .about-contact-item {
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  .about-contact-item h2 {
+    font-size: 1.3rem;
+  }
+
   .data-content {
     width: 95%;
     padding: 20px;
   }
-
   .data-modal h2 {
     font-size: 1.8em;
     margin-bottom: 20px;
   }
-
   .data-section h3 {
     font-size: 1.2em;
     margin-bottom: 10px;
   }
-
   .data-section ul li {
     padding: 10px 12px;
     font-size: 0.9em;
   }
-
   .data-item-tags {
-    gap: 8px; /* 모바일에서 태그 간 간격 줄임 */
+    gap: 8px;
   }
-
   .data-tag {
     padding: 6px 12px;
     font-size: 0.85em;
   }
-
   .data-tag small {
     font-size: 0.75em;
   }
-
   #certifications-table th,
   #certifications-table td {
     padding: 8px;
@@ -480,18 +570,54 @@ footer {
 }
 
 @media (max-width: 480px) {
+  .navbar {
+    padding: 15px 10px;
+  }
+  .navbar .logo a {
+    font-size: 1.3rem;
+  }
+  nav ul {
+    gap: 10px;
+  }
+  nav ul li a {
+    font-size: 0.9em;
+  }
+  .hero {
+    padding: 40px 15px;
+  }
+  .hero h1 {
+    font-size: 1.6rem;
+  }
+  .hero p {
+    font-size: 0.9em;
+  }
+  .hero-button {
+    padding: 8px 15px;
+    font-size: 0.9em;
+  }
+  .about-contact-container {
+    padding: 0 15px;
+    gap: 30px;
+  }
+  .character-image-box {
+    padding: 15px;
+  }
+  .about-contact-item {
+    padding: 15px;
+  }
+  .about-contact-item h2 {
+    font-size: 1.2rem;
+  }
   .data-content {
     padding: 15px;
   }
-
   .data-modal h2 {
     font-size: 1.6em;
   }
-
   .data-section h3 {
     font-size: 1.1em;
   }
   .data-item-tags {
-    justify-content: center; /* 모바일에서 중앙 정렬 */
+    justify-content: center;
   }
 }
