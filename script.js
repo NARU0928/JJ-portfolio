@@ -112,6 +112,12 @@ function switchLanguage() {
     hero.querySelector("a").innerHTML = currentLang === "ko"
       ? "이야기 보기 <i class='fas fa-arrow-down'></i>"
       : "View My Story <i class='fas fa-arrow-down'></i>";
+    // '데이터로 보기' 버튼 텍스트 변경
+const showDataModalButton = document.getElementById("show-data-modal");
+if (showDataModalButton) {
+    showDataModalButton.innerHTML = currentLang === "ko"
+        ? "데이터로 보기 <i class='fas fa-database'></i>"
+        : "View Data <i class='fas fa-database'></i>";
   }
 
   // 소개/연락처
@@ -320,26 +326,44 @@ function renderDataModal() {
   dataModalTitle.textContent = dataContent.title;
   dataModalSections.innerHTML = ""; // 기존 내용 비우기
 
-  // 각 섹션 렌더링
-  dataContent.sections.forEach(section => {
-    const sectionDiv = document.createElement("div");
-    sectionDiv.className = "data-section";
+ // 각 섹션 렌더링
+dataContent.sections.forEach(section => {
+  const sectionDiv = document.createElement("div");
+  sectionDiv.className = "data-section";
 
-    const sectionHeading = document.createElement("h3");
-    // 섹션 제목에 따른 아이콘 추가
-    let iconClass = '';
-    if (section.heading === "핵심 역량" || section.heading === "Core Competencies") {
-      iconClass = 'fas fa-lightbulb';
-    } else if (section.heading === "보유 기술" || section.heading === "Technical Skills") {
-      iconClass = 'fas fa-laptop-code';
-    } else if (section.heading === "관심 분야" || section.heading === "Areas of Interest") {
-      iconClass = 'fas fa-heart';
-    } else if (section.heading === "언어 능력" || section.heading === "Language Proficiency") {
-      iconClass = 'fas fa-language';
-    }
-    sectionHeading.innerHTML = `<i class="${iconClass}"></i> ${section.heading}`;
-    sectionDiv.appendChild(sectionHeading);
+  const sectionHeading = document.createElement("h3");
+  // 섹션 제목에 따른 아이콘 추가
+  let iconClass = '';
+  if (section.heading === "핵심 역량" || section.heading === "Core Competencies") {
+    iconClass = 'fas fa-lightbulb';
+  } else if (section.heading === "보유 기술" || section.heading === "Technical Skills") {
+    iconClass = 'fas fa-laptop-code';
+  } else if (section.heading === "관심 분야" || section.heading === "Areas of Interest") {
+    iconClass = 'fas fa-heart';
+  } else if (section.heading === "언어 능력" || section.heading === "Language Proficiency") {
+    iconClass = 'fas fa-language';
+  }
+  sectionHeading.innerHTML = `<i class="${iconClass}"></i> ${section.heading}`;
+  sectionDiv.appendChild(sectionHeading);
 
+  // 관심 분야와 언어 능력 섹션은 다른 형태로 렌더링 (가로 배치 박스)
+  if (section.heading === "관심 분야" || section.heading === "Areas of Interest" ||
+      section.heading === "언어 능력" || section.heading === "Language Proficiency") {
+    const itemContainer = document.createElement("div");
+    itemContainer.className = "data-item-tags"; // 새로운 CSS 클래스
+
+    section.items.forEach(item => {
+      const tagSpan = document.createElement("span");
+      tagSpan.className = "data-tag"; // 새로운 CSS 클래스
+      tagSpan.innerHTML = `<strong>${item.name}</strong>`;
+      if (item.description) {
+        tagSpan.innerHTML += `<br><small>${item.description}</small>`; // 작은 글씨로 설명 추가
+      }
+      itemContainer.appendChild(tagSpan);
+    });
+    sectionDiv.appendChild(itemContainer);
+  } else {
+    // 기존 세로 목록 렌더링
     const ul = document.createElement("ul");
     section.items.forEach(item => {
       const li = document.createElement("li");
@@ -350,8 +374,9 @@ function renderDataModal() {
       ul.appendChild(li);
     });
     sectionDiv.appendChild(ul);
-    dataModalSections.appendChild(sectionDiv);
-  });
+  }
+  dataModalSections.appendChild(sectionDiv);
+});
 
   // 자격증 테이블 렌더링
   certificationsHeading.textContent = dataContent.certifications.heading;

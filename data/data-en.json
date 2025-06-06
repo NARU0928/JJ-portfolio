@@ -81,22 +81,22 @@
       ]
     }
   ],
-  "certifications": {
-    "heading": "Certifications (Total 9)",
-    "table": {
-      "headers": ["Certification Name", "Acquisition Date", "Issuing Authority"],
-      "rows": [
-        ["Clinical Psychologist Level 2", "2023.09", "Human Resources Development Service of Korea"],
-        ["Web Design Technician", "2022.06", "Human Resources Development Service of Korea"],
-        ["Slow Learner (Borderline) Cognitive Learning Counselor Level 2", "2022.06", "Daekyo"],
-        ["Youth Counselor Level 2", "2014.02", "Human Resources Development Service of Korea"],
-        ["Career Counselor Level 2", "2012.11", "Human Resources Development Service of Korea"],
-        ["Secondary School Teacher Level 2 (Korean Language)", "2010.02", "Ministry of Education & Human Resources Development"],
-        ["Secondary School Teacher Level 2 (Ethics)", "2010.02", "Ministry of Education & Human Resources Development"],
-        ["Word Processor Level 1", "2005.02", "Korea Chamber of Commerce and Industry"],
-        ["Chinese Character Proficiency Test Level 2", "2008.09", "Chinese Character Education Promotion Association"],
-        ["Driver's License Class 1 Ordinary", "2008.01", "National Police Agency (Driver's License Examination Management Agency)"]
-      ]
+ "certifications": {
+  "heading": "Certifications (Total 10)",
+  "table": {
+    "headers": ["Certification Name", "Acquisition Date", "Issuing Authority"],
+    "rows": [
+      ["Clinical Psychologist Level 2", "2023.09", "Human Resources Development Service of Korea"],
+      ["Web Design Technician", "2022.06", "Human Resources Development Service of Korea"],
+      ["Slow Learner (Borderline) Cognitive Learning Counselor Level 2", "2022.06", "Daekyo"],
+      ["Youth Counselor Level 2", "2014.02", "Human Resources Development Service of Korea"],
+      ["Career Counselor Level 2", "2012.11", "Human Resources Development Service of Korea"],
+      ["Secondary School Teacher Level 2 (Korean Language)", "2010.02", "Ministry of Education & Human Resources Development"],
+      ["Secondary School Teacher Level 2 (Ethics)", "2010.02", "Ministry of Education & Human Resources Development"],
+      ["Word Processor Level 1", "2005.02", "Korea Chamber of Commerce and Industry"],
+      ["Chinese Character Proficiency Test Level 2", "2008.09", "Chinese Character Education Promotion Association"],
+      ["Driver's License Class 1 Ordinary", "2008.01", "National Police Agency (Driver's License Examination Management Agency)"]
+    ]
     }
   }
 }
