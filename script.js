@@ -282,16 +282,16 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 
   // 상단 로고 클릭 시 Hero 화면으로 돌아오기
-  const backToHeroBtn = document.getElementById("back-to-hero");
-  if (backToHeroBtn && hero && timelineSection) {
-    backToHeroBtn.addEventListener("click", (e) => {
-      e.preventDefault();
-      hero.style.display = "block";
-      timelineSection.classList.add("hidden");
-      timelineSection.classList.remove("fade-in");
-      window.scrollTo(0, 0);
-    });
-  }
+ const backToHeroBtn = document.getElementById("back-to-hero");
+if (backToHeroBtn && hero && timelineSection) {
+  backToHeroBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    hero.classList.remove("hidden");          // ✅ 이 부분으로 교체
+    timelineSection.classList.add("hidden");
+    timelineSection.classList.remove("fade-in");
+    window.scrollTo(0, 0);
+  });
+}
 
   // 언어 전환 버튼
   const langToggle = document.getElementById("toggle-lang");
