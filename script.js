@@ -7,7 +7,7 @@ let dataContent = {}; // 팝업 데이터를 저장할 변수
 // 새롭게 추가된 요소들
 const dataModal = document.getElementById("dataModal");
 const closeDataModalBtn = document.getElementById("closeDataModal");
-const showDataModalBtn = document.getElementById("show-data-modal");
+const showDataModalBtn = document.getElementById("show-data-modal"); // '데이터로 보기' 버튼
 const dataModalTitle = document.getElementById("data-modal-title");
 const dataModalSections = document.getElementById("data-modal-sections");
 const dataModalCertifications = document.getElementById("data-modal-certifications");
@@ -89,8 +89,7 @@ const observer = new IntersectionObserver((entries) => {
 function switchLanguage() {
   currentLang = currentLang === "ko" ? "en" : "ko";
 
-  // 상단 버튼 텍스트
-  const langToggle = document.getElementById("toggle-lang");
+  // 상단 언어 전환 버튼 텍스트
   document.getElementById("lang-label").textContent = currentLang === "ko" ? "English" : "한국어";
 
   // 메뉴 이름 바꾸기
@@ -101,23 +100,27 @@ function switchLanguage() {
   // Hero 텍스트
   const hero = document.getElementById("hero");
   if (hero) {
-    // <h1> 태그 텍스트 조정: 모바일에서 줄바꿈을 CSS로 제어합니다.
     hero.querySelector("h1").innerHTML = currentLang === "ko"
-      ? "교사가 아닌, <br class='mobile-break'><strong>삶의 설계자</strong>로<br class='mobile-break'>살고 있습니다." // 쉼표 뒤 띄어쓰기 추가
+      ? "교사가 아닌, <br class='mobile-break'><strong>삶의 설계자</strong>로<br class='mobile-break'>살고 있습니다."
       : "Not just a teacher, but a designer of life.";
     hero.querySelector("p").innerHTML = currentLang === "ko"
       ? "교육은 말보다 <strong>사람</strong>이 먼저였고,<br>기록보다 <strong>만남</strong>이 먼저였습니다.<br>이 이야기는 단지 이력서가 아니라,<br>한 사람의 <strong>길</strong>에 대한 기록입니다."
       : "My education has always put people before words, and encounters before records.<br>This is not just a resume, but a record of a life.";
-    // '나의 이야기 보기'를 '이야기 보기'로 변경
-    hero.querySelector("a").innerHTML = currentLang === "ko"
-      ? "이야기 보기 <i class='fas fa-arrow-down'></i>"
-      : "View My Story <i class='fas fa-arrow-down'></i>";
+    
+    // '이야기 보기' 버튼 텍스트 변경
+    const showTimelineButton = document.getElementById("show-timeline");
+    if (showTimelineButton) {
+        showTimelineButton.innerHTML = currentLang === "ko"
+            ? "이야기 보기 <i class='fas fa-arrow-down'></i>"
+            : "View My Story <i class='fas fa-arrow-down'></i>";
+    }
+
     // '데이터로 보기' 버튼 텍스트 변경
-const showDataModalButton = document.getElementById("show-data-modal");
-if (showDataModalButton) {
-    showDataModalButton.innerHTML = currentLang === "ko"
-        ? "데이터로 보기 <i class='fas fa-database'></i>"
-        : "View Data <i class='fas fa-database'></i>";
+    if (showDataModalBtn) { // showDataModalBtn이 선언되어 있는지 확인
+        showDataModalBtn.innerHTML = currentLang === "ko"
+            ? "데이터로 보기 <i class='fas fa-database'></i>"
+            : "View Data <i class='fas fa-database'></i>";
+    }
   }
 
   // 소개/연락처
@@ -140,43 +143,22 @@ if (showDataModalButton) {
   }
 
   loadTimeline(currentLang);
-  loadData(currentLang); // 추가: 팝업 데이터도 로드
-  // adjustAboutContactHeight(); // 언어 전환 시 높이 조정 함수 호출 (더 이상 필요 없음)
+  loadData(currentLang); // 팝업 데이터도 로드
 }
 
-// 소개 및 연락처 섹션 높이 조정 함수 (수정)
+// 소개 및 연락처 섹션 높이 조정 함수
 function adjustAboutContactHeight() {
   const characterImageBox = document.querySelector('.character-image-box');
   const aboutContactContent = document.querySelector('.about-contact-content');
 
   if (characterImageBox && aboutContactContent) {
-    // 이미지 박스의 실제 높이 측정
     const imageHeight = characterImageBox.offsetHeight;
-    // 오른쪽 콘텐츠 영역의 최소 높이를 이미지 박스 높이와 동일하게 설정
-    // height 대신 min-height를 사용하여 콘텐츠가 늘어날 수 있도록 함
     aboutContactContent.style.minHeight = `${imageHeight}px`;
-
-    // about-contact-content 내부의 gap을 조정하여 콘텐츠가 고르게 분포되도록 함
-    // 이 부분은 CSS에서 gap을 고정하는 것이 더 안정적일 수 있습니다.
-    // 여기서는 CSS의 gap을 10px로 설정하는 것을 권장합니다.
-    // const aboutItem = document.getElementById('about');
-    // const contactItem = document.getElementById('contact');
-
-    // if (aboutItem && contactItem) {
-    //   const totalContentHeight = aboutItem.offsetHeight + contactItem.offsetHeight;
-    //   const remainingSpace = imageHeight - totalContentHeight;
-    //   if (remainingSpace > 0) {
-    //     aboutContactContent.style.gap = `${remainingSpace}px`;
-    //   } else {
-    //     aboutContactContent.style.gap = '0px';
-    //   }
-    // }
   }
 }
 
-
 window.addEventListener("DOMContentLoaded", () => {
-  // 로고 텍스트 초기 설정
+  // 초기 로고 텍스트 설정
   const logoTextElement = document.querySelector(".logo a");
   if (logoTextElement) {
     if (currentLang === "ko") {
@@ -186,30 +168,37 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Hero 텍스트 초기 설정
+  // 초기 Hero 텍스트 설정
   const hero = document.getElementById("hero");
   if (hero) {
-    // <h1> 태그 텍스트 조정: 모바일에서 줄바꿈을 CSS로 제어합니다.
     hero.querySelector("h1").innerHTML = currentLang === "ko"
-      ? "교사가 아닌, <br class='mobile-break'><strong>삶의 설계자</strong>로<br class='mobile-break'>살고 있습니다." // 쉼표 뒤 띄어쓰기 추가
+      ? "교사가 아닌, <br class='mobile-break'><strong>삶의 설계자</strong>로<br class='mobile-break'>살고 있습니다."
       : "Not just a teacher, but a designer of life.";
     hero.querySelector("p").innerHTML = currentLang === "ko"
       ? "교육은 말보다 <strong>사람</strong>이 먼저였고,<br>기록보다 <strong>만남</strong>이 먼저였습니다.<br>이 이야기는 단지 이력서가 아니라,<br>한 사람의 <strong>길</strong>에 대한 기록입니다."
       : "My education has always put people before words, and encounters before records.<br>This is not just a resume, but a record of a life.";
-    // '나의 이야기 보기'를 '이야기 보기'로 변경
-    hero.querySelector("a").innerHTML = currentLang === "ko"
-      ? "이야기 보기 <i class='fas fa-arrow-down'></i>"
-      : "View My Story <i class='fas fa-arrow-down'></i>";
+    
+    const showTimelineButton = document.getElementById("show-timeline");
+    if (showTimelineButton) {
+        showTimelineButton.innerHTML = currentLang === "ko"
+            ? "이야기 보기 <i class='fas fa-arrow-down'></i>"
+            : "View My Story <i class='fas fa-arrow-down'></i>";
+    }
+
+    if (showDataModalBtn) {
+        showDataModalBtn.innerHTML = currentLang === "ko"
+            ? "데이터로 보기 <i class='fas fa-database'></i>"
+            : "View Data <i class='fas fa-database'></i>";
+    }
   }
 
   loadTimeline(currentLang);
-  loadData(currentLang); // 추가: 초기 팝업 데이터 로드
+  loadData(currentLang); // 초기 팝업 데이터 로드
 
-
-  // PDF 모달
-  const modal = document.getElementById("pdfModal");
-  const viewer = document.getElementById("pdfViewer");
-  const closeModal = document.getElementById("closeModal");
+  // PDF 모달 이벤트 리스너
+  const pdfModal = document.getElementById("pdfModal");
+  const pdfViewer = document.getElementById("pdfViewer");
+  const closeModalBtn = document.getElementById("closeModal");
 
   document.addEventListener("click", (e) => {
     if (e.target.closest(".timeline-button")) {
@@ -217,36 +206,51 @@ window.addEventListener("DOMContentLoaded", () => {
       const url = btn.getAttribute("href");
       if (url.endsWith(".pdf")) {
         e.preventDefault();
-        viewer.src = url;
-        modal.classList.remove("hidden");
+        pdfViewer.src = url;
+        pdfModal.classList.remove("hidden");
+        document.body.style.overflow = "hidden"; // 스크롤 방지
       }
     }
   });
 
-  closeModal.addEventListener("click", () => {
-    viewer.src = "";
-    modal.classList.add("hidden");
-  });
+  if (closeModalBtn) {
+    closeModalBtn.addEventListener("click", () => {
+      pdfViewer.src = "";
+      pdfModal.classList.add("hidden");
+      document.body.style.overflow = "auto"; // 스크롤 복원
+    });
+  }
 
-// '데이터 팝업' 닫기 버튼
-if (closeDataModalBtn) {
-  closeDataModalBtn.addEventListener("click", () => {
-    dataModal.classList.remove("visible"); // CSS 트랜지션을 위한 클래스 제거
-    dataModal.classList.add("hidden");
-    document.body.style.overflow = "auto"; // 스크롤 복원
-  });
-}
+  // '데이터로 보기' 버튼 클릭 시 팝업 열기
+  if (showDataModalBtn) {
+    showDataModalBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      dataModal.classList.remove("hidden");
+      dataModal.classList.add("visible");
+      document.body.style.overflow = "hidden";
+      renderDataModal(); // 팝업 열 때마다 내용 다시 렌더링 (언어 변경 반영)
+    });
+  }
 
-// 팝업 외부 클릭 시 닫기 (dataModal)
-if (dataModal) {
-  dataModal.addEventListener("click", (e) => {
-    if (e.target === dataModal) { // 정확히 모달 배경 클릭 시
+  // '데이터 팝업' 닫기 버튼
+  if (closeDataModalBtn) {
+    closeDataModalBtn.addEventListener("click", () => {
       dataModal.classList.remove("visible");
       dataModal.classList.add("hidden");
       document.body.style.overflow = "auto";
-    }
-  });
-}
+    });
+  }
+
+  // 팝업 외부 클릭 시 닫기 (dataModal)
+  if (dataModal) {
+    dataModal.addEventListener("click", (e) => {
+      if (e.target === dataModal) {
+        dataModal.classList.remove("visible");
+        dataModal.classList.add("hidden");
+        document.body.style.overflow = "auto";
+      }
+    });
+  }
 
   // Hero → 타임라인 전환
   const showBtn = document.getElementById("show-timeline");
@@ -260,17 +264,6 @@ if (dataModal) {
       timelineSection.classList.add("fade-in");
     });
   }
-
-// '데이터로 보기' 버튼 클릭 시 팝업 열기
-if (showDataModalBtn) {
-  showDataModalBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    dataModal.classList.remove("hidden");
-    dataModal.classList.add("visible"); // CSS 트랜지션을 위한 클래스 추가
-    document.body.style.overflow = "hidden"; // 스크롤 방지
-    renderDataModal(); // 팝업 열 때마다 내용 다시 렌더링 (언어 변경 반영)
-  });
-}
 
   // 상단 로고 클릭 시 Hero 화면으로 돌아오기
   const backToHeroBtn = document.getElementById("back-to-hero");
@@ -293,13 +286,13 @@ if (showDataModalBtn) {
     });
   }
 
-  // 페이지 로드 시 높이 조정 함수 호출
+  // 페이지 로드 시 및 창 크기 변경 시 높이 조정 함수 호출
   adjustAboutContactHeight();
-  // 창 크기 변경 시 높이 조정 함수 호출
   window.addEventListener('resize', adjustAboutContactHeight);
 });
 
 
+// 팝업 데이터 로드 함수 (중복 제거 후 최종 버전)
 function loadData(lang) {
   const url = `./data/data-${lang}.json`;
   fetch(url)
@@ -316,7 +309,7 @@ function loadData(lang) {
     .catch(err => console.error("❌ Data load error:", err));
 }
 
-
+// 팝업 내용 렌더링 함수 (중복 제거 후 최종 버전)
 function renderDataModal() {
   if (!dataContent || Object.keys(dataContent).length === 0) {
     console.warn("데이터가 로드되지 않았습니다.");
