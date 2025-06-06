@@ -2,7 +2,7 @@
   {
     "year": "2025",
     "title": "Education Connected Through Stories, A Journey We Walk Together",
-    "text": "2025 is my year of 'connection and sharing.' Through the webtoon 'Stories of Breath,' I share warm moments from educational settings through illustrations, and through the podcast 'Learning Together,' I bring teachers' sincere stories to the world. I'm deeply experiencing that education is not simply about delivering knowledge, but about sharing stories with each other and growing together. Particularly while directly designing an after-school recording system, I'm building a sustainable educational ecosystem where teachers' precious efforts are accumulated as data and returned to benefit children. On the HamsungEdu Blog, I'm expressing the concerns I face in alternative education settings through essays, striving to make them shared insights that go beyond personal reflection.",
+    "text": "2025 is my year of 'connection and sharing.' Through the webtoon 'Stories of Breath,' I share warm moments from educational settings through illustrations, and through the podcast 'Learning Together,' I bring teachers' sincere stories to the world. I'm deeply experiencing that education is not simply about delivering knowledge, but about sharing stories with each other and growing together. Particularly while directly designing an after-school recording system, I'm building a sustainable educational ecosystem where teachers' precious efforts are accumulated as data and returned to benefit children. On the HamsungEdu Blog, I'm expressing the concerns I face in alternative education settings through essays, striving to make them shared insights that go beyond personal reflection. **Furthermore, through the 'Companion Guide for Slow Learners' website, I am providing balanced and in-depth understanding, practical information, and warm encouragement to teachers, parents, instructors, and volunteer leaders who have slow learning children and students. Under the belief that all children have infinite potential to grow at their own pace, we uphold human respect and genuine companionship as our most fundamental values.**",
     "links": [
       {
         "label": "Proposal PDF",
@@ -31,6 +31,10 @@
       {
         "label": "HamsungEdu Blog (Educational Essays)",
         "url": "https://hamsungedu.blogspot.com/"
+      },
+      {
+        "label": "Companion Guide for Slow Learners",
+        "url": "https://together-for-slow.netlify.app/"
       }
     ]
   },
