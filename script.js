@@ -275,21 +275,37 @@ window.addEventListener("DOMContentLoaded", () => {
   if (showBtn && hero && timelineSection) {
     showBtn.addEventListener("click", (e) => {
       e.preventDefault();
-      hero.style.display = "none";
+      hero.style.display = "hidden";
       timelineSection.classList.remove("hidden");
       timelineSection.classList.add("fade-in");
     });
   }
 
   // 상단 로고 클릭 시 Hero 화면으로 돌아오기
- const backToHeroBtn = document.getElementById("back-to-hero");
+const backToHeroBtn = document.getElementById("back-to-hero");
 if (backToHeroBtn && hero && timelineSection) {
   backToHeroBtn.addEventListener("click", (e) => {
     e.preventDefault();
-    hero.classList.remove("hidden");          // ✅ 이 부분으로 교체
-    timelineSection.classList.add("hidden");
-    timelineSection.classList.remove("fade-in");
-    window.scrollTo(0, 0);
+
+    // ✅ Hero 초기 상태로 복원
+    hero.classList.remove("hidden");                   // hero 보이기
+    timelineSection.classList.add("hidden");           // 타임라인 숨기기
+    timelineSection.classList.remove("fade-in");       // 애니메이션 제거
+    window.scrollTo(0, 0);                              // 맨 위로 스크롤 이동
+
+    // ✅ Hero 내부 버튼/구성 등 다시 보여지게 (초기 로드와 동일하게)
+    const showTimelineButton = document.getElementById("show-timeline");
+    if (showTimelineButton) {
+      showTimelineButton.style.display = "inline-block"; // 혹시 숨겼다면 복원
+    }
+
+    const showDataModalBtn = document.getElementById("show-data-modal");
+    if (showDataModalBtn) {
+      showDataModalBtn.style.display = "inline-block";   // 마찬가지로 복원
+    }
+
+    // ✅ Hero 자체 스타일 정렬 깨짐 방지 (안전망)
+    hero.style.display = ""; // 직접 설정한 display 속성 제거 (flex 복원)
   });
 }
 
