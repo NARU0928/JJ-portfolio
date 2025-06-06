@@ -429,7 +429,7 @@ function renderDataModal() {
 // 맨 위로 스크롤 버튼
 const scrollTopBtn = document.getElementById("scrollTopBtn");
 
-// 스크롤 이벤트 감지
+// 스크롤 이벤트로 버튼 보이기/숨기기
 window.addEventListener("scroll", () => {
   if (window.scrollY > 300) {
     scrollTopBtn.style.display = "block";
@@ -438,7 +438,7 @@ window.addEventListener("scroll", () => {
   }
 });
 
-// 클릭 시 부드럽게 상단 이동
+// 클릭 시 부드럽게 상단으로 이동
 scrollTopBtn.addEventListener("click", () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
