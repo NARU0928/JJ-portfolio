@@ -458,124 +458,41 @@ window.addEventListener("DOMContentLoaded", () => {
     document.body.style.overflow = "auto";
   });
 
-  // PDF 팝업
+  // PDF 뷰어 관련 이벤트 리스너
   const pdfViewer = document.getElementById("pdfViewer");
   const pdfModal = document.getElementById("pdfModal");
+  const closePdfBtn = document.getElementById("closePdfViewer");
 
   // PDF 컨트롤 기능
-  document.getElementById("pdfZoomIn").addEventListener("click", () => {
-    const isMobile = window.innerWidth <= 768;
+  document.getElementById("zoomIn").addEventListener("click", () => {
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
     if (isMobile) {
-      // 모바일에서는 더 작은 단위로 확대
-      currentZoom = Math.min(currentZoom + 0.1, 1.5);
+      currentZoom = Math.min(currentZoom + MOBILE_ZOOM_STEP, 1.5);
     } else {
-      currentZoom = Math.min(currentZoom + 0.25, 2);
+      currentZoom = Math.min(currentZoom + ZOOM_STEP, 2);
     }
     updatePdfZoom();
   });
 
-  document.getElementById("pdfZoomOut").addEventListener("click", () => {
-    const isMobile = window.innerWidth <= 768;
+  document.getElementById("zoomOut").addEventListener("click", () => {
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
     if (isMobile) {
-      // 모바일에서는 더 작은 단위로 축소
-      currentZoom = Math.max(currentZoom - 0.1, 0.5);
+      currentZoom = Math.max(currentZoom - MOBILE_ZOOM_STEP, 0.5);
     } else {
-      currentZoom = Math.max(currentZoom - 0.25, 0.5);
+      currentZoom = Math.max(currentZoom - ZOOM_STEP, 0.5);
     }
     updatePdfZoom();
   });
 
-  document.getElementById("pdfFitWidth").addEventListener("click", () => {
-    const isMobile = window.innerWidth <= 768;
-    const iframe = document.getElementById("pdfViewer");
-    
-    if (isMobile) {
-      // 모바일에서는 PDF URL 파라미터를 통해 화면에 맞게 조정
-      const currentUrl = new URL(iframe.src);
-      currentUrl.searchParams.set('view', 'FitH');
-      iframe.src = currentUrl.toString();
-    } else {
-      // 데스크탑에서는 기존 동작 유지
-      iframe.style.width = "100%";
-      iframe.style.transform = "none";
-    }
-    currentZoom = 1;
-  });
-
-  function updatePdfZoom() {
-    const iframe = document.getElementById("pdfViewer");
-    const isMobile = window.innerWidth <= 768;
-    
-    if (isMobile) {
-      // 모바일에서는 transform 대신 scale 파라미터 사용
-      const currentUrl = new URL(iframe.src);
-      currentUrl.searchParams.set('zoom', currentZoom * 100);
-      iframe.src = currentUrl.toString();
-    } else {
-      // 데스크탑에서는 기존 방식 유지
-      iframe.style.transform = `scale(${currentZoom})`;
-      iframe.style.transformOrigin = "0 0";
-    }
+  // PDF 뷰어 닫기
+  if (closePdfBtn) {
+    closePdfBtn.addEventListener("click", closePdfViewer);
   }
 
-  document.getElementById("closeModal").addEventListener("click", () => {
-    pdfViewer.src = "";
-    pdfModal.classList.add("hidden");
-    document.body.style.overflow = "auto";
-    // PDF 뷰어 상태 초기화
-    currentZoom = 1;
-    pdfViewer.style.transform = "none";
-  });
-
-  // 외부 링크 팝업
-  const externalViewer = document.getElementById("externalViewer");
-  document.getElementById("closeExternalModal").addEventListener("click", () => {
-    externalViewer.src = "";
-    document.getElementById("externalModal").classList.add("hidden");
-    document.body.style.overflow = "auto";
-  });
-
-  document.addEventListener("click", e => {
-    const btn = e.target.closest(".timeline-button");
-    if (!btn || !btn.href) return;
-
-    if (btn.href.endsWith(".pdf")) {
-      e.preventDefault();
-      // 모바일 환경 감지
-      const isMobile = window.innerWidth <= 768;
-      
-      // PDF URL에 파라미터 추가
-      const pdfUrl = new URL(btn.href);
-      if (isMobile) {
-        // 모바일에서는 자동으로 화면에 맞게 표시되도록 설정
-        pdfUrl.searchParams.set('view', 'FitH');
-        pdfUrl.searchParams.set('embedded', 'true');
-        pdfUrl.searchParams.set('toolbar', '0');
-        pdfUrl.searchParams.set('navpanes', '0');
-        pdfUrl.searchParams.set('scrollbar', '0');
-      }
-      
-      pdfViewer.src = pdfUrl.toString();
-      pdfModal.classList.remove("hidden");
-      document.body.style.overflow = "hidden";
-      
-      // 모바일에서는 초기 확대/축소 비율 조정
-      if (isMobile) {
-        currentZoom = 1;
-        pdfViewer.style.transform = "none";
-        // 모바일에서 PDF가 화면에 맞게 표시되도록 설정
-        pdfViewer.style.width = "100%";
-        pdfViewer.style.height = "100%";
-      } else {
-        // 데스크탑에서는 기존 설정 유지
-        currentZoom = 1;
-        pdfViewer.style.transform = "none";
-      }
-    } else if (btn.href.startsWith("http")) {
-      e.preventDefault();
-      externalViewer.src = btn.href;
-      document.getElementById("externalModal").classList.remove("hidden");
-      document.body.style.overflow = "hidden";
+  // 모달 외부 클릭 시 닫기
+  pdfModal.addEventListener("click", (e) => {
+    if (e.target === pdfModal) {
+      closePdfViewer();
     }
   });
 
@@ -595,19 +512,25 @@ function openPdfViewer(url, title) {
   const viewer = document.getElementById("pdfViewer");
   const titleElement = document.getElementById("pdfTitle");
   
-  if (!modal || !viewer || !titleElement) return;
-  
-  // 모바일 기기 감지
-  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  if (!modal || !viewer || !titleElement) {
+    console.error("PDF 뷰어 요소를 찾을 수 없습니다.");
+    return;
+  }
   
   try {
+    // 모바일 기기 감지
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    
     // PDF URL 파라미터 설정
-    const pdfUrl = new URL(url);
+    const pdfUrl = new URL(url, window.location.href);
+    
+    // 공통 파라미터
     pdfUrl.searchParams.set('toolbar', '1');
     pdfUrl.searchParams.set('navpanes', '1');
     pdfUrl.searchParams.set('scrollbar', '1');
     
     if (isMobile) {
+      // 모바일 전용 파라미터
       pdfUrl.searchParams.set('view', 'FitH');
       pdfUrl.searchParams.set('embedded', 'true');
       pdfUrl.searchParams.set('mobilebasic', '1');
@@ -627,8 +550,13 @@ function openPdfViewer(url, title) {
     
     // 뷰어 크기 조정
     adjustPdfViewer();
+    
+    // 초기 줌 레벨 설정
+    currentZoom = 1;
+    updatePdfZoom();
   } catch (error) {
     console.error("PDF 뷰어 오류:", error);
+    alert("PDF 파일을 열 수 없습니다. 파일 경로를 확인해주세요.");
   }
 }
 
@@ -662,20 +590,6 @@ function closePdfViewer() {
     document.body.style.overflow = "auto";
     currentZoom = 1;
   }, 300);
-}
-
-function zoomIn() {
-  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-  const step = isMobile ? MOBILE_ZOOM_STEP : ZOOM_STEP;
-  currentZoom = Math.min(currentZoom + step, 2);
-  updatePdfZoom();
-}
-
-function zoomOut() {
-  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-  const step = isMobile ? MOBILE_ZOOM_STEP : ZOOM_STEP;
-  currentZoom = Math.max(currentZoom - step, 0.5);
-  updatePdfZoom();
 }
 
 function updatePdfZoom() {
