@@ -7,22 +7,22 @@ function renderTimeline() {
   const container = document.getElementById("timeline");
   container.innerHTML = "";
 
-  // 앵커 포인트로 사용할 연도들을 정의합니다.
-  const anchorYears = [2025, 2024, 2017, 2013, 2010, 2004];
+  // 실제 데이터에 있는 연도만 앵커 포인트로 사용
+  const anchorYears = [2024, 2017, 2013, 2010, 2004];
   const anchorLabels = {
     ko: {
-      2025: "2025~2024<br><small>지속가능한 대안교육 동행하기</small>",
       2024: "2024~2017<br><small>교육 가능성 찾기</small>",
       2017: "2017~2013<br><small>대안교육의 시작과 이해</small>",
       2013: "2013~2010<br><small>전문성 향상을 위한 준비</small>",
-      2010: "2010~2004<br><small>기본기 형성</small>"
+      2010: "2010~2004<br><small>기본기 형성</small>",
+      2004: "2004~<br><small>시작</small>"
     },
     en: {
-      2025: "2025~2024<br><small>Sustainable Alternative Education</small>",
       2024: "2024~2017<br><small>Finding Educational Possibilities</small>",
       2017: "2017~2013<br><small>Beginning of Alternative Education</small>",
       2013: "2013~2010<br><small>Professional Development</small>",
-      2010: "2010~2004<br><small>Foundation Building</small>"
+      2010: "2010~2004<br><small>Foundation Building</small>",
+      2004: "2004~<br><small>Beginning</small>"
     }
   };
 
@@ -32,6 +32,19 @@ function renderTimeline() {
     const label = anchorLabels[currentLang][year];
     return `<a href="#year-${year}" class="anchor-btn">${label}</a>`;
   }).join('');
+
+  // 스크롤 이벤트 리스너 추가
+  let scrollTimeout;
+  window.addEventListener('scroll', () => {
+    if (window.innerWidth <= 768) { // 모바일 환경에서만 적용
+      clearTimeout(scrollTimeout);
+      document.body.classList.add('scrolling');
+      
+      scrollTimeout = setTimeout(() => {
+        document.body.classList.remove('scrolling');
+      }, 150);
+    }
+  });
 
   timeline.forEach(entry => {
     const year = parseInt(entry.year);
@@ -51,7 +64,7 @@ function renderTimeline() {
       const anchorBtn = document.createElement("a");
       anchorBtn.href = `#year-${year}`;
       anchorBtn.className = "timeline-anchor-btn";
-      anchorBtn.innerHTML = anchorLabels[currentLang][year].replace(/<br>.*$/, '');
+      anchorBtn.innerHTML = `<span class="year-only">${year}</span><span class="full-label">${anchorLabels[currentLang][year].replace(/<br>.*$/, '')}</span>`;
       card.appendChild(anchorBtn);
     }
     

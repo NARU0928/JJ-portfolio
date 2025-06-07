@@ -719,8 +719,12 @@ footer {
   border-radius: 4px;
   font-size: 13px;
   opacity: 0;
-  transition: opacity 0.2s ease;
+  transition: all 0.2s ease;
   white-space: nowrap;
+}
+
+.timeline-anchor-btn .year-only {
+  display: none;
 }
 
 .timeline-card {
@@ -731,6 +735,41 @@ footer {
   opacity: 1;
 }
 
+/* 모바일 스크롤 시 앵커 버튼 스타일 */
+@media (max-width: 768px) {
+  .timeline-anchor-btn {
+    left: 0;
+    top: 0;
+    transform: none;
+    padding: 4px 8px;
+    font-size: 12px;
+    border-radius: 0 0 4px 0;
+    background-color: rgba(230, 240, 255, 0.9);
+  }
+
+  .timeline-anchor-btn .full-label {
+    display: none;
+  }
+
+  .timeline-anchor-btn .year-only {
+    display: inline;
+  }
+
+  /* 스크롤 중일 때 앵커 버튼 스타일 */
+  body.scrolling .timeline-anchor-btn {
+    opacity: 0.8;
+  }
+
+  /* 스크롤이 멈췄을 때 앵커 버튼 스타일 */
+  .timeline-anchor-btn {
+    opacity: 0;
+  }
+
+  .timeline-card:hover .timeline-anchor-btn {
+    opacity: 0.8;
+  }
+}
+
 @media (max-width: 1200px) {
   .timeline-anchor-btn {
     display: none;
@@ -738,6 +777,10 @@ footer {
 }
 
 @media (max-width: 768px) {
+  .timeline-anchor-btn {
+    display: block;
+  }
+
   .anchor-btn {
     min-width: 100px;
     font-size: 13px;
