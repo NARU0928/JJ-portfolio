@@ -520,6 +520,7 @@ footer {
   transform: translateY(20px);
   transition: transform 0.3s ease;
   overflow-y: auto;
+  padding-top: 40px;
 }
 
 .data-modal.visible .data-content {
@@ -532,15 +533,22 @@ footer {
 
 /* 데스크탑: .data-header 내 닫기 버튼 위치 */
 .data-header {
-  position: relative;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 32px;
+  border-bottom: 1px solid #eee;
 }
 .close-data-modal {
   position: absolute;
-  top: 12px;
   right: 16px;
-  background: #004080;
-  color: #fff;
-  z-index: 10;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 11;
 }
 
 /* 데스크탑: .data-modal 상단 여백 제거 */
@@ -1763,4 +1771,73 @@ section {
 /* 기존 전역 fixed 스타일 제거(덮어쓰기) */
 .close-modal, .close-data-modal, #closePdfViewer, #closeLinkViewer {
   position: static;
+}
+
+/* 1. 모바일 PDF/외부링크 닫기 버튼의 X 아이콘 파란색 */
+@media (max-width: 768px) {
+  .pdf-control-btn, .link-control-btn {
+    background: #fff !important;
+    color: #004080 !important;
+    border: 2px solid #004080;
+  }
+  .pdf-control-btn *, .link-control-btn * {
+    color: #004080 !important;
+    fill: #004080 !important;
+  }
+}
+
+/* 2. '한눈에 보기' 헤더 고정 및 내용 패딩 */
+.data-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 32px;
+  border-bottom: 1px solid #eee;
+}
+.data-content {
+  padding-top: 40px;
+}
+@media (max-width: 768px) {
+  .data-content {
+    padding-top: 28px;
+  }
+}
+@media (max-width: 480px) {
+  .data-content {
+    padding-top: 22px;
+  }
+}
+
+/* 3. 제목 가운데 정렬, 닫기 버튼 우측 */
+.data-header h2, .data-header h3 {
+  flex: 1 1 auto;
+  text-align: center;
+  margin: 0;
+  font-size: 1.2rem;
+  color: #222;
+}
+.close-data-modal {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 11;
+}
+@media (max-width: 768px) {
+  .close-data-modal {
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+@media (max-width: 480px) {
+  .close-data-modal {
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
 }
