@@ -112,8 +112,10 @@ function createTimelineCard(entry) {
         });
       } else if (link.url.startsWith('http')) {
         linkBtn.classList.add('external-link');
-        linkBtn.target = "_blank";
-        linkBtn.rel = "noopener noreferrer";
+        linkBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          openLinkViewer(link.url, link.label);
+        });
       }
       
       // 아이콘 추가
@@ -282,19 +284,94 @@ function renderDataModal() {
     h3.textContent = section.heading;
     div.appendChild(h3);
 
-    const ul = document.createElement("ul");
-    section.items.forEach(item => {
-      const li = document.createElement("li");
-      li.innerHTML = `<strong>${item.name}</strong>`;
-      if (item.description) li.innerHTML += `<p>${item.description}</p>`;
-      ul.appendChild(li);
-    });
+    // 관심분야와 언어능력 섹션은 카드 형태로 표시
+    if (section.heading === "관심 분야" || section.heading === "Areas of Interest") {
+      const cardContainer = document.createElement("div");
+      cardContainer.className = "interest-cards";
+      
+      section.items.forEach(item => {
+        const card = document.createElement("div");
+        card.className = "interest-card";
+        
+        // 아이콘 매핑
+        const iconMap = {
+          "대안 교육": "fa-graduation-cap",
+          "Alternative Education": "fa-graduation-cap",
+          "느린 학습자 교육": "fa-user-graduate",
+          "Slow Learner Education": "fa-user-graduate",
+          "삶 중심 교육": "fa-heart",
+          "Life-Centered Education": "fa-heart",
+          "디지털 교육 혁신": "fa-laptop-code",
+          "Digital Education Innovation": "fa-laptop-code",
+          "교육 생태계 구축": "fa-seedling",
+          "Building Educational Ecosystems": "fa-seedling"
+        };
+        
+        const icon = document.createElement("i");
+        icon.className = `fas ${iconMap[item.name] || "fa-star"} interest-icon`;
+        card.appendChild(icon);
+        
+        const name = document.createElement("span");
+        name.textContent = item.name;
+        card.appendChild(name);
+        
+        cardContainer.appendChild(card);
+      });
+      
+      div.appendChild(cardContainer);
+    } else if (section.heading === "언어 능력" || section.heading === "Language Proficiency") {
+      const cardContainer = document.createElement("div");
+      cardContainer.className = "language-cards";
+      
+      section.items.forEach(item => {
+        const card = document.createElement("div");
+        card.className = "language-card";
+        
+        // 언어별 아이콘 매핑
+        const iconMap = {
+          "한국어": "fa-flag",
+          "Korean": "fa-flag",
+          "영어": "fa-globe-americas",
+          "English": "fa-globe-americas"
+        };
+        
+        const icon = document.createElement("i");
+        icon.className = `fas ${iconMap[item.name] || "fa-language"} language-icon`;
+        card.appendChild(icon);
+        
+        const content = document.createElement("div");
+        content.className = "language-content";
+        
+        const name = document.createElement("strong");
+        name.textContent = item.name;
+        content.appendChild(name);
+        
+        const level = document.createElement("span");
+        level.className = "language-level";
+        level.textContent = item.description;
+        content.appendChild(level);
+        
+        card.appendChild(content);
+        cardContainer.appendChild(card);
+      });
+      
+      div.appendChild(cardContainer);
+    } else {
+      // 다른 섹션들은 기존 방식대로 표시
+      const ul = document.createElement("ul");
+      section.items.forEach(item => {
+        const li = document.createElement("li");
+        li.innerHTML = `<strong>${item.name}</strong>`;
+        if (item.description) li.innerHTML += `<p>${item.description}</p>`;
+        ul.appendChild(li);
+      });
+      div.appendChild(ul);
+    }
 
-    div.appendChild(ul);
     sectionBox.appendChild(div);
   });
 
-  // 자격증
+  // 자격증 섹션 렌더링 (기존 코드 유지)
   const cert = dataContent.certifications;
   document.getElementById("certifications-heading").textContent = cert.heading;
 
@@ -506,6 +583,69 @@ window.addEventListener("DOMContentLoaded", () => {
   if (closeBtn) {
     closeBtn.onclick = closePdfViewer;
   }
+
+  // 외부 링크 팝업
+  const linkViewer = document.getElementById("linkViewer");
+  const linkModal = document.getElementById("linkModal");
+
+  // 외부 링크 팝업 기능
+  document.getElementById("openLinkViewer").addEventListener("click", () => {
+    document.getElementById("linkModal").classList.remove("hidden");
+    document.body.style.overflow = "hidden";
+  });
+
+  document.getElementById("closeLinkViewer").addEventListener("click", () => {
+    linkViewer.src = "";
+    linkModal.classList.add("hidden");
+    document.body.style.overflow = "auto";
+  });
+
+  document.addEventListener("click", e => {
+    const btn = e.target.closest(".timeline-button");
+    if (!btn || !btn.href) return;
+
+    if (btn.href.endsWith(".pdf")) {
+      e.preventDefault();
+      // 모바일 환경 감지
+      const isMobile = window.innerWidth <= 768;
+      
+      // PDF URL에 파라미터 추가
+      const pdfUrl = new URL(btn.href);
+      if (isMobile) {
+        // 모바일에서는 자동으로 화면에 맞게 표시되도록 설정
+        pdfUrl.searchParams.set('view', 'FitH');
+        pdfUrl.searchParams.set('embedded', 'true');
+        pdfUrl.searchParams.set('toolbar', '0');
+        pdfUrl.searchParams.set('navpanes', '0');
+        pdfUrl.searchParams.set('scrollbar', '0');
+      }
+      
+      pdfViewer.src = pdfUrl.toString();
+      pdfModal.classList.remove("hidden");
+      document.body.style.overflow = "hidden";
+      
+      // 모바일에서는 초기 확대/축소 비율 조정
+      if (isMobile) {
+        currentZoom = 1;
+        pdfViewer.style.transform = "none";
+        // 모바일에서 PDF가 화면에 맞게 표시되도록 설정
+        pdfViewer.style.width = "100%";
+        pdfViewer.style.height = "100%";
+      } else {
+        // 데스크탑에서는 기존 설정 유지
+        currentZoom = 1;
+        pdfViewer.style.transform = "none";
+      }
+    } else if (btn.href.startsWith("http")) {
+      e.preventDefault();
+      linkViewer.src = btn.href;
+      document.getElementById("linkModal").classList.remove("hidden");
+      document.body.style.overflow = "hidden";
+    }
+  });
+
+  // PDF 뷰어 스타일 조정
+  adjustPdfViewer();
 });
 
 function openPdfViewer(url, title) {
@@ -514,7 +654,23 @@ function openPdfViewer(url, title) {
   const titleElement = document.getElementById('pdfTitle');
   
   titleElement.textContent = title;
-  viewer.src = url;
+  
+  // 모바일 환경 감지
+  const isMobile = window.innerWidth <= 768;
+  
+  // PDF URL에 파라미터 추가
+  const pdfUrl = new URL(url, window.location.href);
+  if (isMobile) {
+    // 모바일에서도 페이지 이동과 확대/축소가 가능하도록 설정
+    pdfUrl.searchParams.set('embedded', 'true');
+    pdfUrl.searchParams.set('toolbar', '1'); // 툴바 표시
+    pdfUrl.searchParams.set('navpanes', '1'); // 페이지 네비게이션 표시
+    pdfUrl.searchParams.set('scrollbar', '1'); // 스크롤바 표시
+    pdfUrl.searchParams.set('view', 'FitH'); // 가로 맞춤
+    pdfUrl.searchParams.set('pagemode', 'none'); // 기본 모드
+  }
+  
+  viewer.src = pdfUrl.toString();
   modal.classList.remove('hidden');
   
   // 닫기 버튼 이벤트 리스너 추가
@@ -557,3 +713,52 @@ function updatePdfZoom() {
   pdfViewer.style.transform = `scale(${currentZoom})`;
   pdfViewer.style.transformOrigin = "top left";
 }
+
+function openLinkViewer(url, title) {
+  const modal = document.getElementById('linkModal');
+  const viewer = document.getElementById('linkViewer');
+  const titleElement = document.getElementById('linkTitle');
+  
+  titleElement.textContent = title;
+  viewer.src = url;
+  modal.classList.remove('hidden');
+  
+  // 닫기 버튼 이벤트 리스너 추가
+  const closeBtn = document.getElementById('closeLinkViewer');
+  closeBtn.onclick = closeLinkViewer;
+  
+  // 모달 외부 클릭 시 닫기
+  modal.onclick = (e) => {
+    if (e.target === modal) {
+      closeLinkViewer();
+    }
+  };
+}
+
+function closeLinkViewer() {
+  const modal = document.getElementById('linkModal');
+  const viewer = document.getElementById('linkViewer');
+  
+  modal.classList.add('hidden');
+  viewer.src = ''; // 뷰어 초기화
+}
+
+// PDF 뷰어 스타일 조정
+function adjustPdfViewer() {
+  const viewer = document.getElementById('pdfViewer');
+  const isMobile = window.innerWidth <= 768;
+  
+  if (isMobile) {
+    // 모바일에서 PDF 뷰어 크기 최적화
+    viewer.style.width = '100%';
+    viewer.style.height = 'calc(100% - 60px)'; // 헤더 높이 제외
+    viewer.style.marginTop = '0';
+  } else {
+    // 데스크탑에서는 기존 설정 유지
+    viewer.style.width = '100%';
+    viewer.style.height = 'calc(100% - 60px)';
+  }
+}
+
+// 창 크기 변경 시 PDF 뷰어 조정
+window.addEventListener('resize', adjustPdfViewer);
