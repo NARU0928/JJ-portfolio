@@ -721,3 +721,7 @@ footer {
     background-color: #e6f0ff;
   }
 }
+
+html {
+  scroll-behavior: smooth;
+}
