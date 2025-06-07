@@ -519,11 +519,15 @@ footer {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   transform: translateY(20px);
   transition: transform 0.3s ease;
-  overflow: hidden; /* 내용이 넘치지 않도록 설정 */
+  overflow-y: auto;
 }
 
 .data-modal.visible .data-content {
   transform: translateY(0);
+}
+
+.data-body {
+  padding: 0 32px 32px 32px;
 }
 
 /* 데스크탑: .data-header 내 닫기 버튼 위치 */
@@ -588,9 +592,9 @@ footer {
   }
 
   .data-header {
-    padding: 8px 12px;
-    min-height: 32px;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+    padding: 6px 8px;
+    min-height: 24px;
+    font-size: 1rem;
   }
 
   .data-header h3 {
@@ -598,14 +602,15 @@ footer {
   }
 
   .data-body {
-    padding: 0 20px 20px;
+    padding: 0 10px 20px 10px;
   }
 }
 
 @media (max-width: 480px) {
   .data-header {
-    padding: 6px 8px;
-    min-height: 28px;
+    padding: 4px 6px;
+    min-height: 20px;
+    font-size: 0.95rem;
   }
 
   .data-header h3 {
@@ -613,7 +618,7 @@ footer {
   }
 
   .data-body {
-    padding: 0 15px 15px;
+    padding: 0 4px 12px 4px;
   }
 }
 
@@ -1721,4 +1726,41 @@ section {
 .pdf-control-btn *, .link-control-btn *, .close-data-modal * {
   color: inherit !important;
   fill: inherit !important;
+}
+
+/* 헤더는 항상 relative */
+.data-header, .pdf-header, .link-header {
+  position: relative;
+}
+
+/* 데스크탑: 헤더 내 닫기 버튼은 absolute */
+.close-data-modal, .pdf-control-btn, .link-control-btn {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  z-index: 10;
+}
+
+/* 모바일: 닫기 버튼만 fixed */
+@media (max-width: 768px) {
+  .close-data-modal, .pdf-control-btn, .link-control-btn {
+    position: fixed;
+    top: 12px;
+    right: 12px;
+    z-index: 1002;
+  }
+}
+@media (max-width: 480px) {
+  .close-data-modal, .pdf-control-btn, .link-control-btn {
+    top: 10px;
+    right: 10px;
+    width: 32px;
+    height: 32px;
+    font-size: 20px;
+  }
+}
+
+/* 기존 전역 fixed 스타일 제거(덮어쓰기) */
+.close-modal, .close-data-modal, #closePdfViewer, #closeLinkViewer {
+  position: static;
 }
