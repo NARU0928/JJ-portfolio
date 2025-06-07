@@ -84,15 +84,15 @@ function renderTimeline() {
 function createTimelineCard(entry) {
   const card = document.createElement("div");
   card.className = "timeline-card";
-
+  
   const title = document.createElement("h3");
-  title.textContent = entry.title;
+  title.textContent = `${entry.year} · ${entry.title}`;
   card.appendChild(title);
-
+  
   const text = document.createElement("p");
   text.textContent = entry.text;
   card.appendChild(text);
-
+  
   if (entry.links && entry.links.length > 0) {
     const linksContainer = document.createElement("div");
     linksContainer.className = "timeline-links";
@@ -101,7 +101,7 @@ function createTimelineCard(entry) {
       const linkBtn = document.createElement("a");
       linkBtn.href = link.url;
       linkBtn.textContent = link.label;
-      linkBtn.className = "timeline-link-btn";
+      linkBtn.className = "timeline-button";
       
       // PDF 파일인 경우 팝업으로 열기
       if (link.url.toLowerCase().endsWith('.pdf')) {
@@ -109,21 +109,38 @@ function createTimelineCard(entry) {
           e.preventDefault();
           openPdfViewer(link.url, link.label);
         });
+      } else {
+        // 외부 링크인 경우 새 탭에서 열기
+        linkBtn.target = "_blank";
       }
+      
+      // 아이콘 추가
+      const icon = document.createElement("i");
+      icon.className = getIconClass(link.url);
+      icon.style.marginRight = "6px";
+      linkBtn.insertBefore(icon, linkBtn.firstChild);
       
       linksContainer.appendChild(linkBtn);
     });
     
     card.appendChild(linksContainer);
   }
-
+  
   return card;
 }
 
 function getIconClass(url) {
-  if (url.endsWith(".pdf")) return "fas fa-file-pdf";
-  if (url.startsWith("http")) return "fas fa-up-right-from-square";
-  return "fas fa-link";
+  if (url.toLowerCase().endsWith('.pdf')) {
+    return 'fas fa-file-pdf';
+  } else if (url.includes('youtube.com') || url.includes('youtu.be')) {
+    return 'fab fa-youtube';
+  } else if (url.includes('instagram.com')) {
+    return 'fab fa-instagram';
+  } else if (url.includes('blogspot.com')) {
+    return 'fas fa-blog';
+  } else {
+    return 'fas fa-external-link-alt';
+  }
 }
 
 function loadTimeline(lang) {
@@ -484,38 +501,23 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 function openPdfViewer(url, title) {
-  const pdfModal = document.getElementById("pdfModal");
-  const pdfViewer = document.getElementById("pdfViewer");
-  const pdfTitle = document.getElementById("pdfTitle");
+  const modal = document.getElementById('pdfModal');
+  const viewer = document.getElementById('pdfViewer');
+  const titleElement = document.getElementById('pdfTitle');
   
-  // PDF 제목 설정
-  pdfTitle.textContent = title;
-  
-  // PDF URL 설정
-  pdfViewer.src = url;
-  
-  // 모달 표시
-  pdfModal.classList.remove("hidden");
-  pdfModal.classList.add("visible");
-  document.body.style.overflow = "hidden";
-  
-  // 현재 줌 레벨 초기화
-  currentZoom = 1;
-  updatePdfZoom();
+  titleElement.textContent = title;
+  viewer.src = url;
+  modal.classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
 }
 
 function closePdfViewer() {
-  const pdfModal = document.getElementById("pdfModal");
-  const pdfViewer = document.getElementById("pdfViewer");
+  const modal = document.getElementById('pdfModal');
+  const viewer = document.getElementById('pdfViewer');
   
-  // 모달 숨김
-  pdfModal.classList.remove("visible");
-  setTimeout(() => {
-    pdfModal.classList.add("hidden");
-    pdfViewer.src = ""; // PDF 뷰어 초기화
-  }, 300);
-  
-  document.body.style.overflow = "auto";
+  modal.classList.add('hidden');
+  viewer.src = '';
+  document.body.style.overflow = 'auto';
 }
 
 function zoomIn() {
