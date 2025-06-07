@@ -659,54 +659,29 @@ footer {
 }
 
 
-/* ───────── 앵커 버튼 스타일 (연도 구간 Jump 버튼) ───────── */
-.anchor-group {
-  position: sticky;
-  top: 0;
-  background: white;
-  padding: 15px 0;
-  z-index: 100;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-}
-
-.anchor-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  flex-wrap: wrap;
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-.anchor-btn {
-  flex: 1;
-  min-width: 120px;
-  max-width: 160px;
-  text-align: center;
-  padding: 8px 12px;
+/* 상단 앵커 버튼 스타일 */
+.anchor-buttons .anchor-btn {
+  display: inline-block;
+  padding: 8px 16px;
   background-color: #e6f0ff;
   color: #004080;
   text-decoration: none;
-  border-radius: 6px;
-  transition: all 0.2s ease;
+  border-radius: 20px;
   font-size: 14px;
-  line-height: 1.4;
+  transition: all 0.3s ease;
+  text-align: center;
+  min-width: 120px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.anchor-btn:hover {
-  background-color: #d2e6ff;
+.anchor-buttons .anchor-btn:hover {
+  background-color: #004080;
+  color: white;
   transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
-.anchor-btn small {
-  display: block;
-  font-size: 11px;
-  color: #666;
-  margin-top: 2px;
-}
-
-/* 타임라인 앵커 버튼 스타일 */
+/* 타임라인 내 앵커 버튼 스타일 */
 .timeline-anchor-btn {
   position: absolute;
   left: -80px;
@@ -725,6 +700,10 @@ footer {
   white-space: nowrap;
 }
 
+.timeline-anchor-btn span {
+  display: inline-block;
+}
+
 .timeline-card:hover .timeline-anchor-btn {
   opacity: 1;
   pointer-events: auto;
@@ -733,6 +712,28 @@ footer {
 
 /* 모바일 스타일 */
 @media (max-width: 768px) {
+  /* 상단 앵커 버튼 모바일 스타일 */
+  .anchor-buttons {
+    padding: 8px;
+    gap: 8px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .anchor-buttons::-webkit-scrollbar {
+    display: none;
+  }
+
+  .anchor-buttons .anchor-btn {
+    padding: 6px 12px;
+    font-size: 13px;
+    min-width: 100px;
+    white-space: nowrap;
+  }
+
+  /* 타임라인 내 앵커 버튼 모바일 스타일 */
   .timeline-anchor-btn {
     left: 8px;
     top: 8px;
