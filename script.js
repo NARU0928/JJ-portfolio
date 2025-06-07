@@ -103,15 +103,17 @@ function createTimelineCard(entry) {
       linkBtn.textContent = link.label;
       linkBtn.className = "timeline-button";
       
-      // PDF 파일인 경우 팝업으로 열기
+      // 링크 타입에 따른 클래스와 동작 설정
       if (link.url.toLowerCase().endsWith('.pdf')) {
+        linkBtn.classList.add('pdf-link');
         linkBtn.addEventListener('click', (e) => {
           e.preventDefault();
           openPdfViewer(link.url, link.label);
         });
-      } else {
-        // 외부 링크인 경우 새 탭에서 열기
+      } else if (link.url.startsWith('http')) {
+        linkBtn.classList.add('external-link');
         linkBtn.target = "_blank";
+        linkBtn.rel = "noopener noreferrer";
       }
       
       // 아이콘 추가
@@ -135,11 +137,12 @@ function getIconClass(url) {
     return 'fab fa-youtube';
   } else if (url.includes('instagram.com')) {
     return 'fab fa-instagram';
-  } else if (url.includes('blogspot.com')) {
+  } else if (url.includes('blogspot.com') || url.includes('blog')) {
     return 'fas fa-blog';
-  } else {
+  } else if (url.startsWith('http')) {
     return 'fas fa-external-link-alt';
   }
+  return 'fas fa-link';
 }
 
 function loadTimeline(lang) {
