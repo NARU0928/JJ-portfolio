@@ -1633,13 +1633,7 @@ section {
 }
 
 .data-section h3 {
-  color: #004080;
-  font-size: 1.4em;
-  margin-bottom: 15px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  text-align: center;
+  text-align: center !important;
   width: 100%;
   font-weight: bold;
 }
@@ -1673,8 +1667,7 @@ section {
 /* 모바일 반응형 */
 @media (max-width: 768px) {
   .data-section h3 {
-    font-size: 1.2em;
-    margin-bottom: 10px;
+    text-align: center !important;
   }
 
   .data-section ul li {
@@ -1685,7 +1678,7 @@ section {
 
 @media (max-width: 480px) {
   .data-section h3 {
-    font-size: 1.1em;
+    text-align: center !important;
   }
 }
 
