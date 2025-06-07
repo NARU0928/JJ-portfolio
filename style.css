@@ -1580,13 +1580,14 @@ section {
 /* PDF/외부링크 닫기 버튼 모바일 색상 보장 */
 @media (max-width: 768px) {
   .pdf-control-btn, .link-control-btn {
-    background: #004080;
-    color: #fff;
-    border: none;
+    background: #004080 !important;
+    color: #fff !important;
+    border: none !important;
+    box-shadow: none !important;
   }
-  .pdf-control-btn *, .link-control-btn * {
-    color: #fff;
-    fill: #fff;
+  .pdf-control-btn *, .link-control-btn *, #closePdfViewer *, #closeLinkViewer * {
+    color: #fff !important;
+    fill: #fff !important;
   }
 }
 
