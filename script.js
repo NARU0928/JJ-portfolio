@@ -5,6 +5,9 @@ let currentZoom = 1;
 const ZOOM_STEP = 0.25;
 const MOBILE_ZOOM_STEP = 0.1;
 
+// 스크롤 버튼 관련 전역 변수
+let scrollTopBtn;
+
 // 타임라인 렌더링 함수
 function renderTimeline() {
   const container = document.getElementById("timeline");
@@ -414,9 +417,26 @@ window.addEventListener("DOMContentLoaded", () => {
   loadTimeline(currentLang); // 타임라인 로드 및 렌더링 시작
   loadData(currentLang); // 데이터 로드 및 모달 렌더링
 
-  // 초기 로드 시 URL 해시가 있다면 처리하기 위해 DOMContentLoaded에서 한 번 호출 (이전 제거된 코드 복원)
-  // renderTimeline이 비동기적으로 로드되므로, renderTimeline 내부에서 handleHashScroll을 호출하는 것이 더 안정적입니다.
-  // 이중 호출을 막기 위해 여기서는 제거하고 renderTimeline 내에서만 호출하도록 유지합니다.
+  // 스크롤 버튼 초기화
+  scrollTopBtn = document.getElementById("scrollTopBtn");
+  if (scrollTopBtn) {
+    // 스크롤 이벤트 리스너
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 300) {
+        scrollTopBtn.classList.add("visible");
+      } else {
+        scrollTopBtn.classList.remove("visible");
+      }
+    });
+
+    // 클릭 이벤트 리스너
+    scrollTopBtn.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+  }
 
   document.getElementById("toggle-lang").addEventListener("click", e => {
     e.preventDefault();
@@ -559,90 +579,10 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Scroll Top
-  const scrollTopBtn = document.getElementById("scrollTopBtn");
-  window.addEventListener("scroll", () => {
-    scrollTopBtn.style.display = window.scrollY > 300 ? "block" : "none";
-  });
-  scrollTopBtn.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
-
-  // PDF 뷰어 이벤트 리스너
-  document.getElementById("closePdfViewer").addEventListener("click", closePdfViewer);
-  document.getElementById("zoomIn").addEventListener("click", zoomIn);
-  document.getElementById("zoomOut").addEventListener("click", zoomOut);
-  
-  // PDF 모달 외부 클릭 시 닫기
-  document.getElementById("pdfModal").addEventListener("click", (e) => {
-    if (e.target.id === "pdfModal") {
-      closePdfViewer();
-    }
-  });
-
-  // 닫기 버튼 이벤트 리스너 설정
-  const closeBtn = document.getElementById('closePdfViewer');
-  if (closeBtn) {
-    closeBtn.onclick = closePdfViewer;
-  }
-
-  // 외부 링크 팝업
-  const linkViewer = document.getElementById("linkViewer");
-  const linkModal = document.getElementById("linkModal");
-
-  // 외부 링크 팝업 기능
-  document.getElementById("openLinkViewer").addEventListener("click", () => {
-    document.getElementById("linkModal").classList.remove("hidden");
-    document.body.style.overflow = "hidden";
-  });
-
-  document.getElementById("closeLinkViewer").addEventListener("click", () => {
-    linkViewer.src = "";
-    linkModal.classList.add("hidden");
-    document.body.style.overflow = "auto";
-  });
-
-  document.addEventListener("click", e => {
-    const btn = e.target.closest(".timeline-button");
-    if (!btn || !btn.href) return;
-
-    if (btn.href.endsWith(".pdf")) {
-      e.preventDefault();
-      // 모바일 환경 감지
-      const isMobile = window.innerWidth <= 768;
-      
-      // PDF URL에 파라미터 추가
-      const pdfUrl = new URL(btn.href);
-      if (isMobile) {
-        // 모바일에서는 자동으로 화면에 맞게 표시되도록 설정
-        pdfUrl.searchParams.set('view', 'FitH');
-        pdfUrl.searchParams.set('embedded', 'true');
-        pdfUrl.searchParams.set('toolbar', '0');
-        pdfUrl.searchParams.set('navpanes', '0');
-        pdfUrl.searchParams.set('scrollbar', '0');
-      }
-      
-      pdfViewer.src = pdfUrl.toString();
-      pdfModal.classList.remove("hidden");
-      document.body.style.overflow = "hidden";
-      
-      // 모바일에서는 초기 확대/축소 비율 조정
-      if (isMobile) {
-        currentZoom = 1;
-        pdfViewer.style.transform = "none";
-        // 모바일에서 PDF가 화면에 맞게 표시되도록 설정
-        pdfViewer.style.width = "100%";
-        pdfViewer.style.height = "100%";
-      } else {
-        // 데스크탑에서는 기존 설정 유지
-        currentZoom = 1;
-        pdfViewer.style.transform = "none";
-      }
-    } else if (btn.href.startsWith("http")) {
-      e.preventDefault();
-      linkViewer.src = btn.href;
-      document.getElementById("linkModal").classList.remove("hidden");
-      document.body.style.overflow = "hidden";
+  // 윈도우 리사이즈 이벤트
+  window.addEventListener("resize", () => {
+    if (pdfModal && !pdfModal.classList.contains("hidden")) {
+      adjustPdfViewer();
     }
   });
 
@@ -655,35 +595,41 @@ function openPdfViewer(url, title) {
   const viewer = document.getElementById("pdfViewer");
   const titleElement = document.getElementById("pdfTitle");
   
+  if (!modal || !viewer || !titleElement) return;
+  
   // 모바일 기기 감지
   const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
   
-  // PDF URL 파라미터 설정
-  const pdfUrl = new URL(url);
-  pdfUrl.searchParams.set('toolbar', '1');
-  pdfUrl.searchParams.set('navpanes', '1');
-  pdfUrl.searchParams.set('scrollbar', '1');
-  
-  if (isMobile) {
-    pdfUrl.searchParams.set('view', 'FitH');
-    pdfUrl.searchParams.set('embedded', 'true');
-    pdfUrl.searchParams.set('mobilebasic', '1');
+  try {
+    // PDF URL 파라미터 설정
+    const pdfUrl = new URL(url);
+    pdfUrl.searchParams.set('toolbar', '1');
+    pdfUrl.searchParams.set('navpanes', '1');
+    pdfUrl.searchParams.set('scrollbar', '1');
+    
+    if (isMobile) {
+      pdfUrl.searchParams.set('view', 'FitH');
+      pdfUrl.searchParams.set('embedded', 'true');
+      pdfUrl.searchParams.set('mobilebasic', '1');
+    }
+    
+    // 파일명 추출하여 제목 설정
+    const fileName = url.split('/').pop().replace('.pdf', '');
+    titleElement.textContent = title || fileName;
+    
+    // 뷰어 설정
+    viewer.src = pdfUrl.toString();
+    
+    // 모달 표시
+    modal.classList.remove("hidden");
+    modal.classList.add("visible");
+    document.body.style.overflow = "hidden";
+    
+    // 뷰어 크기 조정
+    adjustPdfViewer();
+  } catch (error) {
+    console.error("PDF 뷰어 오류:", error);
   }
-  
-  // 파일명 추출하여 제목 설정
-  const fileName = url.split('/').pop().replace('.pdf', '');
-  titleElement.textContent = title || fileName;
-  
-  // 뷰어 설정
-  viewer.src = pdfUrl.toString();
-  
-  // 모달 표시
-  modal.classList.remove("hidden");
-  modal.classList.add("visible");
-  document.body.style.overflow = "hidden";
-  
-  // 뷰어 크기 조정
-  adjustPdfViewer();
 }
 
 function adjustPdfViewer() {
