@@ -463,27 +463,6 @@ window.addEventListener("DOMContentLoaded", () => {
   const pdfModal = document.getElementById("pdfModal");
   const closePdfBtn = document.getElementById("closePdfViewer");
 
-  // PDF 컨트롤 기능
-  document.getElementById("zoomIn").addEventListener("click", () => {
-    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-    if (isMobile) {
-      currentZoom = Math.min(currentZoom + MOBILE_ZOOM_STEP, 1.5);
-    } else {
-      currentZoom = Math.min(currentZoom + ZOOM_STEP, 2);
-    }
-    updatePdfZoom();
-  });
-
-  document.getElementById("zoomOut").addEventListener("click", () => {
-    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-    if (isMobile) {
-      currentZoom = Math.max(currentZoom - MOBILE_ZOOM_STEP, 0.5);
-    } else {
-      currentZoom = Math.max(currentZoom - ZOOM_STEP, 0.5);
-    }
-    updatePdfZoom();
-  });
-
   // PDF 뷰어 닫기
   if (closePdfBtn) {
     closePdfBtn.addEventListener("click", closePdfViewer);
@@ -528,12 +507,16 @@ function openPdfViewer(url, title) {
     pdfUrl.searchParams.set('toolbar', '1');
     pdfUrl.searchParams.set('navpanes', '1');
     pdfUrl.searchParams.set('scrollbar', '1');
+    pdfUrl.searchParams.set('pagemode', 'none');
     
     if (isMobile) {
       // 모바일 전용 파라미터
       pdfUrl.searchParams.set('view', 'FitH');
       pdfUrl.searchParams.set('embedded', 'true');
       pdfUrl.searchParams.set('mobilebasic', '1');
+      pdfUrl.searchParams.set('scrollbar', '1');
+      pdfUrl.searchParams.set('navpanes', '1');
+      pdfUrl.searchParams.set('toolbar', '1');
     }
     
     // 파일명 추출하여 제목 설정
@@ -550,10 +533,6 @@ function openPdfViewer(url, title) {
     
     // 뷰어 크기 조정
     adjustPdfViewer();
-    
-    // 초기 줌 레벨 설정
-    currentZoom = 1;
-    updatePdfZoom();
   } catch (error) {
     console.error("PDF 뷰어 오류:", error);
     alert("PDF 파일을 열 수 없습니다. 파일 경로를 확인해주세요.");
@@ -571,6 +550,8 @@ function adjustPdfViewer() {
     content.style.height = "100%";
     content.style.margin = "0";
     viewer.style.height = "calc(100% - 60px)";
+    viewer.style.width = "100%";
+    viewer.style.border = "none";
   } else {
     content.style.width = "90%";
     content.style.height = "90%";
@@ -588,22 +569,7 @@ function closePdfViewer() {
     modal.classList.add("hidden");
     viewer.src = "";
     document.body.style.overflow = "auto";
-    currentZoom = 1;
   }, 300);
-}
-
-function updatePdfZoom() {
-  const viewer = document.getElementById("pdfViewer");
-  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-  
-  if (isMobile) {
-    const currentUrl = new URL(viewer.src);
-    currentUrl.searchParams.set('zoom', currentZoom * 100);
-    viewer.src = currentUrl.toString();
-  } else {
-    viewer.style.transform = `scale(${currentZoom})`;
-    viewer.style.transformOrigin = "0 0";
-  }
 }
 
 function openLinkViewer(url, title) {

@@ -287,12 +287,7 @@ footer {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: calc(100% - 120px);
-}
-
-.pdf-controls {
-  display: flex;
-  gap: 8px;
+  max-width: calc(100% - 50px);
 }
 
 .pdf-control-btn {
@@ -305,30 +300,18 @@ footer {
   font-size: 20px;
   line-height: 1;
   background-color: #004080;
-  color: white;
+  color: #ffffff;
   border: none;
-  border-radius: 4px;
+  border-radius: 50%;
   cursor: pointer;
   transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .pdf-control-btn:hover {
   background-color: #0056b3;
-  transform: translateY(-1px);
-}
-
-#closePdfViewer {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  background-color: #ff4444;
-  border-radius: 50%;
-  z-index: 3;
-}
-
-#closePdfViewer:hover {
-  background-color: #ff0000;
   transform: rotate(90deg);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
 }
 
 #pdfViewer {
@@ -336,7 +319,6 @@ footer {
   width: 100%;
   border: none;
   background-color: #f5f5f5;
-  transition: transform 0.2s ease;
 }
 
 /* 모바일 환경 개선 */
@@ -354,31 +336,36 @@ footer {
 
   .pdf-header {
     padding: 12px;
+    background-color: #ffffff;
   }
 
   #pdfTitle {
     font-size: 1rem;
-    max-width: calc(100% - 100px);
+    max-width: calc(100% - 40px);
+    color: #333333;
   }
 
   .pdf-control-btn {
     width: 32px;
     height: 32px;
     font-size: 18px;
+    background-color: #004080;
+    color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   }
 
-  #closePdfViewer {
-    top: 12px;
-    right: 12px;
-    width: 32px;
-    height: 32px;
-    font-size: 20px;
+  .pdf-control-btn:hover {
+    background-color: #0056b3;
+    transform: rotate(90deg);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
   }
 
   #pdfViewer {
     height: calc(100% - 56px);
     -webkit-overflow-scrolling: touch;
     touch-action: manipulation;
+    width: 100%;
+    border: none;
   }
 }
 
