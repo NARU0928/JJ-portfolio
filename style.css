@@ -1525,7 +1525,12 @@ section {
 /* ===== 닫기 버튼 크기/위치 일관성 & 애니메이션 제거 ===== */
 
 /* 공통 닫기 버튼 스타일 */
-.close-data-modal, .pdf-control-btn, .link-control-btn, .close-modal, #closePdfViewer, #closeLinkViewer {
+.close-data-modal,
+.pdf-control-btn,
+.link-control-btn,
+.close-modal,
+#closePdfViewer,
+#closeLinkViewer {
   position: absolute;
   top: 50%;
   right: 16px;
@@ -1545,7 +1550,12 @@ section {
   z-index: 1100;
 }
 
-.close-data-modal:hover, .pdf-control-btn:hover, .link-control-btn:hover, .close-modal:hover, #closePdfViewer:hover, #closeLinkViewer:hover {
+.close-data-modal:hover,
+.pdf-control-btn:hover,
+.link-control-btn:hover,
+.close-modal:hover,
+#closePdfViewer:hover,
+#closeLinkViewer:hover {
   background: #0056b3;
   color: #fff;
 }
@@ -1558,24 +1568,48 @@ section {
 /* 모바일 반응형 */
 @media (max-width: 768px) {
   .close-data-modal, .pdf-control-btn, .link-control-btn, .close-modal, #closePdfViewer, #closeLinkViewer {
-    width: 36px;
-    height: 36px;
-    font-size: 18px;
-    right: 10px;
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+    min-height: 36px !important;
+    max-width: 36px !important;
+    max-height: 36px !important;
+    aspect-ratio: 1/1 !important;
+    border-radius: 50% !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: #004080 !important;
+    color: #fff !important;
+    border: none !important;
+    box-shadow: none !important;
   }
 }
 @media (max-width: 480px) {
   .close-data-modal, .pdf-control-btn, .link-control-btn, .close-modal, #closePdfViewer, #closeLinkViewer {
-    width: 32px;
-    height: 32px;
-    font-size: 16px;
-    right: 6px;
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    min-height: 32px !important;
+    max-width: 32px !important;
+    max-height: 32px !important;
+    aspect-ratio: 1/1 !important;
+    border-radius: 50% !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: #004080 !important;
+    color: #fff !important;
+    border: none !important;
+    box-shadow: none !important;
   }
 }
 
 /* PDF/외부링크 닫기 버튼 모바일 색상 보장 */
 @media (max-width: 768px) {
-  .pdf-control-btn, .link-control-btn {
+  .pdf-control-btn, .link-control-btn, #closePdfViewer, #closeLinkViewer {
     background: #004080 !important;
     color: #fff !important;
     border: none !important;
@@ -1860,15 +1894,37 @@ section {
 
 /* 4. 데스크탑 한눈에보기 닫기 버튼 반전 효과 */
 @media (min-width: 769px) {
-  .close-data-modal {
-    background: #fff;
-    color: #004080;
-    border: 2px solid #004080;
-    transition: background 0.2s, color 0.2s;
+  .data-header {
+    padding: 20px 16px !important;
+    min-height: 64px !important;
+    height: auto !important;
   }
-  .close-data-modal:hover {
-    background: #004080;
-    color: #fff;
-    border: 2px solid #004080;
-  }
+}
+
+.close-data-modal,
+.pdf-control-btn,
+.link-control-btn,
+.close-modal,
+#closePdfViewer,
+#closeLinkViewer {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  vertical-align: middle;
+  user-select: none;
+  touch-action: manipulation;
+}
+
+.close-data-modal:active,
+.pdf-control-btn:active,
+.link-control-btn:active,
+.close-modal:active,
+#closePdfViewer:active,
+#closeLinkViewer:active {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  background: #0056b3 !important;
+  color: #fff !important;
+  transform: translateY(-50%) !important;
 }
