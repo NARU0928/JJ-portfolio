@@ -1526,64 +1526,67 @@ section {
   }
 }
 
-/* 모달 닫기 버튼 스타일 - 기존 전역 설정 */
-.close-modal,
-.close-data-modal,
-#closePdfViewer,
-#closeLinkViewer {
-  width: 36px;
-  height: 36px;
-  padding: 0;
+/* ===== 닫기 버튼 크기/위치 일관성 & 애니메이션 제거 ===== */
+
+/* 공통 닫기 버튼 스타일 */
+.close-data-modal, .pdf-control-btn, .link-control-btn, .close-modal, #closePdfViewer, #closeLinkViewer {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
-  line-height: 1;
-  background-color: #004080;
-  color: #ffffff;
+  background: #004080;
+  color: #fff;
   border: none;
   border-radius: 50%;
+  font-size: 22px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  z-index: 1002;
-  aspect-ratio: 1;
-  min-width: 36px;
-  min-height: 36px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background 0.2s, color 0.2s;
+  z-index: 1100;
 }
 
-.close-modal:hover,
-.close-data-modal:hover,
-#closePdfViewer:hover,
-#closeLinkViewer:hover {
-  background-color: #0056b3;
-  transform: rotate(90deg);
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+.close-data-modal:hover, .pdf-control-btn:hover, .link-control-btn:hover, .close-modal:hover, #closePdfViewer:hover, #closeLinkViewer:hover {
+  background: #0056b3;
+  color: #fff;
+}
+
+/* 헤더는 항상 relative */
+.data-header, .pdf-header, .link-header {
+  position: relative;
 }
 
 /* 모바일 반응형 */
 @media (max-width: 768px) {
-  .data-header, .pdf-header, .link-header {
-    height: 44px;
-    min-height: 44px;
-    padding: 0 8px;
-  }
-  .close-data-modal, .pdf-control-btn, .link-control-btn {
-    width: 40px;
-    height: 40px;
-    font-size: 22px;
+  .close-data-modal, .pdf-control-btn, .link-control-btn, .close-modal, #closePdfViewer, #closeLinkViewer {
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+    right: 10px;
   }
 }
 @media (max-width: 480px) {
-  .data-header, .pdf-header, .link-header {
-    height: 36px;
-    min-height: 36px;
-    padding: 0 4px;
+  .close-data-modal, .pdf-control-btn, .link-control-btn, .close-modal, #closePdfViewer, #closeLinkViewer {
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+    right: 6px;
   }
-  .close-data-modal, .pdf-control-btn, .link-control-btn {
-    width: 36px;
-    height: 36px;
-    font-size: 20px;
+}
+
+/* PDF/외부링크 닫기 버튼 모바일 색상 보장 */
+@media (max-width: 768px) {
+  .pdf-control-btn, .link-control-btn {
+    background: #004080;
+    color: #fff;
+    border: none;
+  }
+  .pdf-control-btn *, .link-control-btn * {
+    color: #fff;
+    fill: #fff;
   }
 }
 
