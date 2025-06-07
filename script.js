@@ -37,10 +37,14 @@ function renderTimeline() {
   let scrollTimeout;
   window.addEventListener('scroll', () => {
     if (window.innerWidth <= 768) {
-      if (window.scrollY === 0) {
-        document.body.classList.add('at-top');
-      } else {
-        document.body.classList.remove('at-top');
+      const timeline = document.getElementById('timeline');
+      if (timeline) {
+        const timelineTop = timeline.getBoundingClientRect().top + window.scrollY;
+        if (window.scrollY < timelineTop - 10) {
+          document.body.classList.add('at-top');
+        } else {
+          document.body.classList.remove('at-top');
+        }
       }
     }
   });
