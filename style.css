@@ -741,15 +741,22 @@ footer {
 /* 모바일 스타일 */
 @media (max-width: 768px) {
   .timeline-anchor-btn {
-    left: 10px;
-    top: 10px;
-    padding: 4px 8px;
-    font-size: 12px;
-    background: rgba(255, 255, 255, 0.95);
+    left: 8px;
+    top: 8px;
+    padding: 2px 6px;
+    font-size: 11px;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 12px;
+    min-width: auto;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    transform: scale(0.9);
+    transform-origin: left top;
   }
 
   .timeline-anchor-btn .year-only {
     display: inline;
+    font-weight: 500;
+    letter-spacing: -0.3px;
   }
 
   .timeline-anchor-btn .full-label {
@@ -758,21 +765,30 @@ footer {
 
   /* 스크롤 중일 때만 버튼 표시 */
   body.scrolling .timeline-anchor-btn {
-    opacity: 1;
+    opacity: 0.9;
     pointer-events: auto;
+    transform: scale(0.9);
   }
 
   /* 스크롤이 멈추면 버튼 숨김 */
   .timeline-anchor-btn {
     opacity: 0;
     pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
   }
 
   /* 호버 시에만 버튼 표시 */
   .timeline-card:hover .timeline-anchor-btn {
-    opacity: 1;
+    opacity: 0.9;
     pointer-events: auto;
-    left: 10px;
+    left: 8px;
+    transform: scale(0.9);
+  }
+
+  /* 타임라인 카드 여백 조정 */
+  .timeline-card {
+    margin-left: 0;
+    padding-left: 12px;
   }
 }
 
