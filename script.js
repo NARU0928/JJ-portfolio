@@ -648,51 +648,87 @@ window.addEventListener("DOMContentLoaded", () => {
   adjustPdfViewer();
 });
 
-function openPdfViewer(url, title) {
-  const modal = document.getElementById('pdfModal');
-  const viewer = document.getElementById('pdfViewer');
-  const titleElement = document.getElementById('pdfTitle');
-  
-  titleElement.textContent = title;
-  
-  // 모바일 환경 감지
-  const isMobile = window.innerWidth <= 768;
+function openPdfViewer(url) {
+  const modal = document.getElementById("pdfModal");
+  const viewer = document.getElementById("pdfViewer");
+  const title = document.getElementById("pdfTitle");
   
   // PDF URL에 파라미터 추가
-  const pdfUrl = new URL(url, window.location.href);
+  const pdfUrl = `${url}#toolbar=1&navpanes=1&scrollbar=1&view=FitH`;
+  
+  // 모바일 기기 감지
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  
+  // 모바일에서는 다른 파라미터 설정
   if (isMobile) {
-    // 모바일에서도 페이지 이동과 확대/축소가 가능하도록 설정
-    pdfUrl.searchParams.set('embedded', 'true');
-    pdfUrl.searchParams.set('toolbar', '1'); // 툴바 표시
-    pdfUrl.searchParams.set('navpanes', '1'); // 페이지 네비게이션 표시
-    pdfUrl.searchParams.set('scrollbar', '1'); // 스크롤바 표시
-    pdfUrl.searchParams.set('view', 'FitH'); // 가로 맞춤
-    pdfUrl.searchParams.set('pagemode', 'none'); // 기본 모드
+    viewer.src = `${url}#toolbar=1&navpanes=1&scrollbar=1&view=FitH&embedded=true&mobilebasic=1`;
+  } else {
+    viewer.src = pdfUrl;
   }
   
-  viewer.src = pdfUrl.toString();
-  modal.classList.remove('hidden');
+  // 파일명 추출하여 제목 설정
+  const fileName = url.split('/').pop().replace('.pdf', '');
+  title.textContent = fileName;
   
-  // 닫기 버튼 이벤트 리스너 추가
-  const closeBtn = document.getElementById('closePdfViewer');
-  closeBtn.onclick = closePdfViewer;
+  // 모달 표시
+  modal.classList.remove("hidden");
+  modal.classList.add("visible");
+  document.body.style.overflow = "hidden";
   
-  // 모달 외부 클릭 시 닫기
-  modal.onclick = (e) => {
-    if (e.target === modal) {
-      closePdfViewer();
-    }
-  };
+  // 뷰어 크기 조정
+  adjustPdfViewer();
 }
 
-function closePdfViewer() {
-  const modal = document.getElementById('pdfModal');
-  const viewer = document.getElementById('pdfViewer');
+function adjustPdfViewer() {
+  const viewer = document.getElementById("pdfViewer");
+  const modal = document.getElementById("pdfModal");
+  const content = modal.querySelector(".pdf-content");
   
-  modal.classList.add('hidden');
-  viewer.src = ''; // PDF 뷰어 초기화
-  currentZoom = 1; // 줌 레벨 초기화
+  // 모바일 기기 감지
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  
+  if (isMobile) {
+    // 모바일에서는 전체 화면으로 표시
+    content.style.width = "100%";
+    content.style.height = "100%";
+    content.style.margin = "0";
+    content.style.borderRadius = "0";
+    viewer.style.height = "calc(100% - 60px)";
+  } else {
+    // 데스크탑에서는 적절한 크기로 표시
+    content.style.width = "90%";
+    content.style.height = "90%";
+    content.style.margin = "auto";
+    content.style.borderRadius = "8px";
+    viewer.style.height = "calc(100% - 80px)";
+  }
 }
+
+// 윈도우 리사이즈 이벤트 리스너 추가
+window.addEventListener("resize", adjustPdfViewer);
+
+// PDF 뷰어 닫기 함수 개선
+function closePdfViewer() {
+  const modal = document.getElementById("pdfModal");
+  const viewer = document.getElementById("pdfViewer");
+  
+  modal.classList.remove("visible");
+  setTimeout(() => {
+    modal.classList.add("hidden");
+    viewer.src = ""; // 뷰어 소스 초기화
+    document.body.style.overflow = "auto";
+  }, 300);
+}
+
+// 모달 외부 클릭 시 닫기
+document.getElementById("pdfModal").addEventListener("click", (e) => {
+  if (e.target.id === "pdfModal") {
+    closePdfViewer();
+  }
+});
+
+// 닫기 버튼 이벤트 리스너
+document.getElementById("closePdfViewer").addEventListener("click", closePdfViewer);
 
 function zoomIn() {
   if (currentZoom < 2) {
@@ -742,23 +778,3 @@ function closeLinkViewer() {
   modal.classList.add('hidden');
   viewer.src = ''; // 뷰어 초기화
 }
-
-// PDF 뷰어 스타일 조정
-function adjustPdfViewer() {
-  const viewer = document.getElementById('pdfViewer');
-  const isMobile = window.innerWidth <= 768;
-  
-  if (isMobile) {
-    // 모바일에서 PDF 뷰어 크기 최적화
-    viewer.style.width = '100%';
-    viewer.style.height = 'calc(100% - 60px)'; // 헤더 높이 제외
-    viewer.style.marginTop = '0';
-  } else {
-    // 데스크탑에서는 기존 설정 유지
-    viewer.style.width = '100%';
-    viewer.style.height = 'calc(100% - 60px)';
-  }
-}
-
-// 창 크기 변경 시 PDF 뷰어 조정
-window.addEventListener('resize', adjustPdfViewer);
