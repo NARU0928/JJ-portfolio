@@ -93,12 +93,12 @@
         <div class="pdf-header">
           <h3 id="pdfTitle"></h3>
           <div class="pdf-controls">
-            <button class="pdf-control-btn" onclick="zoomOut()">-</button>
-            <button class="pdf-control-btn" onclick="zoomIn()">+</button>
+            <button id="zoomOut" class="pdf-control-btn" title="축소">-</button>
+            <button id="zoomIn" class="pdf-control-btn" title="확대">+</button>
           </div>
         </div>
-        <button id="closePdfViewer" class="pdf-control-btn">&times;</button>
-        <iframe id="pdfViewer" frameborder="0"></iframe>
+        <button id="closePdfViewer" class="pdf-control-btn" title="닫기">&times;</button>
+        <iframe id="pdfViewer" frameborder="0" allowfullscreen></iframe>
       </div>
     </div>
 

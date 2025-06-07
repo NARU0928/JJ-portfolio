@@ -2,6 +2,8 @@ let currentLang = "ko";
 let timeline = [];
 let dataContent = {};
 let currentZoom = 1;
+const ZOOM_STEP = 0.25;
+const MOBILE_ZOOM_STEP = 0.1;
 
 // 타임라인 렌더링 함수
 function renderTimeline() {
@@ -648,27 +650,32 @@ window.addEventListener("DOMContentLoaded", () => {
   adjustPdfViewer();
 });
 
-function openPdfViewer(url) {
+function openPdfViewer(url, title) {
   const modal = document.getElementById("pdfModal");
   const viewer = document.getElementById("pdfViewer");
-  const title = document.getElementById("pdfTitle");
-  
-  // PDF URL에 파라미터 추가
-  const pdfUrl = `${url}#toolbar=1&navpanes=1&scrollbar=1&view=FitH`;
+  const titleElement = document.getElementById("pdfTitle");
   
   // 모바일 기기 감지
   const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
   
-  // 모바일에서는 다른 파라미터 설정
+  // PDF URL 파라미터 설정
+  const pdfUrl = new URL(url);
+  pdfUrl.searchParams.set('toolbar', '1');
+  pdfUrl.searchParams.set('navpanes', '1');
+  pdfUrl.searchParams.set('scrollbar', '1');
+  
   if (isMobile) {
-    viewer.src = `${url}#toolbar=1&navpanes=1&scrollbar=1&view=FitH&embedded=true&mobilebasic=1`;
-  } else {
-    viewer.src = pdfUrl;
+    pdfUrl.searchParams.set('view', 'FitH');
+    pdfUrl.searchParams.set('embedded', 'true');
+    pdfUrl.searchParams.set('mobilebasic', '1');
   }
   
   // 파일명 추출하여 제목 설정
   const fileName = url.split('/').pop().replace('.pdf', '');
-  title.textContent = fileName;
+  titleElement.textContent = title || fileName;
+  
+  // 뷰어 설정
+  viewer.src = pdfUrl.toString();
   
   // 모달 표시
   modal.classList.remove("hidden");
@@ -683,31 +690,21 @@ function adjustPdfViewer() {
   const viewer = document.getElementById("pdfViewer");
   const modal = document.getElementById("pdfModal");
   const content = modal.querySelector(".pdf-content");
-  
-  // 모바일 기기 감지
   const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
   
   if (isMobile) {
-    // 모바일에서는 전체 화면으로 표시
     content.style.width = "100%";
     content.style.height = "100%";
     content.style.margin = "0";
-    content.style.borderRadius = "0";
     viewer.style.height = "calc(100% - 60px)";
   } else {
-    // 데스크탑에서는 적절한 크기로 표시
     content.style.width = "90%";
     content.style.height = "90%";
     content.style.margin = "auto";
-    content.style.borderRadius = "8px";
-    viewer.style.height = "calc(100% - 80px)";
+    viewer.style.height = "calc(100% - 50px)";
   }
 }
 
-// 윈도우 리사이즈 이벤트 리스너 추가
-window.addEventListener("resize", adjustPdfViewer);
-
-// PDF 뷰어 닫기 함수 개선
 function closePdfViewer() {
   const modal = document.getElementById("pdfModal");
   const viewer = document.getElementById("pdfViewer");
@@ -715,39 +712,38 @@ function closePdfViewer() {
   modal.classList.remove("visible");
   setTimeout(() => {
     modal.classList.add("hidden");
-    viewer.src = ""; // 뷰어 소스 초기화
+    viewer.src = "";
     document.body.style.overflow = "auto";
+    currentZoom = 1;
   }, 300);
 }
 
-// 모달 외부 클릭 시 닫기
-document.getElementById("pdfModal").addEventListener("click", (e) => {
-  if (e.target.id === "pdfModal") {
-    closePdfViewer();
-  }
-});
-
-// 닫기 버튼 이벤트 리스너
-document.getElementById("closePdfViewer").addEventListener("click", closePdfViewer);
-
 function zoomIn() {
-  if (currentZoom < 2) {
-    currentZoom += 0.1;
-    updatePdfZoom();
-  }
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  const step = isMobile ? MOBILE_ZOOM_STEP : ZOOM_STEP;
+  currentZoom = Math.min(currentZoom + step, 2);
+  updatePdfZoom();
 }
 
 function zoomOut() {
-  if (currentZoom > 0.5) {
-    currentZoom -= 0.1;
-    updatePdfZoom();
-  }
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  const step = isMobile ? MOBILE_ZOOM_STEP : ZOOM_STEP;
+  currentZoom = Math.max(currentZoom - step, 0.5);
+  updatePdfZoom();
 }
 
 function updatePdfZoom() {
-  const pdfViewer = document.getElementById("pdfViewer");
-  pdfViewer.style.transform = `scale(${currentZoom})`;
-  pdfViewer.style.transformOrigin = "top left";
+  const viewer = document.getElementById("pdfViewer");
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  
+  if (isMobile) {
+    const currentUrl = new URL(viewer.src);
+    currentUrl.searchParams.set('zoom', currentZoom * 100);
+    viewer.src = currentUrl.toString();
+  } else {
+    viewer.style.transform = `scale(${currentZoom})`;
+    viewer.style.transformOrigin = "0 0";
+  }
 }
 
 function openLinkViewer(url, title) {
