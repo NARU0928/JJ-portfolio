@@ -659,26 +659,51 @@ footer {
 }
 
 
-/* 상단 앵커 버튼 스타일 */
-.anchor-buttons .anchor-btn {
-  display: inline-block;
-  padding: 8px 16px;
+/* ───────── 앵커 버튼 스타일 (연도 구간 Jump 버튼) ───────── */
+.anchor-group {
+  position: sticky;
+  top: 0;
+  background: white;
+  padding: 15px 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.anchor-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.anchor-btn {
+  flex: 1;
+  min-width: 120px;
+  max-width: 160px;
+  text-align: center;
+  padding: 8px 12px;
   background-color: #e6f0ff;
   color: #004080;
   text-decoration: none;
-  border-radius: 20px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
   font-size: 14px;
-  transition: all 0.3s ease;
-  text-align: center;
-  min-width: 120px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  line-height: 1.4;
 }
 
-.anchor-buttons .anchor-btn:hover {
-  background-color: #004080;
-  color: white;
+.anchor-btn:hover {
+  background-color: #d2e6ff;
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.anchor-btn small {
+  display: block;
+  font-size: 11px;
+  color: #666;
+  margin-top: 2px;
 }
 
 /* 타임라인 내 앵커 버튼 스타일 */
@@ -700,10 +725,6 @@ footer {
   white-space: nowrap;
 }
 
-.timeline-anchor-btn span {
-  display: inline-block;
-}
-
 .timeline-card:hover .timeline-anchor-btn {
   opacity: 1;
   pointer-events: auto;
@@ -712,7 +733,6 @@ footer {
 
 /* 모바일 스타일 */
 @media (max-width: 768px) {
-  /* 상단 앵커 버튼 모바일 스타일 */
   .anchor-buttons {
     padding: 8px;
     gap: 8px;
@@ -726,7 +746,7 @@ footer {
     display: none;
   }
 
-  .anchor-buttons .anchor-btn {
+  .anchor-btn {
     padding: 6px 12px;
     font-size: 13px;
     min-width: 100px;
@@ -737,22 +757,18 @@ footer {
   .timeline-anchor-btn {
     left: 8px;
     top: 8px;
-    padding: 2px 6px;
-    font-size: 11px;
-    background: rgba(255, 255, 255, 0.85);
-    border-radius: 12px;
-    min-width: auto;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    padding: 4px 8px;
+    font-size: 12px;
+    background: rgba(230, 240, 255, 0.9);
+    color: #004080;
+    border-radius: 4px;
+    opacity: 0.8;
+    pointer-events: auto;
   }
 
-  .timeline-anchor-btn span {
-    font-weight: 500;
-    letter-spacing: -0.3px;
-  }
-
-  /* 스크롤 중일 때만 버튼 표시 */
+  /* 스크롤 중일 때 앵커 버튼 스타일 */
   body.scrolling .timeline-anchor-btn {
-    opacity: 0.9;
+    opacity: 0.8;
     pointer-events: auto;
   }
 
@@ -765,7 +781,7 @@ footer {
 
   /* 호버 시에만 버튼 표시 */
   .timeline-card:hover .timeline-anchor-btn {
-    opacity: 0.9;
+    opacity: 0.8;
     pointer-events: auto;
     left: 8px;
   }
