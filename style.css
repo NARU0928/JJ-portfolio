@@ -26,7 +26,7 @@ header {
 .logo a {
   color: inherit;
   text-decoration: none;
-  font-size: 2rem; /* ✅ 기존보다 크게 */
+  font-size: 2rem;
   font-weight: normal;
 }
 
@@ -60,13 +60,13 @@ main {
 .hero {
   background: linear-gradient(to right, #004080, #0066cc);
   color: white;
-  padding: 60px 20px; /* 상하 여백 조정 */
+  padding: 60px 20px;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 80px 20px; /* 상하 여백만 유지 */
+  padding: 80px 20px;
 }
 
 .hero h1 {
@@ -84,7 +84,7 @@ main {
   text-align: center;
 }
 
-.button-group { /* 새로 추가 */
+.button-group {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -325,7 +325,7 @@ footer {
 @media (max-width: 768px) {
   .pdf-modal {
     background-color: rgba(0, 0, 0, 0.95);
-    padding-top: 48px; /* 기존 60px에서 48px로 줄임 */
+    padding-top: 48px;
   }
 
   .pdf-content {
@@ -379,7 +379,7 @@ footer {
     display: initial;
   }
   .data-modal {
-    padding-top: 44px; /* 기존 56px에서 44px로 줄임 */
+    padding-top: 44px;
   }
 }
 
@@ -569,15 +569,19 @@ footer {
   border-radius: 50% !important;
   font-size: 24px !important;
   cursor: pointer !important;
-  transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s !important;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s; /* transform 제거 */
   z-index: 1100 !important;
   align-self: center !important;
+  position: absolute; /* 절대 위치로 변경 */
+  right: 16px; /* 오른쪽 여백 설정 */
+  top: 50%; /* 수직 가운데 정렬을 위해 50% 설정 */
+  transform: translateY(-50%); /* 정확한 수직 가운데 정렬 */
 }
 
 .close-data-modal:hover {
   background: #0056b3 !important;
   color: #fff !important;
-  transform: rotate(90deg) !important;
+  /* transform: rotate(90deg) !important; 제거 */
 }
 
 /* 데스크탑: .data-modal 상단 여백 제거 */
@@ -588,16 +592,16 @@ footer {
 /* 모바일: 상단 여백 및 닫기 버튼 스타일 */
 @media (max-width: 768px) {
   .data-modal {
-    padding-top: 44px;
+    padding-top: 44px; /* 헤더 높이만큼 여백 추가 */
   }
   .close-data-modal {
-    position: fixed;
-    top: 12px;
-    right: 12px;
+    position: fixed; /* 닫기 버튼 고정 */
+    top: 12px; /* 상단에서부터의 거리 */
+    right: 12px; /* 오른쪽에서부터의 거리 */
     z-index: 1100;
-    background: #fff !important;
-    color: #004080 !important;
-    border: 2px solid #004080;
+    background: #fff !important; /* 흰색 배경 */
+    color: #004080 !important; /* 파란색 X 아이콘 */
+    border: 2px solid #004080; /* 파란색 테두리 */
   }
   .close-data-modal:hover {
     background: #0056b3 !important;
@@ -722,7 +726,7 @@ footer {
     justify-content: center;
   }
   .hero {
-    padding: 50px 20px; /* 상하 여백 추가 조정 */
+    padding: 50px 20px;
   }
   .hero h1 {
     font-size: 1.8rem;
@@ -813,7 +817,7 @@ footer {
     font-size: 0.9em;
   }
   .hero {
-    padding: 30px 15px; /* 상하 여백 추가 조정 */
+    padding: 30px 15px;
   }
   .hero h1 {
     font-size: 1.6rem;
@@ -1063,8 +1067,8 @@ html {
 .anchor-point {
   position: relative;
   height: 0;
-  margin-top: -100px; /* 상단 여백 조정 */
-  padding-top: 100px; /* 상단 여백 조정 */
+  margin-top: -100px;
+  padding-top: 100px;
   visibility: hidden;
   pointer-events: none;
 }
@@ -1072,7 +1076,7 @@ html {
 /* 타임라인 컨테이너 여백 조정 */
 #timeline {
   position: relative;
-  padding-left: 100px; /* 왼쪽 앵커 버튼을 위한 여백 */
+  padding-left: 100px;
   max-width: 1000px;
   margin: 0 auto;
   padding: 0 30px;
@@ -1196,7 +1200,7 @@ section {
   }
 
   .pdf-content iframe {
-    height: calc(100% - 50px); /* 컨트롤 버튼 영역 제외 */
+    height: calc(100% - 50px);
     border-radius: 0;
   }
 
@@ -1360,7 +1364,7 @@ section {
   .timeline-button,
   .link-control-btn,
   .pdf-control-btn {
-    min-height: 44px; /* iOS 권장 터치 영역 */
+    min-height: 44px;
   }
 
   /* 모바일에서 스크롤 시 버튼 가시성 개선 */
@@ -1561,12 +1565,12 @@ section {
 /* 모바일 PDF/외부링크 닫기 버튼 파란색 배경, X는 흰색 */
 @media (max-width: 768px) {
   .pdf-control-btn, .link-control-btn {
-    background: #004080;
-    color: #fff;
+    background: #004080; /* 파란색 배경 */
+    color: #fff; /* 흰색 X 아이콘 */
     border: none;
   }
   .pdf-control-btn *, .link-control-btn * {
-    color: #fff;
+    color: #fff; /* X 아이콘 색상을 흰색으로 강제 */
     fill: #fff;
   }
 }
