@@ -769,9 +769,8 @@ footer {
 }
 
 .anchor-btn {
-  flex: 0 1 auto;
-  min-width: 140px;
-  max-width: 180px;
+  flex: 0 0 200px; /* 고정된 너비로 변경 */
+  width: 200px; /* 명시적 너비 지정 */
   text-align: center;
   padding: 10px 15px;
   background-color: #e6f0ff;
@@ -783,6 +782,10 @@ footer {
   line-height: 1.4;
   white-space: normal;
   word-break: keep-all;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 60px; /* 최소 높이 지정 */
 }
 
 .anchor-btn:hover {
@@ -840,12 +843,16 @@ footer {
   }
 
   .anchor-btn {
-    flex: 0 0 auto;
-    min-width: 130px;
-    max-width: none;
+    flex: 0 0 160px; /* 모바일에서 더 작은 고정 너비 */
+    width: 160px;
     padding: 8px 12px;
     font-size: 13px;
-    white-space: normal;
+    min-height: 50px; /* 모바일에서 더 작은 최소 높이 */
+  }
+
+  .anchor-btn small {
+    font-size: 10px;
+    margin-top: 3px;
   }
 
   /* 타임라인 내 앵커 버튼 모바일 스타일 */
