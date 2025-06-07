@@ -12,7 +12,7 @@ function renderTimeline() {
   const anchorYears = [2025, 2024, 2017, 2013, 2010];
   const anchorLabels = {
     ko: {
-      2025: "2025~2024<br><small>지속가능한 대안교육 동행하기</small>",
+      2025: "2025~2024<br><small>지속가능한 대안교육 동행</small>",
       2024: "2024~2017<br><small>교육 가능성 찾기</small>",
       2017: "2017~2013<br><small>대안교육의 시작과 이해</small>",
       2013: "2013~2010<br><small>전문성 향상을 위한 준비</small>",
@@ -86,43 +86,37 @@ function createTimelineCard(entry) {
   card.className = "timeline-card";
 
   const title = document.createElement("h3");
-  title.innerText = `${entry.year} · ${entry.title}`;
+  title.textContent = entry.title;
   card.appendChild(title);
 
-  const description = document.createElement("p");
-  description.innerText = entry.text;
-  card.appendChild(description);
+  const text = document.createElement("p");
+  text.textContent = entry.text;
+  card.appendChild(text);
 
-  const linkBox = document.createElement("div");
-  linkBox.className = "timeline-links";
-
-  entry.links.forEach(link => {
-    const btn = document.createElement("a");
-    btn.href = link.url;
-    btn.className = "timeline-button";
+  if (entry.links && entry.links.length > 0) {
+    const linksContainer = document.createElement("div");
+    linksContainer.className = "timeline-links";
     
-    // PDF 파일인 경우 팝업으로 열기
-    if (link.url.toLowerCase().endsWith('.pdf')) {
-      btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        openPdfViewer(link.url, link.label);
-      });
-    } else {
-      btn.target = "_blank";
-    }
+    entry.links.forEach(link => {
+      const linkBtn = document.createElement("a");
+      linkBtn.href = link.url;
+      linkBtn.textContent = link.label;
+      linkBtn.className = "timeline-link-btn";
+      
+      // PDF 파일인 경우 팝업으로 열기
+      if (link.url.toLowerCase().endsWith('.pdf')) {
+        linkBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          openPdfViewer(link.url, link.label);
+        });
+      }
+      
+      linksContainer.appendChild(linkBtn);
+    });
+    
+    card.appendChild(linksContainer);
+  }
 
-    const icon = document.createElement("i");
-    icon.className = getIconClass(link.url);
-    icon.style.marginRight = "6px";
-    btn.appendChild(icon);
-
-    const label = document.createTextNode(link.label);
-    btn.appendChild(label);
-
-    linkBox.appendChild(btn);
-  });
-
-  card.appendChild(linkBox);
   return card;
 }
 
