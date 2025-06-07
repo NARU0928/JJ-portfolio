@@ -64,11 +64,8 @@ function renderTimeline() {
       const anchorBtn = document.createElement("a");
       anchorBtn.href = `#year-${year}`;
       anchorBtn.className = "timeline-anchor-btn";
-      // 모바일에서는 연도만, 데스크톱에서는 전체 라벨 표시
-      anchorBtn.innerHTML = `
-        <span class="year-only">${year}</span>
-        <span class="full-label">${anchorLabels[currentLang][year].split('<br>')[0]}</span>
-      `;
+      // 타임라인 내 앵커 버튼에는 연도만 표시
+      anchorBtn.innerHTML = `<span>${year}</span>`;
       card.appendChild(anchorBtn);
     }
     
