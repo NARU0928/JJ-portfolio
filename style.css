@@ -533,51 +533,51 @@ footer {
 
 /* 데스크탑: .data-header 내 닫기 버튼 위치 */
 .data-header {
-  position: sticky;
-  top: 0;
-  z-index: 1002;
-  background: #fff;
-  border-bottom: 1px solid #eee;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 56px;
-  min-height: 56px;
-  padding: 0 16px;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1002 !important;
+  background: #fff !important;
+  border-bottom: 1px solid #eee !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 56px !important;
+  min-height: 56px !important;
+  padding: 0 16px !important;
 }
 
 .data-header h2, .data-header h3 {
-  flex: 1 1 auto;
-  text-align: center;
-  margin: 0;
-  font-size: 1.2rem;
-  color: #222;
-  line-height: 1.2;
+  flex: 1 1 auto !important;
+  text-align: center !important;
+  margin: 0 !important;
+  font-size: 1.2rem !important;
+  color: #222 !important;
+  line-height: 1.2 !important;
 }
 
 .close-data-modal {
-  margin-left: auto;
-  width: 44px;
-  height: 44px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #004080;
-  color: #fff;
-  border: none;
-  border-radius: 50%;
-  font-size: 24px;
-  cursor: pointer;
-  transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
-  z-index: 1100;
-  align-self: center;
+  margin-left: auto !important;
+  width: 44px !important;
+  height: 44px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: #004080 !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: 50% !important;
+  font-size: 24px !important;
+  cursor: pointer !important;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s !important;
+  z-index: 1100 !important;
+  align-self: center !important;
 }
 
 .close-data-modal:hover {
-  background: #0056b3;
-  color: #fff;
-  transform: rotate(90deg);
+  background: #0056b3 !important;
+  color: #fff !important;
+  transform: rotate(90deg) !important;
 }
 
 /* 데스크탑: .data-modal 상단 여백 제거 */
@@ -639,9 +639,9 @@ footer {
   }
 
   .data-header {
-    height: 44px;
-    min-height: 44px;
-    padding: 0 8px;
+    height: 44px !important;
+    min-height: 44px !important;
+    padding: 0 8px !important;
   }
 
   .data-header h3 {
@@ -655,9 +655,9 @@ footer {
 
 @media (max-width: 480px) {
   .data-header {
-    height: 36px;
-    min-height: 36px;
-    padding: 0 4px;
+    height: 36px !important;
+    min-height: 36px !important;
+    padding: 0 4px !important;
   }
 
   .data-header h3 {
@@ -1535,11 +1535,18 @@ section {
 /* 모바일 반응형 */
 @media (max-width: 768px) {
   .data-header {
-    position: sticky;
-    top: 0;
-    z-index: 1002;
-    background: #fff;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1002 !important;
+    background: #fff !important;
+    border-bottom: 1px solid #eee !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 56px !important;
+    min-height: 56px !important;
+    padding: 0 16px !important;
   }
   .close-data-modal {
     position: fixed;
@@ -1773,15 +1780,15 @@ section {
 
 /* 2. '한눈에 보기' 헤더 고정 및 내용 패딩 */
 .data-header {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  background: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 32px;
-  border-bottom: 1px solid #eee;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1002 !important;
+  background: #fff !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 32px !important;
+  border-bottom: 1px solid #eee !important;
 }
 .data-content {
   padding-top: 40px;
@@ -1799,11 +1806,11 @@ section {
 
 /* 3. 제목 가운데 정렬, 닫기 버튼 우측 */
 .data-header h2, .data-header h3 {
-  flex: 1 1 auto;
-  text-align: center;
-  margin: 0;
-  font-size: 1.2rem;
-  color: #222;
+  flex: 1 1 auto !important;
+  text-align: center !important;
+  margin: 0 !important;
+  font-size: 1.2rem !important;
+  color: #222 !important;
 }
 .close-data-modal {
   position: absolute;
