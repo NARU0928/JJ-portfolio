@@ -7,19 +7,17 @@ function renderTimeline() {
   const container = document.getElementById("timeline");
   container.innerHTML = "";
 
-  const insertedAnchors = new Set();
-  const anchorYears = [2024, 2017, 2013, 2010, 2004];
+  // 앵커 포인트로 사용할 연도들을 정의합니다.
+  // 이 연도들의 타임라인 카드 위에 anchor-point div가 생성됩니다.
+  const anchorYears = [2025, 2024, 2017, 2013, 2010, 2004]; // 추가된 연도 (2025)
 
   timeline.forEach(entry => {
-    const year = entry.year;
-
-    // 지정된 해에만 앵커 포인트 생성
-    if (anchorYears.includes(year) && !insertedAnchors.has(year)) {
+    // anchorYears에 포함된 연도라면 해당 연도의 타임라인 카드 위에 anchor-point를 추가
+    if (anchorYears.includes(entry.year)) {
       const anchor = document.createElement("div");
       anchor.className = "anchor-point";
-      anchor.id = `year-${year}`;
+      anchor.id = `year-${entry.year}`; // 예: year-2025
       container.appendChild(anchor);
-      insertedAnchors.add(year);
     }
 
     const card = createTimelineCard(entry);
@@ -27,6 +25,7 @@ function renderTimeline() {
     observer.observe(card);
   });
 
+  // 타임라인 렌더링 후 해시 스크롤 처리
   handleHashScroll();
 }
 
@@ -119,20 +118,25 @@ function handleHashScroll() {
   if (hash && document.querySelector(hash)) {
     setTimeout(() => {
       document.querySelector(hash).scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, 300);
+    }, 300); // 렌더링 지연 후 스크롤
   }
 
+  // 앵커 버튼 클릭 시 부드럽게 스크롤
   document.querySelectorAll('.anchor-btn').forEach(btn => {
-    btn.addEventListener('click', e => {
-      const hash = btn.getAttribute('href');
-      if (hash && document.querySelector(hash)) {
-        e.preventDefault();
-        setTimeout(() => {
-          document.querySelector(hash).scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }, 200);
-      }
-    });
+    btn.removeEventListener('click', handleAnchorClick); // 중복 이벤트 리스너 방지
+    btn.addEventListener('click', handleAnchorClick);
   });
+}
+
+function handleAnchorClick(e) {
+  const hash = this.getAttribute('href');
+  if (hash && document.querySelector(hash)) {
+    e.preventDefault();
+    history.pushState(null, '', hash); // URL 해시 업데이트
+    setTimeout(() => {
+      document.querySelector(hash).scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100); // 약간의 지연으로 스크롤 부드럽게
+  }
 }
 
 // 데이터 모달 렌더링
@@ -204,6 +208,9 @@ window.addEventListener("DOMContentLoaded", () => {
   loadTimeline(currentLang);
   loadData(currentLang);
 
+  // 초기 로드 시에도 해시 스크롤을 처리하도록 호출
+  handleHashScroll(); 
+
   document.getElementById("toggle-lang").addEventListener("click", e => {
     e.preventDefault();
     switchLanguage();
@@ -249,7 +256,7 @@ window.addEventListener("DOMContentLoaded", () => {
       e.preventDefault();
       externalViewer.src = btn.href;
       document.getElementById("externalModal").classList.remove("hidden");
-      document.body.style.overflow = "hidden";
+      document.body.style.overflow = "auto";
     }
   });
 
