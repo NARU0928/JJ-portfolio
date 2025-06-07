@@ -588,12 +588,13 @@ footer {
   }
 
   .data-header {
-    padding: 15px 20px;
+    padding: 8px 12px;
+    min-height: 32px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.06);
   }
 
   .data-header h3 {
-    font-size: 1.25rem;
-    padding-right: 48px; /* 닫기 버튼을 위한 공간 확보 */
+    font-size: 1rem;
   }
 
   .data-body {
@@ -603,11 +604,12 @@ footer {
 
 @media (max-width: 480px) {
   .data-header {
-    padding: 14px;
+    padding: 6px 8px;
+    min-height: 28px;
   }
 
   .data-header h3 {
-    font-size: 1.1rem;
+    font-size: 0.95rem;
   }
 
   .data-body {
@@ -1485,15 +1487,15 @@ section {
     top: 0;
     left: 0;
     right: 0;
-    padding: 16px;
+    padding: 8px 12px;
+    min-height: 32px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.06);
     background-color: #ffffff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     z-index: 1001;
   }
 
   .data-header h3 {
-    font-size: 1.25rem;
-    padding-right: 48px; /* 닫기 버튼을 위한 공간 확보 */
+    font-size: 1rem;
   }
 
   .data-modal {
@@ -1540,6 +1542,7 @@ section {
 
 @media (max-width: 480px) {
   .data-header {
+    padding: 6px 8px;
     padding: 14px;
   }
 
@@ -1664,4 +1667,58 @@ section {
 #closeLinkViewer * {
   color: #fff !important;
   fill: #fff !important;
+}
+
+/* 데스크탑: 각 모달 헤더 내 닫기 버튼 */
+.pdf-header .pdf-control-btn,
+.link-header .link-control-btn,
+.data-header .close-data-modal {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  background: #004080;
+  color: #fff;
+  z-index: 10;
+}
+
+.pdf-modal, .link-modal, .data-modal {
+  padding-top: 0;
+}
+
+/* 모바일: 닫기 버튼은 fixed, 배경 흰색, X는 파란색 */
+@media (max-width: 768px) {
+  .pdf-header .pdf-control-btn,
+  .link-header .link-control-btn,
+  .data-header .close-data-modal {
+    position: fixed;
+    top: 12px;
+    right: 12px;
+    background: #fff !important;
+    color: #004080 !important;
+    border: 2px solid #004080;
+    z-index: 1002;
+  }
+  .pdf-modal, .link-modal, .data-modal {
+    padding-top: 44px;
+  }
+}
+@media (max-width: 480px) {
+  .pdf-header .pdf-control-btn,
+  .link-header .link-control-btn,
+  .data-header .close-data-modal {
+    top: 10px;
+    right: 10px;
+    width: 32px;
+    height: 32px;
+    font-size: 20px;
+  }
+  .pdf-modal, .link-modal, .data-modal {
+    padding-top: 40px;
+  }
+}
+
+/* 닫기 버튼 내부 아이콘도 색상 강제 적용 */
+.pdf-control-btn *, .link-control-btn *, .close-data-modal * {
+  color: inherit !important;
+  fill: inherit !important;
 }
