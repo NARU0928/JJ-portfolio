@@ -535,13 +535,10 @@ footer {
 .data-header {
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 1002;
   background: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 32px;
   border-bottom: 1px solid #eee;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
 }
 .close-data-modal {
   position: absolute;
@@ -549,6 +546,12 @@ footer {
   top: 50%;
   transform: translateY(-50%);
   z-index: 11;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+.close-data-modal:hover {
+  background: #0056b3;
+  color: #fff;
+  transform: rotate(90deg); /* 위치 변화 없음 */
 }
 
 /* 데스크탑: .data-modal 상단 여백 제거 */
@@ -565,11 +568,18 @@ footer {
     position: fixed;
     top: 12px;
     right: 12px;
+    z-index: 1100;
     background: #fff !important;
     color: #004080 !important;
     border: 2px solid #004080;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.12);
-    z-index: 1002;
+  }
+  .close-data-modal:hover {
+    background: #0056b3 !important;
+    color: #fff !important;
+    transform: rotate(90deg);
+  }
+  .data-content {
+    padding-top: 44px;
   }
 }
 
@@ -583,6 +593,9 @@ footer {
     width: 32px;
     height: 32px;
     font-size: 20px;
+  }
+  .data-content {
+    padding-top: 36px;
   }
 }
 
@@ -1496,88 +1509,34 @@ section {
 /* 모바일 반응형 */
 @media (max-width: 768px) {
   .data-header {
-    position: fixed;
+    position: sticky;
     top: 0;
-    left: 0;
-    right: 0;
-    padding: 8px 12px;
-    min-height: 32px;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.06);
-    background-color: #ffffff;
-    z-index: 1001;
+    z-index: 1002;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
   }
-
-  .data-header h3 {
-    font-size: 1rem;
-  }
-
-  .data-modal {
-    padding-top: 44px; /* 기존 60px에서 44px로 줄임 */
-  }
-
-  .close-modal,
-  .close-data-modal,
-  #closePdfViewer,
-  #closeLinkViewer {
+  .close-data-modal {
     position: fixed;
     top: 12px;
     right: 12px;
-    width: 36px;
-    height: 36px;
-    font-size: 22px;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    aspect-ratio: 1;
-    min-width: 36px;
-    min-height: 36px;
-    background-color: #004080;
-    color: #ffffff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    z-index: 1002;
+    z-index: 1100;
+    background: #fff !important;
+    color: #004080 !important;
+    border: 2px solid #004080;
   }
-
-  .data-modal .close-data-modal {
-    position: fixed;
-    top: 12px;
-    right: 12px;
-    background-color: #004080;
-    color: #ffffff;
-    z-index: 1002;
+  .close-data-modal:hover {
+    background: #0056b3 !important;
+    color: #fff !important;
+    transform: rotate(90deg);
   }
-
-  .data-body {
-    margin-top: 16px;
-    padding: 0 16px;
+  .data-content {
+    padding-top: 44px;
   }
 }
 
 @media (max-width: 480px) {
-  .data-header {
-    padding: 6px 8px;
-    padding: 14px;
-  }
-
-  .data-header h3 {
-    font-size: 1.1rem;
-  }
-
-  .close-modal,
-  .close-data-modal,
-  #closePdfViewer,
-  #closeLinkViewer {
-    width: 32px;
-    height: 32px;
-    min-width: 32px;
-    min-height: 32px;
-    font-size: 20px;
-    top: 10px;
-    right: 10px;
-  }
-
-  .data-modal {
-    padding-top: 40px; /* 기존 56px에서 40px로 줄임 */
+  .data-content {
+    padding-top: 36px;
   }
 }
 
