@@ -179,7 +179,9 @@ function switchLanguage() {
 
   // 소개 및 연락처 섹션 텍스트 변경
   document.querySelector("#about h2").textContent = currentLang === "ko" ? "소개" : "About";
-  document.querySelector("#about p").textContent = currentLang === "ko" ? "사람과 교육의 연결을 삶으로 살아가는 사람, 이정재입니다." : "I am Lee Jungjae, a person who lives the connection between people and education.";
+  document.querySelector("#about p").textContent = currentLang === "ko" 
+    ? "삶의 길을 밝히는 교육을 통해 사람과 사람, 배움과 세상을 연결하는 삶의 설계자, 이정재입니다." 
+    : "I am Lee Jungjae, a life designer who connects people to people, and learning to the world through education that illuminates the path of life.";
   document.querySelector("#contact h2").textContent = currentLang === "ko" ? "연락하기" : "Contact";
 
   // 앵커 버튼 텍스트 변경
