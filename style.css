@@ -323,14 +323,14 @@ footer {
   align-items: center;
   justify-content: center;
   z-index: 1000;
-  opacity: 0; /* 초기 투명하게 */
-  visibility: hidden; /* 초기 숨김 */
+  opacity: 0;
+  visibility: hidden;
   transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 .data-modal.visible {
-  opacity: 1; /* 보이게 */
-  visibility: visible; /* 보이게 */
+  opacity: 1;
+  visibility: visible;
 }
 
 .data-content {
@@ -685,9 +685,14 @@ footer {
   font-size: 0.95em;
   line-height: 1.2;
   transition: all 0.2s ease;
-  display: inline-block;
+  display: flex; /* Flexbox 추가 */
+  flex-direction: column; /* 세로 정렬 */
+  justify-content: center; /* 수직 중앙 정렬 */
+  align-items: center; /* 수평 중앙 정렬 */
   text-align: center;
-  min-width: 120px;
+  min-width: 150px; /* 최소 너비 설정 */
+  height: 65px; /* 고정 높이 설정 (내용에 따라 조절) */
+  box-sizing: border-box; /* 패딩을 포함한 높이 계산 */
 }
 
 .anchor-btn:hover {
@@ -700,6 +705,7 @@ footer {
   font-size: 0.8em;
   margin-top: 4px;
   color: #333;
+  white-space: normal; /* 줄바꿈 허용 */
 }
 
 /* ───────── 앵커 위치 정확하게 이동되도록 여백 보정용 빈 요소 ───────── */
@@ -722,6 +728,22 @@ footer {
   .close-modal:hover {
     background-color: #e6f0ff;
   }
+
+  .anchor-btn { /* 모바일 환경에서 앵커 버튼 너비 조정 */
+      min-width: 130px; /* 모바일에서 더 작은 최소 너비 */
+      height: 70px; /* 모바일에서 높이 조정 */
+  }
+}
+
+@media (max-width: 480px) {
+    .anchor-btn { /* 더 작은 모바일 환경에서 앵커 버튼 너비 조정 */
+      min-width: 100px; /* 더 작은 모바일에서 더 작은 최소 너비 */
+      height: 60px; /* 더 작은 모바일에서 높이 조정 */
+      font-size: 0.85em;
+    }
+    .anchor-btn small {
+      font-size: 0.75em;
+    }
 }
 
 html {
