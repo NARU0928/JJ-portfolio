@@ -350,8 +350,10 @@ footer {
     width: 32px;
     height: 32px;
     font-size: 18px;
-    background-color: #004080;
-    color: #ffffff;
+    /* 모바일 PDF/외부링크 닫기 버튼 파란색 배경, X는 흰색 */
+    background: #004080; /* 파란색 배경 */
+    color: #fff; /* 흰색 X 아이콘 */
+    border: none;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   }
 
@@ -520,7 +522,8 @@ footer {
   transform: translateY(20px);
   transition: transform 0.3s ease;
   overflow-y: auto;
-  padding-top: 40px;
+  /* padding-top은 .data-header가 sticky를 처리하므로 여기서는 0으로 */
+  padding-top: 0;
 }
 
 .data-modal.visible .data-content {
@@ -538,20 +541,20 @@ footer {
   z-index: 1002 !important;
   background: #fff !important;
   border-bottom: 1px solid #eee !important;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06) !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06) !important; /* 그림자 추가 */
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  height: 56px !important;
-  min-height: 56px !important;
-  padding: 0 16px !important;
+  height: auto !important; /* height를 auto로 변경하여 내용에 따라 늘어나도록 */
+  min-height: 60px !important; /* 최소 높이 더 확보 */
+  padding: 15px 16px !important; /* 상하 여백 추가 */
 }
 
 .data-header h2, .data-header h3 {
   flex: 1 1 auto !important;
   text-align: center !important;
   margin: 0 !important;
-  font-size: 1.2rem !important;
+  font-size: 1.3rem !important; /* 폰트 사이즈 살짝 키움 */
   color: #222 !important;
   line-height: 1.2 !important;
 }
@@ -572,60 +575,74 @@ footer {
   transition: background 0.2s, color 0.2s, box-shadow 0.2s; /* transform 제거 */
   z-index: 1100 !important;
   align-self: center !important;
-  position: absolute; /* 절대 위치로 변경 */
-  right: 16px; /* 오른쪽 여백 설정 */
-  top: 50%; /* 수직 가운데 정렬을 위해 50% 설정 */
-  transform: translateY(-50%); /* 정확한 수직 가운데 정렬 */
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%); /* 호버 시 움직이지 않도록 유지 */
 }
 
 .close-data-modal:hover {
   background: #0056b3 !important;
   color: #fff !important;
-  /* transform: rotate(90deg) !important; 제거 */
+  /* transform: rotate(90deg) 제거 */
 }
 
 /* 데스크탑: .data-modal 상단 여백 제거 */
-.data-modal {
-  padding-top: 0;
-}
+/* .data-modal { padding-top: 0; } */ /* 이 부분은 모바일 미디어 쿼리에서 제어되므로 주석 처리하거나 제거해도 무방 */
+
 
 /* 모바일: 상단 여백 및 닫기 버튼 스타일 */
 @media (max-width: 768px) {
   .data-modal {
-    padding-top: 44px; /* 헤더 높이만큼 여백 추가 */
+    padding-top: 56px; /* 모바일 헤더 높이만큼 여백 확보 */
+  }
+  .data-content {
+    padding-top: 0; /* data-content 자체의 상단 패딩은 제거 */
+  }
+  .data-header {
+    height: auto !important;
+    min-height: 56px !important; /* 모바일에서도 충분한 높이 확보 */
+    padding: 12px 8px !important; /* 모바일 헤더 패딩 조정 */
+  }
+  .data-header h3 {
+    font-size: 1.1rem; /* 모바일 폰트 크기 조정 */
   }
   .close-data-modal {
     position: fixed; /* 닫기 버튼 고정 */
-    top: 12px; /* 상단에서부터의 거리 */
-    right: 12px; /* 오른쪽에서부터의 거리 */
+    top: 12px;
+    right: 12px;
     z-index: 1100;
-    background: #fff !important; /* 흰색 배경 */
-    color: #004080 !important; /* 파란색 X 아이콘 */
-    border: 2px solid #004080; /* 파란색 테두리 */
+    background: #fff !important;
+    color: #004080 !important;
+    border: 2px solid #004080;
+    width: 40px; /* 모바일 버튼 크기 일관성 유지 */
+    height: 40px; /* 모바일 버튼 크기 일관성 유지 */
+    font-size: 22px; /* 모바일 버튼 폰트 크기 일관성 유지 */
   }
   .close-data-modal:hover {
     background: #0056b3 !important;
     color: #fff !important;
     transform: rotate(90deg);
   }
-  .data-content {
-    padding-top: 44px;
-  }
 }
 
 @media (max-width: 480px) {
   .data-modal {
-    padding-top: 40px;
+    padding-top: 50px; /* 더 작은 화면을 위한 추가 조정 */
+  }
+  .data-header {
+    min-height: 50px !important;
+    padding: 10px 4px !important;
+  }
+  .data-header h3 {
+    font-size: 1rem;
   }
   .close-data-modal {
     top: 10px;
     right: 10px;
-    width: 32px;
-    height: 32px;
+    width: 36px;
+    height: 36px;
     font-size: 20px;
-  }
-  .data-content {
-    padding-top: 36px;
   }
 }
 
@@ -1346,7 +1363,18 @@ section {
     width: 28px;
     height: 28px;
     font-size: 20px;
+    /* 모바일 PDF/외부링크 닫기 버튼 파란색 배경, X는 흰색 */
+    background: #004080; /* 파란색 배경 */
+    color: #fff; /* 흰색 X 아이콘 */
+    border: none;
   }
+
+  /* 모바일 PDF/외부링크 닫기 버튼의 X 아이콘 색상을 흰색으로 강제 */
+  .link-control-btn *, .pdf-control-btn * {
+    color: #fff !important;
+    fill: #fff !important;
+  }
+
 
   /* 타임라인 버튼 모바일 최적화 */
   .timeline-button {
@@ -1498,14 +1526,11 @@ section {
   }
 }
 
-/* 모달 닫기 버튼 스타일 */
+/* 모달 닫기 버튼 스타일 - 기존 전역 설정 */
 .close-modal,
 .close-data-modal,
 #closePdfViewer,
 #closeLinkViewer {
-  position: fixed;
-  top: 16px;
-  right: 16px;
   width: 36px;
   height: 36px;
   padding: 0;
@@ -1559,19 +1584,6 @@ section {
     width: 36px;
     height: 36px;
     font-size: 20px;
-  }
-}
-
-/* 모바일 PDF/외부링크 닫기 버튼 파란색 배경, X는 흰색 */
-@media (max-width: 768px) {
-  .pdf-control-btn, .link-control-btn {
-    background: #004080; /* 파란색 배경 */
-    color: #fff; /* 흰색 X 아이콘 */
-    border: none;
-  }
-  .pdf-control-btn *, .link-control-btn * {
-    color: #fff; /* X 아이콘 색상을 흰색으로 강제 */
-    fill: #fff;
   }
 }
 
@@ -1640,34 +1652,7 @@ section {
   }
 }
 
-.close-modal,
-.close-data-modal,
-#closePdfViewer,
-#closeLinkViewer {
-  color: #fff !important;
-  fill: #fff !important;
-}
-
-@media (max-width: 768px) {
-  .close-modal,
-  .close-data-modal,
-  #closePdfViewer,
-  #closeLinkViewer {
-    color: #fff !important;
-    fill: #fff !important;
-  }
-}
-
-@media (max-width: 480px) {
-  .close-modal,
-  .close-data-modal,
-  #closePdfViewer,
-  #closeLinkViewer {
-    color: #fff !important;
-    fill: #fff !important;
-  }
-}
-
+/* 닫기 버튼 색상 관련 - 모든 닫기 버튼에 적용 */
 .close-modal *,
 .close-data-modal *,
 #closePdfViewer *,
@@ -1676,111 +1661,70 @@ section {
   fill: #fff !important;
 }
 
-/* 데스크탑: 각 모달 헤더 내 닫기 버튼 */
-.pdf-header .pdf-control-btn,
-.link-header .link-control-btn,
-.data-header .close-data-modal {
-  position: absolute;
-  top: 12px;
-  right: 16px;
-  background: #004080;
-  color: #fff;
-  z-index: 10;
-}
-
-.pdf-modal, .link-modal, .data-modal {
-  padding-top: 0;
-}
-
-/* 모바일: 닫기 버튼은 fixed, 배경 흰색, X는 파란색 */
+/* 모바일 전용 닫기 버튼 색상 - 흰색 배경에 파란 X */
 @media (max-width: 768px) {
-  .pdf-header .pdf-control-btn,
-  .link-header .link-control-btn,
-  .data-header .close-data-modal {
-    position: fixed;
-    top: 12px;
-    right: 12px;
+  .close-data-modal, #closePdfViewer, #closeLinkViewer {
     background: #fff !important;
     color: #004080 !important;
     border: 2px solid #004080;
-    z-index: 1002;
   }
-  .pdf-modal, .link-modal, .data-modal {
-    padding-top: 44px;
+  .close-data-modal *, #closePdfViewer *, #closeLinkViewer * {
+    color: #004080 !important;
+    fill: #004080 !important;
   }
 }
 @media (max-width: 480px) {
-  .pdf-header .pdf-control-btn,
-  .link-header .link-control-btn,
-  .data-header .close-data-modal {
-    top: 10px;
-    right: 10px;
-    width: 32px;
-    height: 32px;
-    font-size: 20px;
+  .close-data-modal, #closePdfViewer, #closeLinkViewer {
+    background: #fff !important;
+    color: #004080 !important;
+    border: 2px solid #004080;
   }
-  .pdf-modal, .link-modal, .data-modal {
-    padding-top: 40px;
+  .close-data-modal *, #closePdfViewer *, #closeLinkViewer * {
+    color: #004080 !important;
+    fill: #004080 !important;
   }
 }
 
-/* 닫기 버튼 내부 아이콘도 색상 강제 적용 */
-.pdf-control-btn *, .link-control-btn *, .close-data-modal * {
-  color: inherit !important;
-  fill: inherit !important;
-}
-
-/* 헤더는 항상 relative */
-.data-header, .pdf-header, .link-header {
-  position: relative;
-}
-
-/* 데스크탑: 헤더 내 닫기 버튼은 absolute */
+/* 데스크탑 닫기 버튼 위치 - absolute (헤더 내부에) */
 .close-data-modal, .pdf-control-btn, .link-control-btn {
   position: absolute;
-  top: 12px;
-  right: 16px;
+  top: 50%; /* 수직 중앙 정렬 */
+  transform: translateY(-50%); /* 수직 중앙 정렬 */
+  right: 16px; /* 오른쪽에서 16px */
   z-index: 10;
+  background: #004080; /* 데스크탑 배경색 */
+  color: #fff; /* 데스크탑 X 아이콘 색상 */
+  border: none;
 }
 
-/* 모바일: 닫기 버튼만 fixed */
+/* 모바일 닫기 버튼 위치 - fixed (화면 상단에 고정) */
 @media (max-width: 768px) {
   .close-data-modal, .pdf-control-btn, .link-control-btn {
     position: fixed;
-    top: 12px;
-    right: 12px;
-    z-index: 1002;
+    top: 12px; /* 화면 상단에서 12px */
+    right: 12px; /* 화면 오른쪽에서 12px */
+    z-index: 1002; /* 가장 위에 오도록 z-index 높게 설정 */
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
   }
 }
 @media (max-width: 480px) {
   .close-data-modal, .pdf-control-btn, .link-control-btn {
     top: 10px;
     right: 10px;
-    width: 32px;
-    height: 32px;
+    width: 36px;
+    height: 36px;
     font-size: 20px;
   }
 }
 
-/* 기존 전역 fixed 스타일 제거(덮어쓰기) */
-.close-modal, .close-data-modal, #closePdfViewer, #closeLinkViewer {
+/* 기존 전역 fixed 스타일 제거 (덮어쓰기) - 이 스타일은 이제 위에서 더 세밀하게 제어됩니다. */
+/* .close-modal, .close-data-modal, #closePdfViewer, #closeLinkViewer {
   position: static;
-}
+} */
 
-/* 1. 모바일 PDF/외부링크 닫기 버튼의 X 아이콘 파란색 */
-@media (max-width: 768px) {
-  .pdf-control-btn, .link-control-btn {
-    background: #004080;
-    color: #fff;
-    border: none;
-  }
-  .pdf-control-btn *, .link-control-btn * {
-    color: #fff;
-    fill: #fff;
-  }
-}
-
-/* 2. '한눈에 보기' 헤더 고정 및 내용 패딩 */
+/* '한눈에 보기' 헤더 고정 및 내용 패딩 */
 .data-header {
   position: sticky !important;
   top: 0 !important;
@@ -1789,24 +1733,35 @@ section {
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  min-height: 32px !important;
+  min-height: 32px !important; /* 기본 최소 높이 */
   border-bottom: 1px solid #eee !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06) !important;
+  padding: 15px 16px !important; /* 상하 여백 추가 */
 }
+
+/* .data-content의 padding-top은 .data-header가 sticky일 때 내용이 가려지지 않도록 조정 */
 .data-content {
-  padding-top: 40px;
+  padding-top: 0; /* 헤더의 sticky 때문에 원래 컨텐츠는 0 */
 }
+
 @media (max-width: 768px) {
-  .data-content {
-    padding-top: 28px;
+  .data-header {
+    min-height: 56px !important; /* 모바일 헤더 높이 */
+    padding: 12px 8px !important; /* 모바일 헤더 패딩 */
   }
-}
-@media (max-width: 480px) {
   .data-content {
-    padding-top: 22px;
+    padding-top: 0; /* 모바일에서도 컨텐츠 상단 패딩은 0 */
   }
 }
 
-/* 3. 제목 가운데 정렬, 닫기 버튼 우측 */
+@media (max-width: 480px) {
+  .data-header {
+    min-height: 50px !important; /* 더 작은 모바일 헤더 높이 */
+    padding: 10px 4px !important; /* 더 작은 모바일 헤더 패딩 */
+  }
+}
+
+/* 제목 가운데 정렬, 닫기 버튼 우측 */
 .data-header h2, .data-header h3 {
   flex: 1 1 auto !important;
   text-align: center !important;
@@ -1814,24 +1769,33 @@ section {
   font-size: 1.2rem !important;
   color: #222 !important;
 }
-.close-data-modal {
-  position: absolute;
-  right: 16px;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 11;
+
+/* PDF/링크 모달의 헤더도 sticky로 변경 */
+.pdf-header, .link-header {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1002 !important;
+  background: #f5f5f5 !important;
+  border-bottom: 1px solid #ddd !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 16px !important;
+  min-height: 60px !important; /* 충분한 높이 확보 */
+}
+
+/* PDF/링크 모달 내부 iframe도 헤더 높이 고려하여 calc() */
+#pdfViewer, #linkViewer {
+  height: calc(100% - 60px); /* 헤더 높이만큼 빼주기 */
 }
 @media (max-width: 768px) {
-  .close-data-modal {
-    right: 12px;
-    top: 50%;
-    transform: translateY(-50%);
+  #pdfViewer, #linkViewer {
+    height: calc(100% - 56px); /* 모바일 헤더 높이 */
   }
 }
 @media (max-width: 480px) {
-  .close-data-modal {
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
+  #pdfViewer, #linkViewer {
+    height: calc(100% - 50px); /* 더 작은 모바일 헤더 높이 */
   }
 }
