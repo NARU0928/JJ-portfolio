@@ -49,21 +49,11 @@
 
     <!-- 타임라인 -->
     <main id="timeline">
-      <!-- 연도별 갈피: 중복 삽입 -->
       <div id="year-2025" class="anchor-point"></div>
-      <!-- 2025 카드가 자동 생성될 위치 -->
-
       <div id="year-2024" class="anchor-point"></div>
-      <!-- 2024 카드가 자동 생성될 위치 -->
-
       <div id="year-2017" class="anchor-point"></div>
-      <!-- 2017 카드가 자동 생성될 위치 -->
-
       <div id="year-2013" class="anchor-point"></div>
-      <!-- 2013 카드가 자동 생성될 위치 -->
-
       <div id="year-2010" class="anchor-point"></div>
-      <!-- 2010 이하 카드가 자동 생성될 위치 -->
     </main>
 
     <!-- 소개 & 연락처 -->
@@ -128,10 +118,12 @@
       <i class="fas fa-arrow-up"></i>
     </button>
 
+    <!-- 앵커 스크롤 강제 적용 스크립트 -->
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("timeline").classList.remove("hidden");
 
+        // 외부 링크 팝업 처리
         document.addEventListener("click", function (e) {
           const btn = e.target.closest(".timeline-button");
           if (!btn || !btn.href || !btn.href.startsWith("http") || btn.href.endsWith(".pdf")) return;
@@ -146,6 +138,27 @@
           document.getElementById("externalViewer").src = "";
           document.getElementById("externalModal").classList.add("hidden");
           document.body.style.overflow = "auto";
+        });
+
+        // 초기 해시 앵커 이동 처리
+        const hash = window.location.hash;
+        if (hash && document.querySelector(hash)) {
+          setTimeout(() => {
+            document.querySelector(hash).scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 300);
+        }
+
+        // 버튼 클릭 시 강제 스크롤
+        document.querySelectorAll('.anchor-btn').forEach(btn => {
+          btn.addEventListener('click', e => {
+            const hash = btn.getAttribute('href');
+            if (hash && document.querySelector(hash)) {
+              e.preventDefault();
+              setTimeout(() => {
+                document.querySelector(hash).scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }, 200);
+            }
+          });
         });
       });
     </script>
