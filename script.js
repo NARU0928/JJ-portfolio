@@ -36,13 +36,12 @@ function renderTimeline() {
   // 스크롤 이벤트 리스너 추가
   let scrollTimeout;
   window.addEventListener('scroll', () => {
-    if (window.innerWidth <= 768) { // 모바일 환경에서만 적용
-      clearTimeout(scrollTimeout);
-      document.body.classList.add('scrolling');
-      
-      scrollTimeout = setTimeout(() => {
-        document.body.classList.remove('scrolling');
-      }, 150);
+    if (window.innerWidth <= 768) {
+      if (window.scrollY === 0) {
+        document.body.classList.add('at-top');
+      } else {
+        document.body.classList.remove('at-top');
+      }
     }
   });
 
