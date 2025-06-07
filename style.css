@@ -187,93 +187,152 @@ footer {
   }
 }
 
+/* PDF 뷰어 모달 스타일 */
 .pdf-modal {
-  display: none;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.9);
   z-index: 1000;
-  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.pdf-modal.visible {
+  opacity: 1;
+  visibility: visible;
 }
 
 .pdf-content {
   position: relative;
   width: 90%;
   height: 90%;
-  margin: 2% auto;
   background-color: white;
   border-radius: 8px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
-.pdf-content iframe {
-  flex: 1;
-  width: 100%;
-  height: 100%;
-  border: none;
-  border-radius: 0 0 8px 8px;
-}
-
-.close-modal {
-  position: absolute;
-  top: -40px; /* 버튼 위치 조정 */
-  right: 0;
-  width: 36px; /* 너비 고정 */
-  height: 36px; /* 높이 고정 */
-  background-color: white;
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
+.pdf-header {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  color: #333;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-  z-index: 1001;
-  transition: all 0.2s ease;
+  padding: 16px 20px;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+  position: relative;
 }
 
-.close-modal:hover {
-  background-color: #f0f0f0;
-  transform: scale(1.1);
+.pdf-header h3 {
+  margin: 0;
+  font-size: 16px;
+  color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: calc(100% - 120px);
+  font-weight: 500;
 }
 
 .pdf-controls {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
   display: flex;
-  justify-content: center;
-  gap: 10px;
-  padding: 10px;
-  background-color: rgba(255, 255, 255, 0.9);
-  border-radius: 0 0 8px 8px;
-  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  gap: 8px;
+  align-items: center;
 }
 
-.pdf-control-button {
-  background: #004080;
-  color: white;
+.pdf-control-btn {
+  width: 32px;
+  height: 32px;
   border: none;
-  border-radius: 4px;
-  padding: 8px 15px;
-  font-size: 14px;
+  border-radius: 6px;
+  background-color: #fff;
+  color: #495057;
+  font-size: 16px;
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 5px;
-  transition: background-color 0.2s ease;
+  justify-content: center;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-.pdf-control-button:hover {
-  background: #0056b3;
+.pdf-control-btn:hover {
+  background-color: #e9ecef;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.pdf-control-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+#closePdfViewer {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  background-color: #fff;
+  color: #495057;
+  border-radius: 50%;
+  font-size: 20px;
+  font-weight: 300;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  z-index: 2;
+}
+
+#closePdfViewer:hover {
+  background-color: #f8f9fa;
+  color: #dc3545;
+  transform: rotate(90deg);
+}
+
+#pdfViewer {
+  flex: 1;
+  border: none;
+  background-color: #f8f9fa;
+  transition: transform 0.2s ease;
+}
+
+/* 모바일 스타일 */
+@media (max-width: 768px) {
+  .pdf-content {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+  }
+
+  .pdf-header {
+    padding: 12px 16px;
+  }
+
+  .pdf-header h3 {
+    font-size: 14px;
+    max-width: calc(100% - 100px);
+  }
+
+  .pdf-control-btn {
+    width: 28px;
+    height: 28px;
+    font-size: 14px;
+  }
+
+  #closePdfViewer {
+    top: 8px;
+    right: 8px;
+    width: 32px;
+    height: 32px;
+    font-size: 18px;
+  }
 }
 
 /* 모바일 줄바꿈 */
@@ -830,7 +889,8 @@ footer {
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     -ms-overflow-style: none;
-    justify-content: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
   }
 
   .anchor-buttons::-webkit-scrollbar {
@@ -1073,5 +1133,21 @@ section {
     padding: 12px;
     background-color: rgba(255, 255, 255, 0.95);
     border-radius: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .anchor-buttons {
+    padding: 6px;
+    gap: 4px;
+    justify-content: center;
+  }
+
+  .anchor-btn {
+    flex: 0 0 110px;
+    width: 110px;
+    padding: 5px 8px;
+    font-size: 12px;
+    min-height: 40px;
   }
 }

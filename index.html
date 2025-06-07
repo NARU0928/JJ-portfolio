@@ -38,11 +38,26 @@
 
     <div class="anchor-group">
       <div class="anchor-buttons">
-        <a href="#year-2025" class="anchor-btn">2025~2024<br><small>지속가능한 대안교육 동행하기</small></a>
-        <a href="#year-2024" class="anchor-btn">2024~2017<br><small>교육 가능성 찾기</small></a>
-        <a href="#year-2017" class="anchor-btn">2017~2013<br><small>대안교육의 시작과 이해</small></a>
-        <a href="#year-2013" class="anchor-btn">2013~2010<br><small>전문성 향상을 위한 준비</small></a>
-        <a href="#year-2010" class="anchor-btn">2010~2004<br><small>기본기 형성</small></a>
+        <a href="#2023" class="anchor-btn">2023<small>지속가능한 대안교육 동행</small></a>
+        <a href="#2022" class="anchor-btn">2022<small>대안교육기관 교사</small></a>
+        <a href="#2021" class="anchor-btn">2021<small>대안교육기관 교사</small></a>
+        <a href="#2020" class="anchor-btn">2020<small>대안교육기관 교사</small></a>
+        <a href="#2019" class="anchor-btn">2019<small>대안교육기관 교사</small></a>
+        <a href="#2018" class="anchor-btn">2018<small>대안교육기관 교사</small></a>
+        <a href="#2017" class="anchor-btn">2017<small>대안교육기관 교사</small></a>
+        <a href="#2016" class="anchor-btn">2016<small>대안교육기관 교사</small></a>
+        <a href="#2015" class="anchor-btn">2015<small>대안교육기관 교사</small></a>
+        <a href="#2014" class="anchor-btn">2014<small>대안교육기관 교사</small></a>
+        <a href="#2013" class="anchor-btn">2013<small>대안교육기관 교사</small></a>
+        <a href="#2012" class="anchor-btn">2012<small>대안교육기관 교사</small></a>
+        <a href="#2011" class="anchor-btn">2011<small>대안교육기관 교사</small></a>
+        <a href="#2010" class="anchor-btn">2010<small>대안교육기관 교사</small></a>
+        <a href="#2009" class="anchor-btn">2009<small>대안교육기관 교사</small></a>
+        <a href="#2008" class="anchor-btn">2008<small>대안교육기관 교사</small></a>
+        <a href="#2007" class="anchor-btn">2007<small>대안교육기관 교사</small></a>
+        <a href="#2006" class="anchor-btn">2006<small>대안교육기관 교사</small></a>
+        <a href="#2005" class="anchor-btn">2005<small>대안교육기관 교사</small></a>
+        <a href="#2004" class="anchor-btn">2004<small>기본기 형성</small></a>
       </div>
     </div>
 
@@ -87,21 +102,18 @@
       </div>
     </div>
 
+    <!-- PDF 뷰어 모달 -->
     <div id="pdfModal" class="pdf-modal hidden">
       <div class="pdf-content">
-        <button class="close-modal" id="closeModal">✖</button>
-        <iframe id="pdfViewer" src="" frameborder="0"></iframe>
-        <div class="pdf-controls">
-          <button class="pdf-control-button" id="pdfZoomOut">
-            <i class="fas fa-search-minus"></i> 축소
-          </button>
-          <button class="pdf-control-button" id="pdfZoomIn">
-            <i class="fas fa-search-plus"></i> 확대
-          </button>
-          <button class="pdf-control-button" id="pdfFitWidth">
-            <i class="fas fa-arrows-alt-h"></i> 너비에 맞춤
-          </button>
+        <button id="closePdfViewer" class="pdf-control-btn" title="닫기">×</button>
+        <div class="pdf-header">
+          <h3 id="pdfTitle"></h3>
+          <div class="pdf-controls">
+            <button id="zoomOut" class="pdf-control-btn" title="축소">-</button>
+            <button id="zoomIn" class="pdf-control-btn" title="확대">+</button>
+          </div>
         </div>
+        <iframe id="pdfViewer" type="application/pdf" width="100%" height="100%"></iframe>
       </div>
     </div>
 
