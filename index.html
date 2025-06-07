@@ -36,18 +36,19 @@
       </div>
     </section>
 
-<main id="timeline"></main>
-
-    <!-- 연도 구간 버튼 -->
+    <!-- 연도 구간 버튼 (hero 바로 아래) -->
     <div class="anchor-group">
       <div class="anchor-buttons">
-        <a href="#year-2025" class="anchor-btn">2025~2024<br><small>지속가능한 대안교육 동행하기</small></a>
-        <a href="#year-2024" class="anchor-btn">2024~2017<br><small>교육 가능성 찾기</small></a>
-        <a href="#year-2017" class="anchor-btn">2017~2013<br><small>대안교육의 시작과 이해</small></a>
-        <a href="#year-2013" class="anchor-btn">2013~2010<br><small>전문성 향상을 위한 준비</small></a>
-        <a href="#year-2010" class="anchor-btn">2010~2004<br><small>기본기 형성</small></a>
+        <a href="#year-2024" class="anchor-btn">2025~2024<br><small>지속가능한 대안교육 동행하기</small></a>
+        <a href="#year-2017" class="anchor-btn">2024~2017<br><small>교육 가능성 찾기</small></a>
+        <a href="#year-2013" class="anchor-btn">2017~2013<br><small>대안교육의 시작과 이해</small></a>
+        <a href="#year-2010" class="anchor-btn">2013~2010<br><small>전문성 향상을 위한 준비</small></a>
+        <a href="#year-2004" class="anchor-btn">2010~2004<br><small>기본기 형성</small></a>
       </div>
     </div>
+
+    <!-- 타임라인 출력 영역 -->
+    <main id="timeline"></main>
 
     <!-- 소개 & 연락처 -->
     <section id="about-contact-section" class="about-contact-container">
@@ -110,51 +111,6 @@
     <button id="scrollTopBtn" class="scroll-top-button" title="맨 위로">
       <i class="fas fa-arrow-up"></i>
     </button>
-
-    <!-- 앵커 스크롤 강제 적용 스크립트 -->
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        document.getElementById("timeline").classList.remove("hidden");
-
-        // 외부 링크 팝업 처리
-        document.addEventListener("click", function (e) {
-          const btn = e.target.closest(".timeline-button");
-          if (!btn || !btn.href || !btn.href.startsWith("http") || btn.href.endsWith(".pdf")) return;
-
-          e.preventDefault();
-          document.getElementById("externalViewer").src = btn.href;
-          document.getElementById("externalModal").classList.remove("hidden");
-          document.body.style.overflow = "hidden";
-        });
-
-        document.getElementById("closeExternalModal").addEventListener("click", function () {
-          document.getElementById("externalViewer").src = "";
-          document.getElementById("externalModal").classList.add("hidden");
-          document.body.style.overflow = "auto";
-        });
-
-        // 초기 해시 앵커 이동 처리
-        const hash = window.location.hash;
-        if (hash && document.querySelector(hash)) {
-          setTimeout(() => {
-            document.querySelector(hash).scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }, 300);
-        }
-
-        // 버튼 클릭 시 강제 스크롤
-        document.querySelectorAll('.anchor-btn').forEach(btn => {
-          btn.addEventListener('click', e => {
-            const hash = btn.getAttribute('href');
-            if (hash && document.querySelector(hash)) {
-              e.preventDefault();
-              setTimeout(() => {
-                document.querySelector(hash).scrollIntoView({ behavior: 'smooth', block: 'start' });
-              }, 200);
-            }
-          });
-        });
-      });
-    </script>
 
     <script src="script.js"></script>
   </body>

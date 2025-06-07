@@ -7,16 +7,19 @@ function renderTimeline() {
   const container = document.getElementById("timeline");
   container.innerHTML = "";
 
-  const insertedYears = new Set();
+  const insertedAnchors = new Set();
+  const anchorYears = [2024, 2017, 2013, 2010, 2004];
 
   timeline.forEach(entry => {
     const year = entry.year;
-    if (!insertedYears.has(year)) {
+
+    // 지정된 해에만 앵커 포인트 생성
+    if (anchorYears.includes(year) && !insertedAnchors.has(year)) {
       const anchor = document.createElement("div");
       anchor.className = "anchor-point";
       anchor.id = `year-${year}`;
       container.appendChild(anchor);
-      insertedYears.add(year);
+      insertedAnchors.add(year);
     }
 
     const card = createTimelineCard(entry);
@@ -24,10 +27,9 @@ function renderTimeline() {
     observer.observe(card);
   });
 
-  handleHashScroll(); // 렌더링 이후 앵커 스크롤 처리
+  handleHashScroll();
 }
 
-// 타임라인 카드 구성
 function createTimelineCard(entry) {
   const card = document.createElement("div");
   card.className = "timeline-card";
@@ -70,10 +72,8 @@ function getIconClass(url) {
   return "fas fa-link";
 }
 
-// JSON 불러오기
 function loadTimeline(lang) {
-  const url = `./data/timeline-${lang}.json`;
-  fetch(url)
+  fetch(`./data/timeline-${lang}.json`)
     .then(res => res.json())
     .then(data => {
       timeline = data;
@@ -83,8 +83,7 @@ function loadTimeline(lang) {
 }
 
 function loadData(lang) {
-  const url = `./data/data-${lang}.json`;
-  fetch(url)
+  fetch(`./data/data-${lang}.json`)
     .then(res => res.json())
     .then(data => {
       dataContent = data;
@@ -93,7 +92,6 @@ function loadData(lang) {
     .catch(err => console.error("❌ Data load error:", err));
 }
 
-// 다국어 전환
 function switchLanguage() {
   currentLang = currentLang === "ko" ? "en" : "ko";
   document.getElementById("lang-label").textContent = currentLang === "ko" ? "English" : "한국어";
@@ -115,9 +113,31 @@ function switchLanguage() {
   loadData(currentLang);
 }
 
-// 한눈에 보기 데이터 렌더링
+// 해시 앵커 스크롤
+function handleHashScroll() {
+  const hash = window.location.hash;
+  if (hash && document.querySelector(hash)) {
+    setTimeout(() => {
+      document.querySelector(hash).scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 300);
+  }
+
+  document.querySelectorAll('.anchor-btn').forEach(btn => {
+    btn.addEventListener('click', e => {
+      const hash = btn.getAttribute('href');
+      if (hash && document.querySelector(hash)) {
+        e.preventDefault();
+        setTimeout(() => {
+          document.querySelector(hash).scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 200);
+      }
+    });
+  });
+}
+
+// 데이터 모달 렌더링
 function renderDataModal() {
-  if (!dataContent || Object.keys(dataContent).length === 0) return;
+  if (!dataContent || !dataContent.sections) return;
 
   document.getElementById("data-modal-title").textContent = dataContent.title;
   const sectionBox = document.getElementById("data-modal-sections");
@@ -135,9 +155,7 @@ function renderDataModal() {
     section.items.forEach(item => {
       const li = document.createElement("li");
       li.innerHTML = `<strong>${item.name}</strong>`;
-      if (item.description) {
-        li.innerHTML += `<p>${item.description}</p>`;
-      }
+      if (item.description) li.innerHTML += `<p>${item.description}</p>`;
       ul.appendChild(li);
     });
 
@@ -145,7 +163,7 @@ function renderDataModal() {
     sectionBox.appendChild(div);
   });
 
-  // 자격증 테이블
+  // 자격증
   const cert = dataContent.certifications;
   document.getElementById("certifications-heading").textContent = cert.heading;
 
@@ -171,29 +189,7 @@ function renderDataModal() {
   });
 }
 
-// 부드러운 해시 스크롤
-function handleHashScroll() {
-  const hash = window.location.hash;
-  if (hash && document.querySelector(hash)) {
-    setTimeout(() => {
-      document.querySelector(hash).scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, 300);
-  }
-
-  document.querySelectorAll('.anchor-btn').forEach(btn => {
-    btn.addEventListener('click', e => {
-      const hash = btn.getAttribute('href');
-      if (hash && document.querySelector(hash)) {
-        e.preventDefault();
-        setTimeout(() => {
-          document.querySelector(hash).scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }, 200);
-      }
-    });
-  });
-}
-
-// Intersection Observer 애니메이션
+// 카드 등장 애니메이션
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -202,7 +198,6 @@ const observer = new IntersectionObserver(entries => {
   });
 });
 
-// 초기 실행
 window.addEventListener("DOMContentLoaded", () => {
   document.getElementById("timeline").classList.remove("hidden");
 
@@ -214,33 +209,30 @@ window.addEventListener("DOMContentLoaded", () => {
     switchLanguage();
   });
 
-  // 데이터 모달 열기/닫기
-  const dataModal = document.getElementById("dataModal");
   document.getElementById("show-data-modal").addEventListener("click", e => {
     e.preventDefault();
-    dataModal.classList.remove("hidden");
+    document.getElementById("dataModal").classList.remove("hidden");
     document.body.style.overflow = "hidden";
-    renderDataModal();
   });
 
   document.getElementById("closeDataModal").addEventListener("click", () => {
-    dataModal.classList.add("hidden");
+    document.getElementById("dataModal").classList.add("hidden");
     document.body.style.overflow = "auto";
   });
 
-  dataModal.addEventListener("click", e => {
-    if (e.target === dataModal) {
-      dataModal.classList.add("hidden");
-      document.body.style.overflow = "auto";
-    }
-  });
-
-  // PDF 보기 팝업
-  const pdfModal = document.getElementById("pdfModal");
+  // PDF 팝업
   const pdfViewer = document.getElementById("pdfViewer");
   document.getElementById("closeModal").addEventListener("click", () => {
     pdfViewer.src = "";
-    pdfModal.classList.add("hidden");
+    document.getElementById("pdfModal").classList.add("hidden");
+    document.body.style.overflow = "auto";
+  });
+
+  // 외부 링크 팝업
+  const externalViewer = document.getElementById("externalViewer");
+  document.getElementById("closeExternalModal").addEventListener("click", () => {
+    externalViewer.src = "";
+    document.getElementById("externalModal").classList.add("hidden");
     document.body.style.overflow = "auto";
   });
 
@@ -251,28 +243,14 @@ window.addEventListener("DOMContentLoaded", () => {
     if (btn.href.endsWith(".pdf")) {
       e.preventDefault();
       pdfViewer.src = btn.href;
-      pdfModal.classList.remove("hidden");
+      document.getElementById("pdfModal").classList.remove("hidden");
+      document.body.style.overflow = "hidden";
+    } else if (btn.href.startsWith("http")) {
+      e.preventDefault();
+      externalViewer.src = btn.href;
+      document.getElementById("externalModal").classList.remove("hidden");
       document.body.style.overflow = "hidden";
     }
-  });
-
-  // 외부 링크 팝업
-  const externalModal = document.getElementById("externalModal");
-  const externalViewer = document.getElementById("externalViewer");
-  document.getElementById("closeExternalModal").addEventListener("click", () => {
-    externalViewer.src = "";
-    externalModal.classList.add("hidden");
-    document.body.style.overflow = "auto";
-  });
-
-  document.addEventListener("click", e => {
-    const btn = e.target.closest(".timeline-button");
-    if (!btn || !btn.href || btn.href.endsWith(".pdf")) return;
-
-    e.preventDefault();
-    externalViewer.src = btn.href;
-    externalModal.classList.remove("hidden");
-    document.body.style.overflow = "hidden";
   });
 
   // Scroll Top
