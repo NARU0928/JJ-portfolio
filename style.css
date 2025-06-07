@@ -526,19 +526,23 @@ footer {
 .data-header {
   position: sticky;
   top: 0;
-  background: white;
-  padding: 20px 30px;
-  border-bottom: 1px solid #eee;
-  z-index: 10;
+  left: 0;
+  right: 0;
+  background-color: #ffffff;
+  padding: 20px;
+  border-bottom: 1px solid #e0e0e0;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  z-index: 1001;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.data-header h2 {
-  color: #004080;
+.data-header h3 {
   margin: 0;
-  font-size: 2em;
+  font-size: 1.5rem;
+  color: #333;
+  font-weight: 600;
 }
 
 /* 데이터 모달 본문 스타일 */
@@ -591,8 +595,9 @@ footer {
     padding: 15px 20px;
   }
 
-  .data-header h2 {
-    font-size: 1.8em;
+  .data-header h3 {
+    font-size: 1.25rem;
+    padding-right: 48px; /* 닫기 버튼을 위한 공간 확보 */
   }
 
   .data-body {
@@ -602,11 +607,11 @@ footer {
 
 @media (max-width: 480px) {
   .data-header {
-    padding: 12px 15px;
+    padding: 14px;
   }
 
-  .data-header h2 {
-    font-size: 1.6em;
+  .data-header h3 {
+    font-size: 1.1rem;
   }
 
   .data-body {
@@ -1444,11 +1449,11 @@ section {
 .close-data-modal,
 #closePdfViewer,
 #closeLinkViewer {
-  position: absolute;
+  position: fixed;
   top: 16px;
   right: 16px;
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   padding: 0;
   display: flex;
   align-items: center;
@@ -1461,10 +1466,10 @@ section {
   border-radius: 50%;
   cursor: pointer;
   transition: all 0.3s ease;
-  z-index: 1001;
+  z-index: 1002;
   aspect-ratio: 1;
-  min-width: 32px;
-  min-height: 32px;
+  min-width: 36px;
+  min-height: 36px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
@@ -1479,25 +1484,47 @@ section {
 
 /* 모바일 반응형 */
 @media (max-width: 768px) {
+  .data-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 16px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1001;
+  }
+
+  .data-header h3 {
+    font-size: 1.25rem;
+    padding-right: 48px; /* 닫기 버튼을 위한 공간 확보 */
+  }
+
+  .data-modal {
+    padding-top: 60px; /* 헤더 높이만큼 상단 여백 추가 */
+  }
+
   .close-modal,
   .close-data-modal,
   #closePdfViewer,
   #closeLinkViewer {
+    position: fixed;
     top: 12px;
     right: 12px;
-    width: 32px;
-    height: 32px;
-    font-size: 20px;
+    width: 36px;
+    height: 36px;
+    font-size: 22px;
     padding: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     aspect-ratio: 1;
-    min-width: 32px;
-    min-height: 32px;
+    min-width: 36px;
+    min-height: 36px;
     background-color: #004080;
     color: #ffffff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 1002;
   }
 
   .data-modal .close-data-modal {
@@ -1509,49 +1536,36 @@ section {
     z-index: 1002;
   }
 
-  #pdfViewer {
-    height: calc(100% - 56px);
-    width: 100%;
-    border: none;
-    overflow: auto !important;
-    -webkit-overflow-scrolling: touch !important;
-    touch-action: pan-y !important;
-    position: relative;
-    z-index: 1;
-  }
-
-  .pdf-content {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    border-radius: 0;
-    overflow: hidden;
-  }
-
-  .pdf-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1002;
-    background-color: #ffffff;
-    padding: 12px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  .data-body {
+    margin-top: 16px;
+    padding: 0 16px;
   }
 }
 
 @media (max-width: 480px) {
+  .data-header {
+    padding: 14px;
+  }
+
+  .data-header h3 {
+    font-size: 1.1rem;
+  }
+
   .close-modal,
   .close-data-modal,
   #closePdfViewer,
   #closeLinkViewer {
     width: 32px;
     height: 32px;
-    font-size: 18px;
-    aspect-ratio: 1;
     min-width: 32px;
     min-height: 32px;
+    font-size: 20px;
+    top: 10px;
+    right: 10px;
+  }
+
+  .data-modal {
+    padding-top: 56px;
   }
 }
 
