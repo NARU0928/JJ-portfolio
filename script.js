@@ -7,24 +7,54 @@ function renderTimeline() {
   const container = document.getElementById("timeline");
   container.innerHTML = "";
 
-  const insertedAnchors = new Set(); // 앵커 중복 생성을 막기 위한 Set
   // 앵커 포인트로 사용할 연도들을 정의합니다.
-  // 이 연도들의 타임라인 카드 위에 anchor-point div가 생성됩니다.
   const anchorYears = [2025, 2024, 2017, 2013, 2010, 2004];
+  const anchorLabels = {
+    ko: {
+      2025: "2025~2024<br><small>지속가능한 대안교육 동행하기</small>",
+      2024: "2024~2017<br><small>교육 가능성 찾기</small>",
+      2017: "2017~2013<br><small>대안교육의 시작과 이해</small>",
+      2013: "2013~2010<br><small>전문성 향상을 위한 준비</small>",
+      2010: "2010~2004<br><small>기본기 형성</small>"
+    },
+    en: {
+      2025: "2025~2024<br><small>Sustainable Alternative Education</small>",
+      2024: "2024~2017<br><small>Finding Educational Possibilities</small>",
+      2017: "2017~2013<br><small>Beginning of Alternative Education</small>",
+      2013: "2013~2010<br><small>Professional Development</small>",
+      2010: "2010~2004<br><small>Foundation Building</small>"
+    }
+  };
+
+  // 상단 앵커 버튼 업데이트
+  const anchorButtons = document.querySelector('.anchor-buttons');
+  anchorButtons.innerHTML = anchorYears.map(year => {
+    const label = anchorLabels[currentLang][year];
+    return `<a href="#year-${year}" class="anchor-btn">${label}</a>`;
+  }).join('');
 
   timeline.forEach(entry => {
-    const year = entry.year;
-
-    // 지정된 해에만 앵커 포인트 생성 및 중복 방지
-    if (anchorYears.includes(year) && !insertedAnchors.has(year)) {
+    const year = parseInt(entry.year);
+    
+    // 앵커 연도인 경우 앵커 포인트 생성
+    if (anchorYears.includes(year)) {
       const anchor = document.createElement("div");
       anchor.className = "anchor-point";
-      anchor.id = `year-${year}`; // 예: year-2025
+      anchor.id = `year-${year}`;
       container.appendChild(anchor);
-      insertedAnchors.add(year);
     }
 
     const card = createTimelineCard(entry);
+    
+    // 앵커 연도인 경우 카드에 앵커 버튼 추가
+    if (anchorYears.includes(year)) {
+      const anchorBtn = document.createElement("a");
+      anchorBtn.href = `#year-${year}`;
+      anchorBtn.className = "timeline-anchor-btn";
+      anchorBtn.innerHTML = anchorLabels[currentLang][year].replace(/<br>.*$/, '');
+      card.appendChild(anchorBtn);
+    }
+    
     container.appendChild(card);
     observer.observe(card);
   });
@@ -107,7 +137,7 @@ function switchLanguage() {
   const logoTextElement = document.querySelector(".logo a");
   logoTextElement.innerHTML = currentLang === "ko"
     ? "이정재의 <span>인생 포트폴리오</span>"
-    : "Lee Jungjae’s <span>Life Portfolio</span>";
+    : "Lee Jungjae's <span>Life Portfolio</span>";
 
   document.querySelector("footer p").textContent = currentLang === "ko"
     ? "© 2025 이정재. 모든 권리 보유."
@@ -150,32 +180,47 @@ function switchLanguage() {
 // 해시 앵커 스크롤
 function handleHashScroll() {
   const hash = window.location.hash;
-  if (hash && document.querySelector(hash)) {
-    // 타임라인 렌더링 이후에 스크롤되도록 setTimeout 사용
-    setTimeout(() => {
-      document.querySelector(hash).scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, 300); // 충분한 렌더링 지연 시간
+  if (hash) {
+    const targetElement = document.querySelector(hash);
+    if (targetElement) {
+      // 타임라인 렌더링 이후에 스크롤되도록 setTimeout 사용
+      setTimeout(() => {
+        const headerOffset = 100; // 상단 여백 조정
+        const elementPosition = targetElement.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }, 300);
+    }
   }
 
-  // 앵커 버튼 클릭 시 부드럽게 스크롤
-  document.querySelectorAll('.anchor-btn').forEach(btn => {
-    // 기존 이벤트 리스너 제거 (중복 방지)
+  // 앵커 버튼 클릭 이벤트 처리
+  document.querySelectorAll('.anchor-btn, .timeline-anchor-btn').forEach(btn => {
     btn.removeEventListener('click', handleAnchorClick);
-    // 새 이벤트 리스너 추가
     btn.addEventListener('click', handleAnchorClick);
   });
 }
 
 function handleAnchorClick(e) {
-  const hash = this.getAttribute('href');
-  if (hash && document.querySelector(hash)) {
-    e.preventDefault(); // 기본 앵커 동작 방지
-    // URL의 해시를 업데이트하여 브라우저 기록에 남김
-    history.pushState(null, '', hash);
-    // 부드러운 스크롤
-    setTimeout(() => {
-      document.querySelector(hash).scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, 100); // 약간의 지연으로 부드러운 스크롤
+  e.preventDefault();
+  const targetId = this.getAttribute('href');
+  const targetElement = document.querySelector(targetId);
+  
+  if (targetElement) {
+    const headerOffset = 100;
+    const elementPosition = targetElement.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: 'smooth'
+    });
+    
+    // URL 해시 업데이트
+    history.pushState(null, null, targetId);
   }
 }
 

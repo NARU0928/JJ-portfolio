@@ -661,95 +661,115 @@ footer {
 
 /* ───────── 앵커 버튼 스타일 (연도 구간 Jump 버튼) ───────── */
 .anchor-group {
-  background: #f0f4ff;
-  padding: 20px 0;
-  text-align: center;
-  border-bottom: 1px solid #ddd;
+  position: sticky;
+  top: 0;
+  background: white;
+  padding: 15px 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 .anchor-buttons {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  gap: 12px;
+  gap: 10px;
+  flex-wrap: wrap;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .anchor-btn {
-  background: #ffffff;
-  border: 1px solid #004080;
+  flex: 1;
+  min-width: 120px;
+  max-width: 160px;
+  text-align: center;
+  padding: 8px 12px;
+  background-color: #e6f0ff;
   color: #004080;
-  padding: 8px 16px;
-  border-radius: 6px;
   text-decoration: none;
-  font-weight: bold;
-  font-size: 0.95em;
-  line-height: 1.2; /* 줄 높이 조정으로 텍스트 공간 확보 */
+  border-radius: 6px;
   transition: all 0.2s ease;
-
-  /* ✅ 이 부분이 중요합니다! Flexbox를 사용하여 내부 요소를 정렬하고 고정된 크기를 부여합니다. */
-  display: flex; /* Flexbox 레이아웃 적용 */
-  flex-direction: column; /* 자식 요소(년도, small)를 세로로 정렬 */
-  justify-content: center; /* 세로 방향으로 중앙 정렬 */
-  align-items: center; /* 가로 방향으로 중앙 정렬 */
-  text-align: center; /* 텍스트 자체를 중앙 정렬 (flex-wrap과 함께 중요) */
-
-  min-width: 150px; /* 모든 버튼의 최소 너비 설정 (텍스트 길이에 따라 적절히 조정) */
-  height: 65px; /* 모든 버튼의 고정 높이 설정 (두 줄 텍스트를 수용하도록 충분히 크게) */
-  box-sizing: border-box; /* 패딩과 보더가 width/height에 포함되도록 */
+  font-size: 14px;
+  line-height: 1.4;
 }
 
 .anchor-btn:hover {
-  background-color: #dceeff;
+  background-color: #d2e6ff;
+  transform: translateY(-2px);
 }
 
 .anchor-btn small {
-  display: block; /* small 태그를 블록 요소로 만들어 줄바꿈이 용이하게 */
-  font-weight: normal;
-  font-size: 0.8em;
-  margin-top: 4px; /* 년도와 설명 텍스트 사이 간격 */
-  color: #333;
-  white-space: normal; /* ✅ 줄바꿈을 허용하도록 설정 (기본값) */
-  word-break: keep-all; /* 단어 단위로 줄바꿈을 시도하여 단어가 잘리지 않도록 */
+  display: block;
+  font-size: 11px;
+  color: #666;
+  margin-top: 2px;
 }
 
-/* ───────── 앵커 위치 정확하게 이동되도록 여백 보정용 빈 요소 ───────── */
-.anchor-point {
-  height: 60px; /* 고정 헤더 높이 등을 고려하여 조정 */
-  margin-top: -60px; /* 고정 헤더에 가려지지 않도록 음수 마진 */
-  visibility: hidden; /* 사용자에게 보이지 않도록 숨김 */
-  pointer-events: none; /* 클릭 이벤트 방지 */
+/* 타임라인 내 앵커 버튼 스타일 */
+.timeline-anchor-btn {
+  position: absolute;
+  left: -100px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 6px 10px;
+  background-color: #e6f0ff;
+  color: #004080;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 13px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  white-space: nowrap;
 }
 
-/* ───────── 모바일에서 PDF 닫기 버튼 개선 ───────── */
+.timeline-card {
+  position: relative;
+}
+
+.timeline-card:hover .timeline-anchor-btn {
+  opacity: 1;
+}
+
+@media (max-width: 1200px) {
+  .timeline-anchor-btn {
+    display: none;
+  }
+}
+
 @media (max-width: 768px) {
-  .close-modal {
-    background: #ffffff !important;
-    color: #004080 !important;
-    font-weight: bold;
-    border: 2px solid #004080;
+  .anchor-btn {
+    min-width: 100px;
+    font-size: 13px;
   }
-
-  .close-modal:hover {
-    background-color: #e6f0ff;
+  
+  .anchor-btn small {
+    font-size: 10px;
   }
-
-  .anchor-btn { /* 모바일 환경에서 앵커 버튼 너비 조정 */
-      min-width: 130px; /* 모바일에서 더 작은 최소 너비 */
-      height: 70px; /* 모바일에서 높이 조정 */
-  }
-}
-
-@media (max-width: 480px) {
-    .anchor-btn { /* 더 작은 모바일 환경에서 앵커 버튼 너비 조정 */
-      min-width: 100px; /* 더 작은 모바일에서 더 작은 최소 너비 */
-      height: 60px; /* 더 작은 모바일에서 높이 조정 */
-      font-size: 0.85em;
-    }
-    .anchor-btn small {
-      font-size: 0.75em;
-    }
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+/* 앵커 포인트 스타일 */
+.anchor-point {
+  position: relative;
+  height: 0;
+  margin-top: -100px; /* 상단 여백 조정 */
+  padding-top: 100px; /* 상단 여백 조정 */
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* 타임라인 컨테이너 여백 조정 */
+#timeline {
+  position: relative;
+  padding-left: 100px; /* 왼쪽 앵커 버튼을 위한 여백 */
+}
+
+@media (max-width: 1200px) {
+  #timeline {
+    padding-left: 0;
+  }
 }
