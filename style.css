@@ -706,67 +706,73 @@ footer {
   margin-top: 2px;
 }
 
-/* 타임라인 내 앵커 버튼 스타일 */
+/* 타임라인 앵커 버튼 스타일 */
 .timeline-anchor-btn {
   position: absolute;
-  left: -100px;
-  top: 50%;
-  transform: translateY(-50%);
-  padding: 6px 10px;
-  background-color: #e6f0ff;
-  color: #004080;
+  left: -80px;
+  top: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 8px 12px;
+  border-radius: 20px;
   text-decoration: none;
-  border-radius: 4px;
-  font-size: 13px;
+  color: #333;
+  font-size: 14px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
   opacity: 0;
-  transition: all 0.2s ease;
-  white-space: nowrap;
+  pointer-events: none;
+  z-index: 10;
 }
 
 .timeline-anchor-btn .year-only {
   display: none;
 }
 
-.timeline-card {
-  position: relative;
+.timeline-anchor-btn .full-label {
+  display: inline;
 }
 
 .timeline-card:hover .timeline-anchor-btn {
   opacity: 1;
+  pointer-events: auto;
+  left: -90px;
 }
 
-/* 모바일 스크롤 시 앵커 버튼 스타일 */
+/* 모바일 스타일 */
 @media (max-width: 768px) {
   .timeline-anchor-btn {
-    left: 0;
-    top: 0;
-    transform: none;
+    left: 10px;
+    top: 10px;
     padding: 4px 8px;
     font-size: 12px;
-    border-radius: 0 0 4px 0;
-    background-color: rgba(230, 240, 255, 0.9);
-  }
-
-  .timeline-anchor-btn .full-label {
-    display: none;
+    background: rgba(255, 255, 255, 0.95);
   }
 
   .timeline-anchor-btn .year-only {
     display: inline;
   }
 
-  /* 스크롤 중일 때 앵커 버튼 스타일 */
-  body.scrolling .timeline-anchor-btn {
-    opacity: 0.8;
+  .timeline-anchor-btn .full-label {
+    display: none;
   }
 
-  /* 스크롤이 멈췄을 때 앵커 버튼 스타일 */
+  /* 스크롤 중일 때만 버튼 표시 */
+  body.scrolling .timeline-anchor-btn {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* 스크롤이 멈추면 버튼 숨김 */
   .timeline-anchor-btn {
     opacity: 0;
+    pointer-events: none;
   }
 
+  /* 호버 시에만 버튼 표시 */
   .timeline-card:hover .timeline-anchor-btn {
-    opacity: 0.8;
+    opacity: 1;
+    pointer-events: auto;
+    left: 10px;
   }
 }
 
