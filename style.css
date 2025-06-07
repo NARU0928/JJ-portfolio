@@ -1605,6 +1605,9 @@ section {
   display: flex;
   align-items: center;
   gap: 10px;
+  text-align: center;
+  width: 100%;
+  font-weight: bold;
 }
 
 .data-section ul {
@@ -1797,5 +1800,75 @@ section {
 @media (max-width: 480px) {
   #pdfViewer, #linkViewer {
     height: calc(100% - 50px); /* 더 작은 모바일 헤더 높이 */
+  }
+}
+
+/* 1. 데이터 섹션 제목 가운데 정렬 */
+.data-section h3 {
+  text-align: center;
+  width: 100%;
+  font-weight: bold;
+}
+
+/* 2. 모바일 한눈에보기 닫기 버튼 위치/정원형/파란배경/흰X */
+@media (max-width: 768px) {
+  .data-header {
+    position: relative;
+    min-height: 56px;
+    height: 56px;
+    padding: 0 8px;
+  }
+  .close-data-modal {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    width: 36px;
+    height: 36px;
+    font-size: 20px;
+    border-radius: 50%;
+    aspect-ratio: 1/1;
+    background: #004080;
+    color: #fff;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* 3. 모바일 PDF/외부링크 닫기 버튼 정원형+파란배경+흰X */
+@media (max-width: 768px) {
+  .pdf-control-btn, .link-control-btn, #closePdfViewer, #closeLinkViewer {
+    width: 36px;
+    height: 36px;
+    font-size: 20px;
+    border-radius: 50%;
+    aspect-ratio: 1/1;
+    background: #004080 !important;
+    color: #fff !important;
+    border: none !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .pdf-control-btn *, .link-control-btn *, #closePdfViewer *, #closeLinkViewer * {
+    color: #fff !important;
+    fill: #fff !important;
+  }
+}
+
+/* 4. 데스크탑 한눈에보기 닫기 버튼 반전 효과 */
+@media (min-width: 769px) {
+  .close-data-modal {
+    background: #fff;
+    color: #004080;
+    border: 2px solid #004080;
+    transition: background 0.2s, color 0.2s;
+  }
+  .close-data-modal:hover {
+    background: #004080;
+    color: #fff;
+    border: 2px solid #004080;
   }
 }
