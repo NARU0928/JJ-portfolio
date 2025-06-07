@@ -536,9 +536,9 @@ footer {
 
 /* 데스크탑: .data-header 내 닫기 버튼 위치 */
 .data-header {
+  position: relative !important;
   display: flex !important;
   align-items: center !important;
-  position: relative !important;
 }
 
 .data-header h2, .data-header h3 {
@@ -551,10 +551,12 @@ footer {
 }
 
 .close-data-modal {
-  position: static !important;
-  margin-left: auto !important;
-  align-self: center !important;
-  -webkit-tap-highlight-color: transparent !important;
+  position: absolute !important;
+  top: 50% !important;
+  right: 16px !important;
+  transform: translateY(-50%) !important;
+  margin-left: 0 !important;
+  align-self: auto !important;
 }
 
 .close-data-modal:active,
@@ -589,21 +591,10 @@ footer {
     font-size: 1.1rem; /* 모바일 폰트 크기 조정 */
   }
   .close-data-modal {
-    position: fixed; /* 닫기 버튼 고정 */
-    top: 12px;
-    right: 12px;
-    z-index: 1100;
-    background: #fff !important;
-    color: #004080 !important;
-    border: 2px solid #004080;
-    width: 40px; /* 모바일 버튼 크기 일관성 유지 */
-    height: 40px; /* 모바일 버튼 크기 일관성 유지 */
-    font-size: 22px; /* 모바일 버튼 폰트 크기 일관성 유지 */
-  }
-  .close-data-modal:hover {
-    background: #0056b3 !important;
-    color: #fff !important;
-    transform: rotate(90deg);
+    right: 12px !important;
+    width: 36px !important;
+    height: 36px !important;
+    font-size: 20px !important;
   }
 }
 
@@ -619,11 +610,10 @@ footer {
     font-size: 1rem;
   }
   .close-data-modal {
-    top: 10px;
-    right: 10px;
-    width: 36px;
-    height: 36px;
-    font-size: 20px;
+    right: 8px !important;
+    width: 32px !important;
+    height: 32px !important;
+    font-size: 16px !important;
   }
 }
 
