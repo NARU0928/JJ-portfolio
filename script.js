@@ -99,6 +99,7 @@ function switchLanguage() {
   currentLang = currentLang === "ko" ? "en" : "ko";
   document.getElementById("lang-label").textContent = currentLang === "ko" ? "English" : "한국어";
 
+  // 내비게이션 링크 텍스트 변경
   document.querySelector("nav ul li:nth-child(1) a").innerHTML = `<i class='fas fa-layer-group'></i> ${currentLang === "ko" ? "포트폴리오" : "Portfolio"}`;
   document.querySelector("nav ul li:nth-child(2) a").innerHTML = `<i class='fas fa-user'></i> ${currentLang === "ko" ? "소개" : "About"}`;
   document.querySelector("nav ul li:nth-child(3) a").innerHTML = `<i class='fas fa-envelope'></i> ${currentLang === "ko" ? "연락처" : "Contact"}`;
@@ -111,6 +112,36 @@ function switchLanguage() {
   document.querySelector("footer p").textContent = currentLang === "ko"
     ? "© 2025 이정재. 모든 권리 보유."
     : "© 2025 Lee Jungjae. All rights reserved.";
+
+  // Hero 섹션 텍스트 변경
+  document.querySelector(".hero h1").innerHTML = currentLang === "ko"
+    ? "교사가 아닌, <br class='mobile-break'><strong>삶의 설계자</strong>로<br class='mobile-break'>살고 있습니다."
+    : "Not just a teacher, <br class='mobile-break'>I live as a <strong>life designer</strong>.";
+
+  document.querySelector(".hero p").innerHTML = currentLang === "ko"
+    ? "교육은 말보다 <strong>사람</strong>이 먼저였고,<br>기록보다 <strong>만남</strong>이 먼저였습니다.<br>이 이야기는 단지 이력서가 아니라,<br>한 사람의 <strong>길</strong>에 대한 이야기입니다."
+    : "Education prioritized <strong>people</strong> over words,<br>and <strong>encounters</strong> over records.<br>This story is not just a resume,<br>but a narrative of one's <strong>path</strong>.";
+
+  document.querySelector(".hero #show-timeline").innerHTML = currentLang === "ko"
+    ? `이야기 보기 <i class='fas fa-arrow-down'></i>`
+    : `View Story <i class='fas fa-arrow-down'></i>`;
+
+  document.querySelector(".hero #show-data-modal").innerHTML = currentLang === "ko"
+    ? `한눈에 보기 <i class='fas fa-database'></i>`
+    : `View All <i class='fas fa-database'></i>`;
+
+  // 소개 및 연락처 섹션 텍스트 변경
+  document.querySelector("#about h2").textContent = currentLang === "ko" ? "소개" : "About";
+  document.querySelector("#about p").textContent = currentLang === "ko" ? "사람과 교육의 연결을 삶으로 살아가는 사람, 이정재입니다." : "I am Lee Jungjae, a person who lives the connection between people and education.";
+  document.querySelector("#contact h2").textContent = currentLang === "ko" ? "연락하기" : "Contact";
+
+  // 앵커 버튼 텍스트 변경
+  document.querySelector('.anchor-group .anchor-buttons a:nth-child(1)').innerHTML = currentLang === "ko" ? `2025~2024<br><small>지속가능한 대안교육 동행하기</small>` : `2025~2024<br><small>Accompanying Sustainable Alternative Education</small>`;
+  document.querySelector('.anchor-group .anchor-buttons a:nth-child(2)').innerHTML = currentLang === "ko" ? `2024~2017<br><small>교육 가능성 찾기</small>` : `2024~2017<br><small>Exploring Educational Possibilities</small>`;
+  document.querySelector('.anchor-group .anchor-buttons a:nth-child(3)').innerHTML = currentLang === "ko" ? `2017~2013<br><small>대안교육의 시작과 이해</small>` : `2017~2013<br><small>Beginning and Understanding Alternative Education</small>`;
+  document.querySelector('.anchor-group .anchor-buttons a:nth-child(4)').innerHTML = currentLang === "ko" ? `2013~2010<br><small>전문성 향상을 위한 준비</small>` : `2013~2010<br><small>Preparation for Professional Development</small>`;
+  document.querySelector('.anchor-group .anchor-buttons a:nth-child(5)').innerHTML = currentLang === "ko" ? `2010~2004<br><small>기본기 형성</small>` : `2010~2004<br><small>Foundation Building</small>`;
+
 
   loadTimeline(currentLang);
   loadData(currentLang);
@@ -217,12 +248,9 @@ window.addEventListener("DOMContentLoaded", () => {
   loadTimeline(currentLang); // 타임라인 로드 및 렌더링 시작
   loadData(currentLang); // 데이터 로드 및 모달 렌더링
 
-  // handleHashScroll은 renderTimeline 내부에서 호출되므로 여기서는 직접 호출할 필요 없음
-  // 하지만 초기 페이지 로드 시 URL에 해시가 있다면 처리하기 위해 DOMContentLoaded에서는 한 번 호출해주는 것이 좋습니다.
-  // renderTimeline이 비동기적으로 로드되므로, 초기 해시 스크롤은 loadTimeline 완료 후 처리하도록 renderTimeline 내부에 넣는 것이 더 안정적입니다.
-  // 따라서 아래 호출은 제거하거나, 정말 초기 로드 시점만 고려할 때 사용합니다.
-  // 이 예시에서는 renderTimeline 내부에서 호출하므로 여기서는 제거합니다.
-  // handleHashScroll(); // 이 줄은 이전 대화에서 제가 제거하라고 권고했던 줄입니다. 다시 제거해주세요.
+  // 초기 로드 시 URL 해시가 있다면 처리하기 위해 DOMContentLoaded에서 한 번 호출 (이전 제거된 코드 복원)
+  // renderTimeline이 비동기적으로 로드되므로, renderTimeline 내부에서 handleHashScroll을 호출하는 것이 더 안정적입니다.
+  // 이중 호출을 막기 위해 여기서는 제거하고 renderTimeline 내에서만 호출하도록 유지합니다.
 
   document.getElementById("toggle-lang").addEventListener("click", e => {
     e.preventDefault();
@@ -232,11 +260,15 @@ window.addEventListener("DOMContentLoaded", () => {
   document.getElementById("show-data-modal").addEventListener("click", e => {
     e.preventDefault();
     document.getElementById("dataModal").classList.remove("hidden");
+    document.getElementById("dataModal").classList.add("visible"); // visible 클래스 추가
     document.body.style.overflow = "hidden";
   });
 
   document.getElementById("closeDataModal").addEventListener("click", () => {
-    document.getElementById("dataModal").classList.add("hidden");
+    document.getElementById("dataModal").classList.remove("visible"); // visible 클래스 제거
+    setTimeout(() => { // 애니메이션 후 hidden 적용
+        document.getElementById("dataModal").classList.add("hidden");
+    }, 300); // CSS transition 시간과 일치
     document.body.style.overflow = "auto";
   });
 
@@ -269,7 +301,7 @@ window.addEventListener("DOMContentLoaded", () => {
       e.preventDefault();
       externalViewer.src = btn.href;
       document.getElementById("externalModal").classList.remove("hidden");
-      document.body.style.overflow = "auto";
+      document.body.style.overflow = "hidden";
     }
   });
 

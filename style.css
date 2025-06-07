@@ -323,14 +323,14 @@ footer {
   align-items: center;
   justify-content: center;
   z-index: 1000;
-  opacity: 0;
-  visibility: hidden;
+  opacity: 0; /* 초기 투명하게 */
+  visibility: hidden; /* 초기 숨김 */
   transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 .data-modal.visible {
-  opacity: 1;
-  visibility: visible;
+  opacity: 1; /* 보이게 */
+  visibility: visible; /* 보이게 */
 }
 
 .data-content {
