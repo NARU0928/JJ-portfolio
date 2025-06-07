@@ -539,19 +539,46 @@ footer {
   background: #fff;
   border-bottom: 1px solid #eee;
   box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  height: 52px;
+  padding: 0 16px;
 }
+
+.data-header h2, .data-header h3 {
+  flex: 1 1 auto;
+  text-align: center;
+  margin: 0;
+  font-size: 1.2rem;
+  color: #222;
+  line-height: 1.2;
+}
+
 .close-data-modal {
   position: absolute;
-  right: 16px;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 11;
-  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  top: 0;
+  right: 0;
+  width: 44px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #004080;
+  color: #fff;
+  border: none;
+  border-radius: 0 8px 0 0;
+  font-size: 24px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
+  z-index: 1100;
 }
+
 .close-data-modal:hover {
   background: #0056b3;
   color: #fff;
-  transform: rotate(90deg); /* 위치 변화 없음 */
+  transform: rotate(90deg);
 }
 
 /* 데스크탑: .data-modal 상단 여백 제거 */
@@ -613,9 +640,9 @@ footer {
   }
 
   .data-header {
-    padding: 6px 8px;
-    min-height: 24px;
-    font-size: 1rem;
+    min-height: 44px;
+    height: 44px;
+    padding: 0 8px;
   }
 
   .data-header h3 {
@@ -629,9 +656,9 @@ footer {
 
 @media (max-width: 480px) {
   .data-header {
-    padding: 4px 6px;
-    min-height: 20px;
-    font-size: 0.95rem;
+    min-height: 36px;
+    height: 36px;
+    padding: 0 4px;
   }
 
   .data-header h3 {
