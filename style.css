@@ -657,3 +657,67 @@ footer {
   background-color: rgba(0, 64, 128, 0.9);
   transform: translateY(-2px);
 }
+
+
+/* ───────── 앵커 버튼 스타일 (연도 구간 Jump 버튼) ───────── */
+.anchor-group {
+  background: #f0f4ff;
+  padding: 20px 0;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.anchor-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.anchor-btn {
+  background: #ffffff;
+  border: 1px solid #004080;
+  color: #004080;
+  padding: 8px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.95em;
+  line-height: 1.2;
+  transition: all 0.2s ease;
+  display: inline-block;
+  text-align: center;
+  min-width: 120px;
+}
+
+.anchor-btn:hover {
+  background-color: #dceeff;
+}
+
+.anchor-btn small {
+  display: block;
+  font-weight: normal;
+  font-size: 0.8em;
+  margin-top: 4px;
+  color: #333;
+}
+
+/* 앵커 위치 정확하게 이동되도록 여백 보정용 빈 요소 */
+.anchor-point {
+  height: 60px;
+  margin-top: -60px;
+}
+
+/* ───────── 모바일에서 PDF 닫기 버튼 개선 ───────── */
+@media (max-width: 768px) {
+  .close-modal {
+    background: #ffffff !important;
+    color: #004080 !important;
+    font-weight: bold;
+    border: 2px solid #004080;
+  }
+
+  .close-modal:hover {
+    background-color: #e6f0ff;
+  }
+}

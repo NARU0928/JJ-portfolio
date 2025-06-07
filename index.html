@@ -36,19 +36,36 @@
       </div>
     </section>
 
-    <main id="timeline" class="hidden"></main>
+    <!-- 연도 구간 버튼 -->
+    <div class="anchor-group">
+      <div class="anchor-buttons">
+        <a href="#year-2025" class="anchor-btn">2025~2024<br><small>지속가능한 대안교육 동행하기</small></a>
+        <a href="#year-2024" class="anchor-btn">2024~2017<br><small>교육 가능성 찾기</small></a>
+        <a href="#year-2017" class="anchor-btn">2017~2013<br><small>대안교육의 시작과 이해</small></a>
+        <a href="#year-2013" class="anchor-btn">2013~2010<br><small>전문성 향상을 위한 준비</small></a>
+        <a href="#year-2010" class="anchor-btn">2010~2004<br><small>기본기 형성</small></a>
+      </div>
+    </div>
 
+    <!-- 타임라인 -->
+    <main id="timeline">
+      <div id="year-2025" class="anchor-point"></div>
+      <div id="year-2024" class="anchor-point"></div>
+      <div id="year-2017" class="anchor-point"></div>
+      <div id="year-2013" class="anchor-point"></div>
+      <div id="year-2010" class="anchor-point"></div>
+    </main>
+
+    <!-- 소개 & 연락처 -->
     <section id="about-contact-section" class="about-contact-container">
       <div class="character-image-box">
         <img src="./images/profile.jpg" alt="개인 캐릭터 이미지" class="character-image">
       </div>
-      
       <div class="about-contact-content">
         <section id="about" class="about-contact-item">
           <h2>소개</h2>
           <p>사람과 교육의 연결을 삶으로 살아가는 사람, 이정재입니다.</p>
         </section>
-
         <section id="contact" class="about-contact-item">
           <h2>연락하기</h2>
           <p><i class='fas fa-envelope'></i> jungjae_lee@nate.com</p>
@@ -60,6 +77,7 @@
       <p>© 2025 이정재. 모든 권리 보유.</p>
     </footer>
 
+    <!-- 한눈에 보기 팝업 -->
     <div id="dataModal" class="data-modal hidden">
       <div class="data-content">
         <button class="close-data-modal" id="closeDataModal">✖</button>
@@ -79,6 +97,7 @@
       </div>
     </div>
 
+    <!-- PDF 보기 팝업 -->
     <div id="pdfModal" class="pdf-modal hidden">
       <div class="pdf-content">
         <button class="close-modal" id="closeModal">✖</button>
@@ -86,9 +105,43 @@
       </div>
     </div>
 
-<button id="scrollTopBtn" class="scroll-top-button" title="맨 위로">
-  <i class="fas fa-arrow-up"></i>
-</button>
+    <!-- 외부 링크 팝업 -->
+    <div id="externalModal" class="pdf-modal hidden">
+      <div class="pdf-content">
+        <button class="close-modal" id="closeExternalModal">✖</button>
+        <iframe id="externalViewer" src="" frameborder="0"></iframe>
+      </div>
+    </div>
+
+    <!-- 맨 위로 버튼 -->
+    <button id="scrollTopBtn" class="scroll-top-button" title="맨 위로">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // 타임라인 자동 표시
+        document.getElementById("timeline").classList.remove("hidden");
+
+        // 외부 링크 팝업 처리
+        document.addEventListener("click", function (e) {
+          const btn = e.target.closest(".timeline-button");
+          if (!btn || !btn.href || !btn.href.startsWith("http") || btn.href.endsWith(".pdf")) return;
+
+          e.preventDefault();
+          document.getElementById("externalViewer").src = btn.href;
+          document.getElementById("externalModal").classList.remove("hidden");
+          document.body.style.overflow = "hidden";
+        });
+
+        // 외부 팝업 닫기
+        document.getElementById("closeExternalModal").addEventListener("click", function () {
+          document.getElementById("externalViewer").src = "";
+          document.getElementById("externalModal").classList.add("hidden");
+          document.body.style.overflow = "auto";
+        });
+      });
+    </script>
 
     <script src="script.js"></script>
   </body>
