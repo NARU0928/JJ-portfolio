@@ -576,6 +576,18 @@ footer {
     padding: 8px;
     font-size: 0.85em;
   }
+  /* 스크롤 중일 때 상단 앵커 버튼 설명 숨김 */
+  body.scrolling .anchor-btn small,
+  body.scrolling .anchor-btn .desc {
+    display: none !important;
+  }
+  .anchor-btn small,
+  .anchor-btn .desc {
+    display: block;
+    font-size: 11px;
+    color: #666;
+    margin-top: 2px;
+  }
 }
 
 @media (max-width: 480px) {
