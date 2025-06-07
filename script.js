@@ -117,7 +117,6 @@ function createTimelineCard(entry) {
       // 아이콘 추가
       const icon = document.createElement("i");
       icon.className = getIconClass(link.url);
-      icon.style.marginRight = "6px";
       linkBtn.insertBefore(icon, linkBtn.firstChild);
       
       linksContainer.appendChild(linkBtn);
@@ -498,6 +497,12 @@ window.addEventListener("DOMContentLoaded", () => {
       closePdfViewer();
     }
   });
+
+  // 닫기 버튼 이벤트 리스너 설정
+  const closeBtn = document.getElementById('closePdfViewer');
+  if (closeBtn) {
+    closeBtn.onclick = closePdfViewer;
+  }
 });
 
 function openPdfViewer(url, title) {
@@ -508,7 +513,17 @@ function openPdfViewer(url, title) {
   titleElement.textContent = title;
   viewer.src = url;
   modal.classList.remove('hidden');
-  document.body.style.overflow = 'hidden';
+  
+  // 닫기 버튼 이벤트 리스너 추가
+  const closeBtn = document.getElementById('closePdfViewer');
+  closeBtn.onclick = closePdfViewer;
+  
+  // 모달 외부 클릭 시 닫기
+  modal.onclick = (e) => {
+    if (e.target === modal) {
+      closePdfViewer();
+    }
+  };
 }
 
 function closePdfViewer() {
@@ -516,8 +531,8 @@ function closePdfViewer() {
   const viewer = document.getElementById('pdfViewer');
   
   modal.classList.add('hidden');
-  viewer.src = '';
-  document.body.style.overflow = 'auto';
+  viewer.src = ''; // PDF 뷰어 초기화
+  currentZoom = 1; // 줌 레벨 초기화
 }
 
 function zoomIn() {

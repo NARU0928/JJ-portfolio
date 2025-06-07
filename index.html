@@ -86,15 +86,15 @@
     <!-- PDF 뷰어 모달 -->
     <div id="pdfModal" class="pdf-modal hidden">
       <div class="pdf-content">
-        <button id="closePdfViewer" class="pdf-control-btn" title="닫기">×</button>
         <div class="pdf-header">
           <h3 id="pdfTitle"></h3>
           <div class="pdf-controls">
-            <button id="zoomOut" class="pdf-control-btn" title="축소">-</button>
-            <button id="zoomIn" class="pdf-control-btn" title="확대">+</button>
+            <button class="pdf-control-btn" onclick="zoomOut()">-</button>
+            <button class="pdf-control-btn" onclick="zoomIn()">+</button>
           </div>
         </div>
-        <iframe id="pdfViewer" type="application/pdf" width="100%" height="100%"></iframe>
+        <button id="closePdfViewer" class="pdf-control-btn">&times;</button>
+        <iframe id="pdfViewer" frameborder="0"></iframe>
       </div>
     </div>
 
