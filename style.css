@@ -1534,42 +1534,40 @@ section {
 
 /* 모바일 반응형 */
 @media (max-width: 768px) {
-  .data-header {
-    position: sticky !important;
-    top: 0 !important;
-    z-index: 1002 !important;
-    background: #fff !important;
-    border-bottom: 1px solid #eee !important;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06) !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    height: 56px !important;
-    min-height: 56px !important;
-    padding: 0 16px !important;
+  .data-header, .pdf-header, .link-header {
+    height: 44px;
+    min-height: 44px;
+    padding: 0 8px;
   }
-  .close-data-modal {
-    position: fixed;
-    top: 12px;
-    right: 12px;
-    z-index: 1100;
-    background: #fff !important;
-    color: #004080 !important;
-    border: 2px solid #004080;
+  .close-data-modal, .pdf-control-btn, .link-control-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
   }
-  .close-data-modal:hover {
-    background: #0056b3 !important;
-    color: #fff !important;
-    transform: rotate(90deg);
+}
+@media (max-width: 480px) {
+  .data-header, .pdf-header, .link-header {
+    height: 36px;
+    min-height: 36px;
+    padding: 0 4px;
   }
-  .data-content {
-    padding-top: 44px;
+  .close-data-modal, .pdf-control-btn, .link-control-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 20px;
   }
 }
 
-@media (max-width: 480px) {
-  .data-content {
-    padding-top: 36px;
+/* 모바일 PDF/외부링크 닫기 버튼 파란색 배경, X는 흰색 */
+@media (max-width: 768px) {
+  .pdf-control-btn, .link-control-btn {
+    background: #004080;
+    color: #fff;
+    border: none;
+  }
+  .pdf-control-btn *, .link-control-btn * {
+    color: #fff;
+    fill: #fff;
   }
 }
 
@@ -1768,13 +1766,13 @@ section {
 /* 1. 모바일 PDF/외부링크 닫기 버튼의 X 아이콘 파란색 */
 @media (max-width: 768px) {
   .pdf-control-btn, .link-control-btn {
-    background: #fff !important;
-    color: #004080 !important;
-    border: 2px solid #004080;
+    background: #004080;
+    color: #fff;
+    border: none;
   }
   .pdf-control-btn *, .link-control-btn * {
-    color: #004080 !important;
-    fill: #004080 !important;
+    color: #fff;
+    fill: #fff;
   }
 }
 
