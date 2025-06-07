@@ -518,9 +518,13 @@ function openPdfViewer(url, title) {
       pdfUrl.searchParams.set('navpanes', '1');
       pdfUrl.searchParams.set('toolbar', '1');
       pdfUrl.searchParams.set('viewrect', '0,0,1000,1000');
-      pdfUrl.searchParams.set('pagemode', 'thumbs');
+      pdfUrl.searchParams.set('pagemode', 'none');
       pdfUrl.searchParams.set('pagefit', 'page-actual');
       pdfUrl.searchParams.set('pageview', 'single');
+      pdfUrl.searchParams.set('enablejs', 'true');
+      pdfUrl.searchParams.set('search', 'true');
+      pdfUrl.searchParams.set('highlight', 'true');
+      pdfUrl.searchParams.set('viewerpreferences', 'FitWindow');
     }
     
     // 파일명 추출하여 제목 설정
@@ -543,6 +547,18 @@ function openPdfViewer(url, title) {
       viewer.style.overflow = "auto";
       viewer.style.webkitOverflowScrolling = "touch";
       viewer.style.touchAction = "pan-y";
+      
+      // 모바일에서 PDF 뷰어 로드 완료 후 추가 설정
+      viewer.onload = function() {
+        try {
+          // PDF 뷰어가 로드된 후 추가 설정
+          viewer.contentWindow.document.body.style.overflow = "auto";
+          viewer.contentWindow.document.body.style.webkitOverflowScrolling = "touch";
+          viewer.contentWindow.document.body.style.touchAction = "pan-y";
+        } catch (e) {
+          console.log("PDF 뷰어 추가 설정 실패:", e);
+        }
+      };
     }
   } catch (error) {
     console.error("PDF 뷰어 오류:", error);
