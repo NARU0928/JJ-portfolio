@@ -7,10 +7,10 @@ function renderTimeline() {
   const container = document.getElementById("timeline");
   container.innerHTML = "";
 
-  const insertedAnchors = new Set();
+  const insertedAnchors = new Set(); // 앵커 중복 생성을 막기 위한 Set
   // 앵커 포인트로 사용할 연도들을 정의합니다.
   // 이 연도들의 타임라인 카드 위에 anchor-point div가 생성됩니다.
-  const anchorYears = [2025, 2024, 2017, 2013, 2010, 2004]; // 2025년 추가
+  const anchorYears = [2025, 2024, 2017, 2013, 2010, 2004];
 
   timeline.forEach(entry => {
     const year = entry.year;
@@ -148,11 +148,68 @@ function handleAnchorClick(e) {
   }
 }
 
-// 데이터 모달 렌더링 (이전과 동일)
-function renderDataModal() { /* ... */ }
+// 데이터 모달 렌더링
+function renderDataModal() {
+  if (!dataContent || !dataContent.sections) return;
 
-// 카드 등장 애니메이션 (이전과 동일)
-const observer = new IntersectionObserver(entries => { /* ... */ });
+  document.getElementById("data-modal-title").textContent = dataContent.title;
+  const sectionBox = document.getElementById("data-modal-sections");
+  sectionBox.innerHTML = "";
+
+  dataContent.sections.forEach(section => {
+    const div = document.createElement("div");
+    div.className = "data-section";
+
+    const h3 = document.createElement("h3");
+    h3.textContent = section.heading;
+    div.appendChild(h3);
+
+    const ul = document.createElement("ul");
+    section.items.forEach(item => {
+      const li = document.createElement("li");
+      li.innerHTML = `<strong>${item.name}</strong>`;
+      if (item.description) li.innerHTML += `<p>${item.description}</p>`;
+      ul.appendChild(li);
+    });
+
+    div.appendChild(ul);
+    sectionBox.appendChild(div);
+  });
+
+  // 자격증
+  const cert = dataContent.certifications;
+  document.getElementById("certifications-heading").textContent = cert.heading;
+
+  const headers = document.getElementById("certifications-table-headers");
+  const body = document.getElementById("certifications-table-body");
+  headers.innerHTML = "";
+  body.innerHTML = "";
+
+  cert.table.headers.forEach(h => {
+    const th = document.createElement("th");
+    th.textContent = h;
+    headers.appendChild(th);
+  });
+
+  cert.table.rows.forEach(row => {
+    const tr = document.createElement("tr");
+    row.forEach(cell => {
+      const td = document.createElement("td");
+      td.textContent = cell;
+      tr.appendChild(td);
+    });
+    body.appendChild(tr);
+  });
+}
+
+// 카드 등장 애니메이션
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+    }
+  });
+});
 
 window.addEventListener("DOMContentLoaded", () => {
   document.getElementById("timeline").classList.remove("hidden");
@@ -160,12 +217,12 @@ window.addEventListener("DOMContentLoaded", () => {
   loadTimeline(currentLang); // 타임라인 로드 및 렌더링 시작
   loadData(currentLang); // 데이터 로드 및 모달 렌더링
 
-  // handleHashScroll은 renderTimeline 내부에서 호출되므로 여기서 직접 호출할 필요 없음
+  // handleHashScroll은 renderTimeline 내부에서 호출되므로 여기서는 직접 호출할 필요 없음
   // 하지만 초기 페이지 로드 시 URL에 해시가 있다면 처리하기 위해 DOMContentLoaded에서는 한 번 호출해주는 것이 좋습니다.
   // renderTimeline이 비동기적으로 로드되므로, 초기 해시 스크롤은 loadTimeline 완료 후 처리하도록 renderTimeline 내부에 넣는 것이 더 안정적입니다.
   // 따라서 아래 호출은 제거하거나, 정말 초기 로드 시점만 고려할 때 사용합니다.
   // 이 예시에서는 renderTimeline 내부에서 호출하므로 여기서는 제거합니다.
-  // handleHashScroll();
+  // handleHashScroll(); // 이 줄은 이전 대화에서 제가 제거하라고 권고했던 줄입니다. 다시 제거해주세요.
 
   document.getElementById("toggle-lang").addEventListener("click", e => {
     e.preventDefault();
