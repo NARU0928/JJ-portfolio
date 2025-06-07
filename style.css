@@ -325,6 +325,7 @@ footer {
 @media (max-width: 768px) {
   .pdf-modal {
     background-color: rgba(0, 0, 0, 0.95);
+    padding-top: 48px; /* 기존 60px에서 48px로 줄임 */
   }
 
   .pdf-content {
@@ -376,6 +377,9 @@ footer {
 @media (max-width: 480px) {
   .mobile-break {
     display: initial;
+  }
+  .data-modal {
+    padding-top: 44px; /* 기존 56px에서 44px로 줄임 */
   }
 }
 
@@ -1501,7 +1505,7 @@ section {
   }
 
   .data-modal {
-    padding-top: 60px; /* 헤더 높이만큼 상단 여백 추가 */
+    padding-top: 48px; /* 기존 60px에서 48px로 줄임 */
   }
 
   .close-modal,
@@ -1565,7 +1569,7 @@ section {
   }
 
   .data-modal {
-    padding-top: 56px;
+    padding-top: 44px; /* 기존 56px에서 44px로 줄임 */
   }
 }
 
@@ -1631,5 +1635,33 @@ section {
 @media (max-width: 480px) {
   .data-section h3 {
     font-size: 1.1em;
+  }
+}
+
+.close-modal,
+.close-data-modal,
+#closePdfViewer,
+#closeLinkViewer {
+  color: #fff !important;
+  fill: #fff !important;
+}
+
+@media (max-width: 768px) {
+  .close-modal,
+  .close-data-modal,
+  #closePdfViewer,
+  #closeLinkViewer {
+    color: #fff !important;
+    fill: #fff !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .close-modal,
+  .close-data-modal,
+  #closePdfViewer,
+  #closeLinkViewer {
+    color: #fff !important;
+    fill: #fff !important;
   }
 }
