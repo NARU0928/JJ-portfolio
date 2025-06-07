@@ -1432,7 +1432,7 @@ section {
   font-size: 24px;
   line-height: 1;
   background-color: #004080;
-  color: white;
+  color: #ffffff;
   border: none;
   border-radius: 50%;
   cursor: pointer;
@@ -1469,6 +1469,16 @@ section {
     aspect-ratio: 1;
     min-width: 32px;
     min-height: 32px;
+    color: #ffffff !important;
+  }
+
+  #pdfViewer {
+    height: calc(100% - 56px);
+    width: 100%;
+    border: none;
+    overflow: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    touch-action: pan-y !important;
   }
 }
 

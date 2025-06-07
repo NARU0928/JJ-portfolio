@@ -517,6 +517,10 @@ function openPdfViewer(url, title) {
       pdfUrl.searchParams.set('scrollbar', '1');
       pdfUrl.searchParams.set('navpanes', '1');
       pdfUrl.searchParams.set('toolbar', '1');
+      pdfUrl.searchParams.set('viewrect', '0,0,1000,1000');
+      pdfUrl.searchParams.set('pagemode', 'thumbs');
+      pdfUrl.searchParams.set('pagefit', 'page-actual');
+      pdfUrl.searchParams.set('pageview', 'single');
     }
     
     // 파일명 추출하여 제목 설정
@@ -533,6 +537,13 @@ function openPdfViewer(url, title) {
     
     // 뷰어 크기 조정
     adjustPdfViewer();
+
+    // 모바일에서 스크롤 활성화
+    if (isMobile) {
+      viewer.style.overflow = "auto";
+      viewer.style.webkitOverflowScrolling = "touch";
+      viewer.style.touchAction = "pan-y";
+    }
   } catch (error) {
     console.error("PDF 뷰어 오류:", error);
     alert("PDF 파일을 열 수 없습니다. 파일 경로를 확인해주세요.");
@@ -552,6 +563,9 @@ function adjustPdfViewer() {
     viewer.style.height = "calc(100% - 60px)";
     viewer.style.width = "100%";
     viewer.style.border = "none";
+    viewer.style.overflow = "auto";
+    viewer.style.webkitOverflowScrolling = "touch";
+    viewer.style.touchAction = "pan-y";
   } else {
     content.style.width = "90%";
     content.style.height = "90%";
