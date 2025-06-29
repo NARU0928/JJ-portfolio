@@ -126,11 +126,16 @@
     ]
   },
   {
-    "year": "2019",
-    "title": "Problem-Solving Skills Developed in Complex Reality",
-    "text": "Facing the complex and multi-layered problems of educational settings, I developed practical problem-solving abilities. Beyond simply recognizing problems, I gained experience in finding realistic and sustainable solutions and actually applying them. The experiences of this period became the foundation for developing systematic thinking and practical approaches later on.",
-    "links": []
-  },
+  "year": "2019",
+  "title": "Practical Reflections on Legal Support for Borderline Youth",
+  "text": "While facing the complex and multi-layered realities of the educational field, I developed practical problem-solving skills that extended beyond identifying problems to finding and applying sustainable solutions. This period marked a shift toward deeper contemplation on the structural issues that slow learners and borderline youth face—especially the legal and social blind spots they are often left in. I began to recognize that educational efforts alone were insufficient, and systemic support through law and policy was necessary. It was in this context that I decided to begin preparing for law school, envisioning a role not just as an educator but as a legal advocate. This year became the starting point of exploring how education, law, and society could be linked to build more inclusive and protective systems for marginalized youth.",
+  "links": [
+    {
+      "label": "Beginning Law School Preparation",
+      "url": "./assets/2019/도전_2019 로스쿨.pdf"
+    }
+  ]
+},
   {
     "year": "2018",
     "title": "Expansion of Educational Paradigms and New Perspectives",
@@ -242,18 +247,30 @@
     "year": "2007",
     "title": "New Beginning After Military Service, Experience of Social Practice",
     "text": "I completed military service in February and returned to Dongguk University's Korean Language Education Department in March, resuming my studies. Along with returning to university, I began on-campus work-study activities, balancing studies and social experience. I also participated in Braille book-making volunteer work (34 hours) at the Seongbuk Center for the Visually Impaired, experiencing the joy of contributing to society. This was a valuable experience that developed the social responsibility and spirit of practice that I should have as a future educator.",
-    "links": []
+    "links": [
+      {
+        "label": "Scholarship Receipt Confirmation",
+        "url": "./assets/2008/장학_장학금 수혜확인서.pdf"
+      }]
   },
   {
     "year": "2005",
     "title": "Academic Achievement and Military Service: A Turning Point for Growth",
     "text": "I received excellence scholarships in the first semester, showing academic achievement, but started military service in February, temporarily suspending my studies. This became an important turning point in my life and a time for deep inner reflection. During military service, through meetings with various people, I was able to broaden my worldview and develop the inclusiveness and understanding that I should have as a future educator.",
-    "links": []
+    "links": [
+      {
+        "label": "Scholarship Receipt Confirmation",
+        "url": "./assets/2008/장학_장학금 수혜확인서.pdf"
+      }]
   },
   {
     "year": "2004",
     "title": "First Steps as an Educator and Determination for Learning",
     "text": "Graduating from Gwangmyeong North High School and entering the Korean Language Education Department at Dongguk University, I took my first steps as an educator. In the second semester, I received a scholarship recommended by my academic advisor, strengthening my determination for learning. Although it was still vague, my aspiration to 'do work that meaningfully touches someone's life' was clear. The pure educational passion of this period became the driving force that has led me to this day.",
-    "links": []
+    "links": [
+      {
+        "label": "Scholarship Receipt Confirmation",
+        "url": "./assets/2008/장학_장학금 수혜확인서.pdf"
+      }]
   }
 ]
