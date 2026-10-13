@@ -1,0 +1,967 @@
+{
+  "roles": {
+    "plan": {
+      "ko": "기획",
+      "en": "Planning"
+    },
+    "write": {
+      "ko": "집필·작성",
+      "en": "Writing"
+    },
+    "design": {
+      "ko": "디자인",
+      "en": "Design"
+    },
+    "build": {
+      "ko": "웹 구축",
+      "en": "Web build"
+    },
+    "teach": {
+      "ko": "강의·수업",
+      "en": "Teaching"
+    },
+    "run": {
+      "ko": "운영",
+      "en": "Running"
+    },
+    "doc": {
+      "ko": "정리·문서화",
+      "en": "Documentation"
+    },
+    "research": {
+      "ko": "조사",
+      "en": "Research"
+    },
+    "video": {
+      "ko": "영상 제작",
+      "en": "Video"
+    },
+    "develop": {
+      "ko": "교재 개발",
+      "en": "Material development"
+    },
+    "story": {
+      "ko": "스토리 구성",
+      "en": "Storytelling"
+    }
+  },
+  "items": [
+    {
+      "id": "career-fair-2026",
+      "date": "2026-10",
+      "period": {
+        "ko": "2026.10",
+        "en": "Oct 2026"
+      },
+      "status": {
+        "ko": "10.16 진행 예정",
+        "en": "Upcoming · 16 Oct"
+      },
+      "title": {
+        "ko": "2026 느린학습자를 위한 진로페어",
+        "en": "2026 Career Fair for Slow Learners"
+      },
+      "summary": {
+        "ko": "느린 학습자와 가족, 지역이 함께하는 진로페어의 홍보물과 오프닝 영상",
+        "en": "Promotional materials and opening film for a career fair shared by slow learners, families and the community"
+      },
+      "context": {
+        "ko": "[모두의 공모] 사업의 하나로, 느린 학습자들이 경험과 관계 속에서 진로와 자립을 이야기하는 자리입니다.",
+        "en": "Part of the ‘Modu-ui Gongmo’ programme: a day where slow learners talk about careers and independence through experience and relationships."
+      },
+      "with": {
+        "ko": "함께성장교육 · 나눔공동체학교 · 협력 기관",
+        "en": "Hamkke Seongjang Education · Nanum Community School · partners"
+      },
+      "roles": [
+        "design",
+        "video"
+      ],
+      "roleText": {
+        "ko": "포스터·안내문 등 홍보물과 행사 오프닝 영상을 만들고 있습니다.",
+        "en": "Designing the poster and guides, and producing the opening film."
+      },
+      "tags": [
+        "digital"
+      ],
+      "featured": false,
+      "evidence": [],
+      "cover": "assets/works/career-fair-2026.webp",
+      "coverSmall": "assets/works/career-fair-2026_sm.webp",
+      "gallery": [
+        {
+          "src": "assets/works/career-fair-2026/g1.webp",
+          "w": 1100,
+          "h": 1467
+        },
+        {
+          "src": "assets/works/career-fair-2026/g2.webp",
+          "w": 1100,
+          "h": 1467
+        },
+        {
+          "src": "assets/works/career-fair-2026/g4.webp",
+          "w": 1100,
+          "h": 1467
+        }
+      ]
+    },
+    {
+      "id": "leader-training",
+      "date": "2025-10",
+      "period": {
+        "ko": "2025.10 – 11",
+        "en": "Oct – Nov 2025"
+      },
+      "title": {
+        "ko": "느린학습자를 위한 지도자 전문연수",
+        "en": "Educator Training for Working with Slow Learners"
+      },
+      "summary": {
+        "ko": "대안교육기관 종사자를 위한 6회기 연수 — 계획 수립과 ‘수업 구조와 설계’ 강의",
+        "en": "A six-session course for alternative-school staff — course planning and the ‘lesson structure & design’ session"
+      },
+      "context": {
+        "ko": "느린 학습자를 만나는 교사들이 공통의 원리와 방법을 함께 익힐 기회가 부족했습니다.",
+        "en": "Teachers who work with slow learners had few chances to learn shared principles and methods together."
+      },
+      "with": {
+        "ko": "함께성장교육 강사진 · 대안교육기관 교사들",
+        "en": "Hamkke Seongjang instructors · alternative-school teachers"
+      },
+      "roles": [
+        "plan",
+        "teach"
+      ],
+      "roleText": {
+        "ko": "연수 계획(모듈 구성·과제 체계)을 세우고, 3회기 ‘수업 구조와 설계’(인트로–메인–피드백 구조, 수업 흐름 설계 연습)를 맡아 강의했습니다.",
+        "en": "Drafted the course plan (modules and assignment system) and taught session 3, ‘Lesson structure & design’ (intro–main–feedback, lesson-flow practice)."
+      },
+      "tags": [
+        "people",
+        "teach"
+      ],
+      "featured": true,
+      "evidence": [],
+      "cover": "assets/works/leader-training.webp",
+      "coverSmall": "assets/works/leader-training_sm.webp",
+      "gallery": []
+    },
+    {
+      "id": "operations-docs",
+      "date": "2025-04",
+      "period": {
+        "ko": "2025",
+        "en": "2025"
+      },
+      "title": {
+        "ko": "사무국 운영 체계 문서화",
+        "en": "Documenting How the Office Works"
+      },
+      "summary": {
+        "ko": "후원·홍보·사무국 업무를 프로세스 문서로 정리해, 누가 맡아도 일이 이어지도록",
+        "en": "Fundraising, communications and office work written up as processes, so work continues whoever holds it"
+      },
+      "context": {
+        "ko": "새로 출범한 조합의 사무국 일이 담당자의 기억에 기대고 있어, 인수인계와 협업이 어려웠습니다.",
+        "en": "In a newly launched cooperative, office work relied on individual memory, making hand-over and collaboration hard."
+      },
+      "with": {
+        "ko": "함께성장교육 조합원·직원",
+        "en": "Members and staff of Hamkke Seongjang Education"
+      },
+      "roles": [
+        "doc",
+        "write"
+      ],
+      "roleText": {
+        "ko": "후원 네트워크 운영 프로세스(물품·금전·협약·기업 후원 4종), 홍보 프로세스(소식지·키트·홈페이지·웹툰), 사무국 업무 로드맵(4영역 14과업)을 작성했습니다.",
+        "en": "Wrote the donor-network processes (in-kind, monetary, partnership, corporate), the communications process (newsletter, kits, website, webtoon) and the office roadmap (4 areas, 14 tasks)."
+      },
+      "tags": [
+        "system"
+      ],
+      "featured": true,
+      "evidence": [
+        {
+          "type": "pdf",
+          "label": {
+            "ko": "후원 네트워크 운영 프로세스 (PDF)",
+            "en": "Donor-network processes (PDF)"
+          },
+          "src": "assets/docs/2025_donor-network-process.pdf",
+          "size": 912873,
+          "note": {
+            "ko": "공개용 발췌본 · 12쪽 중 7쪽",
+            "en": "Public excerpt · 7 of 12 pages"
+          }
+        },
+        {
+          "type": "pdf",
+          "label": {
+            "ko": "홍보 프로세스 (PDF)",
+            "en": "Communications process (PDF)"
+          },
+          "src": "assets/docs/2025_pr-process.pdf",
+          "size": 933590
+        }
+      ],
+      "cover": "assets/works/operations-docs.webp",
+      "coverSmall": "assets/works/operations-docs_sm.webp",
+      "gallery": [
+        {
+          "src": "assets/works/operations-docs/g1.webp",
+          "w": 1100,
+          "h": 762
+        },
+        {
+          "src": "assets/works/operations-docs/g2.webp",
+          "w": 1100,
+          "h": 762
+        },
+        {
+          "src": "assets/works/operations-docs/g3.webp",
+          "w": 1100,
+          "h": 762
+        }
+      ]
+    },
+    {
+      "id": "companion-guide",
+      "date": "2025-06",
+      "period": {
+        "ko": "2025.06",
+        "en": "Jun 2025"
+      },
+      "title": {
+        "ko": "느린 학습자 동행 안내서",
+        "en": "Companion Guide for Slow Learners"
+      },
+      "summary": {
+        "ko": "느린 학습자를 만나는 교사·부모·강사·자원지도자를 위한 웹 안내서",
+        "en": "A web guide for teachers, parents, instructors and volunteers who walk with slow learners"
+      },
+      "context": {
+        "ko": "현장마다 느린 학습자를 이해하는 언어가 달라, 같은 아이를 두고도 어른들의 대응이 엇갈리곤 했습니다. 기관의 교육 철학과 실천 원칙을 같은 출발점에서 읽을 수 있는 자료가 필요했습니다.",
+        "en": "Each setting described slow learners differently, so adults often responded to the same child in different ways. A shared starting point for the school's philosophy and practice was needed."
+      },
+      "with": {
+        "ko": "함께성장교육 · 나눔공동체학교 교사공동체",
+        "en": "Hamkke Seongjang Education · Nanum Community School teachers"
+      },
+      "roles": [
+        "plan",
+        "build",
+        "write"
+      ],
+      "roleText": {
+        "ko": "안내서의 구성을 잡고 웹사이트로 직접 구축했습니다. 이후 연수에서 함께 읽을 수 있도록 해설서(초안)를 작성했습니다.",
+        "en": "Structured the guide and built the website myself, then wrote a draft commentary for use in training."
+      },
+      "tags": [
+        "content",
+        "digital"
+      ],
+      "featured": true,
+      "evidence": [
+        {
+          "type": "link",
+          "label": {
+            "ko": "동행 안내서 바로가기",
+            "en": "Open the guide"
+          },
+          "url": "https://together-for-slow.netlify.app/"
+        }
+      ],
+      "cover": "assets/works/companion-guide.webp",
+      "coverSmall": "assets/works/companion-guide_sm.webp",
+      "gallery": [
+        {
+          "src": "assets/works/companion-guide/g1.webp",
+          "w": 1100,
+          "h": 1500
+        },
+        {
+          "src": "assets/works/companion-guide/g2.webp",
+          "w": 1062,
+          "h": 1500
+        },
+        {
+          "src": "assets/works/companion-guide/g3.webp",
+          "w": 1062,
+          "h": 1500
+        }
+      ]
+    },
+    {
+      "id": "afterschool-records",
+      "date": "2025-03",
+      "period": {
+        "ko": "2025",
+        "en": "2025"
+      },
+      "title": {
+        "ko": "방과후 활동 기록 시스템",
+        "en": "After-school Activity Record System"
+      },
+      "summary": {
+        "ko": "수업 기록이 쌓여 다시 학생에게 돌아가도록 설계한 웹 기록 도구",
+        "en": "A web tool designed so that lesson records accumulate and return to each student"
+      },
+      "context": {
+        "ko": "세상이음 교육센터 방과후 과정에서 강사들의 활동 기록이 흩어져 있어, 학생별 변화를 이어서 보기 어려웠습니다.",
+        "en": "At Sesangieum Education Centre's after-school programme, instructors' records were scattered, making each student's progress hard to follow."
+      },
+      "with": {
+        "ko": "세상이음 교육센터 강사진",
+        "en": "Sesangieum Education Centre instructors"
+      },
+      "roles": [
+        "plan",
+        "build"
+      ],
+      "roleText": {
+        "ko": "학생 회원번호로만 조회하고, 프로그램·회차·활동 기준별로 기록을 볼 수 있는 구조를 설계해 웹으로 구현했습니다.",
+        "en": "Designed and built a structure where records are looked up only by student member number, and viewed by programme, session and activity criteria."
+      },
+      "tags": [
+        "digital",
+        "system"
+      ],
+      "featured": false,
+      "evidence": [
+        {
+          "type": "link",
+          "label": {
+            "ko": "기록 시스템 바로가기",
+            "en": "Open the tool"
+          },
+          "url": "https://afterschool-slow.netlify.app/"
+        }
+      ],
+      "cover": "assets/works/afterschool-records.webp",
+      "coverSmall": "assets/works/afterschool-records_sm.webp",
+      "gallery": [
+        {
+          "src": "assets/works/afterschool-records/g1.webp",
+          "w": 1100,
+          "h": 687
+        }
+      ]
+    },
+    {
+      "id": "breath-stories",
+      "date": "2025-04",
+      "period": {
+        "ko": "2025.04 –",
+        "en": "Apr 2025 –"
+      },
+      "title": {
+        "ko": "웹툰 「숨결, 이야기」",
+        "en": "Webtoon “Breath, Stories”"
+      },
+      "summary": {
+        "ko": "현장 교사들의 에피소드로 만든 ‘느려도 괜찮은 만화’ — 프롤로그·번외편 포함 30편 연재",
+        "en": "“It's okay to be slow” comics drawn from teachers' episodes — 30 instalments including prologue and extras"
+      },
+      "context": {
+        "ko": "느린 학습자의 하루는 설명보다 장면으로 전할 때 더 잘 이해됩니다.",
+        "en": "A slow learner's day is understood better through scenes than explanations."
+      },
+      "with": {
+        "ko": "나눔공동체학교 교사들 (에피소드 제공)",
+        "en": "Nanum Community School teachers (episodes)"
+      },
+      "roles": [
+        "plan",
+        "story"
+      ],
+      "roleText": {
+        "ko": "교사들에게서 모은 에피소드를 컷 단위 이야기로 구성하고, 생성형 이미지 도구를 활용해 제작·연재했습니다.",
+        "en": "Shaped teachers' episodes into panel-by-panel stories and produced the series with generative image tools."
+      },
+      "tags": [
+        "digital",
+        "content"
+      ],
+      "featured": true,
+      "evidence": [
+        {
+          "type": "link",
+          "label": {
+            "ko": "인스타그램에서 보기",
+            "en": "See on Instagram"
+          },
+          "url": "https://www.instagram.com/hamsungedu"
+        }
+      ],
+      "cover": "assets/works/breath-stories.webp",
+      "coverSmall": "assets/works/breath-stories_sm.webp",
+      "gallery": [
+        {
+          "src": "assets/works/breath-stories/g1.webp",
+          "w": 1100,
+          "h": 1100
+        },
+        {
+          "src": "assets/works/breath-stories/g2.webp",
+          "w": 1100,
+          "h": 1100
+        }
+      ]
+    },
+    {
+      "id": "podcast",
+      "date": "2025-05",
+      "period": {
+        "ko": "2025.05",
+        "en": "May 2025"
+      },
+      "title": {
+        "ko": "교육 팟캐스트 「함께 걷는 배움」",
+        "en": "Education Podcast “Learning, Walking Together”"
+      },
+      "summary": {
+        "ko": "느린학습자와 경계선 청소년에 대한 이해를 10편의 짧은 대담으로",
+        "en": "Ten short conversations on understanding slow learners and borderline youth"
+      },
+      "context": {
+        "ko": "기관의 철학을 바깥에 알리는 동시에, 신입 교사가 처음 듣는 입문 자료가 필요했습니다.",
+        "en": "We needed both to share the school's philosophy publicly and to give new teachers an introduction."
+      },
+      "with": {
+        "ko": "함께성장교육",
+        "en": "Hamkke Seongjang Education"
+      },
+      "roles": [
+        "plan",
+        "write"
+      ],
+      "roleText": {
+        "ko": "10편의 주제와 원고를 구성하고, AI 음성 기반 대담 형식으로 제작했습니다.",
+        "en": "Planned the ten topics and scripts, produced as AI-voiced conversations."
+      },
+      "tags": [
+        "digital",
+        "people"
+      ],
+      "featured": false,
+      "evidence": [
+        {
+          "type": "pdf",
+          "label": {
+            "ko": "기획안 (PDF)",
+            "en": "Plan (PDF)"
+          },
+          "src": "assets/docs/2025_podcast-plan.pdf",
+          "size": 261205
+        },
+        {
+          "type": "link",
+          "label": {
+            "ko": "유튜브 채널",
+            "en": "YouTube channel"
+          },
+          "url": "https://www.youtube.com/channel/UCIIKHBAGoGkDf1zf4hfofew"
+        }
+      ],
+      "cover": "assets/works/podcast.webp",
+      "coverSmall": "assets/works/podcast_sm.webp",
+      "gallery": [
+        {
+          "src": "assets/works/podcast/g1.webp",
+          "w": 1062,
+          "h": 1500
+        },
+        {
+          "src": "assets/works/podcast/g2.webp",
+          "w": 1062,
+          "h": 1500
+        }
+      ]
+    },
+    {
+      "id": "economy-workbook",
+      "date": "2024-06",
+      "period": {
+        "ko": "2023 – 2024",
+        "en": "2023 – 2024"
+      },
+      "title": {
+        "ko": "금융교육 워크북 「경제와 한걸음」",
+        "en": "Financial-literacy Workbook “A Step with Economy”"
+      },
+      "summary": {
+        "ko": "느린 학습자를 위한 단계별 금융교육 워크북의 교육 내용 설계와 개편",
+        "en": "Designing and renewing a staged financial-literacy workbook for slow learners"
+      },
+      "context": {
+        "ko": "KSD나눔재단 후원으로 운영한 금융교육에서, 느린 학습자의 속도에 맞춘 단계별 교재가 필요했습니다.",
+        "en": "The financial-education programme supported by the KSD Nanum Foundation needed staged materials paced for slow learners."
+      },
+      "with": {
+        "ko": "(재)청소년과사람사랑 · KSD나눔재단 · 디자인 협업",
+        "en": "Youth & People Love Foundation · KSD Nanum Foundation · design partner"
+      },
+      "roles": [
+        "develop",
+        "plan"
+      ],
+      "roleText": {
+        "ko": "단계별 교육 내용을 설계해 정리하고(2023), 디자인 협업을 거쳐 워크북을 개편했습니다(2024).",
+        "en": "Designed the staged curriculum (2023) and renewed the workbook with a design partner (2024)."
+      },
+      "tags": [
+        "content",
+        "teach"
+      ],
+      "featured": true,
+      "evidence": [
+        {
+          "type": "pdf",
+          "label": {
+            "ko": "단계별 교육 내용 (PDF)",
+            "en": "Staged curriculum (PDF)"
+          },
+          "src": "assets/docs/2023_economy-workbook-steps.pdf",
+          "size": 6882518
+        },
+        {
+          "type": "pdf",
+          "label": {
+            "ko": "2024 개편 워크북 발췌본 (PDF)",
+            "en": "2024 workbook — excerpt (PDF)"
+          },
+          "src": "assets/docs/2024_economy-workbook-renewal_excerpt.pdf",
+          "size": 1836987,
+          "note": {
+            "ko": "전체 96쪽 중 16쪽 발췌",
+            "en": "16 of 96 pages"
+          }
+        }
+      ],
+      "cover": "assets/works/economy-workbook.webp",
+      "coverSmall": "assets/works/economy-workbook_sm.webp",
+      "gallery": [
+        {
+          "src": "assets/works/economy-workbook/g1.webp",
+          "w": 1070,
+          "h": 1500
+        },
+        {
+          "src": "assets/works/economy-workbook/g2.webp",
+          "w": 1070,
+          "h": 1500
+        },
+        {
+          "src": "assets/works/economy-workbook/g3.webp",
+          "w": 1070,
+          "h": 1500
+        },
+        {
+          "src": "assets/works/economy-workbook/g4.webp",
+          "w": 1062,
+          "h": 1500
+        }
+      ]
+    },
+    {
+      "id": "teacher-growth",
+      "date": "2024-03",
+      "period": {
+        "ko": "2023 – 2024",
+        "en": "2023 – 2024"
+      },
+      "title": {
+        "ko": "함께 가르치는 사람들의 성장",
+        "en": "Helping Fellow Educators Grow"
+      },
+      "summary": {
+        "ko": "강사 안내 자료, 대안교사 양성과정, 교사 행위주체성 성장 모델",
+        "en": "An instructor guide, an alternative-teacher training course, and a model of teacher agency"
+      },
+      "context": {
+        "ko": "현장의 교육은 그 교실을 맡은 교사의 수준을 넘어서기 어렵습니다. 새 교사를 찾는 것만큼, 지금 함께하는 교사의 성장을 살피고 지원하는 일이 중요했습니다.",
+        "en": "Education rarely rises above the teacher in the room. Supporting the teachers already here mattered as much as finding new ones."
+      },
+      "with": {
+        "ko": "(재)청소년과사람사랑 교사들 · 2024 대안교사 양성과정 참여자",
+        "en": "Teachers of the foundation · participants of the 2024 training course"
+      },
+      "roles": [
+        "develop",
+        "run",
+        "doc"
+      ],
+      "roleText": {
+        "ko": "「함께하는 나눔학교 강사되기」 안내 자료를 만들고(2023), 2024 대안교사 양성과정에서 한 모둠의 성찰 기록을 이끌어 정리했으며, 업무방식과 직무태도에 따른 교사 성장 단계를 「행위주체성 형성과 지원」으로 정리했습니다.",
+        "en": "Made the instructor guide (2023), facilitated and compiled one group's reflections in the 2024 training course, and wrote up a stage model of teacher growth, ‘Forming and supporting agency’."
+      },
+      "tags": [
+        "people"
+      ],
+      "featured": true,
+      "evidence": [
+        {
+          "type": "pdf",
+          "label": {
+            "ko": "행위주체성 형성과 지원 (PDF)",
+            "en": "Teacher agency (PDF)"
+          },
+          "src": "assets/docs/2024_teacher-agency.pdf",
+          "size": 482989
+        },
+        {
+          "type": "pdf",
+          "label": {
+            "ko": "대안교사 양성과정 기록 (PDF)",
+            "en": "Training-course record (PDF)"
+          },
+          "src": "assets/docs/2024_teacher-training-review.pdf",
+          "size": 5333474,
+          "note": {
+            "ko": "공개용 발췌본",
+            "en": "Public excerpt"
+          }
+        },
+        {
+          "type": "pdf",
+          "label": {
+            "ko": "함께하는 강사되기 (PDF)",
+            "en": "Instructor guide (PDF)"
+          },
+          "src": "assets/docs/2023_co-teaching-guide.pdf",
+          "size": 759359,
+          "note": {
+            "ko": "학생 사진 제외 발췌본",
+            "en": "Excerpt without student photos"
+          }
+        }
+      ],
+      "cover": "assets/works/teacher-growth.webp",
+      "coverSmall": "assets/works/teacher-growth_sm.webp",
+      "gallery": [
+        {
+          "src": "assets/works/teacher-growth/g1.webp",
+          "w": 1100,
+          "h": 762
+        },
+        {
+          "src": "assets/works/teacher-growth/g2.webp",
+          "w": 1100,
+          "h": 762
+        },
+        {
+          "src": "assets/works/teacher-growth/g3.webp",
+          "w": 1100,
+          "h": 619
+        },
+        {
+          "src": "assets/works/teacher-growth/g4.webp",
+          "w": 1100,
+          "h": 619
+        }
+      ]
+    },
+    {
+      "id": "integrated-lessons",
+      "date": "2024-01",
+      "period": {
+        "ko": "2023 – 2024",
+        "en": "2023 – 2024"
+      },
+      "title": {
+        "ko": "교과통합 국어 수업",
+        "en": "Integrated Korean-language Lessons"
+      },
+      "summary": {
+        "ko": "국어+영어 「한/영 키가 고장나버린 국어수업」, 국어+마음공부 「마음이 움직이는 국어활동」",
+        "en": "Korean + English (“the broken Ko/En key”) and Korean + mind study (“Korean that moves the heart”)"
+      },
+      "context": {
+        "ko": "교과를 따로 떼어 가르치기보다, 삶의 장면 안에서 연결해 배우는 경험을 주고자 했습니다.",
+        "en": "Rather than teaching subjects in isolation, I wanted students to learn them connected within everyday scenes."
+      },
+      "with": {
+        "ko": "사람사랑나눔학교 영어·마음공부 담당 교사",
+        "en": "English and mind-study teachers at the school"
+      },
+      "roles": [
+        "plan",
+        "teach"
+      ],
+      "roleText": {
+        "ko": "국어 담당으로 통합 수업을 설계하고 운영했습니다.",
+        "en": "Designed and taught the integrated lessons as the Korean-language teacher."
+      },
+      "tags": [
+        "teach",
+        "content"
+      ],
+      "featured": false,
+      "evidence": [
+        {
+          "type": "pdf",
+          "label": {
+            "ko": "국어+영어 수업안 (PDF)",
+            "en": "Korean + English (PDF)"
+          },
+          "src": "assets/docs/2023_integrated-korean-english.pdf",
+          "size": 5003602,
+          "note": {
+            "ko": "학생 사진 제외",
+            "en": "Student photos removed"
+          }
+        },
+        {
+          "type": "pdf",
+          "label": {
+            "ko": "국어+마음공부 수업안 (PDF)",
+            "en": "Korean + mind study (PDF)"
+          },
+          "src": "assets/docs/2024_integrated-korean-mind.pdf",
+          "size": 1622728,
+          "note": {
+            "ko": "학생 사진·이름 제외 발췌본",
+            "en": "Excerpt without student photos"
+          }
+        }
+      ],
+      "cover": "assets/works/integrated-lessons.webp",
+      "coverSmall": "assets/works/integrated-lessons_sm.webp",
+      "gallery": [
+        {
+          "src": "assets/works/integrated-lessons/g1.webp",
+          "w": 1100,
+          "h": 762
+        },
+        {
+          "src": "assets/works/integrated-lessons/g2.webp",
+          "w": 1100,
+          "h": 762
+        },
+        {
+          "src": "assets/works/integrated-lessons/g3.webp",
+          "w": 1100,
+          "h": 762
+        },
+        {
+          "src": "assets/works/integrated-lessons/g4.webp",
+          "w": 1100,
+          "h": 762
+        }
+      ]
+    },
+    {
+      "id": "private-cert-research",
+      "date": "2022-08",
+      "period": {
+        "ko": "2022",
+        "en": "2022"
+      },
+      "title": {
+        "ko": "느린학습자 민간자격 현황 조사",
+        "en": "Survey of Private Certifications on Slow Learners"
+      },
+      "summary": {
+        "ko": "경계선 지능 관련 민간자격 등록 현황 비교와 등록 점검사항 정리",
+        "en": "Comparing registered private certifications on borderline intelligence and listing registration requirements"
+      },
+      "context": {
+        "ko": "느린 학습자를 지도할 사람을 기르는 체계를 고민하며, 이미 있는 자격 제도부터 살펴볼 필요가 있었습니다.",
+        "en": "Thinking about how to train people for slow learners, we first needed to see what certifications already existed."
+      },
+      "with": {
+        "ko": "(재)청소년과사람사랑",
+        "en": "Youth & People Love Foundation"
+      },
+      "roles": [
+        "research",
+        "doc"
+      ],
+      "roleText": {
+        "ko": "관련 민간자격의 등록 현황을 비교하고, 등록 절차와 점검사항을 정리했습니다.",
+        "en": "Compared existing registrations and summarised the procedure and checklist."
+      },
+      "tags": [
+        "system"
+      ],
+      "featured": false,
+      "evidence": [
+        {
+          "type": "pdf",
+          "label": {
+            "ko": "민간자격등록 점검사항 (PDF)",
+            "en": "Registration checklist (PDF)"
+          },
+          "src": "assets/docs/2022_private-cert-checklist.pdf",
+          "size": 1053170
+        },
+        {
+          "type": "pdf",
+          "label": {
+            "ko": "민간자격 정보 비교표 (PDF)",
+            "en": "Comparison table (PDF)"
+          },
+          "src": "assets/docs/2022_private-cert-comparison.pdf",
+          "size": 83854
+        }
+      ],
+      "cover": "assets/works/private-cert-research.webp",
+      "coverSmall": "assets/works/private-cert-research_sm.webp",
+      "gallery": [
+        {
+          "src": "assets/works/private-cert-research/g1.webp",
+          "w": 1100,
+          "h": 619
+        },
+        {
+          "src": "assets/works/private-cert-research/g2.webp",
+          "w": 1100,
+          "h": 619
+        },
+        {
+          "src": "assets/works/private-cert-research/g3.webp",
+          "w": 1100,
+          "h": 619
+        }
+      ]
+    },
+    {
+      "id": "gather-festival",
+      "date": "2021-12",
+      "period": {
+        "ko": "2021.12",
+        "en": "Dec 2021"
+      },
+      "title": {
+        "ko": "게더타운 메타버스 축제 「나눔타운」",
+        "en": "Metaverse Festival on Gather Town"
+      },
+      "summary": {
+        "ko": "대면 행사가 어려웠던 시기, 학교 축제를 메타버스 공간으로",
+        "en": "Moving the school festival into a metaverse space when gathering was hard"
+      },
+      "context": {
+        "ko": "코로나19로 모이기 어려운 연말, 학생과 가족이 함께할 수 있는 다른 방식의 축제가 필요했습니다.",
+        "en": "With in-person gatherings difficult, the year-end festival needed another way to bring students and families together."
+      },
+      "with": {
+        "ko": "나눔학교 교사·학생",
+        "en": "Teachers and students"
+      },
+      "roles": [
+        "plan",
+        "design"
+      ],
+      "roleText": {
+        "ko": "게더타운 공간과 축제 구성을 기획했습니다.",
+        "en": "Planned the Gather Town space and festival programme."
+      },
+      "tags": [
+        "digital"
+      ],
+      "featured": false,
+      "evidence": [
+        {
+          "type": "pdf",
+          "label": {
+            "ko": "축제 공간 이미지 (PDF)",
+            "en": "Festival map (PDF)"
+          },
+          "src": "assets/docs/2021_gather-festival.pdf",
+          "size": 1773208
+        }
+      ],
+      "cover": "assets/works/gather-festival.webp",
+      "coverSmall": "assets/works/gather-festival_sm.webp",
+      "gallery": [
+        {
+          "src": "assets/works/gather-festival/g1.webp",
+          "w": 1100,
+          "h": 732
+        }
+      ]
+    },
+    {
+      "id": "life-materials",
+      "date": "2020-06",
+      "period": {
+        "ko": "2020",
+        "en": "2020"
+      },
+      "title": {
+        "ko": "삶 속 배움 교재·교구",
+        "en": "Life-centred Learning Materials"
+      },
+      "summary": {
+        "ko": "생활교재 「먹는 일·씻는 일」과 경제 교구 「경제깨움 부루마블」",
+        "en": "The daily-living workbook “Eating · Washing” and the board game “Economy Awakening”"
+      },
+      "context": {
+        "ko": "코로나19로 대면 활동이 줄어든 시기, 학생들의 삶에 바로 닿는 교재와 교구가 필요했습니다.",
+        "en": "When face-to-face activities shrank during COVID-19, students needed materials that touched their daily lives directly."
+      },
+      "with": {
+        "ko": "(재)청소년과사람사랑",
+        "en": "Youth & People Love Foundation"
+      },
+      "roles": [
+        "develop",
+        "design"
+      ],
+      "roleText": {
+        "ko": "교재 내용과 활동을 연구·개발하고 교구를 제작했습니다.",
+        "en": "Researched and developed the content and activities, and made the board game."
+      },
+      "tags": [
+        "content"
+      ],
+      "featured": false,
+      "evidence": [
+        {
+          "type": "pdf",
+          "label": {
+            "ko": "먹는 일·씻는 일 (PDF)",
+            "en": "Eating · Washing (PDF)"
+          },
+          "src": "assets/docs/2020_daily-life-workbook.pdf",
+          "size": 5910381
+        },
+        {
+          "type": "pdf",
+          "label": {
+            "ko": "경제깨움 부루마블 (PDF)",
+            "en": "Economy board game (PDF)"
+          },
+          "src": "assets/docs/2020_economy-boardgame.pdf",
+          "size": 2008367
+        }
+      ],
+      "cover": "assets/works/life-materials.webp",
+      "coverSmall": "assets/works/life-materials_sm.webp",
+      "gallery": [
+        {
+          "src": "assets/works/life-materials/g1.webp",
+          "w": 1100,
+          "h": 825
+        },
+        {
+          "src": "assets/works/life-materials/g2.webp",
+          "w": 1100,
+          "h": 825
+        },
+        {
+          "src": "assets/works/life-materials/g3.webp",
+          "w": 1100,
+          "h": 771
+        },
+        {
+          "src": "assets/works/life-materials/g4.webp",
+          "w": 1100,
+          "h": 771
+        }
+      ]
+    }
+  ]
+}

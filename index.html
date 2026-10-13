@@ -1,125 +1,193 @@
-<!DOCTYPE html>
-<html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>JJ's Life Portfolio</title>
-    <link rel="icon" type="image/png" href="./assets/images/favicon.png">
-    <link rel="stylesheet" href="style.css" />
-    <script src="https://kit.fontawesome.com/87116215f5.js" crossorigin="anonymous"></script>
-  </head>
-  <body>
-    <header>
-      <div class="navbar">
-        <h1 class="logo">
-          <a href="#" id="back-to-hero">
-            이정재의 <span>인생 포트폴리오</span>
-          </a>
-        </h1>
-        <nav>
-          <ul class="nav-links">
-            <li><a href="#timeline"><i class="fas fa-layer-group"></i> 포트폴리오</a></li>
-            <li><a href="#about"><i class="fas fa-user"></i> 소개</a></li>
-            <li><a href="#contact"><i class="fas fa-envelope"></i> 연락처</a></li>
-            <li><a href="#" id="toggle-lang"><i class="fas fa-language"></i> <span id="lang-label">English</span></a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
+<!doctype html>
+<html lang="ko" data-theme="auto">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>이정재 · 느린 학습자 곁의 교육 설계자</title>
+  <meta name="description" content="느린 학습자 곁에서, 관계로 시작한 교육을 오래가는 구조로 남깁니다. 사회적협동조합 함께성장교육 사무국장 이정재의 포트폴리오.">
+  <meta name="author" content="이정재">
+  <meta name="theme-color" content="#173A40">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="이정재 · 포트폴리오">
+  <meta property="og:description" content="느린 학습자 곁에서, 관계로 시작한 교육을 오래가는 구조로 남깁니다.">
+  <meta property="og:image" content="assets/img/og.png">
+  <meta property="og:locale" content="ko_KR">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/icon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="assets/img/icon-180.png">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@500;700&display=swap">
+  <link rel="stylesheet" href="css/main.css">
+  <script>
+    /* 화면 모드를 먼저 적용해 깜빡임을 막습니다 */
+    try { var t = localStorage.getItem('jj-theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Person","name":"이정재","alternateName":"Jungjae Lee",
+   "jobTitle":"사무국장","worksFor":{"@type":"Organization","name":"사회적협동조합 함께성장교육"},
+   "knowsAbout":["대안교육","느린 학습자","경계선 지능","교재 개발","교사 연수"],"email":"mailto:jungjae_lee@nate.com"}
+  </script>
+  <script type="module" src="js/app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main" data-i18n="skip">본문으로 건너뛰기</a>
 
-    <section class="hero" id="hero">
-      <h1>교사가 아닌, <br class='mobile-break'><strong>삶의 설계자</strong>로<br class='mobile-break'>살고 있습니다.</h1>
-      <p>교육은 말보다 <strong>사람</strong>이 먼저였고,<br>기록보다 <strong>만남</strong>이 먼저였습니다.<br>이 이야기는 단지 이력서가 아니라,<br>한 사람의 <strong>길</strong>에 대한 이야기입니다.</p>
-      <div class="button-group">
-        <a href="#timeline" class="hero-button" id="show-timeline">이야기 보기 <i class='fas fa-arrow-down'></i></a>
-        <a href="#" class="hero-button" id="show-data-modal">한눈에 보기 <i class='fas fa-database'></i></a>
-      </div>
-    </section>
-
-    <div class="anchor-group">
-      <div class="anchor-buttons">
-        <!-- 앵커 버튼들은 JavaScript에서 동적으로 생성됩니다 -->
+  <header class="site-header" id="siteHeader">
+    <div class="wrap header-inner">
+      <a class="brand" href="#top" aria-label="이정재 — 처음으로">
+        <span class="brand-mark" aria-hidden="true">정</span>
+        <span class="brand-name" data-bind="person.name">이정재</span>
+      </a>
+      <nav class="nav" id="nav" aria-label="주요 메뉴">
+        <a href="#now" data-i18n="nav.now">지금</a>
+        <a href="#works" data-i18n="nav.works">대표 작업</a>
+        <a href="#journey" data-i18n="nav.journey">걸어온 길</a>
+        <a href="#credentials" data-i18n="nav.credentials">자격·수상</a>
+        <a href="#about" data-i18n="nav.contact">소개·연락</a>
+      </nav>
+      <div class="header-tools">
+        <button class="tool" id="langBtn" type="button" lang="en">English</button>
+        <button class="tool icon" id="themeBtn" type="button" aria-label="화면 모드 바꾸기">
+          <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z"/></svg>
+          <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        </button>
+        <button class="tool icon menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="nav" aria-label="메뉴">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
       </div>
     </div>
+  </header>
 
-    <main id="timeline"></main>
-
-    <section id="about-contact-section" class="about-contact-container">
-      <div class="character-image-box">
-        <img src="./images/profile.jpg" alt="개인 캐릭터 이미지" class="character-image">
+  <main id="main">
+    <section class="hero wrap" id="top">
+      <div class="hero-text">
+        <p class="eyebrow" data-bind="hero.eyebrow"></p>
+        <h1 class="display" data-bind-html="hero.headline"></h1>
+        <p class="lead" data-bind="hero.lead"></p>
+        <div class="cta-row">
+          <a class="btn primary" href="#works" data-i18n="cta.works">대표 작업 보기</a>
+          <a class="btn" href="#journey" data-i18n="cta.journey">걸어온 길</a>
+          <a class="btn ghost" href="#about" data-i18n="cta.contact">연락하기</a>
+        </div>
       </div>
-      <div class="about-contact-content">
-        <section id="about" class="about-contact-item">
-          <h2>소개</h2>
-          <p>삶의 길을 밝히는 교육을 통해 사람과 사람, 배움과 세상을 연결하는 삶의 설계자, 이정재입니다.</p>
-        </section>
-        <section id="contact" class="about-contact-item">
-          <h2>연락하기</h2>
-          <p><i class='fas fa-envelope'></i> jungjae_lee@nate.com</p>
-        </section>
-      </div>
+      <aside class="now-card" id="now" aria-labelledby="nowTitle">
+        <div class="now-head">
+          <h2 id="nowTitle" data-bind="now.title">지금 하고 있는 일</h2>
+          <span class="stamp"><span data-i18n="updated">업데이트</span> <time id="updatedAt"></time></span>
+        </div>
+        <ul class="now-list" id="nowList"></ul>
+      </aside>
     </section>
 
-    <footer>
-      <p>© 2025 이정재. 모든 권리 보유.</p>
-    </footer>
+    <section class="recognition wrap" id="recognition" aria-labelledby="recTitle"></section>
 
-    <div id="dataModal" class="data-modal hidden">
-      <div class="data-content">
-        <div class="data-header">
-          <h2 id="data-modal-title"></h2>
-          <button class="close-data-modal" id="closeDataModal">✖</button>
-        </div>
-        <div class="data-body">
-          <div id="data-modal-sections"></div>
-          <div id="data-modal-certifications">
-            <h3 id="certifications-heading"></h3>
-            <div class="certification-table-container">
-              <table id="certifications-table">
-                <thead>
-                  <tr id="certifications-table-headers"></tr>
-                </thead>
-                <tbody id="certifications-table-body"></tbody>
-              </table>
-            </div>
+    <section class="section wrap" id="capabilities" aria-labelledby="capTitle">
+      <div class="section-head">
+        <h2 id="capTitle" data-i18n="capabilities.title">이렇게 일합니다</h2>
+        <p data-i18n="capabilities.lead"></p>
+      </div>
+      <div class="cap-grid" id="capGrid"></div>
+    </section>
+
+    <section class="section wrap" id="works" aria-labelledby="worksTitle">
+      <div class="section-head">
+        <h2 id="worksTitle" data-i18n="works.title">대표 작업</h2>
+        <p data-i18n="works.lead"></p>
+      </div>
+      <div class="filters" id="workFilters" role="group" aria-label="역량별 보기"></div>
+      <div class="work-grid" id="workGrid" aria-live="polite"></div>
+      <div class="more-row"><button class="btn" id="moreWorks" type="button"></button></div>
+    </section>
+
+    <section class="section wrap" id="journey" aria-labelledby="journeyTitle">
+      <div class="section-head">
+        <h2 id="journeyTitle" data-i18n="journey.title">걸어온 길</h2>
+        <p data-i18n="journey.lead"></p>
+      </div>
+      <div class="chapters" id="chapters"></div>
+    </section>
+
+    <section class="section wrap" id="credentials" aria-labelledby="credTitle">
+      <div class="section-head">
+        <h2 id="credTitle" data-i18n="credentials.title">자격·수상·학력</h2>
+        <p data-i18n="credentials.lead"></p>
+      </div>
+      <div class="filters" id="credFilters" role="group" aria-label="분류별 보기"></div>
+      <div class="cred-grid" id="credGrid"></div>
+    </section>
+
+    <section class="section wrap about" id="about" aria-labelledby="aboutTitle">
+      <div class="about-card">
+        <img class="avatar" src="assets/img/profile.webp" alt="" width="200" height="200" loading="lazy">
+        <div>
+          <h2 id="aboutTitle" data-i18n="about.title">소개</h2>
+          <p class="motto" data-bind="about.motto"></p>
+          <p data-bind="about.text"></p>
+          <div class="contact-row">
+            <a class="btn primary" id="mailBtn" href="#"></a>
+            <button class="btn" id="copyBtn" type="button" data-i18n="about.copy">이메일 복사</button>
+            <button class="btn ghost" id="printBtn" type="button" data-i18n="about.print">인쇄용 요약</button>
           </div>
         </div>
       </div>
-    </div>
+      <div class="channels">
+        <h3 data-i18n="about.channels">만든 것들, 이어지는 곳</h3>
+        <ul id="channelList"></ul>
+      </div>
+    </section>
+  </main>
 
-    <!-- PDF 뷰어 모달 -->
-    <div id="pdfModal" class="pdf-modal hidden">
-      <div class="pdf-content">
-        <div class="pdf-header">
-          <h3 id="pdfTitle"></h3>
-          <button id="closePdfViewer" class="pdf-control-btn" title="닫기">&times;</button>
-        </div>
-        <iframe id="pdfViewer" frameborder="0" allowfullscreen></iframe>
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div>
+        <strong data-bind="person.name">이정재</strong> · <span data-bind="person.role"></span><br>
+        <small><span data-i18n="updated">업데이트</span> <time id="updatedAt2"></time> · v<span id="siteVersion"></span></small>
+      </div>
+      <div class="footer-links">
+        <span id="versionLinks"></span>
+        <p><small data-i18n="footer.rights"></small></p>
       </div>
     </div>
+  </footer>
 
-    <!-- 외부 링크 뷰어 모달 -->
-    <div id="linkModal" class="link-modal hidden">
-      <div class="link-content">
-        <div class="link-header">
-          <h3 id="linkTitle"></h3>
-          <button id="closeLinkViewer" class="link-control-btn">&times;</button>
-        </div>
-        <iframe id="linkViewer" frameborder="0"></iframe>
-      </div>
+  <!-- 작업 상세 -->
+  <dialog class="modal" id="workDialog" aria-labelledby="wdTitle">
+    <div class="modal-inner">
+      <button class="modal-close" type="button" data-close aria-label="닫기">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+      <div id="wdBody"></div>
     </div>
+  </dialog>
 
-    <div id="externalModal" class="pdf-modal hidden">
-      <div class="pdf-content">
-        <button class="close-modal" id="closeExternalModal">✖</button>
-        <iframe id="externalViewer" src="" frameborder="0"></iframe>
-      </div>
+  <!-- 이미지 보기 -->
+  <dialog class="modal lightbox" id="imageDialog" aria-labelledby="idTitle">
+    <div class="modal-inner">
+      <button class="modal-close" type="button" data-close aria-label="닫기">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+      <div id="idBody"></div>
     </div>
+  </dialog>
 
-    <button id="scrollTopBtn" class="scroll-top-button" title="맨 위로">
-      <i class="fas fa-arrow-up"></i>
-    </button>
+  <!-- 수기 전문 -->
+  <dialog class="modal reading" id="essayDialog" aria-labelledby="edTitle">
+    <div class="modal-inner">
+      <button class="modal-close" type="button" data-close aria-label="닫기">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+      <div id="edBody"></div>
+    </div>
+  </dialog>
 
-    <script src="script.js"></script>
-  </body>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <noscript>
+    <div class="wrap noscript">이 페이지는 자바스크립트로 내용을 불러옵니다. 연락: jungjae_lee@nate.com</div>
+  </noscript>
+</body>
 </html>

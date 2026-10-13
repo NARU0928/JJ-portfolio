@@ -1,0 +1,489 @@
+{
+  "chapters": [
+    {
+      "id": "together",
+      "range": {
+        "ko": "2025 – 현재",
+        "en": "2025 – now"
+      },
+      "title": {
+        "ko": "함께성장교육",
+        "en": "Growing together"
+      },
+      "summary": {
+        "ko": "조합의 사무국에서, 학교와 지역을 잇는 일",
+        "en": "From the cooperative's office, connecting school and community"
+      },
+      "entries": [
+        {
+          "year": "2026",
+          "title": {
+            "ko": "곁에 머물다가, 조합원이 되다",
+            "en": "From standing beside, to becoming a member"
+          },
+          "text": {
+            "ko": "조합 2년 차, 느린 학습자 청년의 일 경험과 부모·지도자가 함께 성장하는 자리를 동료들과 준비하고 있습니다. 7월에는 직원으로 일하며 1년 가까이 조합 가입을 망설이다 조합원이 되기까지의 이야기를 쓴 수기 「곁에 머물다가, 조합원이 되었습니다.」로 2026 협동조합의 날 쿱보따리 수기 공모전 최우수상을 받았습니다. 10월에는 「2026 느린학습자를 위한 진로페어」의 홍보물과 오프닝 영상을 만들고 있습니다.",
+            "en": "In the cooperative's second year, I am preparing with colleagues work-experience opportunities for young slow learners and spaces where parents and educators grow together. In July my essay on hesitating for nearly a year before joining as a member — “I stayed beside it, and became a member” — won the grand prize in the 2026 Co-op Day essay contest. In October I am making the promotional materials and opening film for the 2026 Career Fair for Slow Learners."
+          },
+          "evidence": [
+            {
+              "type": "credential",
+              "ref": "2026_award_coop_essay"
+            },
+            {
+              "type": "work",
+              "ref": "career-fair-2026"
+            }
+          ]
+        },
+        {
+          "year": "2025",
+          "title": {
+            "ko": "함께성장교육, 함께 일하는 자리",
+            "en": "Hamkke Seongjang Education — a place to work together"
+          },
+          "text": {
+            "ko": "사회적협동조합 함께성장교육 사무국장으로 일하고 있습니다. 나눔공동체학교의 운영 주체 이전과 재지정처럼 기관의 큰 과정을 학교 선생님들, 조합원들과 함께 지나왔고, 저는 그 곁에서 사무국 실무를 맡았습니다. 그 사이 현장의 철학을 나누는 「느린 학습자 동행 안내서」, 웹툰 「숨결, 이야기」, 팟캐스트 「함께 걷는 배움」을 만들었고, 후원과 홍보의 흐름을 프로세스 문서로 정리했습니다. 하반기에는 느린학습자를 위한 지도자 전문연수를 기획하고 한 회기를 맡아 강의했습니다. 세상이음 교육센터에서는 방과후 활동 기록이 다시 아이들에게 돌아가도록 기록 시스템을 만들었습니다.",
+            "en": "I work as head of office at the Hamkke Seongjang Education Social Cooperative. Alongside the school's teachers and members, the organisation went through large changes such as transferring the operation of Nanum Community School and its re-designation; my part was the office work beside them. Meanwhile I made the Companion Guide for Slow Learners, the webtoon “Breath, Stories” and the podcast “Learning, Walking Together”, and documented our fundraising and communications processes. In the second half of the year I planned an educator-training course and taught one session. For Sesangieum Education Centre I built a record system so that after-school records return to the children."
+          },
+          "evidence": [
+            {
+              "type": "work",
+              "ref": "companion-guide"
+            },
+            {
+              "type": "work",
+              "ref": "breath-stories"
+            },
+            {
+              "type": "work",
+              "ref": "podcast"
+            },
+            {
+              "type": "work",
+              "ref": "operations-docs"
+            },
+            {
+              "type": "work",
+              "ref": "leader-training"
+            },
+            {
+              "type": "work",
+              "ref": "afterschool-records"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "expand",
+      "range": {
+        "ko": "2019 – 2024",
+        "en": "2019 – 2024"
+      },
+      "title": {
+        "ko": "법인 실무와 확장",
+        "en": "Expanding through the organisation"
+      },
+      "summary": {
+        "ko": "교실 밖에서 교재·제도·교사 성장을 고민한 시기",
+        "en": "Beyond the classroom: materials, systems and teacher growth"
+      },
+      "entries": [
+        {
+          "year": "2024",
+          "title": {
+            "ko": "더 넓은 세상에서 바라본 교육의 가능성",
+            "en": "Educational Possibilities Viewed from a Broader World"
+          },
+          "text": {
+            "ko": "주식회사 세상이음에서 교육연구원으로 활동하며 새로운 차원의 교육 경험을 쌓고 있습니다. 한 교실에서 아이들과 만나던 미시적 경험에서 한 걸음 더 나아가, 교육 플랫폼을 설계하고 실제 수업에서 활용할 수 있는 도구들을 개발하고 있습니다. '어떻게 하면 더 많은 선생님들이, 더 많은 아이들과 의미 있는 만남을 가질 수 있을까' 하는 고민이 구체적인 결과물로 구현되고 있습니다. 이 과정에서 제 교육 철학도 더욱 명확해졌습니다. 교육은 고립된 개인의 노력이 아니라 협력적 생태계 안에서 이루어지는 것이며, 작은 도구 하나라도 누군가의 수업을 더 풍성하게 만들 수 있다는 것을 매일 확인하고 있습니다.",
+            "en": "Working as an educational researcher at Sesangium Co., Ltd., I'm gaining new dimensions of educational experience. Moving beyond the microscopic experience of meeting children in one classroom, I'm now designing educational platforms and developing tools that can be used in actual classes. The question 'How can more teachers have meaningful encounters with more children?' is being implemented into concrete results. Through this process, my educational philosophy has become clearer. Education is not the isolated effort of individuals but occurs within a collaborative ecosystem, and even a small tool can enrich someone's class - something I confirm every day."
+          },
+          "evidence": [
+            {
+              "type": "work",
+              "ref": "economy-workbook"
+            },
+            {
+              "type": "work",
+              "ref": "integrated-lessons"
+            },
+            {
+              "type": "work",
+              "ref": "teacher-growth"
+            }
+          ]
+        },
+        {
+          "year": "2023",
+          "title": {
+            "ko": "마음을 읽는 눈, 함께 성장하는 손",
+            "en": "Eyes That Read Hearts, Hands That Grow Together"
+          },
+          "text": {
+            "ko": "삶을 위한 교사대학을 수료하고 임상심리사 자격을 취득하면서 중요한 깨달음을 얻었습니다. 교사의 역할이 단순히 수업 진행에서 끝나는 것이 아니라, 학생들의 내면을 깊이 이해하고 함께 성장해나가는 것이라는 점입니다. 교과 통합 수업을 시도하고 경제 교육 자료를 제작하면서도, 개인적 작업이 아닌 동료 교사들과의 협력적 성장이 얼마나 중요한지 실감했습니다. 이 해는 '개인' 중심에서 '공동체' 중심으로 교육관이 확장된 의미 있는 전환점이었습니다.",
+            "en": "Completing the Teachers' University for Life and obtaining clinical psychologist certification gave me important insights. I realized that a teacher's role doesn't simply end with conducting classes, but involves deeply understanding students' inner lives and growing together with them. While attempting integrated subject classes and creating economic education materials, I truly felt how important collaborative growth with fellow teachers is, rather than individual work. This year was a meaningful turning point where my educational perspective expanded from 'individual' centered to 'community' centered."
+          },
+          "evidence": [
+            {
+              "type": "work",
+              "ref": "economy-workbook"
+            },
+            {
+              "type": "work",
+              "ref": "integrated-lessons"
+            },
+            {
+              "type": "work",
+              "ref": "teacher-growth"
+            },
+            {
+              "type": "credential",
+              "ref": "2023_clinical_psych"
+            }
+          ]
+        },
+        {
+          "year": "2022",
+          "title": {
+            "ko": "더 깊이, 더 가까이 다가가기 위한 준비",
+            "en": "Preparation for Going Deeper and Closer"
+          },
+          "text": {
+            "ko": "웹디자인기능사와 느린학습자 인지상담사 자격을 취득한 동기는 명확했습니다. '더 깊이 이해하고, 더 효과적으로 소통하고 싶다'는 열망 때문이었습니다. 말로만 설명하는 것을 넘어 실제로 구현할 수 있는 도구를 만들고 싶었고, 학습에 어려움을 겪는 학생들의 마음을 진정으로 이해하고 싶었습니다. 이 시기부터 교육 실무자로서 '실제적 도구'의 힘을 믿고 활용하기 시작했습니다.",
+            "en": "My motivation for obtaining web design technician and slow learner cognitive counselor certifications was clear: the desire to 'understand more deeply and communicate more effectively.' I wanted to create tools that could actually implement ideas beyond just verbal explanations, and I wanted to truly understand the hearts of students struggling with learning. From this period, I began believing in and utilizing the power of 'practical tools' as an education practitioner."
+          },
+          "evidence": [
+            {
+              "type": "work",
+              "ref": "private-cert-research"
+            },
+            {
+              "type": "credential",
+              "ref": "2022_slow_learner_counselor"
+            },
+            {
+              "type": "credential",
+              "ref": "2022_web_design"
+            }
+          ]
+        },
+        {
+          "year": "2021",
+          "title": {
+            "ko": "방향을 모색하며 새로운 가능성을 발견한 해",
+            "en": "A Year of Seeking Direction and Discovering New Possibilities"
+          },
+          "text": {
+            "ko": "로스쿨 입시를 준비하면서 '법과 교육의 접점'에 대해 깊이 고민했습니다. 1단계 합격과 면접 경험을 통해 제 진로 방향성을 다시 한 번 성찰하는 귀중한 시간을 가졌습니다. 또한 연말에 게더타운을 활용한 메타버스 축제를 기획하면서 기술과 교육이 만날 수 있는 새로운 가능성을 발견했습니다. 이는 훗날 디지털 도구를 활용한 교육 혁신에 대한 관심으로 이어졌습니다.",
+            "en": "While preparing for law school admission, I deeply contemplated the 'intersection of law and education.' Through the first-stage acceptance and interview experience, I had precious time to reflect on my career direction once again. Also, by planning a metaverse festival using Gather Town at the end of the year, I discovered new possibilities where technology and education could meet. This later led to my interest in educational innovation using digital tools."
+          },
+          "evidence": [
+            {
+              "type": "work",
+              "ref": "gather-festival"
+            },
+            {
+              "type": "image",
+              "label": {
+                "ko": "법학전문대학원 1단계 합격 (개인정보 가림)",
+                "en": "Law school — first-round pass (masked)"
+              },
+              "src": "assets/journey/2021_lawschool_result.webp"
+            },
+            {
+              "type": "image",
+              "label": {
+                "ko": "면접 당일",
+                "en": "Interview day"
+              },
+              "src": "assets/journey/2021_lawschool_interview.webp"
+            }
+          ]
+        },
+        {
+          "year": "2020",
+          "title": {
+            "ko": "삶 속 배움을 위한 교재·교구 개발",
+            "en": "Developing Textbooks and Teaching Materials for Life-Based Learning"
+          },
+          "text": {
+            "ko": "코로나19로 대면 활동이 제한된 상황에서 교육교재의 중요성을 절실히 깨달았습니다. 먹는 일, 씻는 일, 그리고 경제 부루마블까지 학생들의 삶에 직접적으로 닿아 있는 교재와 교구를 직접 제작하며 '삶 속 배움'을 실현하기 위한 기초를 다졌습니다. 이는 교육이 실생활과 분리될 수 없다는 제 교육 철학을 구체적으로 구현한 결과물이었습니다.",
+            "en": "In a situation where face-to-face activities were restricted due to COVID-19, I keenly realized the importance of educational materials. By directly creating textbooks and teaching materials that directly touch students' lives - from eating and washing to economic Monopoly games - I laid the foundation for realizing 'life-based learning.' This was the concrete implementation of my educational philosophy that education cannot be separated from real life."
+          },
+          "evidence": [
+            {
+              "type": "work",
+              "ref": "life-materials"
+            }
+          ]
+        },
+        {
+          "year": "2019",
+          "title": {
+            "ko": "경계에 선 이들을 위한 실천, 법으로 이어진 고민",
+            "en": "Practical Reflections on Legal Support for Borderline Youth"
+          },
+          "text": {
+            "ko": "교육 현장의 복잡하고 다층적인 문제들과 마주하며 실질적인 문제 해결 역량을 키웠습니다. 단순히 문제를 인식하는 데 그치지 않고, 현실적이고 지속 가능한 해법을 탐색하고 실제로 적용해보는 경험은 이후 실용적 사고의 기반이 되었습니다. 이 시기부터 발달장애 및 경계선 청소년에 대한 관심이 본격화되었고, 교육 안에서 해결되지 않는 구조적 문제에 주목하게 되었습니다. 특히 이들은 장애와 비장애의 경계에 놓여 법적 권리에서도 소외되는 경우가 많았고, 이를 해결하기 위한 제도적 접근의 필요성을 절감했습니다. 그 결과, 단지 교육자가 아닌 법조인으로서의 역할을 고민하게 되었고, 로스쿨 진학 준비를 시작했습니다. 교육과 법, 사회 전반의 연결 지점을 탐색하며, 사각지대에 있는 이들을 위한 보다 구조적이고 통합적인 조력을 실현하고자 했던 시작의 해였습니다.",
+            "en": "While facing the complex and multi-layered realities of the educational field, I developed practical problem-solving skills that extended beyond identifying problems to finding and applying sustainable solutions. This period marked a shift toward deeper contemplation on the structural issues that slow learners and borderline youth face—especially the legal and social blind spots they are often left in. I began to recognize that educational efforts alone were insufficient, and systemic support through law and policy was necessary. It was in this context that I decided to begin preparing for law school, envisioning a role not just as an educator but as a legal advocate. This year became the starting point of exploring how education, law, and society could be linked to build more inclusive and protective systems for marginalized youth."
+          },
+          "evidence": [
+            {
+              "type": "image",
+              "label": {
+                "ko": "법학전문대학원 1단계 합격 (개인정보 가림)",
+                "en": "Law school — first-round pass (masked)"
+              },
+              "src": "assets/journey/2019_lawschool.webp"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "classroom",
+      "range": {
+        "ko": "2013 – 2018",
+        "en": "2013 – 2018"
+      },
+      "title": {
+        "ko": "교실과 관계",
+        "en": "Classroom and relationships"
+      },
+      "summary": {
+        "ko": "경계선 청소년의 담임으로, 관계 속에서 가르치는 법을 배운 시기",
+        "en": "Learning to teach through relationships, as a homeroom teacher of borderline youth"
+      },
+      "entries": [
+        {
+          "year": "2018",
+          "title": {
+            "ko": "교육 패러다임의 확장과 새로운 시야",
+            "en": "Expansion of Educational Paradigms and New Perspectives"
+          },
+          "text": {
+            "ko": "기존의 교육 방식을 넘어 다양한 교육 모델과 접근법을 탐색한 해였습니다. 전통적인 교육 틀에서 벗어나 학습자 중심의 교육, 경험 기반 교육 등 새로운 가능성들을 발견했습니다. 이는 제가 미래 교육에 대한 더 넓은 시야와 유연한 사고를 갖게 된 중요한 전환점이 되었습니다.",
+            "en": "This was a year of exploring various educational models and approaches beyond existing educational methods. I discovered new possibilities such as learner-centered education and experience-based education, breaking away from traditional educational frameworks. This became an important turning point that gave me broader perspectives and flexible thinking about future education."
+          },
+          "evidence": []
+        },
+        {
+          "year": "2017",
+          "title": {
+            "ko": "공공과 민간의 경계에서 찾은 교육의 의미",
+            "en": "Finding the Meaning of Education at the Boundary Between Public and Private"
+          },
+          "text": {
+            "ko": "사회적기업 아주건강한속삭임에서 팀장으로 활동하며 학교 밖 교육 연구와 프로그램 운영을 경험했습니다. 이후 맑음수학밝음국어 학원으로 전환하여 내신 및 수능 대비반을 담당하면서 국어 과목 전문성을 확보했습니다. 공공과 민간 영역의 경계에서 의미 있는 교육을 시도하며 교육의 폭과 깊이를 동시에 확장한 소중한 경험이었습니다.",
+            "en": "Working as a team leader at the social enterprise 'Very Healthy Whisper,' I experienced out-of-school education research and program management. Later, I transitioned to Maleum Math Balgeum Korean Academy, where I was in charge of classes for internal exams and college entrance exams, securing expertise in Korean language subjects. It was a precious experience of expanding both the breadth and depth of education while attempting meaningful education at the boundary between public and private sectors."
+          },
+          "evidence": []
+        },
+        {
+          "year": "2016",
+          "title": {
+            "ko": "협력을 통한 교육 환경 개선의 경험",
+            "en": "Experience of Improving Educational Environment Through Cooperation"
+          },
+          "text": {
+            "ko": "동료 교사들과의 긴밀한 협력을 통해 더 나은 교육 환경을 만들어가는 과정에 적극 참여했습니다. 이 과정에서 교사들 간의 유기적인 관계와 협력이 학생들의 성장에 얼마나 중요한 영향을 미치는지 체감했습니다. 개인의 역량도 중요하지만, 함께 만들어가는 교육 공동체의 힘이 더 크다는 것을 깨달은 의미 있는 시간이었습니다.",
+            "en": "I actively participated in the process of creating a better educational environment through close cooperation with fellow teachers. Through this process, I experienced firsthand how important the organic relationships and cooperation among teachers are in influencing students' growth. I had meaningful time realizing that while individual capabilities are important, the power of an educational community created together is even greater."
+          },
+          "evidence": []
+        },
+        {
+          "year": "2015",
+          "title": {
+            "ko": "대안교육 현장에서 찾은 확신",
+            "en": "Conviction Found in Alternative Education Settings"
+          },
+          "text": {
+            "ko": "재단법인 청소년과사람사랑에서 팀장으로 성장하며 국어 수업과 생활지도를 병행했습니다. 대안교육 현장 초기의 불안감과 혼란 속에서도, 학생들과 함께 성장해나가는 과정에서 교육자로서의 확신을 얻었습니다. 이 경험은 제가 대안교육의 가치와 가능성을 깊이 이해하게 된 소중한 출발점이 되었습니다.",
+            "en": "Growing as a team leader at the Youth and People Love Foundation, I balanced Korean language classes with life guidance. Despite the initial anxiety and confusion in the early days of alternative education settings, I gained conviction as an educator through the process of growing together with students. This experience became a precious starting point for me to deeply understand the value and potential of alternative education."
+          },
+          "evidence": []
+        },
+        {
+          "year": "2014",
+          "title": {
+            "ko": "경계선 청소년과의 만남, 교육과 상담의 통합적 접근",
+            "en": "Meeting Borderline Youth: Integrated Approach of Education and Counseling"
+          },
+          "text": {
+            "ko": "교육 현장에서 느린학습자(경계선 청소년)에 대한 이해를 높이며, 사회적 관심과 지원의 사각지대에 있는 학생들을 위한 맞춤형 교육의 필요성을 절실히 느꼈습니다. 또한 효과적인 교육을 위해서는 학생들의 심리적 안정과 정서적 지지가 필수적이라는 것을 깨달으며, 교육과 상담의 통합적 접근을 모색하기 시작했습니다.",
+            "en": "I enhanced my understanding of slow learners (borderline youth) in educational settings and keenly felt the need for customized education for students in the blind spots of social attention and support. I also realized that psychological stability and emotional support for students are essential for effective education, and began exploring an integrated approach between education and counseling."
+          },
+          "evidence": []
+        },
+        {
+          "year": "2013",
+          "title": {
+            "ko": "담임교사로서 배운 관계의 깊이",
+            "en": "Learning the Depth of Relationships as a Homeroom Teacher"
+          },
+          "text": {
+            "ko": "느린학습자(경계선 청소년)을 위한 위탁교육기관 사람사랑나눔학교에서 담임교사로 활동하며 학생들의 일상 깊숙이 들어가는 경험을 했습니다. 청소년지도사 자격을 준비하며 다양한 청소년을 만날 준비를 했지만, 실제로 경계선 청소년들과 만나는 것은 새로운 도전이자 깊은 배움의 과정이었습니다. 이 시기를 통해 교육이 단순한 기술이나 방법론이 아니라, 학생들과의 진정한 '관계' 속에서 이루어진다는 본질을 깨달았습니다.",
+            "en": "Working as a homeroom teacher at Sarang Nanum School, a commissioned educational institution for slow learners (borderline youth), I experienced going deep into students' daily lives. While I prepared to meet various youth by working toward youth counselor certification, actually meeting borderline youth was a new challenge and a process of deep learning. Through this period, I realized the essence that education is not simply a skill or methodology, but occurs within genuine 'relationships' with students."
+          },
+          "evidence": [
+            {
+              "type": "credential",
+              "ref": "2013_youth_instructor"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "foundation",
+      "range": {
+        "ko": "2004 – 2012",
+        "en": "2004 – 2012"
+      },
+      "title": {
+        "ko": "기본기",
+        "en": "Foundations"
+      },
+      "summary": {
+        "ko": "국어교육을 공부하고, 교사이자 상담자로 설 준비를 한 시기",
+        "en": "Studying Korean education and preparing to stand as teacher and counsellor"
+      },
+      "entries": [
+        {
+          "year": "2012",
+          "title": {
+            "ko": "진로 상담을 통한 삶의 길 안내",
+            "en": "Guiding Life Paths Through Career Counseling"
+          },
+          "text": {
+            "ko": "진로에 대한 깊은 고민과 성찰을 바탕으로, 청소년들 역시 더 복잡하고 어려운 진로 고민을 하고 있을 것이라 생각하여 직업상담사 자격을 취득했습니다. 교사라는 정체성을 넘어 다른 방식으로도 사람들의 삶을 도울 수 있는 가능성을 모색했습니다. 이는 제가 사람들의 성장과 발전을 돕는 방식에 대한 시야를 크게 넓혀준 경험이었습니다.",
+            "en": "Based on deep contemplation and reflection on career paths, I thought that youth would also have more complex and difficult career concerns, so I obtained a career counselor certification. I explored the possibility of helping people's lives in different ways beyond the identity of being a teacher. This was an experience that greatly broadened my perspective on ways to help people's growth and development."
+          },
+          "evidence": [
+            {
+              "type": "credential",
+              "ref": "2012_career_counselor"
+            }
+          ]
+        },
+        {
+          "year": "2011",
+          "title": {
+            "ko": "삶과 진로의 연결고리를 찾아서",
+            "en": "Searching for the Connection Between Life and Career"
+          },
+          "text": {
+            "ko": "이러닝 콘텐츠 설계자로 일하면서 '삶'과 '진로'라는 키워드에 깊은 관심을 갖게 되었습니다. 단순히 학습 내용을 전달하는 것을 넘어, 학습자의 삶 전체와 연결되는 교육의 가능성을 탐색했습니다. 이는 제가 교사라는 틀을 넘어 더 넓은 영역에서 사람들의 삶에 긍정적인 영향을 미치고 싶다는 비전을 키우는 계기가 되었습니다.",
+            "en": "Working as an e-learning content designer, I developed deep interest in the keywords 'life' and 'career.' Beyond simply delivering learning content, I explored the possibilities of education that connects with learners' entire lives. This became the catalyst for developing my vision to positively influence people's lives in broader areas beyond the framework of being a teacher."
+          },
+          "evidence": []
+        },
+        {
+          "year": "2010",
+          "title": {
+            "ko": "교사로서의 준비 완성, 실천을 향한 출발",
+            "en": "Completing Preparation as a Teacher, Starting Toward Practice"
+          },
+          "text": {
+            "ko": "국어·도덕윤리 중등 정교사 자격을 취득하고 동국대학교를 졸업하며, 그동안 쌓아온 교육에 대한 이론적 토대가 실제 교육 현장에서의 실천으로 향하는 새로운 출발점에 섰습니다. 대학에서의 배움이 현실과 만나는 설렘과 긴장감을 동시에 느끼며, 진정한 교육자로 성장해나갈 준비를 마쳤습니다.",
+            "en": "Obtaining secondary school teacher certification in Korean Language and Ethics, and graduating from Dongguk University, I stood at a new starting point where the theoretical foundation of education I had built would move toward practice in actual educational settings. Feeling both excitement and tension as university learning met reality, I completed my preparation to grow as a true educator."
+          },
+          "evidence": [
+            {
+              "type": "credential",
+              "ref": "2010_graduation"
+            },
+            {
+              "type": "credential",
+              "ref": "2010_teacher_korean"
+            },
+            {
+              "type": "credential",
+              "ref": "2010_teacher_ethics"
+            }
+          ]
+        },
+        {
+          "year": "2009",
+          "title": {
+            "ko": "현장 경험과 성실함으로 다진 교육자의 기초",
+            "en": "Foundation as an Educator Built Through Field Experience and Diligence"
+          },
+          "text": {
+            "ko": "교육실습을 통해 교육 현장의 생생함을 처음으로 경험하며 '최우수' 평가를 받았습니다. 이론으로만 접했던 교육이 실제 학생들과 만나는 순간의 감동과 책임감을 깊이 느꼈습니다. 동시에 교내 근로장학과 국가근로장학, 광명시애향장학금 수혜를 통해 경제적 어려움 속에서도 학업과 실무 역량을 꾸준히 강화해나갔습니다. 성실함과 끈기가 교육자로서 갖춰야 할 기본 덕목임을 체득한 의미 있는 시기였습니다.",
+            "en": "Through teaching practicum, I first experienced the vivid reality of educational settings and received an 'excellent' evaluation. I deeply felt the emotion and responsibility of the moment when education, which I had only encountered in theory, actually met with students. At the same time, through on-campus work-study programs, national work-study programs, and receiving the Gwangmyeong Hometown Scholarship, I steadily strengthened my academic and practical capabilities despite economic difficulties. This was a meaningful period where I embodied that diligence and perseverance are basic virtues that educators must possess."
+          },
+          "evidence": [
+            {
+              "type": "credential",
+              "ref": "2009_award_practicum"
+            },
+            {
+              "type": "credential",
+              "ref": "2009_scholarship_gwangmyeong"
+            }
+          ]
+        },
+        {
+          "year": "2008",
+          "title": {
+            "ko": "학업과 실무를 병행하며 쌓은 교육자의 소양",
+            "en": "Educational Qualities Built While Balancing Studies and Practice"
+          },
+          "text": {
+            "ko": "복학 후 학업에 매진하여 우수장학금을 수혜받으며 학업적 성취를 이루었습니다. 동시에 교내 근로장학 활동을 꾸준히 하며 학비 마련과 사회 경험을 병행했습니다. 선후배 간의 연결고리 역할을 하며 사범대학 내 '좋은교사경연대회'에 참가하여 '최우수' 성과를 거두기도 했습니다. 학업적 성장과 더불어 교육자로서 갖춰야 할 성실한 태도와 협력 정신을 기르는 소중한 기반을 마련한 시기였습니다.",
+            "en": "After returning to university, I devoted myself to studies and received excellence scholarships, achieving academic success. At the same time, I consistently engaged in on-campus work-study activities, balancing tuition funding with social experience. I also served as a connecting link between seniors and juniors, participating in the 'Good Teacher Competition' within the College of Education and achieving 'excellent' results. This was a period when I laid a precious foundation for developing the sincere attitude and cooperative spirit that I should have as an educator, along with academic growth."
+          },
+          "evidence": [
+            {
+              "type": "credential",
+              "ref": "2008_award_good_teacher"
+            },
+            {
+              "type": "credential",
+              "ref": "2008_scholarship_confirm"
+            }
+          ]
+        },
+        {
+          "year": "2007",
+          "title": {
+            "ko": "군 복무 후 새로운 시작, 사회적 실천의 경험",
+            "en": "New Beginning After Military Service, Experience of Social Practice"
+          },
+          "text": {
+            "ko": "2월 군 복무를 마치고 3월에 동국대학교 국어교육과에 복학하며 학업을 재개했습니다. 복학과 함께 교내 근로장학 활동을 시작하여 학업과 사회 경험을 균형 있게 병행했습니다. 또한 성북시각장애인복지관에서 점자책 만들기 봉사활동(34시간)에 참여하며 사회에 기여하는 기쁨을 경험했습니다. 이는 훗날 교육자로서 갖춰야 할 사회적 책임감과 실천 정신을 기르는 값진 경험이었습니다.",
+            "en": "I completed military service in February and returned to Dongguk University's Korean Language Education Department in March, resuming my studies. Along with returning to university, I began on-campus work-study activities, balancing studies and social experience. I also participated in Braille book-making volunteer work (34 hours) at the Seongbuk Center for the Visually Impaired, experiencing the joy of contributing to society. This was a valuable experience that developed the social responsibility and spirit of practice that I should have as a future educator."
+          },
+          "evidence": []
+        },
+        {
+          "year": "2005",
+          "title": {
+            "ko": "학업 성취와 군 복무, 성장을 위한 전환점",
+            "en": "Academic Achievement and Military Service: A Turning Point for Growth"
+          },
+          "text": {
+            "ko": "1학기에 우수장학금을 수혜받아 학업적 성취를 보였지만, 2월부터 군 복무를 시작하며 학업을 잠시 중단했습니다. 이는 저에게 삶의 중요한 전환점이자 내면을 깊이 성찰하는 시간이 되었습니다. 군 복무 기간 동안 다양한 사람들과의 만남을 통해 세상을 보는 시야를 넓히고, 훗날 교육자로서 가져야 할 포용력과 이해심을 기를 수 있었습니다.",
+            "en": "I received excellence scholarships in the first semester, showing academic achievement, but started military service in February, temporarily suspending my studies. This became an important turning point in my life and a time for deep inner reflection. During military service, through meetings with various people, I was able to broaden my worldview and develop the inclusiveness and understanding that I should have as a future educator."
+          },
+          "evidence": []
+        },
+        {
+          "year": "2004",
+          "title": {
+            "ko": "교육자로서의 첫 발걸음과 학업에 대한 의지",
+            "en": "First Steps as an Educator and Determination for Learning"
+          },
+          "text": {
+            "ko": "광명북고등학교를 졸업하고 동국대학교 국어교육과에 입학하며 교육자로서의 첫 발을 내디뎠습니다. 2학기에 학업지도교수 추천 장학금을 수혜받아 학업에 대한 의지를 다졌습니다. 아직은 막연했지만 '누군가의 삶에 의미 있게 닿는 일을 하고 싶다'는 열망만은 분명했습니다. 이 시기의 순수한 교육적 열정이 오늘날까지 저를 이끌어온 원동력이 되었습니다.",
+            "en": "Graduating from Gwangmyeong North High School and entering the Korean Language Education Department at Dongguk University, I took my first steps as an educator. In the second semester, I received a scholarship recommended by my academic advisor, strengthening my determination for learning. Although it was still vague, my aspiration to 'do work that meaningfully touches someone's life' was clear. The pure educational passion of this period became the driving force that has led me to this day."
+          },
+          "evidence": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "nav": {
+    "now": { "ko": "지금", "en": "Now" },
+    "works": { "ko": "대표 작업", "en": "Work" },
+    "journey": { "ko": "걸어온 길", "en": "Journey" },
+    "credentials": { "ko": "자격·수상", "en": "Credentials" },
+    "contact": { "ko": "소개·연락", "en": "About" }
+  },
+  "skip": { "ko": "본문으로 건너뛰기", "en": "Skip to content" },
+  "langToggle": { "ko": "English", "en": "한국어" },
+  "themeToggle": { "ko": "화면 모드 바꾸기", "en": "Toggle colour mode" },
+  "menu": { "ko": "메뉴", "en": "Menu" },
+  "cta": {
+    "works": { "ko": "대표 작업 보기", "en": "See the work" },
+    "journey": { "ko": "걸어온 길", "en": "The journey" },
+    "contact": { "ko": "연락하기", "en": "Get in touch" }
+  },
+  "updated": { "ko": "업데이트", "en": "Updated" },
+  "recognition": {
+    "viewCert": { "ko": "상장 보기", "en": "View certificate" },
+    "readEssay": { "ko": "수기 전문 읽기", "en": "Read the essay" }
+  },
+  "capabilities": {
+    "title": { "ko": "이렇게 일합니다", "en": "How I work" },
+    "lead": { "ko": "다섯 가지 역량을 누르면 관련 작업만 모아 볼 수 있습니다.", "en": "Select a capability to see related work." },
+    "count": { "ko": "관련 작업 {n}개", "en": "{n} related" }
+  },
+  "works": {
+    "title": { "ko": "대표 작업", "en": "Selected work" },
+    "lead": { "ko": "각 작업에는 함께한 사람과 제가 맡은 역할을 구분해 적었습니다.", "en": "Each project separates who it was made with from the part I played." },
+    "all": { "ko": "전체", "en": "All" },
+    "more": { "ko": "작업 {n}개 더 보기", "en": "Show {n} more" },
+    "less": { "ko": "대표 작업만 보기", "en": "Show selected only" },
+    "myRole": { "ko": "내 역할", "en": "My role" },
+    "with": { "ko": "함께한 사람·기관", "en": "Made with" },
+    "period": { "ko": "기간", "en": "When" },
+    "context": { "ko": "왜 필요했나", "en": "Why it was needed" },
+    "evidence": { "ko": "자료", "en": "Materials" },
+    "noEvidence": { "ko": "공개 자료는 준비 중입니다.", "en": "Public materials coming soon." },
+    "featured": { "ko": "대표", "en": "Featured" },
+    "empty": { "ko": "해당하는 작업이 없습니다.", "en": "No matching work." }
+  },
+  "journey": {
+    "title": { "ko": "걸어온 길", "en": "The journey" },
+    "lead": { "ko": "2004년부터 지금까지. 모든 해에 자료가 있지는 않지만, 모든 해가 지금으로 이어졌습니다.", "en": "From 2004 to now. Not every year has materials, but every year led here." },
+    "readMore": { "ko": "더 읽기", "en": "Read more" },
+    "readLess": { "ko": "접기", "en": "Show less" }
+  },
+  "credentials": {
+    "title": { "ko": "자격·수상·학력", "en": "Credentials" },
+    "lead": { "ko": "증빙 이미지는 개인정보(주민등록번호·생년월일·자격번호·사진 등)를 가린 열람용 사본입니다.", "en": "Images are viewing copies with personal data (ID numbers, birth date, licence numbers, photos) masked." },
+    "all": { "ko": "전체", "en": "All" },
+    "noImage": { "ko": "증빙 이미지 없음", "en": "No image" }
+  },
+  "about": {
+    "title": { "ko": "소개", "en": "About" },
+    "channels": { "ko": "만든 것들, 이어지는 곳", "en": "Things I made & channels" },
+    "contact": { "ko": "연락하기", "en": "Contact" },
+    "copy": { "ko": "이메일 복사", "en": "Copy email" },
+    "copied": { "ko": "복사했습니다", "en": "Copied" },
+    "print": { "ko": "인쇄용 요약", "en": "Print summary" }
+  },
+  "dialog": {
+    "close": { "ko": "닫기", "en": "Close" },
+    "openPdf": { "ko": "PDF 열기", "en": "Open PDF" },
+    "openLink": { "ko": "바로가기", "en": "Open" },
+    "prev": { "ko": "이전", "en": "Previous" },
+    "next": { "ko": "다음", "en": "Next" }
+  },
+  "footer": {
+    "versions": { "ko": "이전 버전", "en": "Previous versions" },
+    "rights": { "ko": "이 사이트의 자료는 작성자와 각 기관에 저작권이 있습니다.", "en": "Materials belong to the author and the respective organisations." }
+  },
+  "error": { "ko": "콘텐츠를 불러오지 못했습니다. 로컬에서 열었다면 웹 서버(예: VS Code Live Server)로 열어 주세요.", "en": "Could not load content. If opened locally, please use a web server (e.g. VS Code Live Server)." }
+}
