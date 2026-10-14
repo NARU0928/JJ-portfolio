@@ -21,11 +21,18 @@ const ui = (path, vars = {}) => {
   const v = path.split('.').reduce((o, k) => o?.[k], state.data.ui);
   return t(v).replace(/\{(\w+)\}/g, (_, k) => vars[k] ?? '');
 };
-const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+/* 글 안의 '|' 는 큰 어절 묶음, '¦' 는 그 안의 작은 묶음 경계입니다. 줄은 이 경계에서만 바뀌고, 화면에는 띄어쓰기로 보입니다. */
+const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])).replace(/[|¦]/g, ' ');
 /* 문장 단위 줄바꿈: 다음 문장의 첫 단어가 앞 줄 끝에 걸리지 않도록 문장을 묶어 둡니다 (데스크톱) */
 const ss = (s) => {
-  const parts = String(s ?? '').split(/(?<=[^\d\s][.!?])\s+/);
-  return parts.length < 2 ? esc(s ?? '') : parts.map((x) => `<span class="sn">${esc(x)}</span>`).join(' ');
+  s = String(s ?? '');
+  const marked = /[|¦]/.test(s);
+  const parts = s.split(/(?<=[^\d\s][.!?])\s+/);
+  if (parts.length < 2 && !marked) return esc(s);
+  return parts.map((x) => {
+    const inner = marked ? x.split('|').map((c) => `<span class="ph">${c.split('¦').map((m) => `<span class="ph">${esc(m)}</span>`).join(' ')}</span>`).join(' ') : esc(x);
+    return `<span class="sn${marked ? ' keep' : ''}">${inner}</span>`;
+  }).join(' ');
 };
 const fmtDate = (iso) => {
   const [y, m, d] = iso.split('-');

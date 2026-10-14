@@ -50,6 +50,8 @@ body {
 img { max-width: 100%; display: block; }
 p, dd, blockquote, .cap-desc, .ch-sum { text-wrap: pretty; }
 /* 문장 묶음: 넓은 화면에서 다음 문장의 첫 단어가 앞 줄 끝에 홀로 걸리지 않게 */
+/* '|' 로 어절 묶음을 표시한 글은 모든 화면에서 문장·어절 덩어리를 지킵니다 */
+@media screen { .sn.keep, .ph { display: inline-block; } }
 @media screen and (min-width: 901px) {
   .sn { display: inline-block; }
   .clamp .sn { display: inline; }
