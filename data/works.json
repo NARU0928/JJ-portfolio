@@ -5,7 +5,7 @@
       "en": "Planning"
     },
     "write": {
-      "ko": "집필·작성",
+      "ko": "집필",
       "en": "Writing"
     },
     "design": {
@@ -17,7 +17,7 @@
       "en": "Web build"
     },
     "teach": {
-      "ko": "강의·수업",
+      "ko": "강의",
       "en": "Teaching"
     },
     "run": {
@@ -25,7 +25,7 @@
       "en": "Running"
     },
     "doc": {
-      "ko": "정리·문서화",
+      "ko": "문서화",
       "en": "Documentation"
     },
     "research": {
@@ -62,7 +62,7 @@
         "en": "‘Economy Class for the Future’ — workbooks and programme"
       },
       "summary": {
-        "ko": "딜로이트 후원 느린학습자 맞춤형 금융교육 — 본 교재 3권·보조 교재 3종 연구·개발과 사업 운영 및 관리",
+        "ko": "딜로이트가 후원하는 느린 학습자 맞춤 금융교육. 본 교재 3권과 보조 교재 3종을 개발하고 사업을 운영합니다.",
         "en": "A Deloitte-supported financial-education programme for slow learners — three workbooks, three supplements, and programme management"
       },
       "context": {
@@ -70,20 +70,36 @@
         "en": "Slow learners needed staged, ready-to-use materials to understand, spend and protect money in real life."
       },
       "with": {
-        "ko": "딜로이트(후원·전문가 검토) · 나눔공동체학교 교사들(시범운영) · 외부 참여기관",
-        "en": "Deloitte (support and expert review) · Nanum Community School teachers (pilot) · partner institutions"
+        "ko": [
+          "딜로이트 (후원, 전문가 검토)",
+          "나눔공동체학교 교사들 (시범운영)",
+          "외부 참여기관"
+        ],
+        "en": [
+          "Deloitte (support and expert review)",
+          "Nanum Community School teachers (pilot)",
+          "Partner institutions"
+        ]
       },
       "roles": [
         "develop",
         "run"
       ],
       "roleText": {
-        "ko": "1권 「내 돈 알아가기」, 2권 「내 돈 잘 쓰기」, 3권 「내 돈 지키기」와 각 권의 보조 교재 「더하기」를 연구·개발했습니다. 사업 제안부터 전문가 검토 요청, 피드백 반영표 정리, 경과 보고, 외부 참여기관 모집까지 사업을 운영·관리하고 있습니다.",
+        "ko": "1권 「내 돈 알아가기」, 2권 「내 돈 잘 쓰기」, 3권 「내 돈 지키기」와 각 권의 보조 교재 「더하기」를 연구하고 개발했습니다. 사업 제안부터 전문가 검토 요청, 피드백 반영표 정리, 경과 보고, 외부 참여기관 모집까지 사업 운영 전반을 맡고 있습니다.",
         "en": "Researched and developed Book 1 ‘Knowing My Money’, Book 2 ‘Spending Well’, Book 3 ‘Protecting My Money’ and a ‘Plus’ supplement for each; manage the programme from proposal, expert-review requests and feedback tracking to progress reports and partner recruitment."
       },
       "facts": {
-        "ko": "전문가 검토 의견 24건 반영 · 내부 시범운영 3개 그룹 × 6회기 · 외부 참여기관 모집(11–12월 시범운영 예정)",
-        "en": "24 expert comments reflected · internal pilot: 3 groups × 6 sessions · external pilot planned for Nov–Dec"
+        "ko": [
+          "전문가 검토 의견 24건 반영",
+          "내부 시범운영 3개 그룹, 그룹별 6회기",
+          "외부 참여기관 시범운영 11–12월 예정"
+        ],
+        "en": [
+          "24 expert comments reflected",
+          "Internal pilot: 3 groups, 6 sessions each",
+          "External pilot planned for Nov–Dec"
+        ]
       },
       "tags": [
         "content",
@@ -138,16 +154,24 @@
         "en": "Independence Network for Slow-learning Youth (‘Modu-ui Gongmo’)"
       },
       "summary": {
-        "ko": "지역과 함께 만드는 마을형 진로·자립 페어 — 사업 운영 및 관리, 진로워크북 「나의 진로 이야기」 발간",
+        "ko": "지역과 함께 만드는 마을형 진로 자립 사업. 사업 운영과 진로워크북 「나의 진로 이야기」 발간을 맡았습니다.",
         "en": "A community-based career and independence project — programme management and the career workbook “My Career Story”"
       },
       "context": {
-        "ko": "느린 청소년·청년이 사회 안으로 들어가려면 실제 일 경험이 필요하지만, 이들을 이해하는 일터와 연결은 부족했습니다.",
+        "ko": "느린 청소년과 청년이 사회 안으로 들어가려면 실제 일 경험이 필요하지만, 이들을 이해하는 일터와 연결은 부족했습니다.",
         "en": "Slow-learning youth need real work experience to enter society, yet workplaces that understand them were scarce."
       },
       "with": {
-        "ko": "함께성장교육 실무팀 · 지역 상점·공방 10곳 · 일하는 청년 멘토",
-        "en": "Hamkke Seongjang team · 10 local shops and workshops · working young mentors"
+        "ko": [
+          "함께성장교육 실무팀",
+          "지역 상점과 공방 10곳",
+          "일하는 청년 멘토"
+        ],
+        "en": [
+          "Hamkke Seongjang team",
+          "10 local shops and workshops",
+          "Working young mentors"
+        ]
       },
       "roles": [
         "run",
@@ -155,12 +179,20 @@
         "plan"
       ],
       "roleText": {
-        "ko": "사업 담당자로 운영·관리를 맡았습니다. 참여자 모집·선정, 프로그램 운영, 회계 증빙과 중간·결과 보고를 정리했고, 진로워크북 「나의 진로 이야기」의 기획과 초안을 맡아 디자인 협업을 거쳐 발간했습니다(2026.1). 2차년도 사업계획도 정리했습니다.",
+        "ko": "사업 담당자로 운영과 관리를 맡았습니다. 참여자 모집과 선정, 프로그램 운영, 회계 증빙, 중간 보고와 결과 보고를 정리했고, 진로워크북 「나의 진로 이야기」의 기획과 초안을 맡아 디자인 협업을 거쳐 발간했습니다(2026.1). 2차년도 사업계획도 정리했습니다.",
         "en": "As project manager I handled recruitment, operations, accounting records and interim and final reports; I planned and drafted the career workbook “My Career Story”, published with a designer in Jan 2026, and compiled the second-year plan."
       },
       "facts": {
-        "ko": "참여 청소년·청년 25명 · 청년 멘토 5명 · 협력 상점·공방 10곳",
-        "en": "25 young participants · 5 mentors · 10 partner shops"
+        "ko": [
+          "참여 청소년과 청년 25명",
+          "청년 멘토 5명",
+          "협력 상점과 공방 10곳"
+        ],
+        "en": [
+          "25 young participants",
+          "5 mentors",
+          "10 partner shops"
+        ]
       },
       "tags": [
         "system",
@@ -204,7 +236,7 @@
         "en": "‘On Our Own, Together’ — Dongjak-gu Lifelong Learning"
       },
       "summary": {
-        "ko": "생활역량·자립역량 그룹 활동과 지역사회 체험을 잇는 느린학습자 성장 프로젝트 관리",
+        "ko": "생활역량과 자립역량을 기르는 그룹 활동에 지역사회 체험을 더한 느린 학습자 성장 프로젝트 관리",
         "en": "Managing a growth project linking life-skills and independence groups with community activities"
       },
       "context": {
@@ -212,15 +244,23 @@
         "en": "Slow learners needed chances to build life skills and self-determination, and to take part in their community."
       },
       "with": {
-        "ko": "동작구 · 함께성장교육 강사진 · 지역 공공기관·문화시설",
-        "en": "Dongjak-gu · instructors · local public and cultural facilities"
+        "ko": [
+          "동작구",
+          "함께성장교육 강사진",
+          "지역 공공기관과 문화시설"
+        ],
+        "en": [
+          "Dongjak-gu",
+          "Instructors",
+          "Local public and cultural facilities"
+        ]
       },
       "roles": [
         "run",
         "doc"
       ],
       "roleText": {
-        "ko": "사업실행계획과 보조금 교부·집행(보탬e), 모집·홍보, 회차별 계획·일지·결과보고 등 사업 관리를 맡고 있습니다.",
+        "ko": "사업실행계획, 보탬e를 통한 보조금 교부와 집행, 참여자 모집과 홍보, 회차별 계획과 일지, 결과보고까지 사업 관리 전반을 맡고 있습니다.",
         "en": "Manage the project: implementation plan, grant administration (Botem-e), recruitment and session plans, logs and reports."
       },
       "tags": [
@@ -250,7 +290,7 @@
         "en": "Parent Recovery 2026"
       },
       "summary": {
-        "ko": "느린학습자 가족을 위한 성장세미나·「마주보기」·회복캠프 운영 지원",
+        "ko": "느린 학습자 가족을 위한 성장세미나, 부모 모임 「마주보기」, 회복캠프 운영 지원",
         "en": "Supporting growth seminars, the ‘Facing Each Other’ circle and a recovery camp for families of slow learners"
       },
       "context": {
@@ -258,15 +298,23 @@
         "en": "Parents raising slow learners also need rest and recovery, and a place to share what they have carried alone."
       },
       "with": {
-        "ko": "함께성장교육 · 나눔공동체학교 부모들 · 외부 강사·협력기관",
-        "en": "Parents · guest speakers · partner organisations"
+        "ko": [
+          "함께성장교육",
+          "나눔공동체학교 부모들",
+          "외부 강사와 협력기관"
+        ],
+        "en": [
+          "Hamkke Seongjang Education",
+          "Parents",
+          "Guest speakers and partners"
+        ]
       },
       "roles": [
         "run",
         "plan"
       ],
       "roleText": {
-        "ko": "운영을 지원했습니다. 소규모 부모 모임 「마주보기」(3회기)의 운영 계획을 세우고, 세미나 안내·홍보물과 회기 자료를 준비했습니다.",
+        "ko": "운영을 지원했습니다. 소규모 부모 모임 「마주보기」(3회기)의 운영 계획을 세우고, 세미나 안내문과 홍보물, 회기 자료를 준비했습니다.",
         "en": "Supported operations: planned the three-session parent circle ‘Facing Each Other’ and prepared notices, promotional materials and session resources."
       },
       "tags": [
@@ -301,7 +349,7 @@
         "en": "Structuring the ‘Growth Workplace’"
       },
       "summary": {
-        "ko": "느린 청년의 일 경험 현장을 위한 협력 상점 직무분석·직무평가 양식·꾸러미 설명서",
+        "ko": "느린 청년의 일 경험 현장을 위해 만든 협력 상점 직무분석표와 직무평가 양식, 꾸러미 설명서",
         "en": "Job analysis with partner shops, evaluation forms and a kit guide for young slow learners' work experience"
       },
       "context": {
@@ -309,8 +357,14 @@
         "en": "Each shop's tasks differ in kind and difficulty; matching young people to roles needed a way to break work into levels."
       },
       "with": {
-        "ko": "협력 상점 10곳 · 성장일터 담당 교사",
-        "en": "10 partner shops · Growth Workplace teachers"
+        "ko": [
+          "협력 상점 10곳",
+          "성장일터 담당 교사"
+        ],
+        "en": [
+          "10 partner shops",
+          "Growth Workplace teachers"
+        ]
       },
       "roles": [
         "plan",
@@ -350,11 +404,15 @@
       "id": "hamseong-news",
       "date": "2026-09",
       "period": {
-        "ko": "2025 – 현재 · 매월",
-        "en": "2025 – now · monthly"
+        "ko": "2025 – 현재",
+        "en": "2025 – now"
+      },
+      "status": {
+        "ko": "매월",
+        "en": "Monthly"
       },
       "title": {
-        "ko": "함성소식 · 후원금 운용보고 · SNS",
+        "ko": "함성소식과 후원금 운용보고, SNS 홍보",
         "en": "Newsletter, Donation Reports & Social Media"
       },
       "summary": {
@@ -366,8 +424,14 @@
         "en": "Honestly recording how donations were used and steadily sharing the present of the field builds trust."
       },
       "with": {
-        "ko": "함께성장교육 교사·조합원 · 후원자",
-        "en": "Teachers, members and supporters"
+        "ko": [
+          "함께성장교육 교사와 조합원",
+          "후원자"
+        ],
+        "en": [
+          "Teachers and members",
+          "Supporters"
+        ]
       },
       "roles": [
         "write",
@@ -375,7 +439,7 @@
         "run"
       ],
       "roleText": {
-        "ko": "월간 함성소식을 정리·업데이트하고(2026년 1–9월호), 소액 정기후원 「만원의 나눔, 만명의 성장」 사용보고(10–18차)와 홈페이지·SNS 홍보를 관리하고 있습니다.",
+        "ko": "월간 함성소식을 정리해 올리고(2026년 1–9월호), 소액 정기후원 「만원의 나눔, 만명의 성장」 사용보고(10–18차)와 홈페이지와 SNS 홍보를 관리하고 있습니다.",
         "en": "Compile and update the monthly newsletter (Jan–Sep 2026), the donation-use reports for the monthly giving campaign (10th–18th), and the website and social media."
       },
       "tags": [
@@ -430,7 +494,7 @@
       },
       "status": {
         "ko": "10.16 진행 예정",
-        "en": "Upcoming · 16 Oct"
+        "en": "Upcoming, 16 Oct"
       },
       "title": {
         "ko": "2026 느린학습자를 위한 진로페어",
@@ -445,15 +509,23 @@
         "en": "Part of the ‘Modu-ui Gongmo’ programme: a day where slow learners talk about careers and independence through experience and relationships."
       },
       "with": {
-        "ko": "함께성장교육 · 나눔공동체학교 · 협력 기관",
-        "en": "Hamkke Seongjang Education · Nanum Community School · partners"
+        "ko": [
+          "함께성장교육",
+          "나눔공동체학교",
+          "협력 기관"
+        ],
+        "en": [
+          "Hamkke Seongjang Education",
+          "Nanum Community School",
+          "Partners"
+        ]
       },
       "roles": [
         "design",
         "video"
       ],
       "roleText": {
-        "ko": "포스터·안내문 등 홍보물을 직접 디자인하고, 행사 오프닝 영상을 만들고 있습니다.",
+        "ko": "포스터와 안내문 같은 홍보물을 직접 디자인하고, 행사 오프닝 영상을 만들고 있습니다.",
         "en": "Designed the poster and guides myself, and am producing the opening film."
       },
       "tags": [
@@ -493,7 +565,7 @@
         "en": "Educator Training for Working with Slow Learners"
       },
       "summary": {
-        "ko": "대안교육기관 종사자를 위한 6회기 연수 — 계획 수립과 ‘수업 구조와 설계’ 강의",
+        "ko": "대안교육기관 종사자를 위한 6회기 연수. 계획을 세우고 ‘수업 구조와 설계’를 강의했습니다.",
         "en": "A six-session course for alternative-school staff — course planning and the ‘lesson structure & design’ session"
       },
       "context": {
@@ -501,15 +573,21 @@
         "en": "Teachers who work with slow learners had few chances to learn shared principles and methods together."
       },
       "with": {
-        "ko": "함께성장교육 강사진 · 대안교육기관 교사들",
-        "en": "Hamkke Seongjang instructors · alternative-school teachers"
+        "ko": [
+          "함께성장교육 강사진",
+          "대안교육기관 교사들"
+        ],
+        "en": [
+          "Hamkke Seongjang instructors",
+          "Alternative-school teachers"
+        ]
       },
       "roles": [
         "plan",
         "teach"
       ],
       "roleText": {
-        "ko": "연수 계획(모듈 구성·과제 체계)을 세우고, 3회기 ‘수업 구조와 설계’(인트로–메인–피드백 구조, 수업 흐름 설계 연습)를 맡아 강의했습니다.",
+        "ko": "연수 계획(모듈 구성과 과제 체계)을 세우고, 3회기 ‘수업 구조와 설계’(인트로–메인–피드백 구조, 수업 흐름 설계 연습)를 맡아 강의했습니다.",
         "en": "Drafted the course plan (modules and assignment system) and taught session 3, ‘Lesson structure & design’ (intro–main–feedback, lesson-flow practice)."
       },
       "tags": [
@@ -534,7 +612,7 @@
         "en": "Documenting How the Office Works"
       },
       "summary": {
-        "ko": "후원·홍보·사무국 업무를 프로세스 문서로 정리해, 누가 맡아도 일이 이어지도록",
+        "ko": "후원과 홍보, 사무국 업무를 프로세스 문서로 정리해 누가 맡아도 일이 이어지도록",
         "en": "Fundraising, communications and office work written up as processes, so work continues whoever holds it"
       },
       "context": {
@@ -542,7 +620,7 @@
         "en": "In a newly launched cooperative, office work relied on individual memory, making hand-over and collaboration hard."
       },
       "with": {
-        "ko": "함께성장교육 조합원·직원",
+        "ko": "함께성장교육 조합원과 직원",
         "en": "Members and staff of Hamkke Seongjang Education"
       },
       "roles": [
@@ -550,7 +628,7 @@
         "write"
       ],
       "roleText": {
-        "ko": "후원 네트워크 운영 프로세스(물품·금전·협약·기업 후원 4종), 홍보 프로세스(소식지·키트·홈페이지·웹툰), 사무국 업무 로드맵(4영역 14과업)을 작성했습니다.",
+        "ko": "후원 네트워크 운영 프로세스(물품, 금전, 협약, 기업 후원 4종), 홍보 프로세스(소식지, 키트, 홈페이지, 웹툰), 사무국 업무 로드맵(4영역 14과업)을 작성했습니다.",
         "en": "Wrote the donor-network processes (in-kind, monetary, partnership, corporate), the communications process (newsletter, kits, website, webtoon) and the office roadmap (4 areas, 14 tasks)."
       },
       "tags": [
@@ -567,8 +645,8 @@
           "src": "assets/docs/2025_donor-network-process.pdf",
           "size": 912873,
           "note": {
-            "ko": "공개용 발췌본 · 12쪽 중 7쪽",
-            "en": "Public excerpt · 7 of 12 pages"
+            "ko": "공개용 발췌본, 12쪽 중 7쪽",
+            "en": "Public excerpt, 7 of 12 pages"
           }
         },
         {
@@ -613,7 +691,7 @@
         "en": "Companion Guide for Slow Learners"
       },
       "summary": {
-        "ko": "느린 학습자를 만나는 교사·부모·강사·자원지도자를 위한 웹 안내서",
+        "ko": "느린 학습자를 만나는 교사와 부모, 강사, 자원지도자를 위한 웹 안내서",
         "en": "A web guide for teachers, parents, instructors and volunteers who walk with slow learners"
       },
       "context": {
@@ -621,8 +699,14 @@
         "en": "Each setting described slow learners differently, so adults often responded to the same child in different ways. A shared starting point for the school's philosophy and practice was needed."
       },
       "with": {
-        "ko": "함께성장교육 · 나눔공동체학교 교사공동체",
-        "en": "Hamkke Seongjang Education · Nanum Community School teachers"
+        "ko": [
+          "함께성장교육",
+          "나눔공동체학교 교사공동체"
+        ],
+        "en": [
+          "Hamkke Seongjang Education",
+          "Nanum Community School teachers"
+        ]
       },
       "roles": [
         "plan",
@@ -696,7 +780,7 @@
         "build"
       ],
       "roleText": {
-        "ko": "학생 회원번호로만 조회하고, 프로그램·회차·활동 기준별로 기록을 볼 수 있는 구조를 설계해 웹으로 구현했습니다.",
+        "ko": "학생 회원번호로만 조회하고, 프로그램, 회차, 활동별로 기록을 볼 수 있는 구조를 설계해 웹으로 구현했습니다.",
         "en": "Designed and built a structure where records are looked up only by student member number, and viewed by programme, session and activity criteria."
       },
       "tags": [
@@ -736,7 +820,7 @@
         "en": "Webtoon “Breath, Stories”"
       },
       "summary": {
-        "ko": "현장 교사들의 에피소드로 만든 ‘느려도 괜찮은 만화’ — 프롤로그·번외편 포함 30편 연재",
+        "ko": "현장 교사들의 에피소드로 만든 ‘느려도 괜찮은 만화’. 프롤로그와 번외편을 포함해 30편을 연재했습니다.",
         "en": "“It's okay to be slow” comics drawn from teachers' episodes — 30 instalments including prologue and extras"
       },
       "context": {
@@ -752,7 +836,7 @@
         "story"
       ],
       "roleText": {
-        "ko": "교사들에게서 모은 에피소드를 컷 단위 이야기로 구성하고, 생성형 이미지 도구를 활용해 제작·연재했습니다.",
+        "ko": "교사들에게서 모은 에피소드를 컷 단위 이야기로 구성하고, 생성형 이미지 도구를 활용해 제작하고 연재했습니다.",
         "en": "Shaped teachers' episodes into panel-by-panel stories and produced the series with generative image tools."
       },
       "tags": [
@@ -875,8 +959,16 @@
         "en": "The financial-education programme supported by the KSD Nanum Foundation needed staged materials paced for slow learners."
       },
       "with": {
-        "ko": "(재)청소년과사람사랑 · KSD나눔재단 · 디자인 협업",
-        "en": "Youth & People Love Foundation · KSD Nanum Foundation · design partner"
+        "ko": [
+          "(재)청소년과사람사랑",
+          "KSD나눔재단",
+          "디자인 협업"
+        ],
+        "en": [
+          "Youth & People Love Foundation",
+          "KSD Nanum Foundation",
+          "Design partner"
+        ]
       },
       "roles": [
         "develop",
@@ -960,8 +1052,14 @@
         "en": "Education rarely rises above the teacher in the room. Supporting the teachers already here mattered as much as finding new ones."
       },
       "with": {
-        "ko": "(재)청소년과사람사랑 교사들 · 2024 대안교사 양성과정 참여자",
-        "en": "Teachers of the foundation · participants of the 2024 training course"
+        "ko": [
+          "(재)청소년과사람사랑 교사들",
+          "2024 대안교사 양성과정 참여자"
+        ],
+        "en": [
+          "Teachers of the foundation",
+          "Participants of the 2024 training course"
+        ]
       },
       "roles": [
         "develop",
@@ -1058,7 +1156,7 @@
         "en": "Rather than teaching subjects in isolation, I wanted students to learn them connected within everyday scenes."
       },
       "with": {
-        "ko": "사람사랑나눔학교 영어·마음공부 담당 교사",
+        "ko": "사람사랑나눔학교 영어, 마음공부 담당 교사",
         "en": "English and mind-study teachers at the school"
       },
       "roles": [
@@ -1097,7 +1195,7 @@
           "src": "assets/docs/2024_integrated-korean-mind.pdf",
           "size": 1622728,
           "note": {
-            "ko": "학생 사진·이름 제외 발췌본",
+            "ko": "학생 사진과 이름을 뺀 발췌본",
             "en": "Excerpt without student photos"
           }
         }
@@ -1222,7 +1320,7 @@
         "en": "With in-person gatherings difficult, the year-end festival needed another way to bring students and families together."
       },
       "with": {
-        "ko": "나눔학교 교사·학생",
+        "ko": "나눔학교 교사와 학생",
         "en": "Teachers and students"
       },
       "roles": [
@@ -1266,12 +1364,12 @@
         "en": "2020"
       },
       "title": {
-        "ko": "삶 속 배움 교재·교구",
+        "ko": "삶 속 배움 교재와 교구",
         "en": "Life-centred Learning Materials"
       },
       "summary": {
         "ko": "생활교재 「먹는 일·씻는 일」과 경제 교구 「경제깨움 부루마블」",
-        "en": "The daily-living workbook “Eating · Washing” and the board game “Economy Awakening”"
+        "en": "The daily-living workbook “Eating, Washing” and the board game “Economy Awakening”"
       },
       "context": {
         "ko": "코로나19로 대면 활동이 줄어든 시기, 학생들의 삶에 바로 닿는 교재와 교구가 필요했습니다.",
@@ -1286,7 +1384,7 @@
         "design"
       ],
       "roleText": {
-        "ko": "교재 내용과 활동을 연구·개발하고 교구를 제작했습니다.",
+        "ko": "교재 내용과 활동을 연구하고 개발했으며, 교구를 제작했습니다.",
         "en": "Researched and developed the content and activities, and made the board game."
       },
       "tags": [
@@ -1298,7 +1396,7 @@
           "type": "pdf",
           "label": {
             "ko": "먹는 일·씻는 일 (PDF)",
-            "en": "Eating · Washing (PDF)"
+            "en": "Eating, Washing (PDF)"
           },
           "src": "assets/docs/2020_daily-life-workbook.pdf",
           "size": 5910381

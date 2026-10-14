@@ -34,6 +34,8 @@ const ss = (s) => {
     return `<span class="sn${marked ? ' keep' : ''}">${inner}</span>`;
   }).join(' ');
 };
+const L = (v) => { const x = t(v); return Array.isArray(x) ? x : (x ? [x] : []); };
+const tags = (v, cls = '') => `<ul class="tag-list ${cls}">${L(v).map((x) => `<li>${esc(x)}</li>`).join('')}</ul>`;
 const fmtDate = (iso) => {
   const [y, m, d] = iso.split('-');
   return state.lang === 'ko' ? `${y}. ${+m}.${d ? ' ' + +d + '.' : ''}` : new Date(iso).toLocaleDateString('en-GB', d ? { day: 'numeric', month: 'short', year: 'numeric' } : { month: 'short', year: 'numeric' });
@@ -62,17 +64,20 @@ function bindStatic() {
   $$('.modal-close').forEach((b) => b.setAttribute('aria-label', ui('dialog.close')));
   ['#updatedAt', '#updatedAt2'].forEach((s) => { const el = $(s); el.dateTime = site.updated; el.textContent = fmtDate(site.updated); });
   $('#siteVersion').textContent = site.version;
-  $('#versionLinks').innerHTML = site.previousVersions.map((v) => `<a href="${esc(v.url)}">${esc(t(v.label))}</a>`).join(' · ');
+  $('#versionLinks').innerHTML = site.previousVersions.map((v) => `<a href="${esc(v.url)}">${esc(t(v.label))}</a>`).join('');
   $('#mailBtn').href = `mailto:${site.person.email}`;
   $('#mailBtn').textContent = site.person.email;
-  document.title = state.lang === 'ko' ? '이정재 · 느린 학습자 곁의 교육 설계자' : 'Jungjae Lee · Portfolio';
+  document.title = state.lang === 'ko' ? '이정재 포트폴리오' : 'Jungjae Lee Portfolio';
 }
 
 /* ---------- now ---------- */
 function renderNow() {
   const n = state.data.site.now;
-  $('#nowList').innerHTML = n.items.map((i) => `<li>${esc(t(i))}</li>`).join('');
-  const r = $('#nowRoutine'); if (r) r.textContent = n.routine ? t(n.routine) : '';
+  $('#nowList').innerHTML = n.items.map((i) => i.text
+    ? `<li><span class="now-text">${esc(t(i.text))}</span>${i.sub ? `<span class="now-sub">${esc(t(i.sub))}</span>` : ''}</li>`
+    : `<li><span class="now-text">${esc(t(i))}</span></li>`).join('');
+  const r = $('#nowRoutine');
+  if (r) r.innerHTML = n.routine ? `${n.routineLabel ? `<span class="mini-badge">${esc(t(n.routineLabel))}</span>` : ''}<span>${esc(t(n.routine))}</span>` : '';
 }
 
 /* ---------- recognition ---------- */
@@ -83,7 +88,7 @@ function renderRecognition() {
     <div>
       <span class="rec-label">${esc(t(r.label))}</span>
       <h2 class="rec-title" id="recTitle">${esc(t(r.title))}</h2>
-      <p class="rec-issuer">${esc(t(r.issuer))}</p>
+      <p class="rec-issuer">${esc(t(r.issuer))}${r.date ? `<time>${esc(t(r.date))}</time>` : ''}</p>
       <blockquote class="rec-quote">${ss(t(r.quote))}</blockquote>
       <p class="rec-essay">${esc(t(r.essayTitle))}</p>
       <div class="rec-actions">
@@ -118,7 +123,7 @@ function visibleWorks() {
   const featured = all.filter((w) => w.featured);
   return state.showAll ? [...featured, ...all.filter((w) => !w.featured)] : featured;
 }
-function roleLabel(w) { return w.roles.map((r) => t(state.data.works.roles[r])).join(' · '); }
+function roleLabel(w) { return w.roles.map((r) => t(state.data.works.roles[r])).join(', '); }
 function renderWorkFilters() {
   const caps = state.data.site.capabilities;
   $('#workFilters').innerHTML = [`<button class="chip-btn" type="button" data-filter="all" aria-pressed="${state.workFilter === 'all'}">${esc(ui('works.all'))}</button>`]
@@ -151,7 +156,7 @@ function setWorkFilter(f) {
 function evidenceRows(list) {
   if (!list.length) return '';
   return `<div class="ev-rows">${list.map((e) => e.type === 'pdf'
-    ? `<a class="ev-row" href="${esc(e.src)}" target="_blank" rel="noopener"><span>${esc(t(e.label))}</span><small>${e.note ? esc(t(e.note)) + ' · ' : ''}PDF ${fileSize(e.size)} ↗</small></a>`
+    ? `<a class="ev-row" href="${esc(e.src)}" target="_blank" rel="noopener"><span>${esc(t(e.label))}</span><small>${e.note ? `<span class="ev-note">${esc(t(e.note))}</span>` : ''}<span>PDF ${fileSize(e.size)} ↗</span></small></a>`
     : `<a class="ev-row" href="${esc(e.url)}" target="_blank" rel="noopener"><span>${esc(t(e.label))}</span><small>${esc(new URL(e.url).hostname.replace('www.', ''))} ↗</small></a>`).join('')}</div>`;
 }
 function openWork(id, push = true) {
@@ -166,8 +171,8 @@ function openWork(id, push = true) {
       <p class="wd-sum">${ss(t(w.summary))}</p>
       <dl class="wd-facts">
         <dt>${esc(ui('works.period'))}</dt><dd>${esc(t(w.period))}</dd>
-        <dt>${esc(ui('works.with'))}</dt><dd>${ss(t(w.with))}</dd>
-        ${w.facts ? `<dt>${esc(ui('works.facts'))}</dt><dd>${esc(t(w.facts))}</dd>` : ''}
+        <dt>${esc(ui('works.with'))}</dt><dd>${tags(w.with)}</dd>
+        ${w.facts ? `<dt>${esc(ui('works.facts'))}</dt><dd>${tags(w.facts, 'facts')}</dd>` : ''}
         <dt>${esc(ui('works.myRole'))}</dt><dd><div class="role-chips">${w.roles.map((r) => `<span class="role-chip">${esc(t(state.data.works.roles[r]))}</span>`).join('')}</div>${ss(t(w.roleText))}</dd>
       </dl>
       <h3>${esc(ui('works.context'))}</h3>
@@ -190,14 +195,14 @@ function drawLightbox() {
   $('#idBody').innerHTML = `
     <figure class="lb-figure">
       <img src="${esc(it.src)}" alt="${esc(it.caption)}">
-      <figcaption id="idTitle">${esc(it.caption)}${it.sub ? `<small>${esc(it.sub)}</small>` : ''}</figcaption>
+      <figcaption id="idTitle">${esc(it.caption)}${it.sub ? `<small>${esc(it.sub)}${it.date ? `<time>${esc(it.date)}</time>` : ''}</small>` : ''}</figcaption>
       ${list.length > 1 ? `<div class="lb-nav"><button class="btn small" type="button" data-lb="-1">← ${esc(ui('dialog.prev'))}</button><button class="btn small" type="button" data-lb="1">${esc(ui('dialog.next'))} →</button></div>` : ''}
     </figure>`;
 }
 function openCredential(id, push = true) {
   const c = credItem(id); if (!c?.image) return;
   const list = state.data.credentials.items.filter((x) => x.image);
-  const items = list.map((x) => ({ src: x.image, caption: t(x.name), sub: `${t(x.issuer)} · ${fmtYM(x.date)}` }));
+  const items = list.map((x) => ({ src: x.image, caption: t(x.name), sub: t(x.issuer), date: fmtYM(x.date) }));
   openLightbox(items, list.indexOf(c), push ? `#/credential/${id}` : null);
 }
 
@@ -205,7 +210,7 @@ function openCredential(id, push = true) {
 function openEssay(push = true) {
   const r = state.data.site.recognition;
   const paras = t(r.essay).split(/\n\n+/).map((p) => `<p>${esc(p)}</p>`).join('');
-  $('#edBody').innerHTML = `<article class="essay"><span class="rec-label">${esc(t(r.label))}</span><h2 id="edTitle">${esc(t(r.essayTitle))}</h2><p class="meta">${esc(t(r.title))} · ${esc(t(r.issuer))}</p>${paras}</article>`;
+  $('#edBody').innerHTML = `<article class="essay"><span class="rec-label">${esc(t(r.label))}</span><h2 id="edTitle">${esc(t(r.essayTitle))}</h2><p class="meta"><span>${esc(t(r.title))}</span><span>${esc(t(r.issuer))}${r.date ? `, ${esc(t(r.date))}` : ''}</span></p>${paras}</article>`;
   showDialog('#essayDialog', push ? '#/essay' : null);
 }
 
@@ -282,11 +287,11 @@ function renderCreds() {
     <button class="cred reveal" type="button" data-cred="${c.id}">
       <div class="cred-img"><img src="${esc(c.thumb)}" alt="" loading="lazy" width="420" height="600"></div>
       <div class="cred-body">
-        <span class="cred-cat">${esc(t(categories[c.category]))} · ${fmtYM(c.date)}</span>
+        <span class="cred-cat"><span class="mini-badge">${esc(t(categories[c.category]))}</span><time>${fmtYM(c.date)}</time></span>
         <span class="cred-name">${esc(t(c.name))}</span>
-        <span class="cred-sub">${esc(t(c.issuer))}${c.note ? ' · ' + esc(t(c.note)) : ''}</span>
+        <span class="cred-sub">${esc(t(c.issuer))}</span>${c.note ? `<span class="cred-sub">${esc(t(c.note))}</span>` : ''}
       </div>
-    </button>`).join('') + (noImg.length ? `<p class="cred-extra" style="grid-column:1/-1">${noImg.map((c) => `<span><b>${esc(t(c.name))}</b> ${esc(t(c.issuer))} · ${fmtYM(c.date)}</span>`).join('')}</p>` : '');
+    </button>`).join('') + (noImg.length ? `<p class="cred-extra" style="grid-column:1/-1">${noImg.map((c) => `<span><b>${esc(t(c.name))}</b> ${esc(t(c.issuer))} <time>${fmtYM(c.date)}</time></span>`).join('')}</p>` : '');
   observeReveal();
 }
 
@@ -317,17 +322,18 @@ function renderPrint() {
       <div>
         <h1>${esc(t(site.person.name))}</h1>
         <p class="pd-role">${esc(t(site.person.role))}</p>
-        <p class="pd-contact">${esc(site.person.email)} · ${esc(url)} · ${esc(ui('updated'))} ${fmtDate(site.updated)}</p>
+        <p class="pd-contact"><span>${esc(site.person.email)}</span><span>${esc(url)}</span><span>${esc(ui('updated'))} ${fmtDate(site.updated)}</span></p>
       </div>
     </header>
     <p class="pd-headline">${t(site.hero.headline).replace(/<br>/g, ' ')}</p>
     <p class="pd-lead">${esc(t(site.hero.lead))}</p>
     <h2>${esc(t(site.now.title))} <small>${fmtDate(site.updated)}</small></h2>
-    <ul class="pd-now">${site.now.items.map((i) => `<li>${esc(t(i))}</li>`).join('')}</ul>
-    ${site.now.routine ? `<p class="pd-routine">${esc(t(site.now.routine))}</p>` : ''}
+    <ul class="pd-now">${site.now.items.map((i) => i.text ? `<li>${esc(t(i.text))}<small>${esc(t(i.sub || ''))}</small></li>` : `<li>${esc(t(i))}</li>`).join('')}</ul>
+    ${site.now.routine ? `<p class="pd-routine">${site.now.routineLabel ? `<b>${esc(t(site.now.routineLabel))}</b> ` : ''}${esc(t(site.now.routine))}</p>` : ''}
     <div class="pd-award">
-      <b>${esc(t(r.label))}</b> ${esc(t(r.title))} <span>· ${esc(t(r.issuer))}</span>
-      <p>${esc(t(r.essayTitle))} — “${esc(t(r.quote))}”</p>
+      <b>${esc(t(r.label))}</b> ${esc(t(r.title))}
+      <span class="pd-issuer">${esc(t(r.issuer))}${r.date ? `, ${esc(t(r.date))}` : ''}</span>
+      <p>“${esc(t(r.quote))}”</p><p class="pd-essay">${esc(t(r.essayTitle))}</p>
     </div>
     <h2>${esc(ui('capabilities.title'))}</h2>
     <dl class="pd-caps">${site.capabilities.map((c) => `<dt>${esc(t(c.name))}</dt><dd>${esc(t(c.desc))}</dd>`).join('')}</dl>
@@ -339,14 +345,14 @@ function renderPrint() {
       <thead><tr><th>${esc(ui('works.period'))}</th><th>${esc(ui('print.work'))}</th><th>${esc(ui('works.myRole'))}</th></tr></thead>
       <tbody>${ws.map((w) => `<tr>
         <td class="pd-when">${esc(t(w.period))}</td>
-        <td><b>${esc(t(w.title))}</b><span>${esc(t(w.summary))}</span><em>${esc(ui('works.with'))}: ${esc(t(w.with))}</em></td>
+        <td><b>${esc(t(w.title))}</b><span>${esc(t(w.summary))}</span><em>${esc(ui('works.with'))}: ${esc(L(w.with).join(', '))}</em></td>
         <td class="pd-roles">${esc(roleLabel(w))}</td></tr>`).join('')}</tbody>
     </table>
   </section>
   <section class="pd-page">
     <h2 class="pd-title">${esc(ui('journey.title'))}</h2>
     <div class="pd-journey">${journey.chapters.map((c) => `<div class="pd-ch">
-      <h3>${esc(t(c.range))} · ${esc(t(c.title))}</h3>
+      <h3><small>${esc(t(c.range))}</small>${esc(t(c.title))}</h3>
       <ul>${c.entries.map((e) => `<li><b>${e.year}</b> ${esc(t(e.title))}</li>`).join('')}</ul></div>`).join('')}
     </div>
     <h2 class="pd-title pd-mt">${esc(ui('credentials.title'))}</h2>

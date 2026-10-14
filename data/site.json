@@ -14,8 +14,8 @@
   },
   "hero": {
     "eyebrow": {
-      "ko": "이정재 · 사회적협동조합 함께성장교육 사무국장",
-      "en": "Jungjae Lee · Head of Office, Hamkke Seongjang Education"
+      "ko": "사회적협동조합 함께성장교육 사무국장 이정재",
+      "en": "Jungjae Lee, Head of Office at Hamkke Seongjang Education"
     },
     "headline": {
       "ko": "느린 학습자 곁에서,<br>관계로 시작한 교육을<br><em>오래가는 구조</em>로 남깁니다.",
@@ -33,33 +33,73 @@
     },
     "items": [
       {
-        "ko": "「모두의 공모」 느린 청소년·청년 자립성장 네트워크 사업 운영 및 관리",
-        "en": "Running and managing the ‘Modu-ui Gongmo’ independence-network project for slow-learning youth"
+        "text": {
+          "ko": "느린 청소년과 청년의 자립을 돕는 지역 네트워크 사업 운영",
+          "en": "Running a local network that helps slow-learning youth become independent"
+        },
+        "sub": {
+          "ko": "「모두의 공모」 자립성장 네트워크",
+          "en": "‘Modu-ui Gongmo’ independence network"
+        }
       },
       {
-        "ko": "딜로이트 경제교육 후원사업 「미래를 여는 경제교실」 운영 및 관리",
-        "en": "Running and managing ‘Economy Class for the Future’, a financial-education programme supported by Deloitte"
+        "text": {
+          "ko": "기업 후원으로 진행하는 경제교육 사업 운영",
+          "en": "Running a corporate-funded financial-education programme"
+        },
+        "sub": {
+          "ko": "딜로이트 후원 「미래를 여는 경제교실」",
+          "en": "‘Economy Class for the Future’, supported by Deloitte"
+        }
       },
       {
-        "ko": "「미래를 여는 경제교실」 본 교재(3권)와 보조 교재(3종) 연구·개발",
-        "en": "Researching and developing its three workbooks and three supplementary books"
+        "text": {
+          "ko": "느린 학습자를 위한 경제 교재 개발 (본 교재 3권, 보조 교재 3종)",
+          "en": "Developing financial-education workbooks for slow learners (3 main books, 3 supplements)"
+        },
+        "sub": {
+          "ko": "「미래를 여는 경제교실」 교재",
+          "en": "‘Economy Class for the Future’ workbooks"
+        }
       },
       {
-        "ko": "동작구 느린학습자 평생교육 지원사업 「스스로, 함께」 관리",
-        "en": "Managing ‘On Our Own, Together’, a Dongjak-gu lifelong-learning programme for slow learners"
+        "text": {
+          "ko": "느린 학습자 평생교육 프로그램 운영 관리",
+          "en": "Managing a lifelong-learning programme for slow learners"
+        },
+        "sub": {
+          "ko": "동작구 지원사업 「스스로, 함께」",
+          "en": "‘On Our Own, Together’, funded by Dongjak-gu"
+        }
       },
       {
-        "ko": "부모회복마당 운영 지원",
-        "en": "Supporting the Parent Recovery programme"
+        "text": {
+          "ko": "느린 학습자 부모를 위한 회복 세미나 운영 지원",
+          "en": "Supporting recovery seminars for parents of slow learners"
+        },
+        "sub": {
+          "ko": "부모회복마당",
+          "en": "Parent Recovery Seminar"
+        }
       },
       {
-        "ko": "성장일터 프로세스 및 구조화 (협력 상점 직무분석·평가 체계)",
-        "en": "Structuring the ‘Growth Workplace’ process — job analysis and evaluation with partner shops"
+        "text": {
+          "ko": "청년 일 경험 과정의 운영 절차와 직무 평가 체계 정리",
+          "en": "Structuring the procedures and job evaluation of a youth work-experience course"
+        },
+        "sub": {
+          "ko": "청년 자립지원 및 성장일터 네트워크",
+          "en": "Youth Independence Support and Growth Workplace Network"
+        }
       }
     ],
+    "routineLabel": {
+      "ko": "상시 업무",
+      "en": "Ongoing"
+    },
     "routine": {
-      "ko": "꾸준히 · 월간 함성소식 업데이트, 후원금 운용보고, 온라인 SNS 홍보 및 관리",
-      "en": "Ongoing · monthly newsletter, donation-use reports, social-media communications"
+      "ko": "매달 소식지(함성소식)와 후원금 운용보고 발행, 온라인 SNS 홍보",
+      "en": "Monthly newsletter and donation-use reports, social-media communications"
     }
   },
   "recognition": {
@@ -72,8 +112,12 @@
       "en": "Grand Prize, 2026 Co-op Day 'Coop Bottari' Essay Contest"
     },
     "issuer": {
-      "ko": "한국협동조합협의회장 · 2026. 7. 2.",
-      "en": "Korea Cooperative Council · 2 July 2026"
+      "ko": "한국협동조합협의회장",
+      "en": "Korea Cooperative Council"
+    },
+    "date": {
+      "ko": "2026년 7월 2일",
+      "en": "2 July 2026"
     },
     "essayTitle": {
       "ko": "「곁에 머물다가, 조합원이 되었습니다.」",
@@ -93,7 +137,7 @@
     {
       "id": "teach",
       "name": {
-        "ko": "현장 교육·상담",
+        "ko": "현장 교육과 상담",
         "en": "Teaching & counselling"
       },
       "desc": {
@@ -104,18 +148,18 @@
     {
       "id": "content",
       "name": {
-        "ko": "교재·콘텐츠 개발",
+        "ko": "교재와 콘텐츠 개발",
         "en": "Learning materials"
       },
       "desc": {
-        "ko": "삶에 닿는 배움을 교재·교구·워크북으로 만듭니다.",
+        "ko": "삶에 닿는 배움을 교재와 교구, 워크북으로 만듭니다.",
         "en": "Turning life-centred learning into workbooks, kits and teaching materials."
       }
     },
     {
       "id": "people",
       "name": {
-        "ko": "교사·지도자 성장",
+        "ko": "교사와 지도자의 성장",
         "en": "Educator development"
       },
       "desc": {
@@ -126,7 +170,7 @@
     {
       "id": "system",
       "name": {
-        "ko": "운영 체계·문서화",
+        "ko": "운영 체계와 문서화",
         "en": "Operations & documentation"
       },
       "desc": {
@@ -137,7 +181,7 @@
     {
       "id": "digital",
       "name": {
-        "ko": "디지털·스토리텔링",
+        "ko": "디지털과 스토리텔링",
         "en": "Digital & storytelling"
       },
       "desc": {
@@ -175,7 +219,7 @@
         "en": "YouTube"
       },
       "kind": {
-        "ko": "영상·팟캐스트",
+        "ko": "영상과 팟캐스트",
         "en": "Video & podcast"
       },
       "url": "https://www.youtube.com/channel/UCIIKHBAGoGkDf1zf4hfofew"
@@ -186,7 +230,7 @@
         "en": "Instagram"
       },
       "kind": {
-        "ko": "웹툰·소식",
+        "ko": "웹툰과 소식",
         "en": "Webtoon & news"
       },
       "url": "https://www.instagram.com/hamsungedu"

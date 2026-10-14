@@ -13,11 +13,11 @@
       "en": "Journey"
     },
     "credentials": {
-      "ko": "자격·수상",
+      "ko": "자격과 수상",
       "en": "Credentials"
     },
     "contact": {
-      "ko": "소개·연락",
+      "ko": "소개와 연락",
       "en": "About"
     }
   },
@@ -105,7 +105,7 @@
       "en": "My role"
     },
     "with": {
-      "ko": "함께한 사람·기관",
+      "ko": "함께한 사람과 기관",
       "en": "Made with"
     },
     "period": {
@@ -157,11 +157,11 @@
   },
   "credentials": {
     "title": {
-      "ko": "자격·수상·학력",
+      "ko": "자격과 수상, 학력",
       "en": "Credentials"
     },
     "lead": {
-      "ko": "증빙 이미지는 개인정보(주민등록번호·생년월일·자격번호·사진 등)를 가린 열람용 사본입니다.",
+      "ko": "증빙 이미지는 개인정보(주민등록번호, 생년월일, 자격번호, 사진 등)를 가린 열람용 사본입니다.",
       "en": "Images are viewing copies with personal data (ID numbers, birth date, licence numbers, photos) masked."
     },
     "all": {
