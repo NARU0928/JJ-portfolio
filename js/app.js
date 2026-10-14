@@ -400,6 +400,19 @@ function bindEvents() {
     try { await navigator.clipboard.writeText(state.data.site.person.email); toast(ui('about.copied')); } catch { location.href = 'mailto:' + state.data.site.person.email; }
   });
   $('#printBtn').addEventListener('click', () => window.print());
+  // 메뉴·버튼의 섹션 이동은 주소창에 #journey 같은 꼬리를 남기지 않습니다
+  // (새로고침·주소 복사·즐겨찾기 때 중간 섹션에서 시작되지 않도록)
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest('a[href^="#"]');
+    if (!a || a.classList.contains('skip') || e.metaKey || e.ctrlKey || e.shiftKey) return;
+    const id = a.getAttribute('href').slice(1);
+    if (!id || id.startsWith('/')) return;
+    const target = document.getElementById(id);
+    if (!target) return;
+    e.preventDefault();
+    if (id === 'top') window.scrollTo({ top: 0 }); else target.scrollIntoView();
+    if (location.hash) history.replaceState(history.state, '', location.pathname + location.search);
+  });
   window.addEventListener('beforeprint', renderPrint);
   window.addEventListener('popstate', route);
   window.addEventListener('hashchange', route);
@@ -425,4 +438,13 @@ function bindEvents() {
   }
   if (!['ko', 'en'].includes(state.lang)) state.lang = 'ko';
   renderAll(); bindEvents(); route();
+  // 예전에 공유된 #journey 같은 주소로 들어오면: 내용이 그려진 뒤 그 섹션으로 정확히 이동하고 주소는 깨끗하게
+  const h = location.hash.slice(1);
+  if (h && !h.startsWith('/')) {
+    const target = document.getElementById(h);
+    requestAnimationFrame(() => {
+      if (target) target.scrollIntoView({ behavior: 'instant' });
+      history.replaceState(null, '', location.pathname + location.search);
+    });
+  }
 })();
