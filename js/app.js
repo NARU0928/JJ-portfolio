@@ -22,6 +22,11 @@ const ui = (path, vars = {}) => {
   return t(v).replace(/\{(\w+)\}/g, (_, k) => vars[k] ?? '');
 };
 const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+/* 문장 단위 줄바꿈: 다음 문장의 첫 단어가 앞 줄 끝에 걸리지 않도록 문장을 묶어 둡니다 (데스크톱) */
+const ss = (s) => {
+  const parts = String(s ?? '').split(/(?<=[^\d\s][.!?])\s+/);
+  return parts.length < 2 ? esc(s ?? '') : parts.map((x) => `<span class="sn">${esc(x)}</span>`).join(' ');
+};
 const fmtDate = (iso) => {
   const [y, m, d] = iso.split('-');
   return state.lang === 'ko' ? `${y}. ${+m}.${d ? ' ' + +d + '.' : ''}` : new Date(iso).toLocaleDateString('en-GB', d ? { day: 'numeric', month: 'short', year: 'numeric' } : { month: 'short', year: 'numeric' });
@@ -40,8 +45,8 @@ async function loadData() {
 function bindStatic() {
   const { site } = state.data;
   document.documentElement.lang = state.lang;
-  $$('[data-i18n]').forEach((el) => { el.textContent = ui(el.dataset.i18n); });
-  $$('[data-bind]').forEach((el) => { el.textContent = t(el.dataset.bind.split('.').reduce((o, k) => o?.[k], site)); });
+  $$('[data-i18n]').forEach((el) => { if (el.tagName === 'P') el.innerHTML = ss(ui(el.dataset.i18n)); else el.textContent = ui(el.dataset.i18n); });
+  $$('[data-bind]').forEach((el) => { const v = t(el.dataset.bind.split('.').reduce((o, k) => o?.[k], site)); if (el.tagName === 'P') el.innerHTML = ss(v); else el.textContent = v; });
   $$('[data-bind-html]').forEach((el) => { el.innerHTML = t(el.dataset.bindHtml.split('.').reduce((o, k) => o?.[k], site)); });
   $('#langBtn').textContent = ui('langToggle');
   $('#langBtn').lang = state.lang === 'ko' ? 'en' : 'ko';
@@ -72,7 +77,7 @@ function renderRecognition() {
       <span class="rec-label">${esc(t(r.label))}</span>
       <h2 class="rec-title" id="recTitle">${esc(t(r.title))}</h2>
       <p class="rec-issuer">${esc(t(r.issuer))}</p>
-      <blockquote class="rec-quote">${esc(t(r.quote))}</blockquote>
+      <blockquote class="rec-quote">${ss(t(r.quote))}</blockquote>
       <p class="rec-essay">${esc(t(r.essayTitle))}</p>
       <div class="rec-actions">
         <button class="btn primary small" type="button" data-essay>${esc(ui('recognition.readEssay'))}</button>
@@ -80,7 +85,7 @@ function renderRecognition() {
       </div>
     </div>
     <button class="rec-thumb" type="button" data-cred="${esc(c.id)}" aria-label="${esc(ui('recognition.viewCert'))}">
-      <img src="${esc(c.thumb)}" alt="" width="220" height="319" loading="lazy">
+      <img src="${esc(c.thumb)}" alt="" width="414" height="600" loading="lazy">
     </button>`;
 }
 
@@ -92,7 +97,7 @@ function renderCaps() {
     return `<button class="cap" type="button" data-cap="${c.id}" aria-pressed="${state.workFilter === c.id}">
       <span class="cap-num">0${i + 1}</span>
       <span class="cap-name">${esc(t(c.name))}</span>
-      <span class="cap-desc">${esc(t(c.desc))}</span>
+      <span class="cap-desc">${ss(t(c.desc))}</span>
       <span class="cap-count">${esc(ui('capabilities.count', { n }))}</span>
     </button>`;
   }).join('');
@@ -120,7 +125,7 @@ function renderWorks() {
       <div class="work-body">
         <div class="work-meta"><span>${esc(t(w.period))}</span>${w.status ? `<span class="badge status">${esc(t(w.status))}</span>` : ''}</div>
         <h3 class="work-title">${esc(t(w.title))}</h3>
-        <p class="work-sum">${esc(t(w.summary))}</p>
+        <p class="work-sum">${ss(t(w.summary))}</p>
         <p class="work-role"><b>${esc(ui('works.myRole'))}</b>${esc(roleLabel(w))}</p>
       </div>
     </button>`).join('') : `<p class="empty">${esc(ui('works.empty'))}</p>`;
@@ -151,15 +156,15 @@ function openWork(id, push = true) {
     <div class="wd-content">
       <div class="work-meta"><span>${esc(t(w.period))}</span>${w.status ? `<span class="badge status">${esc(t(w.status))}</span>` : ''}</div>
       <h2 id="wdTitle">${esc(t(w.title))}</h2>
-      <p class="wd-sum">${esc(t(w.summary))}</p>
+      <p class="wd-sum">${ss(t(w.summary))}</p>
       <dl class="wd-facts">
         <dt>${esc(ui('works.period'))}</dt><dd>${esc(t(w.period))}</dd>
-        <dt>${esc(ui('works.with'))}</dt><dd>${esc(t(w.with))}</dd>
+        <dt>${esc(ui('works.with'))}</dt><dd>${ss(t(w.with))}</dd>
         ${w.facts ? `<dt>${esc(ui('works.facts'))}</dt><dd>${esc(t(w.facts))}</dd>` : ''}
-        <dt>${esc(ui('works.myRole'))}</dt><dd><div class="role-chips">${w.roles.map((r) => `<span class="role-chip">${esc(t(state.data.works.roles[r]))}</span>`).join('')}</div>${esc(t(w.roleText))}</dd>
+        <dt>${esc(ui('works.myRole'))}</dt><dd><div class="role-chips">${w.roles.map((r) => `<span class="role-chip">${esc(t(state.data.works.roles[r]))}</span>`).join('')}</div>${ss(t(w.roleText))}</dd>
       </dl>
       <h3>${esc(ui('works.context'))}</h3>
-      <p class="wd-context">${esc(t(w.context))}</p>
+      <p class="wd-context">${ss(t(w.context))}</p>
       <h3>${esc(ui('works.evidence'))}</h3>
       ${evidenceRows(w.evidence)}
     </div>`;
@@ -223,11 +228,11 @@ function route() {
 
 /* ---------- journey ---------- */
 function evChip(e) {
-  if (e.type === 'work') { const w = state.data.works.items.find((x) => x.id === e.ref); return w ? `<button class="ev" type="button" data-work="${w.id}"><span class="k">WORK</span>${esc(t(w.title))}</button>` : ''; }
-  if (e.type === 'credential') { const c = credItem(e.ref); return c ? `<button class="ev" type="button" data-cred="${c.id}"><span class="k">${c.category === 'award' ? 'AWARD' : 'DOC'}</span>${esc(t(c.name))}</button>` : ''; }
-  if (e.type === 'image') return `<button class="ev" type="button" data-img="${esc(e.src)}" data-caption="${esc(t(e.label))}"><span class="k">IMG</span>${esc(t(e.label))}</button>`;
-  if (e.type === 'pdf') return `<a class="ev" href="${esc(e.src)}" target="_blank" rel="noopener"><span class="k">PDF</span>${esc(t(e.label))}</a>`;
-  if (e.type === 'link') return `<a class="ev" href="${esc(e.url)}" target="_blank" rel="noopener"><span class="k">LINK</span>${esc(t(e.label))}</a>`;
+  if (e.type === 'work') { const w = state.data.works.items.find((x) => x.id === e.ref); return w ? `<button class="ev" type="button" data-work="${w.id}"><span class="k">WORK</span><span class="v">${esc(t(w.title))}</span></button>` : ''; }
+  if (e.type === 'credential') { const c = credItem(e.ref); return c ? `<button class="ev" type="button" data-cred="${c.id}"><span class="k">${c.category === 'award' ? 'AWARD' : 'DOC'}</span><span class="v">${esc(t(c.name))}</span></button>` : ''; }
+  if (e.type === 'image') return `<button class="ev" type="button" data-img="${esc(e.src)}" data-caption="${esc(t(e.label))}"><span class="k">IMG</span><span class="v">${esc(t(e.label))}</span></button>`;
+  if (e.type === 'pdf') return `<a class="ev" href="${esc(e.src)}" target="_blank" rel="noopener"><span class="k">PDF</span><span class="v">${esc(t(e.label))}</span></a>`;
+  if (e.type === 'link') return `<a class="ev" href="${esc(e.url)}" target="_blank" rel="noopener"><span class="k">LINK</span><span class="v">${esc(t(e.label))}</span></a>`;
   return '';
 }
 function renderJourney() {
@@ -235,7 +240,7 @@ function renderJourney() {
     <details class="chapter reveal" ${ci === 0 ? 'open' : ''} id="ch-${c.id}">
       <summary>
         <span class="ch-range">${esc(t(c.range))}</span>
-        <span><span class="ch-title">${esc(t(c.title))}</span><span class="ch-sum" style="display:block">${esc(t(c.summary))}</span></span>
+        <span><span class="ch-title">${esc(t(c.title))}</span><span class="ch-sum" style="display:block">${ss(t(c.summary))}</span></span>
         <span class="ch-toggle" aria-hidden="true"></span>
       </summary>
       <div class="entries">${c.entries.map((e) => `
@@ -243,7 +248,7 @@ function renderJourney() {
           <div class="entry-year">${e.year}</div>
           <div>
             <h3>${esc(t(e.title))}</h3>
-            <p class="entry-text clamp">${esc(t(e.text))}</p>
+            <p class="entry-text clamp">${ss(t(e.text))}</p>
             <button class="link-btn" type="button" data-more>${esc(ui('journey.readMore'))}</button>
             ${e.evidence.length ? `<div class="ev-list">${e.evidence.map(evChip).join('')}</div>` : ''}
           </div>
