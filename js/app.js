@@ -142,7 +142,7 @@ function setWorkFilter(f) {
 
 /* ---------- work dialog ---------- */
 function evidenceRows(list) {
-  if (!list.length) return `<p class="cred-sub">${esc(ui('works.noEvidence'))}</p>`;
+  if (!list.length) return '';
   return `<div class="ev-rows">${list.map((e) => e.type === 'pdf'
     ? `<a class="ev-row" href="${esc(e.src)}" target="_blank" rel="noopener"><span>${esc(t(e.label))}</span><small>${e.note ? esc(t(e.note)) + ' · ' : ''}PDF ${fileSize(e.size)} ↗</small></a>`
     : `<a class="ev-row" href="${esc(e.url)}" target="_blank" rel="noopener"><span>${esc(t(e.label))}</span><small>${esc(new URL(e.url).hostname.replace('www.', ''))} ↗</small></a>`).join('')}</div>`;
@@ -165,8 +165,7 @@ function openWork(id, push = true) {
       </dl>
       <h3>${esc(ui('works.context'))}</h3>
       <p class="wd-context">${ss(t(w.context))}</p>
-      <h3>${esc(ui('works.evidence'))}</h3>
-      ${evidenceRows(w.evidence)}
+      ${w.evidence.length ? `<h3>${esc(ui('works.evidence'))}</h3>${evidenceRows(w.evidence)}` : ''}
     </div>`;
   $('#wdBody').dataset.work = id;
   showDialog('#workDialog', push ? `#/work/${id}` : null);
