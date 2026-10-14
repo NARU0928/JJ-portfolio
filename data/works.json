@@ -47,6 +47,381 @@
   },
   "items": [
     {
+      "id": "future-economy-class",
+      "date": "2026-10",
+      "period": {
+        "ko": "2026.03 –",
+        "en": "Mar 2026 –"
+      },
+      "status": {
+        "ko": "진행 중",
+        "en": "Ongoing"
+      },
+      "title": {
+        "ko": "「미래를 여는 경제교실」 교재 개발과 사업 운영",
+        "en": "‘Economy Class for the Future’ — workbooks and programme"
+      },
+      "summary": {
+        "ko": "딜로이트 후원 느린학습자 맞춤형 금융교육 — 본 교재 3권·보조 교재 3종 연구·개발과 사업 운영 및 관리",
+        "en": "A Deloitte-supported financial-education programme for slow learners — three workbooks, three supplements, and programme management"
+      },
+      "context": {
+        "ko": "느린 학습자가 실제 생활에서 돈을 이해하고 쓰고 지킬 수 있도록, 현장에서 바로 쓸 수 있는 단계별 금융교육 교재가 필요했습니다.",
+        "en": "Slow learners needed staged, ready-to-use materials to understand, spend and protect money in real life."
+      },
+      "with": {
+        "ko": "딜로이트(후원·전문가 검토) · 나눔공동체학교 교사들(시범운영) · 외부 참여기관",
+        "en": "Deloitte (support and expert review) · Nanum Community School teachers (pilot) · partner institutions"
+      },
+      "roles": [
+        "develop",
+        "run"
+      ],
+      "roleText": {
+        "ko": "1권 「내 돈 알아가기」, 2권 「내 돈 잘 쓰기」, 3권 「내 돈 지키기」와 각 권의 보조 교재 「더하기」를 연구·개발했습니다. 사업 제안부터 전문가 검토 요청, 피드백 반영표 정리, 경과 보고, 외부 참여기관 모집까지 사업을 운영·관리하고 있습니다.",
+        "en": "Researched and developed Book 1 ‘Knowing My Money’, Book 2 ‘Spending Well’, Book 3 ‘Protecting My Money’ and a ‘Plus’ supplement for each; manage the programme from proposal, expert-review requests and feedback tracking to progress reports and partner recruitment."
+      },
+      "facts": {
+        "ko": "전문가 검토 의견 24건 반영 · 내부 시범운영 3개 그룹 × 6회기 · 외부 참여기관 모집(11–12월 시범운영 예정)",
+        "en": "24 expert comments reflected · internal pilot: 3 groups × 6 sessions · external pilot planned for Nov–Dec"
+      },
+      "tags": [
+        "content",
+        "system"
+      ],
+      "featured": true,
+      "evidence": [],
+      "cover": "assets/works/future-economy-class.webp",
+      "coverSmall": "assets/works/future-economy-class_sm.webp",
+      "gallery": [
+        {
+          "src": "assets/works/future-economy-class/g1.webp",
+          "w": 1039,
+          "h": 1500
+        },
+        {
+          "src": "assets/works/future-economy-class/g2.webp",
+          "w": 1070,
+          "h": 1500
+        },
+        {
+          "src": "assets/works/future-economy-class/g3.webp",
+          "w": 1070,
+          "h": 1500
+        },
+        {
+          "src": "assets/works/future-economy-class/g4.webp",
+          "w": 1039,
+          "h": 1500
+        },
+        {
+          "src": "assets/works/future-economy-class/g5.webp",
+          "w": 1100,
+          "h": 1376
+        },
+        {
+          "src": "assets/works/future-economy-class/g6.webp",
+          "w": 1100,
+          "h": 619
+        }
+      ]
+    },
+    {
+      "id": "modu-gongmo",
+      "date": "2026-09",
+      "period": {
+        "ko": "2025.11 – 2026.10",
+        "en": "Nov 2025 – Oct 2026"
+      },
+      "title": {
+        "ko": "「모두의 공모」 느린 청소년·청년 자립성장 네트워크",
+        "en": "Independence Network for Slow-learning Youth (‘Modu-ui Gongmo’)"
+      },
+      "summary": {
+        "ko": "지역과 함께 만드는 마을형 진로·자립 페어 — 사업 운영 및 관리, 진로워크북 「나의 진로 이야기」 발간",
+        "en": "A community-based career and independence project — programme management and the career workbook “My Career Story”"
+      },
+      "context": {
+        "ko": "느린 청소년·청년이 사회 안으로 들어가려면 실제 일 경험이 필요하지만, 이들을 이해하는 일터와 연결은 부족했습니다.",
+        "en": "Slow-learning youth need real work experience to enter society, yet workplaces that understand them were scarce."
+      },
+      "with": {
+        "ko": "함께성장교육 실무팀 · 지역 상점·공방 10곳 · 일하는 청년 멘토",
+        "en": "Hamkke Seongjang team · 10 local shops and workshops · working young mentors"
+      },
+      "roles": [
+        "run",
+        "doc",
+        "plan"
+      ],
+      "roleText": {
+        "ko": "사업 담당자로 운영·관리를 맡았습니다. 참여자 모집·선정, 프로그램 운영, 회계 증빙과 중간·결과 보고를 정리했고, 진로워크북 「나의 진로 이야기」의 기획과 초안을 맡아 디자인 협업을 거쳐 발간했습니다(2026.1). 2차년도 사업계획도 정리했습니다.",
+        "en": "As project manager I handled recruitment, operations, accounting records and interim and final reports; I planned and drafted the career workbook “My Career Story”, published with a designer in Jan 2026, and compiled the second-year plan."
+      },
+      "facts": {
+        "ko": "참여 청소년·청년 25명 · 청년 멘토 5명 · 협력 상점·공방 10곳",
+        "en": "25 young participants · 5 mentors · 10 partner shops"
+      },
+      "tags": [
+        "system",
+        "people"
+      ],
+      "featured": true,
+      "evidence": [],
+      "cover": "assets/works/modu-gongmo.webp",
+      "coverSmall": "assets/works/modu-gongmo_sm.webp",
+      "gallery": [
+        {
+          "src": "assets/works/modu-gongmo/g1.webp",
+          "w": 1073,
+          "h": 1500
+        },
+        {
+          "src": "assets/works/modu-gongmo/g2.webp",
+          "w": 1073,
+          "h": 1500
+        },
+        {
+          "src": "assets/works/modu-gongmo/g3.webp",
+          "w": 1073,
+          "h": 1500
+        }
+      ]
+    },
+    {
+      "id": "lifelong-edu-2026",
+      "date": "2026-08",
+      "period": {
+        "ko": "2026.08 – 11",
+        "en": "Aug – Nov 2026"
+      },
+      "status": {
+        "ko": "진행 중",
+        "en": "Ongoing"
+      },
+      "title": {
+        "ko": "동작구 느린학습자 평생교육 지원사업 「스스로, 함께」",
+        "en": "‘On Our Own, Together’ — Dongjak-gu Lifelong Learning"
+      },
+      "summary": {
+        "ko": "생활역량·자립역량 그룹 활동과 지역사회 체험을 잇는 느린학습자 성장 프로젝트 관리",
+        "en": "Managing a growth project linking life-skills and independence groups with community activities"
+      },
+      "context": {
+        "ko": "느린 학습자가 생활역량과 자기결정력을 기르고, 지역사회 안에서 참여 경험을 넓힐 기회가 필요했습니다.",
+        "en": "Slow learners needed chances to build life skills and self-determination, and to take part in their community."
+      },
+      "with": {
+        "ko": "동작구 · 함께성장교육 강사진 · 지역 공공기관·문화시설",
+        "en": "Dongjak-gu · instructors · local public and cultural facilities"
+      },
+      "roles": [
+        "run",
+        "doc"
+      ],
+      "roleText": {
+        "ko": "사업실행계획과 보조금 교부·집행(보탬e), 모집·홍보, 회차별 계획·일지·결과보고 등 사업 관리를 맡고 있습니다.",
+        "en": "Manage the project: implementation plan, grant administration (Botem-e), recruitment and session plans, logs and reports."
+      },
+      "tags": [
+        "system"
+      ],
+      "featured": false,
+      "evidence": [],
+      "cover": "assets/works/lifelong-edu-2026.webp",
+      "coverSmall": "assets/works/lifelong-edu-2026_sm.webp",
+      "gallery": [
+        {
+          "src": "assets/works/lifelong-edu-2026/g1.webp",
+          "w": 1100,
+          "h": 1375
+        }
+      ]
+    },
+    {
+      "id": "parent-recovery",
+      "date": "2026-07",
+      "period": {
+        "ko": "2026.07 – 11",
+        "en": "Jul – Nov 2026"
+      },
+      "title": {
+        "ko": "부모회복마당 2026",
+        "en": "Parent Recovery 2026"
+      },
+      "summary": {
+        "ko": "느린학습자 가족을 위한 성장세미나·「마주보기」·회복캠프 운영 지원",
+        "en": "Supporting growth seminars, the ‘Facing Each Other’ circle and a recovery camp for families of slow learners"
+      },
+      "context": {
+        "ko": "아이를 키우는 부모도 회복과 쉼이 필요합니다. 혼자 감당해 온 양육의 고민을 함께 나눌 자리가 필요했습니다.",
+        "en": "Parents raising slow learners also need rest and recovery, and a place to share what they have carried alone."
+      },
+      "with": {
+        "ko": "함께성장교육 · 나눔공동체학교 부모들 · 외부 강사·협력기관",
+        "en": "Parents · guest speakers · partner organisations"
+      },
+      "roles": [
+        "run",
+        "plan"
+      ],
+      "roleText": {
+        "ko": "운영을 지원했습니다. 소규모 부모 모임 「마주보기」(3회기)의 운영 계획을 세우고, 세미나 안내·홍보물과 회기 자료를 준비했습니다.",
+        "en": "Supported operations: planned the three-session parent circle ‘Facing Each Other’ and prepared notices, promotional materials and session resources."
+      },
+      "tags": [
+        "people"
+      ],
+      "featured": false,
+      "evidence": [],
+      "cover": "assets/works/parent-recovery.webp",
+      "coverSmall": "assets/works/parent-recovery_sm.webp",
+      "gallery": [
+        {
+          "src": "assets/works/parent-recovery/g1.webp",
+          "w": 1039,
+          "h": 1500
+        },
+        {
+          "src": "assets/works/parent-recovery/g2.webp",
+          "w": 1039,
+          "h": 1500
+        }
+      ]
+    },
+    {
+      "id": "growth-workplace",
+      "date": "2026-05",
+      "period": {
+        "ko": "2026.03 – 05",
+        "en": "Mar – May 2026"
+      },
+      "title": {
+        "ko": "성장일터 프로세스 구조화",
+        "en": "Structuring the ‘Growth Workplace’"
+      },
+      "summary": {
+        "ko": "느린 청년의 일 경험 현장을 위한 협력 상점 직무분석·직무평가 양식·꾸러미 설명서",
+        "en": "Job analysis with partner shops, evaluation forms and a kit guide for young slow learners' work experience"
+      },
+      "context": {
+        "ko": "상점마다 일의 종류와 난이도가 달라, 청년에게 맞는 역할을 연결하려면 일을 단계별로 쪼개어 보는 기준이 필요했습니다.",
+        "en": "Each shop's tasks differ in kind and difficulty; matching young people to roles needed a way to break work into levels."
+      },
+      "with": {
+        "ko": "협력 상점 10곳 · 성장일터 담당 교사",
+        "en": "10 partner shops · Growth Workplace teachers"
+      },
+      "roles": [
+        "plan",
+        "doc"
+      ],
+      "roleText": {
+        "ko": "협력 상점 10곳의 기본 직무를 난이도(아주 쉬움~아주 어려움)별로 분석하고 상점주 협력 요청사항을 정리했습니다. 직무평가 양식과 성장일터 꾸러미 설명서를 만들어 프로세스를 구조화했습니다.",
+        "en": "Analysed basic tasks at 10 partner shops by difficulty level with notes for shop owners, and created evaluation forms and a kit guide to structure the process."
+      },
+      "tags": [
+        "system",
+        "people"
+      ],
+      "featured": true,
+      "evidence": [],
+      "cover": "assets/works/growth-workplace.webp",
+      "coverSmall": "assets/works/growth-workplace_sm.webp",
+      "gallery": [
+        {
+          "src": "assets/works/growth-workplace/g1.webp",
+          "w": 1039,
+          "h": 1500
+        },
+        {
+          "src": "assets/works/growth-workplace/g2.webp",
+          "w": 1039,
+          "h": 1500
+        },
+        {
+          "src": "assets/works/growth-workplace/g3.webp",
+          "w": 1068,
+          "h": 1500
+        }
+      ]
+    },
+    {
+      "id": "hamseong-news",
+      "date": "2026-09",
+      "period": {
+        "ko": "2025 – 현재 · 매월",
+        "en": "2025 – now · monthly"
+      },
+      "title": {
+        "ko": "함성소식 · 후원금 운용보고 · SNS",
+        "en": "Newsletter, Donation Reports & Social Media"
+      },
+      "summary": {
+        "ko": "매달 현장의 소식과 후원금 사용 내역을 정리해 전하는 정기 소통",
+        "en": "Monthly communication of field news and how donations were used"
+      },
+      "context": {
+        "ko": "후원이 어떤 선택으로 이어졌는지 정직하게 기록하고, 현장의 지금을 꾸준히 전하는 일이 신뢰의 바탕이라고 보았습니다.",
+        "en": "Honestly recording how donations were used and steadily sharing the present of the field builds trust."
+      },
+      "with": {
+        "ko": "함께성장교육 교사·조합원 · 후원자",
+        "en": "Teachers, members and supporters"
+      },
+      "roles": [
+        "write",
+        "design",
+        "run"
+      ],
+      "roleText": {
+        "ko": "월간 함성소식을 정리·업데이트하고(2026년 1–9월호), 소액 정기후원 「만원의 나눔, 만명의 성장」 사용보고(10–18차)와 홈페이지·SNS 홍보를 관리하고 있습니다.",
+        "en": "Compile and update the monthly newsletter (Jan–Sep 2026), the donation-use reports for the monthly giving campaign (10th–18th), and the website and social media."
+      },
+      "tags": [
+        "digital",
+        "system"
+      ],
+      "featured": false,
+      "evidence": [
+        {
+          "type": "link",
+          "label": {
+            "ko": "함께성장교육 홈페이지",
+            "en": "Website"
+          },
+          "url": "https://hamsungedu.co.kr/"
+        },
+        {
+          "type": "link",
+          "label": {
+            "ko": "인스타그램",
+            "en": "Instagram"
+          },
+          "url": "https://www.instagram.com/hamsungedu"
+        }
+      ],
+      "cover": "assets/works/hamseong-news.webp",
+      "coverSmall": "assets/works/hamseong-news_sm.webp",
+      "gallery": [
+        {
+          "src": "assets/works/hamseong-news/g1.webp",
+          "w": 1100,
+          "h": 1376
+        },
+        {
+          "src": "assets/works/hamseong-news/g2.webp",
+          "w": 1100,
+          "h": 762
+        },
+        {
+          "src": "assets/works/hamseong-news/g3.webp",
+          "w": 1100,
+          "h": 762
+        }
+      ]
+    },
+    {
       "id": "career-fair-2026",
       "date": "2026-10",
       "period": {
@@ -78,8 +453,8 @@
         "video"
       ],
       "roleText": {
-        "ko": "포스터·안내문 등 홍보물과 행사 오프닝 영상을 만들고 있습니다.",
-        "en": "Designing the poster and guides, and producing the opening film."
+        "ko": "포스터·안내문 등 홍보물을 직접 디자인하고, 행사 오프닝 영상을 만들고 있습니다.",
+        "en": "Designed the poster and guides myself, and am producing the opening film."
       },
       "tags": [
         "digital"
@@ -438,8 +813,8 @@
         "write"
       ],
       "roleText": {
-        "ko": "10편의 주제와 원고를 구성하고, AI 음성 기반 대담 형식으로 제작했습니다.",
-        "en": "Planned the ten topics and scripts, produced as AI-voiced conversations."
+        "ko": "10편의 주제와 원고를 구성하고, AI 음성 기반 대담 형식으로 제작해 함께성장교육 유튜브에 공개했습니다.",
+        "en": "Planned the ten topics and scripts, produced them as AI-voiced conversations, and published them on the Hamkke Seongjang Education YouTube channel."
       },
       "tags": [
         "digital",

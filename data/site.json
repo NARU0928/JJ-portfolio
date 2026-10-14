@@ -1,6 +1,6 @@
 {
-  "updated": "2026-10-13",
-  "version": "2.0 (2026.10)",
+  "updated": "2026-10-14",
+  "version": "2.1 (2026.10)",
   "person": {
     "name": {
       "ko": "이정재",
@@ -33,18 +33,34 @@
     },
     "items": [
       {
-        "ko": "함께성장교육 사무국에서 조합 운영·홍보·후원·사업 실무를 맡고 있습니다.",
-        "en": "Running the cooperative's office: governance, communications, fundraising and programme administration."
+        "ko": "「모두의 공모」 느린 청소년·청년 자립성장 네트워크 사업 운영 및 관리",
+        "en": "Running and managing the ‘Modu-ui Gongmo’ independence-network project for slow-learning youth"
       },
       {
-        "ko": "느린 학습자 청년의 일 경험, 부모 모임, 지도자 연수 프로그램을 동료들과 함께 준비하고 있습니다.",
-        "en": "Preparing, with colleagues, programmes for young adults' work experience, parent circles and educator training."
+        "ko": "딜로이트 경제교육 후원사업 「미래를 여는 경제교실」 운영 및 관리",
+        "en": "Running and managing ‘Economy Class for the Future’, a financial-education programme supported by Deloitte"
       },
       {
-        "ko": "10월 16일 「2026 느린학습자를 위한 진로페어」의 홍보물과 오프닝 영상을 만들고 있습니다.",
-        "en": "Making the promotional materials and opening film for the 2026 Career Fair for Slow Learners (16 Oct)."
+        "ko": "「미래를 여는 경제교실」 본 교재(3권)와 보조 교재(3종) 연구·개발",
+        "en": "Researching and developing its three workbooks and three supplementary books"
+      },
+      {
+        "ko": "동작구 느린학습자 평생교육 지원사업 「스스로, 함께」 관리",
+        "en": "Managing ‘On Our Own, Together’, a Dongjak-gu lifelong-learning programme for slow learners"
+      },
+      {
+        "ko": "부모회복마당 운영 지원",
+        "en": "Supporting the Parent Recovery programme"
+      },
+      {
+        "ko": "성장일터 프로세스 및 구조화 (협력 상점 직무분석·평가 체계)",
+        "en": "Structuring the ‘Growth Workplace’ process — job analysis and evaluation with partner shops"
       }
-    ]
+    ],
+    "routine": {
+      "ko": "꾸준히 · 월간 함성소식 업데이트, 후원금 운용보고, 온라인 SNS 홍보 및 관리",
+      "en": "Ongoing · monthly newsletter, donation-use reports, social-media communications"
+    }
   },
   "recognition": {
     "label": {

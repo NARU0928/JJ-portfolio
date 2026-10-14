@@ -58,7 +58,9 @@ function bindStatic() {
 
 /* ---------- now ---------- */
 function renderNow() {
-  $('#nowList').innerHTML = state.data.site.now.items.map((i) => `<li>${esc(t(i))}</li>`).join('');
+  const n = state.data.site.now;
+  $('#nowList').innerHTML = n.items.map((i) => `<li>${esc(t(i))}</li>`).join('');
+  const r = $('#nowRoutine'); if (r) r.textContent = n.routine ? t(n.routine) : '';
 }
 
 /* ---------- recognition ---------- */
@@ -153,6 +155,7 @@ function openWork(id, push = true) {
       <dl class="wd-facts">
         <dt>${esc(ui('works.period'))}</dt><dd>${esc(t(w.period))}</dd>
         <dt>${esc(ui('works.with'))}</dt><dd>${esc(t(w.with))}</dd>
+        ${w.facts ? `<dt>${esc(ui('works.facts'))}</dt><dd>${esc(t(w.facts))}</dd>` : ''}
         <dt>${esc(ui('works.myRole'))}</dt><dd><div class="role-chips">${w.roles.map((r) => `<span class="role-chip">${esc(t(state.data.works.roles[r]))}</span>`).join('')}</div>${esc(t(w.roleText))}</dd>
       </dl>
       <h3>${esc(ui('works.context'))}</h3>
@@ -261,9 +264,8 @@ function renderCredFilters() {
 }
 function renderCreds() {
   const { items, categories } = state.data.credentials;
-  const order = Object.keys(categories);
   const list = items.filter((c) => state.credFilter === 'all' || c.category === state.credFilter)
-    .sort((a, b) => order.indexOf(a.category) - order.indexOf(b.category) || b.date.localeCompare(a.date));
+    .sort((a, b) => b.date.localeCompare(a.date));
   const withImg = list.filter((c) => c.image), noImg = list.filter((c) => !c.image);
   $('#credGrid').innerHTML = withImg.map((c) => `
     <button class="cred reveal" type="button" data-cred="${c.id}">
@@ -290,10 +292,62 @@ function observeReveal() {
   $$('.reveal:not(.in)').forEach((el) => io.observe(el));
 }
 
+/* ---------- print document (인쇄용 자기소개) ---------- */
+function renderPrint() {
+  const { site, works, journey, credentials } = state.data;
+  const url = 'jj-portfolio.netlify.app';
+  const ws = [...works.items].sort((a, b) => (b.featured - a.featured) || b.date.localeCompare(a.date));
+  const cs = [...credentials.items].sort((a, b) => b.date.localeCompare(a.date));
+  const r = site.recognition;
+  $('#printDoc').innerHTML = `
+  <section class="pd-page pd-cover">
+    <header class="pd-head">
+      <img src="assets/img/profile.webp" alt="" class="pd-avatar">
+      <div>
+        <h1>${esc(t(site.person.name))}</h1>
+        <p class="pd-role">${esc(t(site.person.role))}</p>
+        <p class="pd-contact">${esc(site.person.email)} · ${esc(url)} · ${esc(ui('updated'))} ${fmtDate(site.updated)}</p>
+      </div>
+    </header>
+    <p class="pd-headline">${t(site.hero.headline).replace(/<br>/g, ' ')}</p>
+    <p class="pd-lead">${esc(t(site.hero.lead))}</p>
+    <h2>${esc(t(site.now.title))} <small>${fmtDate(site.updated)}</small></h2>
+    <ul class="pd-now">${site.now.items.map((i) => `<li>${esc(t(i))}</li>`).join('')}</ul>
+    ${site.now.routine ? `<p class="pd-routine">${esc(t(site.now.routine))}</p>` : ''}
+    <div class="pd-award">
+      <b>${esc(t(r.label))}</b> ${esc(t(r.title))} <span>· ${esc(t(r.issuer))}</span>
+      <p>${esc(t(r.essayTitle))} — “${esc(t(r.quote))}”</p>
+    </div>
+    <h2>${esc(ui('capabilities.title'))}</h2>
+    <dl class="pd-caps">${site.capabilities.map((c) => `<dt>${esc(t(c.name))}</dt><dd>${esc(t(c.desc))}</dd>`).join('')}</dl>
+  </section>
+  <section class="pd-page">
+    <h2 class="pd-title">${esc(ui('works.title'))}</h2>
+    <p class="pd-note">${esc(ui('works.lead'))}</p>
+    <table class="pd-works">
+      <thead><tr><th>${esc(ui('works.period'))}</th><th>${esc(ui('print.work'))}</th><th>${esc(ui('works.myRole'))}</th></tr></thead>
+      <tbody>${ws.map((w) => `<tr>
+        <td class="pd-when">${esc(t(w.period))}</td>
+        <td><b>${esc(t(w.title))}</b><span>${esc(t(w.summary))}</span><em>${esc(ui('works.with'))}: ${esc(t(w.with))}</em></td>
+        <td class="pd-roles">${esc(roleLabel(w))}</td></tr>`).join('')}</tbody>
+    </table>
+  </section>
+  <section class="pd-page">
+    <h2 class="pd-title">${esc(ui('journey.title'))}</h2>
+    <div class="pd-journey">${journey.chapters.map((c) => `<div class="pd-ch">
+      <h3>${esc(t(c.range))} · ${esc(t(c.title))}</h3>
+      <ul>${c.entries.map((e) => `<li><b>${e.year}</b> ${esc(t(e.title))}</li>`).join('')}</ul></div>`).join('')}
+    </div>
+    <h2 class="pd-title pd-mt">${esc(ui('credentials.title'))}</h2>
+    <table class="pd-creds"><tbody>${cs.map((c) => `<tr><td class="pd-when">${fmtYM(c.date)}</td><td>${esc(t(credentials.categories[c.category]))}</td><td><b>${esc(t(c.name))}</b></td><td>${esc(t(c.issuer))}</td></tr>`).join('')}</tbody></table>
+    <p class="pd-foot">${esc(ui('print.foot'))} ${esc(url)}</p>
+  </section>`;
+}
+
 /* ---------- render all ---------- */
 function renderAll() {
   bindStatic(); renderNow(); renderRecognition(); renderCaps(); renderWorkFilters(); renderWorks();
-  renderJourney(); renderCredFilters(); renderCreds(); renderChannels();
+  renderJourney(); renderCredFilters(); renderCreds(); renderChannels(); renderPrint();
 }
 
 /* ---------- events ---------- */
@@ -342,7 +396,7 @@ function bindEvents() {
     try { await navigator.clipboard.writeText(state.data.site.person.email); toast(ui('about.copied')); } catch { location.href = 'mailto:' + state.data.site.person.email; }
   });
   $('#printBtn').addEventListener('click', () => window.print());
-  window.addEventListener('beforeprint', () => { state.showAll = true; renderWorks(); });
+  window.addEventListener('beforeprint', renderPrint);
   window.addEventListener('popstate', route);
   window.addEventListener('hashchange', route);
   const header = $('#siteHeader');

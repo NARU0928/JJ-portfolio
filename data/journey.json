@@ -18,17 +18,41 @@
         {
           "year": "2026",
           "title": {
-            "ko": "곁에 머물다가, 조합원이 되다",
-            "en": "From standing beside, to becoming a member"
+            "ko": "여러 사업을 동시에 맡아 이어 가다",
+            "en": "Carrying several projects at once"
           },
           "text": {
-            "ko": "조합 2년 차, 느린 학습자 청년의 일 경험과 부모·지도자가 함께 성장하는 자리를 동료들과 준비하고 있습니다. 7월에는 직원으로 일하며 1년 가까이 조합 가입을 망설이다 조합원이 되기까지의 이야기를 쓴 수기 「곁에 머물다가, 조합원이 되었습니다.」로 2026 협동조합의 날 쿱보따리 수기 공모전 최우수상을 받았습니다. 10월에는 「2026 느린학습자를 위한 진로페어」의 홍보물과 오프닝 영상을 만들고 있습니다.",
-            "en": "In the cooperative's second year, I am preparing with colleagues work-experience opportunities for young slow learners and spaces where parents and educators grow together. In July my essay on hesitating for nearly a year before joining as a member — “I stayed beside it, and became a member” — won the grand prize in the 2026 Co-op Day essay contest. In October I am making the promotional materials and opening film for the 2026 Career Fair for Slow Learners."
+            "ko": "함께성장교육 2년 차, 상반기부터 굵직한 사업 여러 개를 동시에 맡아 운영하고 있습니다. 2025년 11월에 시작한 「모두의 공모」 느린 청소년·청년 자립성장 네트워크 사업을 담당하며 진로워크북 「나의 진로 이야기」를 발간하고(1월), 1차년도 결과보고와 2차년도 사업계획을 정리했습니다. 딜로이트 후원 「미래를 여는 경제교실」에서는 본 교재 3권과 보조 교재 3종을 연구·개발하고, 딜로이트 전문가 검토와 나눔공동체학교 내부 시범운영(18회기)을 거쳐 외부 참여기관 모집까지 이어 왔습니다. 하반기에는 동작구 느린학습자 평생교육 지원사업 「스스로, 함께」를 관리하고, 부모회복마당 운영을 지원했으며, 성장일터의 협력 상점 직무분석과 평가 체계를 구조화했습니다. 매달 함성소식과 후원금 운용보고로 현장의 소식을 전하고 있습니다. 7월에는 직원으로 일하며 1년 가까이 조합 가입을 망설이다 조합원이 되기까지의 이야기를 쓴 수기 「곁에 머물다가, 조합원이 되었습니다.」로 2026 협동조합의 날 쿱보따리 수기 공모전 최우수상을 받았습니다.",
+            "en": "In the cooperative's second year I have been running several major projects at once since spring. I manage the ‘Modu-ui Gongmo’ independence-network project for slow-learning youth (started Nov 2025): we published the career workbook “My Career Story” in January, and I compiled the first-year report and second-year plan. For ‘Economy Class for the Future’, supported by Deloitte, I researched and developed three workbooks and three supplementary books, which went through expert review by Deloitte and an 18-session pilot at Nanum Community School before external partner schools were recruited. In the second half of the year I managed the Dongjak-gu lifelong-learning programme ‘On Our Own, Together’, supported the Parent Recovery programme, and structured job analysis and evaluation for the ‘Growth Workplace’. Every month I share news through the newsletter and donation-use reports. In July my essay on hesitating for nearly a year before joining as a member won the grand prize in the 2026 Co-op Day essay contest."
           },
           "evidence": [
             {
               "type": "credential",
               "ref": "2026_award_coop_essay"
+            },
+            {
+              "type": "work",
+              "ref": "modu-gongmo"
+            },
+            {
+              "type": "work",
+              "ref": "future-economy-class"
+            },
+            {
+              "type": "work",
+              "ref": "lifelong-edu-2026"
+            },
+            {
+              "type": "work",
+              "ref": "parent-recovery"
+            },
+            {
+              "type": "work",
+              "ref": "growth-workplace"
+            },
+            {
+              "type": "work",
+              "ref": "hamseong-news"
             },
             {
               "type": "work",

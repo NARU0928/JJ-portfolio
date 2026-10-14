@@ -10,10 +10,13 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="이정재 · 포트폴리오">
   <meta property="og:description" content="느린 학습자 곁에서, 관계로 시작한 교육을 오래가는 구조로 남깁니다.">
-  <meta property="og:image" content="assets/img/og.png">
+  <meta property="og:image" content="https://jj-portfolio.netlify.app/assets/img/og-202610.png">
+  <meta property="og:url" content="https://jj-portfolio.netlify.app/">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:locale" content="ko_KR">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/favicon.ico" sizes="any">
   <link rel="icon" href="assets/img/icon-32.png" sizes="32x32" type="image/png">
   <link rel="apple-touch-icon" href="assets/img/icon-180.png">
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
@@ -39,7 +42,7 @@
   <header class="site-header" id="siteHeader">
     <div class="wrap header-inner">
       <a class="brand" href="#top" aria-label="이정재 — 처음으로">
-        <span class="brand-mark" aria-hidden="true">정</span>
+        <img class="brand-mark" src="assets/img/avatar-96.webp" alt="" width="36" height="36">
         <span class="brand-name" data-bind="person.name">이정재</span>
       </a>
       <nav class="nav" id="nav" aria-label="주요 메뉴">
@@ -80,6 +83,7 @@
           <span class="stamp"><span data-i18n="updated">업데이트</span> <time id="updatedAt"></time></span>
         </div>
         <ul class="now-list" id="nowList"></ul>
+        <p class="now-routine" id="nowRoutine"></p>
       </aside>
     </section>
 
@@ -122,7 +126,7 @@
 
     <section class="section wrap about" id="about" aria-labelledby="aboutTitle">
       <div class="about-card">
-        <img class="avatar" src="assets/img/profile.webp" alt="" width="200" height="200" loading="lazy">
+        <img class="avatar" src="assets/img/profile.webp" alt="이정재 캐릭터" width="200" height="200" loading="lazy">
         <div>
           <h2 id="aboutTitle" data-i18n="about.title">소개</h2>
           <p class="motto" data-bind="about.motto"></p>
@@ -183,6 +187,8 @@
       <div id="edBody"></div>
     </div>
   </dialog>
+
+  <div class="print-doc" id="printDoc" aria-hidden="true"></div>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
