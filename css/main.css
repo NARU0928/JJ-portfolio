@@ -117,7 +117,8 @@ p { margin: 0; }
 .now-list li { position: relative; padding-left: 20px; font-size: 15.5px; line-height: 1.55; }
 .now-text { display: block; font-weight: 600; }
 .now-sub { display: block; margin-top: 2px; font-size: 13px; color: var(--muted); line-height: 1.45; }
-.now-routine { margin-top: 16px; padding-top: 14px; border-top: 1px dashed var(--line); font-size: 14px; color: var(--muted); line-height: 1.55; display: flex; gap: 10px; align-items: baseline; }
+.now-routine { margin-top: 16px; padding-top: 14px; border-top: 1px dashed var(--line); font-size: 14px; color: var(--muted); line-height: 1.55; display: flex; gap: 10px; align-items: flex-start; }
+.now-routine .mini-badge { margin-top: 1px; }
 .mini-badge { flex: none; display: inline-block; font-size: 11.5px; font-weight: 800; line-height: 1; padding: 5px 9px; border-radius: 999px; color: var(--ink); background: color-mix(in srgb, var(--accent-soft) 40%, transparent); }
 .now-routine:empty { display: none; }
 .now-list li::before { content: ""; position: absolute; left: 2px; top: .62em; width: 8px; height: 8px; border-radius: 50%; background: var(--accent-soft); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-soft) 30%, transparent); }

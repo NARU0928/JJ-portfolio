@@ -74,10 +74,10 @@ function bindStatic() {
 function renderNow() {
   const n = state.data.site.now;
   $('#nowList').innerHTML = n.items.map((i) => i.text
-    ? `<li><span class="now-text">${esc(t(i.text))}</span>${i.sub ? `<span class="now-sub">${esc(t(i.sub))}</span>` : ''}</li>`
+    ? `<li><span class="now-text">${ss(t(i.text))}</span>${i.sub ? `<span class="now-sub">${ss(t(i.sub))}</span>` : ''}</li>`
     : `<li><span class="now-text">${esc(t(i))}</span></li>`).join('');
   const r = $('#nowRoutine');
-  if (r) r.innerHTML = n.routine ? `${n.routineLabel ? `<span class="mini-badge">${esc(t(n.routineLabel))}</span>` : ''}<span>${esc(t(n.routine))}</span>` : '';
+  if (r) r.innerHTML = n.routine ? `${n.routineLabel ? `<span class="mini-badge">${esc(t(n.routineLabel))}</span>` : ''}<span>${ss(t(n.routine))}</span>` : '';
 }
 
 /* ---------- recognition ---------- */
