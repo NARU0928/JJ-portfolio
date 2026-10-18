@@ -117,11 +117,13 @@ function renderCaps() {
 
 /* ---------- works ---------- */
 const sortWorks = (a, b) => b.date.localeCompare(a.date);
+/* 첫 화면 대표 작업: featured 중 최신순으로 featuredMax 개까지. 넘치는 것은 '더 보기'로 자동으로 내려갑니다. */
+function featuredWorks(all) { return all.filter((w) => w.featured).slice(0, state.data.site.featuredMax || 9); }
 function visibleWorks() {
   const all = [...state.data.works.items].sort(sortWorks);
   if (state.workFilter !== 'all') return all.filter((w) => w.tags.includes(state.workFilter));
-  const featured = all.filter((w) => w.featured);
-  return state.showAll ? [...featured, ...all.filter((w) => !w.featured)] : featured;
+  const featured = featuredWorks(all);
+  return state.showAll ? [...featured, ...all.filter((w) => !featured.includes(w))] : featured;
 }
 function roleLabel(w) { return w.roles.map((r) => t(state.data.works.roles[r])).join(', '); }
 function renderWorkFilters() {
@@ -141,7 +143,7 @@ function renderWorks() {
         <p class="work-role"><b>${esc(ui('works.myRole'))}</b>${esc(roleLabel(w))}</p>
       </div>
     </button>`).join('') : `<p class="empty">${esc(ui('works.empty'))}</p>`;
-  const rest = state.data.works.items.filter((w) => !w.featured).length;
+  const rest = state.data.works.items.length - featuredWorks([...state.data.works.items].sort(sortWorks)).length;
   const more = $('#moreWorks');
   more.hidden = state.workFilter !== 'all' || rest === 0;
   more.textContent = state.showAll ? ui('works.less') : ui('works.more', { n: rest });
@@ -177,6 +179,8 @@ function openWork(id, push = true) {
       </dl>
       <h3>${esc(ui('works.context'))}</h3>
       <p class="wd-context">${ss(t(w.context))}</p>
+      ${w.steps?.length ? `<h3>${esc(ui('works.steps'))}</h3>
+      <ol class="wd-steps">${w.steps.map((st) => `<li><div class="st-head"><b>${esc(t(st.label))}</b></div><p>${ss(t(st.text))}</p></li>`).join('')}</ol>` : ''}
       ${w.evidence.length ? `<h3>${esc(ui('works.evidence'))}</h3>${evidenceRows(w.evidence)}` : ''}
     </div>`;
   $('#wdBody').dataset.work = id;
@@ -243,7 +247,7 @@ function evChip(e) {
   if (e.type === 'credential') { const c = credItem(e.ref); return c ? `<button class="ev" type="button" data-cred="${c.id}"><span class="k">${c.category === 'award' ? 'AWARD' : 'DOC'}</span><span class="v">${esc(t(c.name))}</span></button>` : ''; }
   if (e.type === 'image') return `<button class="ev" type="button" data-img="${esc(e.src)}" data-caption="${esc(t(e.label))}"><span class="k">IMG</span><span class="v">${esc(t(e.label))}</span></button>`;
   if (e.type === 'pdf') return `<a class="ev" href="${esc(e.src)}" target="_blank" rel="noopener"><span class="k">PDF</span><span class="v">${esc(t(e.label))}</span></a>`;
-  if (e.type === 'link') return `<a class="ev" href="${esc(e.url)}" target="_blank" rel="noopener"><span class="k">LINK</span><span class="v">${esc(t(e.label))}</span></a>`;
+  if (e.type === 'link') return `<a class="ev" href="${esc(e.url)}" target="_blank" rel="noopener"><span class="k">${/youtu\.?be/.test(e.url) ? 'VIDEO' : 'LINK'}</span><span class="v">${esc(t(e.label))}</span></a>`;
   return '';
 }
 function renderJourney() {

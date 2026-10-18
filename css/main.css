@@ -273,6 +273,12 @@ p { margin: 0; }
 .wd-facts dt { color: var(--muted); font-weight: 700; }
 .wd-facts dd { margin: 0; }
 .role-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 6px; }
+.wd-steps { list-style: none; margin: 8px 0 26px; padding: 0; counter-reset: st; }
+.wd-steps li { position: relative; padding: 0 0 18px 34px; counter-increment: st; }
+.wd-steps li::before { content: counter(st); position: absolute; left: 0; top: 1px; width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center; font-size: 12px; font-weight: 800; background: color-mix(in srgb, var(--accent-soft) 45%, transparent); color: var(--ink); }
+.wd-steps li:not(:last-child)::after { content: ""; position: absolute; left: 10.5px; top: 27px; bottom: 4px; border-left: 1px dashed var(--line); }
+.st-head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 2px; }
+.wd-steps p { margin: 0; color: var(--muted); font-size: 15px; }
 .tag-list { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
 .tag-list li { font-size: 13.5px; line-height: 1.35; padding: 5px 11px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface); }
 .tag-list.facts li { border-color: transparent; background: color-mix(in srgb, var(--accent-soft) 22%, var(--surface)); font-weight: 600; }

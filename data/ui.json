@@ -135,6 +135,10 @@
     "facts": {
       "ko": "주요 내용",
       "en": "Key facts"
+    },
+    "steps": {
+      "ko": "진행 과정",
+      "en": "Process"
     }
   },
   "journey": {

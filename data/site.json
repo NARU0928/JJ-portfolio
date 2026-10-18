@@ -1,6 +1,6 @@
 {
-  "updated": "2026-10-14",
-  "version": "2.1 (2026.10)",
+  "updated": "2026-10-18",
+  "version": "2.2 (2026.10)",
   "person": {
     "name": {
       "ko": "이정재",
@@ -257,6 +257,7 @@
       "en": "In education, people came before words, and encounters before records. This portfolio is less a CV than a record of a path. Much of what you see here was made together with teachers, cooperative members and colleagues; each project notes the part I played."
     }
   },
+  "featuredMax": 9,
   "previousVersions": [
     {
       "label": {
