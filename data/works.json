@@ -486,6 +486,129 @@
       ]
     },
     {
+      "id": "everyone-companion-guide",
+      "date": "2026-10",
+      "period": {
+        "ko": "2026.10 –",
+        "en": "Oct 2026 –"
+      },
+      "status": {
+        "ko": "진행 중",
+        "en": "Ongoing"
+      },
+      "title": {
+        "ko": "「모두의 동행안내서」",
+        "en": "‘A Companion Guide for Everyone’"
+      },
+      "summary": {
+        "ko": "경계선지능인을 만나는 모든 이를 위한 안내서. 교사와 가족, 활동가와 이웃, 당사자가 각자의 자리에서 필요한 이야기를 찾을 수 있도록 책과 웹서비스로 엮고 있습니다.",
+        "en": "A guide for everyone who meets people with borderline intelligence, built as a book and a web service so that teachers, families, practitioners, neighbours and people themselves can find what they need from where they stand."
+      },
+      "context": {
+        "ko": "경계선지능인은 학교만이 아니라 일터와 마을, 가정과 복지 현장에서도 만납니다. 그런데 지원과 안내는 학령기에 몰려 있고, 같은 사람을 자리마다 다른 말로 오해하곤 합니다. 모두가 함께 쓸 수 있는 공통의 언어와 바로 쓰는 방법이 필요했습니다.",
+        "en": "People with borderline intelligence are met not only at school but at work, in the neighbourhood, at home and in welfare settings, yet support is concentrated in the school years and the same person is misread differently in each place. A shared language and practical methods were needed."
+      },
+      "with": {
+        "ko": [
+          "함께성장교육",
+          "지도자 전문연수 참여자"
+        ],
+        "en": [
+          "Hamkke Seongjang Education",
+          "Educator-training participants"
+        ]
+      },
+      "facts": {
+        "ko": [
+          "7부 구성",
+          "독자 일곱 자리별 안내",
+          "자리별로 찾아가는 웹서비스"
+        ],
+        "en": [
+          "Seven parts",
+          "Guidance for seven kinds of readers",
+          "Web service organised by role"
+        ]
+      },
+      "steps": [
+        {
+          "label": {
+            "ko": "기획",
+            "en": "Planning"
+          },
+          "text": {
+            "ko": "2025년 지도자 전문연수 동행 안내서를 바탕으로, 교사만이 아니라 가족과 일터, 이웃과 당사자까지 독자를 넓혀 기획안과 차례를 세웠습니다.",
+            "en": "Building on the 2025 educator-training guide, widened the readership from teachers to families, workplaces, neighbours and people themselves, and set the plan and contents."
+          }
+        },
+        {
+          "label": {
+            "ko": "제작",
+            "en": "Making"
+          },
+          "text": {
+            "ko": "부마다 도형과 색을 정한 디자인 체계와 표지를 만들고, 초고를 여러 차례 고치며 다듬고 있습니다.",
+            "en": "Created a design system giving each part its own shape and colour, made the cover, and am refining the draft through several revisions."
+          }
+        },
+        {
+          "label": {
+            "ko": "공유",
+            "en": "Sharing"
+          },
+          "text": {
+            "ko": "책을 함께 읽는 사람들이 자기 자리에서 필요한 장을 찾아가도록 웹서비스를 열었습니다.",
+            "en": "Opened a web service so readers can find the chapters they need from where they stand."
+          }
+        }
+      ],
+      "roles": [
+        "plan",
+        "write",
+        "design",
+        "build"
+      ],
+      "roleText": {
+        "ko": "기획과 차례를 세우고 원고를 엮어 다듬었으며, 표지와 도형 체계를 디자인하고 웹서비스를 만들었습니다.",
+        "en": "Set the plan and contents, compiled and refined the manuscript, designed the cover and shape system, and built the web service."
+      },
+      "tags": [
+        "content",
+        "people",
+        "digital"
+      ],
+      "featured": true,
+      "evidence": [
+        {
+          "type": "link",
+          "label": {
+            "ko": "「모두의 동행안내서」 웹서비스 (책을 함께 읽는 분들의 공간)",
+            "en": "‘A Companion Guide for Everyone’ web service (for readers of the book)"
+          },
+          "url": "https://together-for-slow.netlify.app/"
+        }
+      ],
+      "cover": "assets/works/everyone-companion-guide.webp",
+      "coverSmall": "assets/works/everyone-companion-guide_sm.webp",
+      "gallery": [
+        {
+          "src": "assets/works/everyone-companion-guide/g1.webp",
+          "w": 728,
+          "h": 1028
+        },
+        {
+          "src": "assets/works/everyone-companion-guide/g2.webp",
+          "w": 1400,
+          "h": 630
+        },
+        {
+          "src": "assets/works/everyone-companion-guide/g3.webp",
+          "w": 1400,
+          "h": 1335
+        }
+      ]
+    },
+    {
       "id": "career-fair-2026",
       "date": "2026-10",
       "period": {
@@ -1182,8 +1305,8 @@
         "write"
       ],
       "roleText": {
-        "ko": "안내서의 구성을 잡고 웹사이트로 직접 구축했습니다. 이후 연수에서 함께 읽을 수 있도록 해설서(초안)를 작성했습니다.",
-        "en": "Structured the guide and built the website myself, then wrote a draft commentary for use in training."
+        "ko": "안내서의 구성을 잡고 웹사이트로 직접 구축했습니다. 이후 연수에서 함께 읽을 수 있도록 해설서(초안)를 작성했고, 이 작업은 「모두의 동행안내서」로 이어졌습니다.",
+        "en": "Structured the guide and built the website myself, then wrote a draft commentary for use in training; the work later grew into ‘A Companion Guide for Everyone’."
       },
       "tags": [
         "content",
@@ -1194,8 +1317,8 @@
         {
           "type": "link",
           "label": {
-            "ko": "동행 안내서 바로가기",
-            "en": "Open the guide"
+            "ko": "이어진 웹서비스 「모두의 동행안내서」",
+            "en": "Its successor: ‘A Companion Guide for Everyone’"
           },
           "url": "https://together-for-slow.netlify.app/"
         }

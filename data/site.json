@@ -1,6 +1,6 @@
 {
-  "updated": "2026-10-18",
-  "version": "2.2 (2026.10)",
+  "updated": "2026-10",
+  "version": "2.3 (2026.10)",
   "person": {
     "name": {
       "ko": "이정재",
@@ -34,8 +34,8 @@
     "items": [
       {
         "text": {
-          "ko": "느린 청소년과 청년의 자립을 돕는 지역 네트워크 사업 운영",
-          "en": "Running a local network that helps slow-learning youth become independent"
+          "ko": "느린 청소년과 청년의 자립을 돕는 지역 네트워크,|한 해의 평가와 다음 해 기획",
+          "en": "Reviewing the year and planning the next for a local independence network for slow-learning youth"
         },
         "sub": {
           "ko": "「모두의 공모」 자립성장 네트워크",
@@ -44,8 +44,8 @@
       },
       {
         "text": {
-          "ko": "기업 후원으로 진행하는 경제교육 사업 운영",
-          "en": "Running a corporate-funded financial-education programme"
+          "ko": "느린 학습자를 위한 경제교육 사업 운영과|교재 연구",
+          "en": "Running a financial-education programme for slow learners and researching its workbooks"
         },
         "sub": {
           "ko": "딜로이트 후원 「미래를 여는 경제교실」",
@@ -54,12 +54,12 @@
       },
       {
         "text": {
-          "ko": "느린 학습자를 위한 경제 교재 연구와 개발",
-          "en": "Researching and developing financial-education workbooks for slow learners"
+          "ko": "경계선지능인을 만나는 모든 이를 위한|안내서와 웹서비스 제작",
+          "en": "Making a guidebook and web service for everyone who walks with people with borderline intelligence"
         },
         "sub": {
-          "ko": "「미래를 여는 경제교실」 교재",
-          "en": "‘Economy Class for the Future’ workbooks"
+          "ko": "「모두의 동행안내서」",
+          "en": "‘A Companion Guide for Everyone’"
         }
       },
       {
@@ -74,22 +74,12 @@
       },
       {
         "text": {
-          "ko": "느린 학습자 부모를 위한 회복 세미나 운영 지원",
-          "en": "Supporting recovery seminars for parents of slow learners"
+          "ko": "조합원과 후원자, 지역이 함께 한 해를 나누는|연말 행사 준비와 운영",
+          "en": "Preparing and running the year-end gathering of members, supporters and the community"
         },
         "sub": {
-          "ko": "부모회복마당",
-          "en": "Parent Recovery Seminar"
-        }
-      },
-      {
-        "text": {
-          "ko": "청년 일 경험 과정의 운영 절차와 직무 평가 체계 정리",
-          "en": "Structuring the procedures and job evaluation of a youth work-experience course"
-        },
-        "sub": {
-          "ko": "청년 자립지원 및 성장일터 네트워크",
-          "en": "Youth Independence Support and Growth Workplace Network"
+          "ko": "함성X공동체의 밤",
+          "en": "Hamseong × Community Night"
         }
       }
     ],
@@ -193,8 +183,8 @@
   "channels": [
     {
       "name": {
-        "ko": "느린 학습자 동행 안내서",
-        "en": "Companion Guide for Slow Learners"
+        "ko": "모두의 동행안내서",
+        "en": "A Companion Guide for Everyone"
       },
       "kind": {
         "ko": "웹 안내서",

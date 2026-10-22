@@ -22,8 +22,8 @@
             "en": "From standing beside it to building it together"
           },
           "text": {
-            "ko": "1년 가까이 조합 가입을 망설이다 조합원이 되었고, 그 이야기를 쓴 수기로 협동조합의 날 최우수상을 받았습니다. 곁에서 지켜보던 자리에서 함께 짓는 자리로 옮겨 간 해였습니다. 교재와 진로 사업, 부모와 청년을 만나는 일을 맡으며 한 번의 행사로 끝나지 않고 다음 사람이 이어받을 수 있는 구조로 남기는 데 마음을 썼습니다. 진로페어와 홈페이지 리뉴얼도 그 연장선에 있었습니다.",
-            "en": "After nearly a year of hesitating, I became a member of the cooperative, and the essay I wrote about it won the grand prize on Co-op Day. It was the year I moved from watching beside it to building it together. Working on learning materials, career programmes and time with parents and young people, I tried to leave each piece as a structure the next person could pick up, not a one-off event. The career fair and the website renewal grew from the same intention."
+            "ko": "1년 가까이 조합 가입을 망설이다 조합원이 되었고, 그 이야기를 쓴 수기로 협동조합의 날 최우수상을 받았습니다. 곁에서 지켜보던 자리에서 함께 짓는 자리로 옮겨 간 해였습니다. 교재와 진로 사업, 부모와 청년을 만나는 일을 맡으며 한 번의 행사로 끝나지 않고 다음 사람이 이어받을 수 있는 구조로 남기는 데 마음을 썼습니다. 진로페어와 홈페이지 리뉴얼, 「모두의 동행안내서」도 그 연장선에 있습니다.",
+            "en": "After nearly a year of hesitating, I became a member of the cooperative, and the essay I wrote about it won the grand prize on Co-op Day. It was the year I moved from watching beside it to building it together. Working on learning materials, career programmes and time with parents and young people, I tried to leave each piece as a structure the next person could pick up, not a one-off event. The career fair, the website renewal and ‘A Companion Guide for Everyone’ grew from the same intention."
           },
           "evidence": [
             {
@@ -69,6 +69,10 @@
             {
               "type": "work",
               "ref": "sesangeum-site-2026"
+            },
+            {
+              "type": "work",
+              "ref": "everyone-companion-guide"
             }
           ]
         },
