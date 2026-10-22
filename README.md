@@ -55,7 +55,7 @@ JJ-portfolio/
   "steps": [{"label": {"ko": "기획"}, "text": {"ko": "이 단계에서 한 일"}}],   // 선택, 진행 과정 (날짜 없이)
   "roles": ["plan", "write"],               // 아래 역할 용어 중에서 선택
   "roleText": {"ko": "내가 실제로 한 일", "en": "..."},
-  "tags": ["content"],                      // teach, content, people, system, digital
+  "tags": ["content"],                      // 하나만: teach, content, people, system, digital
   "featured": false,                        // true 면 첫 화면 '대표 작업'에 보임
   "evidence": [
     {"type": "pdf", "label": {"ko": "자료 (PDF)"}, "src": "assets/docs/2026_new-project.pdf", "size": 123456},

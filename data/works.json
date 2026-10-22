@@ -102,8 +102,7 @@
         ]
       },
       "tags": [
-        "content",
-        "system"
+        "content"
       ],
       "featured": true,
       "evidence": [],
@@ -195,8 +194,7 @@
         ]
       },
       "tags": [
-        "system",
-        "people"
+        "system"
       ],
       "featured": true,
       "evidence": [],
@@ -318,7 +316,7 @@
         "en": "Supported operations: planned the three-session parent circle ‘Facing Each Other’ and prepared notices, promotional materials and session resources."
       },
       "tags": [
-        "people"
+        "system"
       ],
       "featured": false,
       "evidence": [],
@@ -375,8 +373,7 @@
         "en": "Analysed basic tasks at 10 partner shops by difficulty level with notes for shop owners, and created evaluation forms and a kit guide to structure the process."
       },
       "tags": [
-        "system",
-        "people"
+        "system"
       ],
       "featured": true,
       "evidence": [],
@@ -443,8 +440,7 @@
         "en": "Compile and update the monthly newsletter (Jan–Sep 2026), the donation-use reports for the monthly giving campaign (10th–18th), and the website and social media."
       },
       "tags": [
-        "digital",
-        "system"
+        "digital"
       ],
       "featured": false,
       "evidence": [
@@ -573,9 +569,7 @@
         "en": "Set the plan and contents, compiled and refined the manuscript, designed the cover and shape system, and built the web service."
       },
       "tags": [
-        "content",
-        "people",
-        "digital"
+        "content"
       ],
       "featured": true,
       "evidence": [
@@ -721,9 +715,7 @@
         "en": "Planning and preparation, design of all printed and exhibition materials, the promotional and opening films, and the card-news recap and final report."
       },
       "tags": [
-        "digital",
-        "system",
-        "people"
+        "system"
       ],
       "featured": true,
       "evidence": [
@@ -988,8 +980,7 @@
         "en": "Set the direction and carried out the design, code changes, content and photo clean-up and deployment myself, leaving a change log and operating guide for whoever comes next."
       },
       "tags": [
-        "digital",
-        "system"
+        "digital"
       ],
       "featured": true,
       "evidence": [
@@ -1173,8 +1164,7 @@
         "en": "Drafted the course plan (modules and assignment system) and taught session 3, ‘Lesson structure & design’ (intro–main–feedback, lesson-flow practice). I also made a film recording the course."
       },
       "tags": [
-        "people",
-        "teach"
+        "people"
       ],
       "featured": true,
       "evidence": [
@@ -1309,8 +1299,7 @@
         "en": "Structured the guide and built the website myself, then wrote a draft commentary for use in training; the work later grew into ‘A Companion Guide for Everyone’."
       },
       "tags": [
-        "content",
-        "digital"
+        "content"
       ],
       "featured": true,
       "evidence": [
@@ -1375,8 +1364,7 @@
         "en": "Designed and built a structure where records are looked up only by student member number, and viewed by programme, session and activity criteria."
       },
       "tags": [
-        "digital",
-        "system"
+        "digital"
       ],
       "featured": false,
       "evidence": [
@@ -1431,8 +1419,7 @@
         "en": "Shaped teachers' episodes into panel-by-panel stories and produced the series with generative image tools."
       },
       "tags": [
-        "digital",
-        "content"
+        "digital"
       ],
       "featured": true,
       "evidence": [
@@ -1492,8 +1479,7 @@
         "en": "Planned the ten topics and scripts, produced them as AI-voiced conversations, and published them on the Hamkke Seongjang Education YouTube channel."
       },
       "tags": [
-        "digital",
-        "people"
+        "digital"
       ],
       "featured": false,
       "evidence": [
@@ -1570,8 +1556,7 @@
         "en": "Designed the staged curriculum (2023) and renewed the workbook with a design partner (2024)."
       },
       "tags": [
-        "content",
-        "teach"
+        "content"
       ],
       "featured": true,
       "evidence": [
@@ -1759,8 +1744,7 @@
         "en": "Designed and taught the integrated lessons as the Korean-language teacher."
       },
       "tags": [
-        "teach",
-        "content"
+        "teach"
       ],
       "featured": false,
       "evidence": [
